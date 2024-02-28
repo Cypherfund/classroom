@@ -9,7 +9,13 @@ import { TranslationComponent } from './components/translation/translation.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { MenubarModule } from 'primeng/menubar';
+import {CardModule} from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from "primeng/inputtext";
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -19,7 +25,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    TranslationComponent
+    TranslationComponent,
+    NavbarComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +37,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     DropdownModule,
     BrowserAnimationsModule,
+    MenubarModule,
+    CardModule,
+    ButtonModule,
+    InputTextModule,
+    BreadcrumbModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
