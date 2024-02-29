@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
+import {MenuItem, SelectItem} from "primeng/api";
 
 
 @Component({
@@ -9,6 +10,7 @@ import {appConfig} from "../../../environments/app.config";
 })
 export class NavbarComponent {
  profileImage = appConfig.profileImage
+
   ngOnInit() {
 
   }
