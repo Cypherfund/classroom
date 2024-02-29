@@ -16,6 +16,16 @@ import {CardModule} from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from "primeng/inputtext";
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { CourseDetailsPageComponent } from './pages/course-details-page/course-details-page.component';
+import { RatingModule } from 'primeng/rating';
+import { CourseTabDetailsPageComponent } from './pages/course-tab-details-page/course-tab-details-page.component';
+import { AboutCourseComponent } from './pages/course-tab-details-page/about-course/about-course.component';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { CarouselCoursesComponent } from './components/carousel-courses/carousel-courses.component';
+import { TabViewModule } from 'primeng/tabview';
+import { ToolbarModule } from 'primeng/toolbar';
+import { CarouselModule } from 'primeng/carousel';
+import {TagModule} from "primeng/tag";
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,7 +37,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     TranslationComponent,
     NavbarComponent,
-    HomepageComponent
+    HomepageComponent,
+    CourseDetailsPageComponent,
+    CourseTabDetailsPageComponent,
+    AboutCourseComponent,
+    CarouselCoursesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +56,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonModule,
     InputTextModule,
     BreadcrumbModule,
+    RatingModule,
+    TabMenuModule,
+    TagModule,
+    TabViewModule,
+    ToolbarModule,
+    CardModule,
+    CarouselModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
