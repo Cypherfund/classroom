@@ -1,0 +1,11 @@
+::ng-deep a {
+  color: rgba(101, 101, 101, 1);
+}
+
+::ng-deep .p-tabview .p-tabview-nav li.ui-state-active a {
+  color: #003366; /* Replace with your desired color */
+}
+
+::ng-deep .p-tabview .p-tabview-panel {
+  margin-right: 20rem; /* Adjust the value as needed */
+}
