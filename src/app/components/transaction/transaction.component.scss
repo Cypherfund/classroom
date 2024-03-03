@@ -1,0 +1,14 @@
+table { /* Styling for the table */
+    width: 100%; /* Table width set to 100% */
+    border-collapse: collapse; /* Collapse table borders */
+  }
+  
+  th, td { /* Styling for table header and data cells */
+    border: 1px solid #ddd; /* Add border with 1px width and #ddd color */
+    padding: 8px; /* Add padding around cell content */
+    text-align: left; /* Align cell content to the left */
+  }
+  
+  th { /* Styling for table header */
+    background-color: #f2f2f2; /* Background color for table header */
+  }
