@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {CourseService} from "../../services/course-service/course.service";
 import {appConfig} from "../../../environments/app.config";
 
@@ -11,7 +11,7 @@ import {appConfig} from "../../../environments/app.config";
 export class CarouselCoursesComponent {
   similarCourses: any;
   profileImage = appConfig.profileImage
-
+  @Input() carouselType = 'courses'
   responsiveOptions: any;
 
   constructor(private courseService: CourseService) {}

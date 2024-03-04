@@ -6,10 +6,4 @@
 *{
   font-family: Inter;
 }
-p-menubar {
-  padding: 0.5rem;
-  background-color: #003366 !important;
-  /* color: #4b5563; */
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-}
+@import "styles/variable";
