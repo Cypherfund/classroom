@@ -1,13 +1,11 @@
-
-
 ::ng-deep a {
-  color: rgba(101, 101, 101, 1);
+  color: var(--color-grey-shade-3);
 }
 
 ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-  background: #ffffff;
-  border-color: #A632DC;
-  color: #A632DC;
+  background: var(--color-white);
+  border-color: var(--main-color-shade-1);
+  color: var(--main-color-shade-1);
 }
 ::ng-deep .p-tabview .p-tabview-nav li {
   margin-right: 4rem;

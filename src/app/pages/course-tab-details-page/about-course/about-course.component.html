@@ -2,40 +2,24 @@
   <div class="container w-75 ">
     <div class="tag text-start">
       <div class="flex justify-content-between">
-        <p-tag value="Last Updated January 28, 2024"></p-tag>
-        <p-tag value="Completion Certificate"></p-tag>
-        <p-tag value="Real-World Projects"></p-tag>
-        <p-tag value="2 Months"></p-tag>
-        <p-tag value="Beginner"></p-tag>
+        <p-tag value="{{'Last_Updated' | translate}}{{keyAspectsOfCourse.createdAt}}"></p-tag>
+        <p-tag value="{{keyAspectsOfCourse.certificateType}}"></p-tag>
+        <p-tag value="{{keyAspectsOfCourse.offers}}"></p-tag>
+        <p-tag value="{{keyAspectsOfCourse.duration}}"></p-tag>
+        <p-tag value="{{keyAspectsOfCourse.level}}"></p-tag>
       </div>
     </div>
     <div class="description card border-0 p-2 text-start text-wrap" >
-      <h4 class="fw-bold text-start">Description</h4>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-      molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-      numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-      optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-      obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-      nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-      tenetur error
+      <h4 class="fw-bold text-start">{{'Description' | translate}}</h4>
+        {{aboutResponseBody.description}}
   </div>
     <div class="learn card border-0 p-2 text-start text-wrap  " >
-      <h4 class="fw-bold text-start">What you'll learn</h4>
-      molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-      numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-      optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-      obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-      nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-      tenetur error
+      <h4 class="fw-bold text-start">{{'courseLearn' | translate}}</h4>
+     {{aboutResponseBody.courseLearn}}
     </div>
     <div class="learn card border-0 p-2 text-start text-wrap  " >
-      <h4 class="fw-bold text-start">What is this course for ?</h4>
-      molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-      numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-      optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-      obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-      nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-      tenetur error
+      <h4 class="fw-bold text-start">{{'courseFor' | translate}}</h4>
+      {{aboutResponseBody.courseFor}}
     </div>
   </div>
 </section>

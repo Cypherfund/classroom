@@ -13,9 +13,7 @@ export class CourseTabDetailsPageComponent {
 
   ngOnInit() {
     this.items = [
-      { label: 'About',
-        url: '/about'
-      },
+      { label: 'About'},
       { label: 'Course Content' },
       { label: 'Whats Included' },
       { label: 'Instructor(s)' },

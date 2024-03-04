@@ -1,8 +1,12 @@
 .navbar {
-  background-color: #A632DC;
+  background-color: var(--main-color-shade-1);
 }
 
 .nav-item{
   margin-left: 3.5rem;
   margin-right: 3.5rem;
+}
+
+.figure-img{
+  border-radius: 4rem
 }

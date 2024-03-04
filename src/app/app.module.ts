@@ -26,7 +26,15 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CarouselModule } from 'primeng/carousel';
 import {TagModule} from "primeng/tag";
-
+import { AccordionModule } from 'primeng/accordion';
+import { CourseContentComponent } from './pages/course-tab-details-page/course-content/course-content.component';
+import { CourseIncludedComponent } from './pages/course-tab-details-page/course-included/course-included.component';
+import { InstructorDetailsComponent } from './pages/course-tab-details-page/instructor-details/instructor-details.component';
+import { ReviewsComponent } from './pages/course-tab-details-page/reviews/reviews.component';
+import { ProgressBarModule } from 'primeng/progressbar';
+// For dynamic progressbar demo
+import { ToastModule } from 'primeng/toast';
+import { MessageService} from "primeng/api";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
@@ -41,7 +49,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseDetailsPageComponent,
     CourseTabDetailsPageComponent,
     AboutCourseComponent,
-    CarouselCoursesComponent
+    CarouselCoursesComponent,
+    CourseContentComponent,
+    CourseIncludedComponent,
+    InstructorDetailsComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +75,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ToolbarModule,
     CardModule,
     CarouselModule,
+    AccordionModule,
+    ProgressBarModule,
+    ToastModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
@@ -73,7 +88,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
