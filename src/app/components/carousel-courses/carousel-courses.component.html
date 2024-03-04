@@ -69,3 +69,29 @@
   </div>
 </section>
 
+<section id="carousel-course-content" class="" *ngIf="carouselType === 'course-content'" >
+  <div class="container">
+    <div class="card border-0" >
+      <p-carousel [value]="similarCourses" [numVisible]="5" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+        <ng-template let-product pTemplate="item">
+          <div class="product-item">
+            <div class="product-item-content pt-2 pb-2 ps-4 pe-4">
+              <div class="mb-2">
+                <video width="213" height="119" controls class="rounded-4 mt-4">
+                  <source [src]="videoPath" type="video/mp4">
+                  {{'browser' | translate}}
+                </video>              </div>
+                <div class="text-start m-2 fw-bolder">Welcome Message
+                  <br/>
+                  <div class="text-start m-0 p-0 pi pi-stopwatch"><small class="ms-1">44s</small></div>
+                </div>
+              <div class="text-start">
+                Welcome to product design for beginners
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</section>

@@ -13,6 +13,8 @@ export class CarouselCoursesComponent {
   profileImage = appConfig.profileImage
   @Input() carouselType = 'courses'
   responsiveOptions: any;
+  videoPath: string = 'assets/preview.mp4';
+
 
   constructor(private courseService: CourseService) {}
 
