@@ -41,6 +41,8 @@ import { CarouselCourseContentComponent } from './pages/course-tab-details-page/
 import { DateFormatPipe } from './pipe/date-format.pipe';
 import { SafePipe } from './pipe/DomSanitiser/safe.pipe';
 import { FooterComponent } from './components/footer/footer.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
@@ -65,7 +67,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarouselCourseContentComponent,
     DateFormatPipe,
     SafePipe,
-    FooterComponent
+    FooterComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

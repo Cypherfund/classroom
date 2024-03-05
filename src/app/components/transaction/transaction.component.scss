@@ -1,6 +1,7 @@
-table { /* Styling for the table */
-    width: 100%; /* Table width set to 100% */
-    border-collapse: collapse; /* Collapse table borders */
+/* Styling for the table */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
   }
   
   th, td { /* Styling for table header and data cells */
@@ -10,5 +11,5 @@ table { /* Styling for the table */
   }
   
   th { /* Styling for table header */
-    background-color: #f2f2f2; /* Background color for table header */
+    background-color: #f2f2f2; 
   }

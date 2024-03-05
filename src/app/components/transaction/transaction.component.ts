@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+interface Transaction {
+  date: string;
+  amount: number;
+  type: string;
+  courseName: string;
+}
 
 @Component({
   selector: 'app-transaction',
