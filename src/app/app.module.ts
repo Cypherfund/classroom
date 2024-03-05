@@ -26,6 +26,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CarouselModule } from 'primeng/carousel';
 import {TagModule} from "primeng/tag";
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseDetailsPageComponent,
     CourseTabDetailsPageComponent,
     AboutCourseComponent,
-    CarouselCoursesComponent
+    CarouselCoursesComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
