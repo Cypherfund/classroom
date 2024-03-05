@@ -1,0 +1,40 @@
+<section id="carousel">
+  <div class="container w-75">
+    <div class="card border-0 m-5">
+      Rating and Review
+      <div class="d-flex pt-3 pb-3">
+        <form [formGroup]="formGroup">
+          <span class="me-2 fw-bold">4.6</span>
+          <p-rating formControlName="value"></p-rating>
+        </form>
+        <span class="ms-2 me-2">(5,000 rating)</span>
+        <span class="ms-2 me-2">7000 students</span>
+      </div>
+      <div class="row m-1">
+        <div class="col-md-6">
+          <p-progressBar [value]="75"></p-progressBar>
+        </div>
+        <div class="col-md-6">
+          <span><p-rating></p-rating></span>
+        </div>
+      </div>
+      <div class="row m-1">
+        <div class="col-md-6">
+          <p-progressBar [value]="50"></p-progressBar>
+        </div>
+        <div class="col-md-6">
+          <span><p-rating></p-rating></span>
+        </div>
+      </div>
+      <div class="row m-1">
+        <div class="col-md-6">
+          <p-progressBar [value]="25"></p-progressBar>
+        </div>
+        <div class="col-md-6">
+          <span><p-rating></p-rating></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-carousel-courses [carouselType]="'reviews'"></app-carousel-courses>
+</section>

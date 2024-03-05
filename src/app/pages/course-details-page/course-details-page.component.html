@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<section class="container-fluid text-white">
+  <div class="">
+    <p-breadcrumb class="max-w-full bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="items"
+                  [home]="home"></p-breadcrumb>
+  </div>
+  <div class="row pb-3 pt-3 ps-5 pe-5">
+    <div class="col-md-6 desc text-dark p-5">
+      <h4 class="fw-semibold pb-4">{{courseTitle}}</h4>
+      <div class="d-flex pt-3 pb-3">
+        <form [formGroup]="formGroup">
+          <p-rating formControlName="value"></p-rating>
+        </form>
+        <span class="ms-2 me-2">({{numberOFRatings}} {{'ratings' | translate}})</span>
+        <span class="ms-2 me-2">{{numOFStudents}} {{'students' | translate}}</span>
+      </div>
+
+      <p>{{'Created_by' | translate}} <span class="ms-2 fw-bolder">{{instructorName}}</span></p>
+    <div class="course-higlight fw-light text-wrap me-5">
+      {{courseHighlight}}
+    </div>
+    <p class="pt-3 pb-3">{{'Price' | translate}}: <span class="fw-bolder fs-5">{{price}}</span></p>
+      <div class="d-flex justify-content-between">
+        <div class="buttons">
+          <button class="submit-btn btn btn-buy rounded-3 text-white p-2 buttons"
+                  type="submit">{{'buy_now' | translate}}</button>
+        </div>
+        <div class="buttons">
+          <button class="submit-btn btn btn-light btn-cart rounded-3 p-2 buttons"
+                  type="submit">{{'add_to_cart' | translate}}</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 p-5 text-end ">
+      <video width="453" height="229" controls class="rounded-4 mt-4">
+        <source [src]="videoPath" type="video/mp4">
+        {{'browser' | translate}}
+      </video>
+    </div>
+  </div>
+</section>
+<section>
+  <app-course-tab-details-page></app-course-tab-details-page>
+</section>
+

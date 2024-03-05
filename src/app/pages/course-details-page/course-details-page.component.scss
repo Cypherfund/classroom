@@ -1,0 +1,38 @@
+.container-fluid{
+  background-color: var(--color-white);
+}
+.btn-cart{
+  border-color: var(--main-color-shade-1);
+  color: var(--main-color-shade-1);
+  background-color: white;
+}
+.btn-buy{
+  background-color: var(--main-color-shade-1);
+}
+.buttons{
+  font-size: 13px;
+  width: 13rem;
+}
+.custom-breadcrumb {
+  background-color: transparent;
+  border: 0;
+}
+::ng-deep .p-breadcrumb {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+}
+::ng-deep .p-rating .p-rating-item .p-rating-icon {
+  color: var(--color-gold);
+}
+::ng-deep .p-breadcrumb .p-breadcrumb-list li .p-menuitem-link .p-menuitem-text {
+  text-decoration-line: none;
+}
+
+::ng-deep a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
