@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MenuItem} from "primeng/api";
 import { FormControl, FormGroup } from '@angular/forms';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-course-details-page',
@@ -22,6 +23,8 @@ export class CourseDetailsPageComponent {
   formGroup!: FormGroup;
   courseHighlight:  string = 'Dive into the world of product design where creativity meets functionality. Discover how to craft products that captivate and enhance everyday life';
 
+  constructor(private route: Router) {
+  }
 
   ngOnInit() {
 
@@ -31,5 +34,12 @@ export class CourseDetailsPageComponent {
     this.items = [{ label: 'All Programs' }, { label: 'Design' }, { label: 'Product Design' }];
 
     this.home = { icon: 'pi pi-home', routerLink: '/' };
+  }
+  buyNow(){
+    this.route.navigate(['/payment'])
+  }
+
+  addToCart(){
+    this.route.navigate(['/shopping_chart'])
   }
 }

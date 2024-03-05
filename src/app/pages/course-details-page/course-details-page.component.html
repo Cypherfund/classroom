@@ -23,11 +23,11 @@
       <div class="d-flex justify-content-between">
         <div class="buttons">
           <button class="submit-btn btn btn-buy rounded-3 text-white p-2 buttons"
-                  type="submit">{{'buy_now' | translate}}</button>
+                  type="submit" (click)="buyNow()">{{'buy_now' | translate}}</button>
         </div>
         <div class="buttons">
           <button class="submit-btn btn btn-light btn-cart rounded-3 p-2 buttons"
-                  type="submit">{{'add_to_cart' | translate}}</button>
+                  type="submit" (click)="addToCart()">{{'add_to_cart' | translate}}</button>
         </div>
       </div>
     </div>
