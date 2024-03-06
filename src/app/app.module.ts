@@ -42,6 +42,7 @@ import { DateFormatPipe } from './pipe/date-format.pipe';
 import { SafePipe } from './pipe/DomSanitiser/safe.pipe';
 import { FooterComponent } from './components/footer/footer.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { TableModule } from 'primeng/table';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -69,6 +70,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SafePipe,
     FooterComponent,
     TransactionComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -101,7 +103,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    TableModule // Moved TableModule import to the imports array
   ],
   providers: [
     provideClientHydration(),

@@ -4,7 +4,7 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import {AboutCourseComponent} from "./pages/course-tab-details-page/about-course/about-course.component";
 import {ShoppingCartComponent} from "./pages/shopping-cart/shopping-cart.component";
 import {PaymentsComponent} from "./pages/payments/payments.component";
-
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 const routes: Routes = [
   { path:'', component: HomepageComponent},
@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'shopping_chart', component:ShoppingCartComponent},
   { path:'payment', component:PaymentsComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
