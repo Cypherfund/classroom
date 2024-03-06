@@ -1,19 +1,22 @@
 <h2>Transaction History</h2> <!-- Heading for the transaction history -->
-<table> <!-- Table to display transaction details -->
-  <thead> <!-- Table header -->
-    <tr> <!-- Table row for column headers -->
-      <th>Date</th> <!-- Date column header -->
-      <th>Amount</th> <!-- Amount column header -->
-      <th>Type</th> <!-- Transaction type column header -->
-      <th>Course Name</th> <!-- Course name column header -->
+
+<p-table [value]="transactions">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Type</th>
+      <th>Course Name</th>
     </tr>
-  </thead>
-  <tbody> <!-- Table body to display transaction data -->
-    <tr *ngFor="let transaction of transactions"> <!-- Loop through transactions to display each one -->
-      <td>{{ transaction.date }}</td> <!-- Display transaction date -->
-      <td>{{ transaction.amount }}</td> <!-- Display transaction amount -->
-      <td>{{ transaction.type }}</td> <!-- Display transaction type -->
-      <td>{{ transaction.courseName }}</td> <!-- Display course name associated with the transaction -->
+  </ng-template>
+<!-- Loop through transactions to display each one -->
+  <ng-template pTemplate="body" let-transaction>
+    <tr>
+      <td>{{ transaction.date }}</td>
+      <td>{{ transaction.amount | currency: 'USD':'symbol':'1.2-2' }}</td>
+      <td>{{ transaction.type }}</td>
+      <td>{{ transaction.courseName }}</td>
     </tr>
-  </tbody>
-</table>
+
+  </ng-template>
+</p-table>

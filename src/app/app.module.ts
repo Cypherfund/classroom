@@ -27,6 +27,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { CarouselModule } from 'primeng/carousel';
 import {TagModule} from "primeng/tag";
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { TableModule } from 'primeng/table';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AboutCourseComponent,
     CarouselCoursesComponent,
     TransactionComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    TableModule // Moved TableModule import to the imports array
   ],
   providers: [
     provideClientHydration()
