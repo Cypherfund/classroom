@@ -1,1 +1,69 @@
-<app-course-details-page></app-course-details-page>
+<header>
+    <app-navbar></app-navbar>
+    <div class="Hero">
+        <img src="" alt="">
+        <div class="content">
+            <span class="title"></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="search-column">
+        <div class="title">What do you want to learn?</div>
+        <div class="fields">
+            <input type="text" name="" id="" placeholder="Find courses, skills, softwares etc">
+            <input type="text" name="" id="category" placeholder="Categories">
+            <input type="text" name="" id="" placeholder="Topics">
+            <button type="submit">Search</button>
+        </div>
+    </div>
+</header>
+<section>
+    <h5>Browse Our Top Courses</h5> 
+    <p-tabView> 
+        <p-tabPanel header="Design"> 
+            <app-card-group></app-card-group>
+        </p-tabPanel> 
+        <p-tabPanel header="Developer"> 
+            <app-card-group></app-card-group>
+        </p-tabPanel> 
+        <p-tabPanel header="Business"> 
+            <app-card-group></app-card-group>
+        </p-tabPanel> 
+        <p-tabPanel header="Marketing" [selected]="true"> 
+            <app-card-group></app-card-group>
+        </p-tabPanel> 
+        <p-tabPanel header="Photography"> 
+            <app-card-group></app-card-group>
+        </p-tabPanel>  
+    </p-tabView>
+
+    <div class="container">
+        <div class="body">
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur. 
+                Vitae egestas aliquet habitant eget est et diam cursus. 
+                Aliquam urna eros rhoncus augue.
+            </p>
+        </div>
+        <button
+            type="button"
+            class="btn btn-primary"
+        >
+            join Techascend
+        </button>
+    </div>
+</section>
+
+<section>
+    <h5>Trending Courses</h5>
+    <div class="container">
+        <div class="row">
+            <div class="col">.col-sm-4</div>
+            <div class="col-5">
+                <app-card-group></app-card-group>
+            </div>
+        </div>
+    </div>
+    
+</section>
+<!-- <app-course-details-page></app-course-details-page> -->
