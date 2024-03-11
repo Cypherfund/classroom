@@ -35,6 +35,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 // For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
 import { MessageService} from "primeng/api";
+import { CardGroupComponent } from './components/card-group/card-group.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
@@ -53,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseContentComponent,
     CourseIncludedComponent,
     InstructorDetailsComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    CardGroupComponent
   ],
   imports: [
     BrowserModule,
