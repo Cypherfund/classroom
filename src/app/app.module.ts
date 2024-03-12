@@ -28,6 +28,8 @@ import { CarouselModule } from 'primeng/carousel';
 import {TagModule} from "primeng/tag";
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { TableModule } from 'primeng/table';
+import { SettingsComponent } from './pages/settings/settings.component';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -44,8 +46,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseTabDetailsPageComponent,
     AboutCourseComponent,
     CarouselCoursesComponent,
-    TransactionComponent
-  
+    TransactionComponent,
+    SettingsComponent,
+    
   ],
   imports: [
     BrowserModule,

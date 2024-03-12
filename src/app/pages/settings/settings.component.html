@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<!-- Create the side bar layout -->
+<div class="sidebar p-4" [ngClass]="{'sidebar-visible':'sidebarVisible'}">
+    
+    <!-- This button serves as a toggle button to show/hide the sidebar. -->
+    <!-- <button type="button" pButton icon="pi pi-bars" (click)="toggleSideBar()" class="p-button p-button-rounded"></button> -->
+   
+    <!-- This div contains the content of the sidebar. -->
+   <div class="sidebar-content">
+    <ul>
+        <li><span class="pi pi-user "></span><a class="text-decoration-none">Account</a></li>
+        <li><span class="pi pi-credit-card"></span><a class="text-decoration-none">Payment</a></li>
+        <li><span class="pi pi-envelope "></span><a class="text-decoration-none">Communication Preferences</a></li>
+        <li><span class="pi pi-notes"></span><a class="text-decoration-none">Notes & Highlights</a></li>
+        <li><span class="pi pi-calendar"></span><a class="text-decoration-none">Calendar Sync</a></li>
+        <li><span class="pi pi-list"></span><a class="text-decoration-none" [routerLink]="['/transaction']">Transaction</a></li>
+    </ul>
+   </div>
+    
+      
+</div>
