@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {appConfig} from "../../../../environments/app.config";
+import {InstructorDetails} from "../../../models/course";
 
 @Component({
   selector: 'app-instructor-details',
   templateUrl: './instructor-details.component.html',
   styleUrl: './instructor-details.component.scss'
 })
-export class InstructorDetailsComponent {
-  profileImage = appConfig.profileImage
+export class InstructorDetailsComponent implements OnInit{
+  profileImage = appConfig.profileImage;
+  @Input() instructorDetails!: InstructorDetails;
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
+
+
 }
