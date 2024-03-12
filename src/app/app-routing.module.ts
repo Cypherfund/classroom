@@ -5,12 +5,16 @@ import {AboutCourseComponent} from "./pages/course-tab-details-page/about-course
 import {ShoppingCartComponent} from "./pages/shopping-cart/shopping-cart.component";
 import {PaymentsComponent} from "./pages/payments/payments.component";
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 const routes: Routes = [
   { path:'', component: HomepageComponent},
   { path:'about', component:AboutCourseComponent},
   { path: 'shopping_chart', component:ShoppingCartComponent},
-  { path:'payment', component:PaymentsComponent}
+  { path:'payment', component:PaymentsComponent},
+  { path:'transaction', component: TransactionComponent},
+  { path:'about', component:AboutCourseComponent},
+  { path: 'settings', component:SettingsComponent}
 ];
 
 
