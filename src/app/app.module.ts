@@ -32,12 +32,14 @@ import { CourseIncludedComponent } from './pages/course-tab-details-page/course-
 import { InstructorDetailsComponent } from './pages/course-tab-details-page/instructor-details/instructor-details.component';
 import { ReviewsComponent } from './pages/course-tab-details-page/reviews/reviews.component';
 import { ProgressBarModule } from 'primeng/progressbar';
-// For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
 import { MessageService} from "primeng/api";
 import { PaymentsComponent } from './pages/payments/payments.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { CheckboxModule } from 'primeng/checkbox';
+import { CarouselCourseContentComponent } from './pages/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component';
+import { DateFormatPipe } from './pipe/date-format.pipe';
+import { SafePipe } from './pipe/DomSanitiser/safe.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
@@ -58,7 +60,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     InstructorDetailsComponent,
     ReviewsComponent,
     PaymentsComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CarouselCourseContentComponent,
+    DateFormatPipe,
+    SafePipe
   ],
   imports: [
     BrowserModule,

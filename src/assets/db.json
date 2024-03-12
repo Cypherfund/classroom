@@ -1,7 +1,206 @@
 {
-  "todos": [
-    { "id": 1, "title": "Buy milk", "completed": false },
-    { "id": 2, "title": "Finish report", "completed": false },
-    { "id": 3, "title": "Attend meeting", "completed": true }
+  "courses" :
+  [
+     {
+      "courseId": "web101",
+      "title": "User-Centric Web Design",
+      "description": "Learn how to create user-friendly web experiences.",
+      "instructor": "Jane Smith",
+      "categoryId": "web-design",
+      "price": "99",
+      "discountedPrice": "$79",
+      "startDate": "2023-06-01",
+      "endDate": "2023-07-15",
+      "numberOfStudents": "500",
+      "numberOfRatings": 150,
+       "previewVideo": "",
+      "about": {
+        "updatedOn": "2023-05-20",
+        "hasCompletionCertificate": true,
+        "hasRealWorldProjects": true,
+        "duration": "6 weeks",
+        "level": "Intermediate",
+        "courseTopics": [
+          {
+            "topic": "Responsive Design",
+            "description": "Creating layouts that adapt to different devices."
+          },
+          {
+            "topic": "User Research",
+            "description": "Understanding user needs and behavior."
+          }
+        ],
+        "targetAudience": [
+          {
+            "role": "Aspiring designers"
+          },
+          {
+            "role": "Entrepreneurs developing products"
+          },
+          {
+            "role": "Marketing professionals"
+          }
+        ]
+      },
+      "courseContent": {
+        "numberOfSections": "3",
+        "numberOfLectures": "20",
+        "totalCourseDuration": "10 hours",
+        "lessons": [
+          {
+            "lessonId": "mod1",
+            "lessonTitle": "Introduction to HTML",
+            "lessonDuration": "1 hour",
+            "totalNumberOflectures": "5",
+            "lectures": [
+              {
+                "lectureId": "1098",
+                "lectureTitle": "Tags and Elements",
+                "lectureDuration": "15 minutes",
+                "lectureContent": "Understanding HTML basics.",
+                "lectureVideo": ""
+              },
+              {
+                "lectureId": "2109",
+                "lectureTitle": "Tags and Divs",
+                "lectureDuration": "10 minutes",
+                "lectureContent": "Understanding HTML basics.",
+                "lectureVideo": ""
+              },
+              {
+                "lectureId": "3210",
+                "lectureTitle": "Tags and Elements",
+                "lectureDuration": "20 minutes",
+                "lectureContent": "Understanding HTML basics.",
+                "lectureVideo": ""
+              },
+              {
+                "lectureId": "4321",
+                "lectureTitle": "Tags and Elements",
+                "lectureDuration": "15 minutes",
+                "lectureContent": "Understanding HTML basics.",
+                "lectureVideo": ""
+              },
+              {
+                "lectureId": "5432",
+                "lectureTitle": "Tags and Divs",
+                "lectureDuration": "17 minutes",
+                "lectureContent": "Understanding HTML basics.",
+                "lectureVideo": ""
+              }
+            ]
+          },
+          {
+            "lessonId": "mod2",
+            "lessonTitle": "CSS Styling",
+            "lessonDuration": "2 hours",
+            "totalNumberOflectures": "8",
+            "lectures": [
+              {
+                "lectureId": "1234",
+                "lectureTitle": "Selectors and Properties",
+                "lectureDuration": "30 minutes",
+                "lectureContent": "Styling web elements.",
+                "lectureVideo": ""
+              },
+              {
+                "lectureId": "2345",
+                "lectureTitle": "Selectors and Properties",
+                "lectureDuration": "13 minutes",
+                "lectureContent": "Styling web elements.",
+                "lectureVideo": ""
+              },
+              {
+                "lectureId": "3456",
+                "lectureTitle": "Selectors and Properties",
+                "lectureDuration": "33 minutes",
+                "lectureContent": "Styling web elements.",
+                "lectureVideo": ""
+              },
+              {
+                "lectureId": "4567",
+                "lectureTitle": "Selectors and Properties",
+                "lectureDuration": "23 minutes",
+                "lectureContent": "Styling web elements.",
+                "lectureVideo": ""
+              }
+            ]
+          }
+        ]
+      },
+      "courseInclude": [
+        {
+          "title": "Lifetime Access",
+          "description": "Access to course materials anytime."
+        },
+        {
+          "title": "Certificate of Completion",
+          "description": "Earn a certificate upon finishing the course."
+        }
+      ],
+      "instructorDetails": {
+        "name": "Jane Smith",
+        "profession": "Web Designer",
+        "perks": [
+          {
+            "rating": "4.8",
+            "numberOfCourses": "10",
+            "numberOfStudents": "1000",
+            "yearsOfExperience": "8"
+          }
+        ],
+        "description": "Passionate about creating beautiful and usable websites.",
+        "profilePicture": "https://www.svgrepo.com/show/382099/female-avatar-girl-face-woman-user-2.svg"
+      },
+      "ratingsAndReviews": {
+        "ratings": {
+          "totalRatings": 150,
+          "averageRating": 4.5,
+          "fiveStarPercentage": 70,
+          "fourStarPercentage": 20,
+          "threeStarPercentage": 8,
+          "twoStarPercentage": 1,
+          "oneStarPercentage": 1
+        },
+        "reviews": [
+          {
+            "id": "001",
+            "name": "JohnDoe",
+            "rating": 5,
+            "comment": "This course exceeded my expectations! The content was practical and easy to follow.",
+            "timestamp": "2023-05-15T10:30:00Z",
+            "userProfilePicture": "https://www.svgrepo.com/show/382099/female-avatar-girl-face-woman-user-2.svg"
+          },
+          {
+            "id": "002",
+            "name": "WebEnthusiast",
+            "rating": 4,
+            "comment": "Great insights into responsive design. Could use more examples.",
+            "timestamp": "2023-05-16T14:45:00Z",
+            "userProfilePicture": "https://www.svgrepo.com/show/382099/female-avatar-girl-face-woman-user-2.svg"
+
+          },
+          {
+            "id": "003",
+            "name": "TechEnthusiast",
+            "rating": 2,
+            "comment": "This course exceeded my expectations! The content was practical and easy to follow.",
+            "timestamp": "2023-05-15T10:30:00Z",
+            "userProfilePicture": "https://www.svgrepo.com/show/382099/female-avatar-girl-face-woman-user-2.svg"
+          }
+        ]
+      }
+    },
+     {
+       "courseId": 2,
+      "title": "Web Development",
+      "description": "Introduction to web development",
+      "instructor": "Ngala Tester2",
+      "categoryId": 2,
+      "price": 149.99,
+      "discountedPrice": 99.99,
+      "startDate": "2024-03-03T16:19:43.439+00:00",
+      "endDate": "2024-03-03T16:19:43.439+00:00"
+     }
   ]
 }
