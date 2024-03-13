@@ -1,8 +1,7 @@
-import {Component, Inject, PLATFORM_ID, signal} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import { MessageService } from 'primeng/api';
-import {isPlatformBrowser} from "@angular/common";
-import {clearInterval, setInterval} from "timers"; // update this
+import {RatingsAndReviews} from "../../../models/course";
 
 
 @Component({
@@ -13,6 +12,14 @@ import {clearInterval, setInterval} from "timers"; // update this
 export class ReviewsComponent {
   formGroup!: FormGroup;
   value: number = 0;
+  @Input() ratingsAndReviews: RatingsAndReviews | any;
+  valueRating5: number = 5;
+  valueRating4: number = 4;
+  valueRating3: number = 3;
+  valueRating2: number = 2;
+  valueRating1: number = 1;
+
+
 
   constructor(private messageService: MessageService) {
   }
@@ -20,14 +27,7 @@ export class ReviewsComponent {
     this.formGroup = new FormGroup({
       value: new FormControl(4)
     });
-      // let interval = setInterval(() => {
-      //   this.value = this.value + Math.floor(Math.random() * 10) + 1;
-      //   if (this.value >= 100) {
-      //     this.value = 100;
-      //     this.messageService.add({ severity: 'info', summary: 'Success', detail: 'Process Completed' });
-      //     clearInterval(interval);
-      //   }
-      // }, 2000);
+    console.log(this.ratingsAndReviews)
   }
 
 }

@@ -1,29 +1,11 @@
-<section id="carousel">
+<section id="courseDetails">
   <div class="container w-75">
-    <div class="card border-0 m-5">
-      <h6 class="fw-bolder">This Course Includes:</h6>
-      <span class="fw-bold"><em class="pi pi-video me-2"></em>1.5 hours on demand video</span>
-      <small>Stay engaged with out on demand videos giving you insights on user research, trends etc</small>
+    <div class="card border-0 ms-5 mt-2 mb-2 me-2" >
+      <h5 class="fw-bolder">{{'includes' | translate}} :</h5>
     </div>
-    <div class="card border-0 m-5">
-      <span class="fw-bold"><em class="pi pi-file me-2"></em>5 Articles</span>
-      <small>Stay engaged with out on demand videos giving you insights on user research, trends etc</small>
-    </div>
-    <div class="card border-0 m-5">
-      <span class="fw-bold"><em class="pi pi-book me-2"></em>2 Projects</span>
-      <small>Stay engaged with out on demand videos giving you insights on user research, trends etc</small>
-    </div>
-    <div class="card border-0 m-5">
-      <span class="fw-bold"><em class="pi pi-link me-2"></em>Life Time Access</span>
-      <small>Stay engaged with out on demand videos giving you insights on user research, trends etc</small>
-    </div>
-    <div class="card border-0 m-5">
-      <span class="fw-bold"><em class="pi pi-phone me-2"></em>Access on Mobile and PC</span>
-      <small>Stay engaged with out on demand videos giving you insights on user research, trends etc</small>
-    </div>
-    <div class="card border-0 m-5">
-      <span class="fw-bold"><em class="pi pi-verified me-2"></em>Certificate of Completion</span>
-      <small>Stay engaged with out on demand videos giving you insights on user research, trends etc</small>
+    <div class="card border-0 ms-5 mt-4 mb-4 me-4" *ngFor="let courseDetail of courseIncludePayload">
+      <span class="fw-bold"><em class="pi pi-file me-2"></em>{{courseDetail.title}}</span>
+      <small>{{courseDetail.description}}</small>
     </div>
   </div>
 </section>

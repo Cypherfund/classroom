@@ -3,30 +3,24 @@
     <div class="card border-0 m-5">
       Instructor
       <div>
-        <img [src]="profileImage" class="figure-img p-3" height="250px" width="260px" alt="profile_image"
+        <img [src]="instructorDetails?.profilePicture" class="figure-img p-3" height="250px" width="260px"
+             alt="profile_image"
              style="border-radius:9rem">
       </div>
-      <h4 class="fw-bolder mb-2">Jerry Peters</h4>
-      <h6 class="mb-3">Product Designer at Tech-Ascend</h6>
+      <h4 class="fw-bolder mb-2">{{instructorDetails?.name}}</h4>
+      <h6 class="mb-3">{{instructorDetails?.profession}}</h6>
 
       <div class="tag text-start">
-        <div class="flex justify-content-between">
-          <p-tag value="Last Updated January 28, 2024"></p-tag>
-          <p-tag value="Completion Certificate"></p-tag>
-          <p-tag value="Real-World Projects"></p-tag>
-          <p-tag value="2 Months"></p-tag>
-          <p-tag value="Beginner"></p-tag>
+        <div class="flex justify-content-between" *ngFor="let perk of instructorDetails?.perks">
+          <p-tag value="{{perk.rating}} Instructor Rating"></p-tag>
+          <p-tag value="{{perk.numberOfCourses}} Courses"></p-tag>
+          <p-tag value="{{perk.numberOfStudents}} Students"></p-tag>
+          <p-tag value="{{perk.yearsOfExperience}} Years Experience"></p-tag>
         </div>
       </div>
 
       <div class="fw-light">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-        optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-        obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit
+        {{instructorDetails?.description}}
       </div>
     </div>
   </div>

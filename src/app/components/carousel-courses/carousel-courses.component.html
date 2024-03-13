@@ -1,27 +1,29 @@
 <section id="carousel-reviews" class="" *ngIf="carouselType === 'reviews'" >
   <div class="container w-75 ">
     <div class="card border-0 m-5">
-      <p-carousel [value]="similarCourses" [numVisible]="2" [numScroll]="1" [responsiveOptions]="responsiveOptions">
-        <ng-template let-product pTemplate="item">
+      <p-carousel [value]="reviews" [numVisible]="2" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+        <ng-template let-review pTemplate="item" *ngFor="let review of reviews">
           <div class="product-item" >
             <div class="product-item-content-reviews p-1">
               <div class="row">
                 <div class="col-md-3">
-                  <img src="https://primefaces.org/cdn/primeng/images/demo/product/{{ product.image }}" [alt]="product.name" class="product-image-review" />
+                  <img [src]="review.userProfilePicture"
+                       [alt]="review.userName" class="product-image-review" />
                 </div>
                 <div class="col-md-8 text-start mt-3">
-                  <small>Lina</small>
-                  <div style="font-size: 5px"><p-rating></p-rating><span
-                    class="pi pi-stopwatch ms-1"><small class="ms-1">3 months</small></span></div>
+                  <small>{{review.userName}}</small>
+                  <div style="font-size: 5px"><p-rating [(ngModel)]="review.rating" [readonly]="true" [cancel]="false"
+                                                        ></p-rating>
+                  </div>
+                  <span style="font-size: 12px" class="pi pi-stopwatch "><span
+                    class="ms-1">{{getMonthsAgo(review.timestamp)}}  {{'months' | translate}}</span></span>
                 </div>
                 <div class="ellipse col-md-1 p-2 mt-2 fs-4">
                   <span class="pi pi-ellipsis-v"></span>
                 </div>
               </div>
-              <div class="text-start pe-3 ps-3 pb-1 pt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                numquam
+              <div class="text-start pe-3 ps-3 pb-1 pt-1">
+                {{review.comment}}
               </div>
             </div>
           </div>
@@ -30,8 +32,6 @@
     </div>
   </div>
 </section>
-
-
 <section id="carousel" *ngIf="carouselType === 'courses'">
   <div class="container w-75 ">
    <div class="card border-0 m-5" >
@@ -65,33 +65,6 @@
       </div>
     </ng-template>
   </p-carousel>
-    </div>
-  </div>
-</section>
-
-<section id="carousel-course-content" class="" *ngIf="carouselType === 'course-content'" >
-  <div class="container">
-    <div class="card border-0" >
-      <p-carousel [value]="similarCourses" [numVisible]="5" [numScroll]="1" [responsiveOptions]="responsiveOptions">
-        <ng-template let-product pTemplate="item">
-          <div class="product-item">
-            <div class="product-item-content pt-2 pb-2 ps-4 pe-4">
-              <div class="mb-2">
-                <video width="213" height="119" controls class="rounded-4 mt-4">
-                  <source [src]="videoPath" type="video/mp4">
-                  {{'browser' | translate}}
-                </video>              </div>
-                <div class="text-start m-2 fw-bolder">Welcome Message
-                  <br/>
-                  <div class="text-start m-0 p-0 pi pi-stopwatch"><small class="ms-1">44s</small></div>
-                </div>
-              <div class="text-start">
-                Welcome to product design for beginners
-              </div>
-            </div>
-          </div>
-        </ng-template>
-      </p-carousel>
     </div>
   </div>
 </section>

@@ -1,4 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AboutPayload} from "../../../models/course";
 
 @Component({
   selector: 'app-about-course',
@@ -9,32 +10,23 @@ export class AboutCourseComponent implements OnInit, OnDestroy{
 
   keyAspectsOfCourse: any | undefined;
   aboutResponseBody: any | undefined;
+  @Input() aboutPayload!: AboutPayload;
+  @Input() description!: string;
 
   constructor() {
   }
 
   ngOnInit(){
     this.keyAspectsOfCourse = {
-      createdAt: ' January 28, 2024',
-      certificateType: 'Completion Certificate',
-      offers: 'Real-World Projects',
-      duration: '2 Months',
-      level: 'Beginner'
+      updatedOn: this.aboutPayload?.updatedOn,
+      duration: this.aboutPayload?.duration,
+      level: this.aboutPayload?.level
     }
 
     this.aboutResponseBody = {
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\n' +
-        '      molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\n' +
-        '      numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\n' +
-        '      optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\n',
-      courseLearn: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\n' +
-        '      molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\n' +
-        '      numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\n' +
-        '      optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\n',
-      courseFor: '\'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\\n\' +\n' +
-        '        \'      molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\\n\' +\n' +
-        '        \'      numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\\n\' +\n' +
-        '        \'      optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis\\n\''
+      description: this.description,
+      courseLearn: this.aboutPayload?.courseTopics,
+      courseFor: this.aboutPayload?.targetAudience
     }
   }
 

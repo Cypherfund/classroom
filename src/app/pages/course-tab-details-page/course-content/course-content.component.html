@@ -1,43 +1,22 @@
 
 <section id="about">
   <div class="container w-75 ">
-    <div class="flex justify-content-center">
+    <div class="flex justify-content-center ms-5">
       <div class="Titles mb-4">
-        6 Sections  | 29 Lectures  | 1hr 50 mins Total Length
+        {{courseContent?.numberOfSections}} Sections  | {{courseContent?.numberOfLectures}} Lectures  |
+        {{courseContent?.totalCourseDuration}}Total Length
       </div>
-      <p-accordion [activeIndex]="0" class="w-full">
+      <p-accordion [activeIndex]="0" class="w-full" *ngFor="let lesson of courseContent?.lessons">
         <p-accordionTab>
           <ng-template pTemplate="header">
             <div class="container">
               <div class="d-flex">
-                <div class="order-1 flex-grow-1 fw-bolder text-dark">Course Overview</div>
-                <div class="order-2 ">4 Lectures | 2mins 28secs</div>
+                <div class="order-1 flex-grow-1 fw-bolder text-dark">{{lesson?.lessonTitle}}</div>
+                <div class="order-2 ">{{lesson?.totalNumberOfLectures}} Lectures | {{lesson?.lessonDuration}}</div>
               </div>
             </div>
           </ng-template>
-          <app-carousel-courses [carouselType]="'course-content'"></app-carousel-courses>
-        </p-accordionTab>
-        <p-accordionTab>
-          <ng-template pTemplate="header">
-            <div class="container">
-              <div class="d-flex">
-                <div class="order-1 flex-grow-1 fw-bolder text-dark">Lesson 1</div>
-                <div class="order-2 ">4 Lectures | 2mins 28secs</div>
-              </div>
-            </div>
-          </ng-template>
-          <app-carousel-courses [carouselType]="'course-content'"></app-carousel-courses>
-        </p-accordionTab>
-        <p-accordionTab>
-          <ng-template pTemplate="header">
-            <div class="container">
-              <div class="d-flex">
-                <div class="order-1 flex-grow-1 fw-bolder text-dark">Lesson 2</div>
-                <div class="order-2 ">4 Lectures | 2mins 28secs</div>
-              </div>
-            </div>
-          </ng-template>
-          <app-carousel-courses [carouselType]="'course-content'"></app-carousel-courses>
+          <app-carousel-course-content [lectures]="lesson?.lectures"></app-carousel-course-content>
         </p-accordionTab>
       </p-accordion>
     </div>

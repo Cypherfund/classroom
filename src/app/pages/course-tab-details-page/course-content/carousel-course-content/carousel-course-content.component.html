@@ -1,0 +1,26 @@
+<section id="carousel-course-content">
+  <div class="container">
+    <div class="card border-0">
+      <p-carousel [value]="lectures" [numVisible]="3"  [responsiveOptions]="responsiveOptions"
+                  [circular]="true">
+        <ng-template let-lecture pTemplate="item" *ngFor="let lecture of lectures; trackBy: trackLectureById">
+          <div class="product-item">
+            <div class="product-item-content p-2">
+              <div class="mb-2">
+                <iframe class="rounded-4 mt-2" width="100%" height="135" [src]="lecture.lectureVideo | safe"
+                        title="none"></iframe>
+              </div>
+              <div class="text-start m-2 fw-bolder">{{lecture.lectureTitle}}
+                <br/>
+                <div class="text-start m-0 p-0 pi pi-stopwatch"><small class="ms-1">{{lecture.lectureDuration}}</small></div>
+              </div>
+              <div class="text-start m-2">
+                {{lecture.lectureContent}}
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</section>

@@ -23,23 +23,21 @@
       <div class="d-flex justify-content-between">
         <div class="buttons">
           <button class="submit-btn btn btn-buy rounded-3 text-white p-2 buttons"
-                  type="submit">{{'buy_now' | translate}}</button>
+                  type="submit" (click)="buyNow()">{{'buy_now' | translate}}</button>
         </div>
         <div class="buttons">
           <button class="submit-btn btn btn-light btn-cart rounded-3 p-2 buttons"
-                  type="submit">{{'add_to_cart' | translate}}</button>
+                  type="submit" (click)="addToCart()">{{'add_to_cart' | translate}}</button>
         </div>
       </div>
     </div>
-    <div class="col-md-6 p-5 text-end ">
-      <video width="453" height="229" controls class="rounded-4 mt-4">
-        <source [src]="videoPath" type="video/mp4">
-        {{'browser' | translate}}
-      </video>
+    <div class="col-md-6 p-5 text-end">
+      <iframe class="rounded-4 mt-2" width="453" height="229" [src]="'https://www.youtube.com/embed/tgbNymZ7vqY' |
+      safe" title="none"></iframe>
     </div>
   </div>
 </section>
 <section>
   <app-course-tab-details-page></app-course-tab-details-page>
 </section>
-
+<app-footer></app-footer>
