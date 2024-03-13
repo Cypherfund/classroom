@@ -40,6 +40,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CarouselCourseContentComponent } from './pages/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component';
 import { DateFormatPipe } from './pipe/date-format.pipe';
 import { SafePipe } from './pipe/DomSanitiser/safe.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
@@ -63,7 +64,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ShoppingCartComponent,
     CarouselCourseContentComponent,
     DateFormatPipe,
-    SafePipe
+    SafePipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
