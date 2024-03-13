@@ -44,6 +44,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { TableModule } from 'primeng/table';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { SplitButtonModule } from 'primeng/splitbutton';
 
 
 
@@ -73,7 +74,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     TransactionComponent,
     SettingsComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -99,6 +99,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProgressBarModule,
     ToastModule,
     CheckboxModule,
+    SplitButtonModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
