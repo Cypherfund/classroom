@@ -4,10 +4,10 @@
       Rating and Review
       <div class="d-flex pt-3 pb-3">
         <form [formGroup]="formGroup">
-          <span class="me-2 fw-bold">{{ratingsAndReviews.ratings?.averageRating}}</span>
+          <span class="me-2 fw-bold">{{ratingsAndReviews.ratings.averageRating}}</span>
           <p-rating formControlName="value"></p-rating>
         </form>
-        <span class="ms-2 me-2">({{ratingsAndReviews.ratings?.totalRatings}} rating)</span>
+        <span class="ms-2 me-2">({{ratingsAndReviews.ratings.totalRatings}} rating)</span>
         <span class="ms-2 me-2">7000 students</span>
       </div>
       <div class="row m-1">

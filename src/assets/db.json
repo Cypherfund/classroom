@@ -51,42 +51,42 @@
             "lessonId": "mod1",
             "lessonTitle": "Introduction to HTML",
             "lessonDuration": "1 hour",
-            "totalNumberOflectures": "5",
+            "totalNumberOfLectures": "5",
             "lectures": [
               {
                 "lectureId": "1098",
                 "lectureTitle": "Tags and Elements",
                 "lectureDuration": "15 minutes",
                 "lectureContent": "Understanding HTML basics.",
-                "lectureVideo": ""
+                "lectureVideo": "https://www.youtube.com/embed/tgbNymZ7vqY"
               },
               {
                 "lectureId": "2109",
                 "lectureTitle": "Tags and Divs",
                 "lectureDuration": "10 minutes",
                 "lectureContent": "Understanding HTML basics.",
-                "lectureVideo": ""
+                "lectureVideo": "https://www.youtube.com/embed/tgbNymZ7vqY"
               },
               {
                 "lectureId": "3210",
                 "lectureTitle": "Tags and Elements",
                 "lectureDuration": "20 minutes",
                 "lectureContent": "Understanding HTML basics.",
-                "lectureVideo": ""
+                "lectureVideo": "https://www.youtube.com/embed/tgbNymZ7vqY"
               },
               {
                 "lectureId": "4321",
                 "lectureTitle": "Tags and Elements",
                 "lectureDuration": "15 minutes",
                 "lectureContent": "Understanding HTML basics.",
-                "lectureVideo": ""
+                "lectureVideo": "https://www.youtube.com/embed/tgbNymZ7vqY"
               },
               {
                 "lectureId": "5432",
                 "lectureTitle": "Tags and Divs",
                 "lectureDuration": "17 minutes",
                 "lectureContent": "Understanding HTML basics.",
-                "lectureVideo": ""
+                "lectureVideo": "https://www.youtube.com/embed/tgbNymZ7vqY"
               }
             ]
           },
@@ -94,35 +94,35 @@
             "lessonId": "mod2",
             "lessonTitle": "CSS Styling",
             "lessonDuration": "2 hours",
-            "totalNumberOflectures": "8",
+            "totalNumberOfLectures": "8",
             "lectures": [
               {
                 "lectureId": "1234",
                 "lectureTitle": "Selectors and Properties",
                 "lectureDuration": "30 minutes",
                 "lectureContent": "Styling web elements.",
-                "lectureVideo": ""
+                "lectureVideo": "https://www.youtube.com/embed/tgbNymZ7vqY"
               },
               {
                 "lectureId": "2345",
                 "lectureTitle": "Selectors and Properties",
                 "lectureDuration": "13 minutes",
                 "lectureContent": "Styling web elements.",
-                "lectureVideo": ""
+                "lectureVideo": "https://www.youtube.com/embed/tgbNymZ7vqY"
               },
               {
                 "lectureId": "3456",
                 "lectureTitle": "Selectors and Properties",
                 "lectureDuration": "33 minutes",
                 "lectureContent": "Styling web elements.",
-                "lectureVideo": ""
+                "lectureVideo": "https://www.youtube.com/embed/tgbNymZ7vqY"
               },
               {
                 "lectureId": "4567",
                 "lectureTitle": "Selectors and Properties",
                 "lectureDuration": "23 minutes",
                 "lectureContent": "Styling web elements.",
-                "lectureVideo": ""
+                "lectureVideo": "https://www.youtube.com/embed/tgbNymZ7vqY"
               }
             ]
           }
