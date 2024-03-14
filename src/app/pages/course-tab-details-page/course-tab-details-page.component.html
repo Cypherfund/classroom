@@ -1,19 +1,19 @@
 <div class="">
   <p-tabView>
     <p-tabPanel header="About">
-        <app-about-course></app-about-course>
+        <app-about-course [aboutPayload]="aboutResponse" [description]="description"></app-about-course>
     </p-tabPanel>
     <p-tabPanel header="Course Content">
-        <app-course-content></app-course-content>
+        <app-course-content [courseContent]="courseContentResponse"></app-course-content>
     </p-tabPanel>
     <p-tabPanel header="What's Included">
-      <app-course-included></app-course-included>
+      <app-course-included [courseIncludePayload]="courseIncludeResponse"></app-course-included>
     </p-tabPanel>
     <p-tabPanel header="Instructor(s)">
-      <app-instructor-details></app-instructor-details>
+      <app-instructor-details [instructorDetails]="instructorDetailsResponse"></app-instructor-details>
     </p-tabPanel>
     <p-tabPanel header="Reviews">
-      <app-reviews></app-reviews>
+      <app-reviews [ratingsAndReviews]="courseRatingsAndReviewsResponse"></app-reviews>
     </p-tabPanel>
   </p-tabView>
 </div>

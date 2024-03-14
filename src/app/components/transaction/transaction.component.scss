@@ -1,0 +1,20 @@
+/* Styling for the table */
+::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  background-color: #A632DC;
+  color:#fff ;
+}
+//  table { 
+//     width: 100%; 
+//     border-collapse: collapse; 
+//   }
+  
+//   th, td { /* Styling for table header and data cells */
+//     border: 1px solid #ddd; /* Add border with 1px width and #ddd color */
+//     padding: 8px; /* Add padding around cell content */
+//     text-align: left; /* Align cell content to the left */
+//   }
+  
+//    th { /* Styling for table header */
+//     background-color: #A632DC;
+//     color: #ddd;
+//   }
