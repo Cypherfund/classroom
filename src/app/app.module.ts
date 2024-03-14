@@ -31,8 +31,16 @@ import { TableModule } from 'primeng/table';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessageService } from 'primeng/api';
+import { CourseContentComponent} from "./pages/course-tab-details-page/course-content/course-content.component";
+import { ReviewsComponent} from "./pages/course-tab-details-page/reviews/reviews.component";
 import { FooterComponent } from './components/footer/footer.component';
-
+import { SafePipe } from "./pipe/DomSanitiser/safe.pipe";
+import { DateFormatPipe } from "./pipe/date-format.pipe";
+import {InstructorDetailsComponent} from "./pages/course-tab-details-page/instructor-details/instructor-details.component";
+import {AccordionModule} from "primeng/accordion";
+import {ProgressBarModule} from "primeng/progressbar";
+import {CarouselCourseContentComponent} from "./pages/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component";
+import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-included/course-included.component";
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -52,6 +60,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     TransactionComponent,
     SettingsComponent,
     FooterComponent,
+    CourseContentComponent,
+    ReviewsComponent,
+    InstructorDetailsComponent,
+    CarouselCourseContentComponent,
+    CourseIncludedComponent,
+    SafePipe,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,
@@ -72,7 +87,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     TabViewModule,
     ToolbarModule,
     CarouselModule,
+    AccordionModule,
     SplitButtonModule,
+    ProgressBarModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
