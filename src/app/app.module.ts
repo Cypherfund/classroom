@@ -30,6 +30,8 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { TableModule } from 'primeng/table';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { MessageService } from 'primeng/api';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -49,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarouselCoursesComponent,
     TransactionComponent,
     SettingsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     TagModule,
     TabViewModule,
     ToolbarModule,
-    CardModule,
     CarouselModule,
     SplitButtonModule,
     TranslateModule.forRoot({
@@ -82,7 +84,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TableModule // Moved TableModule import to the imports array
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

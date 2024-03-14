@@ -1,0 +1,27 @@
+<section id="carousel">
+  <div class="container w-75">
+    <div class="card border-0 m-5">
+      Instructor
+      <div>
+        <img [src]="instructorDetails?.profilePicture" class="figure-img p-3" height="250px" width="260px"
+             alt="profile_image"
+             style="border-radius:9rem">
+      </div>
+      <h4 class="fw-bolder mb-2">{{instructorDetails?.name}}</h4>
+      <h6 class="mb-3">{{instructorDetails?.profession}}</h6>
+
+      <div class="tag text-start">
+        <div class="flex justify-content-between" *ngFor="let perk of instructorDetails?.perks">
+          <p-tag value="{{perk.rating}} Instructor Rating"></p-tag>
+          <p-tag value="{{perk.numberOfCourses}} Courses"></p-tag>
+          <p-tag value="{{perk.numberOfStudents}} Students"></p-tag>
+          <p-tag value="{{perk.yearsOfExperience}} Years Experience"></p-tag>
+        </div>
+      </div>
+
+      <div class="fw-light">
+        {{instructorDetails?.description}}
+      </div>
+    </div>
+  </div>
+</section>

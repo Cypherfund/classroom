@@ -1,0 +1,11 @@
+<section id="courseDetails">
+  <div class="container w-75">
+    <div class="card border-0 ms-5 mt-2 mb-2 me-2" >
+      <h5 class="fw-bolder">{{'includes' | translate}} :</h5>
+    </div>
+    <div class="card border-0 ms-5 mt-4 mb-4 me-4" *ngFor="let courseDetail of courseIncludePayload">
+      <span class="fw-bold"><em class="pi pi-file me-2"></em>{{courseDetail.title}}</span>
+      <small>{{courseDetail.description}}</small>
+    </div>
+  </div>
+</section>

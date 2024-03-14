@@ -1,5 +1,21 @@
 {
   "please_select": "Please select a language",
   "buy_now": "Buy Now",
-  "add_to_cart": "Add to cart"
+  "add_to_cart": "Add to cart",
+  "become_inst": "Become an Instructor",
+  "Browse": "Browse",
+  "search": "Search for Courses",
+  "students": "students",
+  "ratings": "ratings",
+  "Created_by": "Created by",
+  "Price": "Price",
+  "browser": "Your browser does not support the video tag.",
+  "Last_Updated": "Last Updated",
+  "Description": "Description",
+  "courseLearn": "What you'll learn",
+  "courseFor": "What is this course for ?",
+  "RealWorld_Projects": "Real-World Projects",
+  "Completion_Certificate": "Completion Certificate",
+  "includes": "This Course Includes",
+  "months": "months ago"
 }
