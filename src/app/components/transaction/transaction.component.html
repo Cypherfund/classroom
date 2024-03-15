@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
+<!-- This code snippet represents a template for displaying transaction history in a web application. -->
 <div class="container p-5">
+<!-- The <h2> element displays the title "Transaction_History".
+     This implies that the text is dynamically translated based on the current language/locale of the application. -->
 <h2>{{'Transaction_History' | translate}}</h2>
 <p-table [value]="transactions">
   <ng-template pTemplate="header">

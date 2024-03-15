@@ -34,11 +34,12 @@
           <em class="pi pi-bell"></em>
         </li>
         <li class="nav-item rounded-circle rounded-5 text-end na">
-          <img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image">
+          <a class="text-decoration-none" [routerLink]="['settings']">
+          <img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"></a>
         <li class="nav-item rounded-circle rounded-5">
-          <a class="text-decoration-none" [routerLink]="['settings']"><img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"
+          <!-- <a class="text-decoration-none" [routerLink]="['settings']"><img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"
                style="border-radius:
-          4rem"></a>
+          4rem"></a> -->
         </li>
       </ul>
     </div>
