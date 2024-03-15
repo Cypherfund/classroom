@@ -47,7 +47,6 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 
 
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -74,6 +73,23 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     TransactionComponent,
     SettingsComponent,
+    TranslationComponent,
+    NavbarComponent,
+    HomepageComponent,
+    CourseDetailsPageComponent,
+    CourseTabDetailsPageComponent,
+    AboutCourseComponent,
+    CarouselCoursesComponent,
+    TransactionComponent,
+    SettingsComponent,
+    FooterComponent,
+    CourseContentComponent,
+    ReviewsComponent,
+    InstructorDetailsComponent,
+    CarouselCourseContentComponent,
+    CourseIncludedComponent,
+    SafePipe,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,
@@ -100,6 +116,20 @@ export function HttpLoaderFactory(http: HttpClient) {
     ToastModule,
     CheckboxModule,
     SplitButtonModule,
+    MenubarModule,
+    CardModule,
+    ButtonModule,
+    InputTextModule,
+    BreadcrumbModule,
+    RatingModule,
+    TabMenuModule,
+    TagModule,
+    TabViewModule,
+    ToolbarModule,
+    CarouselModule,
+    AccordionModule,
+    SplitButtonModule,
+    ProgressBarModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

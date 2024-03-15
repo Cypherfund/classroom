@@ -17,7 +17,6 @@ const routes: Routes = [
   { path: 'settings', component:SettingsComponent}
 ];
 
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
