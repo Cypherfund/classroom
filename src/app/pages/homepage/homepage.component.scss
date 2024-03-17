@@ -1,4 +1,89 @@
-.navbar{
-    background-color: black !important;
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
+header{
+    margin-bottom: 100px;
+}
+section{
+    margin: 100px 8%;
+}
+
+div.Hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #1b1b1b;
+}
+
+.content{
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 2;
+    margin-bottom: 110px;
+}
+
+p .title{
+    font-size: 3.2rem;
+    font-weight: 500;
+}
+
+.search-column{
+    width: 70%;
+    background-color: #ffffff;
+    border-radius: 23px;
+    position: absolute;
+    bottom: -1%;
+    left: 14%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.search-column .title{
+    margin: 20px 15px 10px 15px;
+    font-size: 20px;
+    font-weight: 900;
+}
+.search-column .fields button{
+    margin: 10px 20px;
+    padding: 10px 40px;
+    border: transparent;
+    border-radius: 18px;
+    background-color: #A632DC;
+    color: #FFFFFF;
+}
+.search-column .fields input{
+    margin: 0  0 25px 15px;
+    padding: 10px;
+    border: transparent;
+    border-radius: 3px;
+    background-color: #F9F9F9E5;
+    color: #1B1B1B99;
+}
+#find{width: 280px;}
+#category{width: 184px;}
+#topic{width: 184px;}
+
+section h5{
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 30px;
+}
+
+.topCourse{
+    display: flex;
+}
+
+.p-tabview-nav{
+    justify-content: space-around;
+}
