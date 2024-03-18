@@ -48,6 +48,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { AmountComponent } from './components/amount/amount.component';
 
 
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
