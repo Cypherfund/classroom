@@ -10,7 +10,8 @@ header{
     margin-bottom: 100px;
 }
 section{
-    margin: 100px 8%;
+    padding-top: 2%;
+    margin: 0 8%;
 }
 
 div.Hero{
@@ -43,7 +44,7 @@ p .title{
     position: absolute;
     bottom: -1%;
     left: 14%;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.274);
 }
 
 .search-column .title{
@@ -86,4 +87,48 @@ section h5{
 
 .p-tabview-nav{
     justify-content: space-around;
+}
+
+:host ::ng-deep div.prime-tabView-override {
+    .p-tabview-nav{
+        border: none;
+    }
+    .p-tabview-nav-container{
+        .p-tabview-nav-content{
+            display: flex;
+            ul.p-tabview-nav{
+                align-items: center;
+                justify-content: center;
+                .p-tabview-nav-link{
+                    border: none;
+                    transition: none;
+                }
+                li.p-highlight .p-tabview-nav-link{
+                    border: solid transparent;
+                    border-width: 0 0 5px 0;
+                    border-color: #A632DC;
+                }
+            }
+        }
+    }
+    li a{
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        padding: 0 0 10px 0;
+        margin: 40px 20px;
+    }
+}
+h2{
+    font-size: 32px;
+    font-weight: bold;
+}
+.topCourses div.container{
+    background-color: #bebebe;
+    border-radius: 12px;
+    padding: 30px 50px;
+    p{
+        font-size: 24px;
+        padding: 15px 0;
+    }
 }

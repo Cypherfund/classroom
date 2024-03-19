@@ -18,8 +18,8 @@
 </header>
 <section class="topCourses">
     <h5>Browse Our Top Courses</h5> 
-    <p-tabView > 
-        <p-tabPanel header="Design"> 
+    <p-tabView styleClass="prime-tabView-override"> 
+        <p-tabPanel header="Design"  [selected]="true"> 
             <app-card-group></app-card-group>
         </p-tabPanel> 
         <p-tabPanel header="Developer"> 
@@ -28,7 +28,7 @@
         <p-tabPanel header="Business"> 
             <app-card-group></app-card-group>
         </p-tabPanel> 
-        <p-tabPanel header="Marketing" [selected]="true"> 
+        <p-tabPanel header="Marketing"> 
             <app-card-group></app-card-group>
         </p-tabPanel> 
         <p-tabPanel header="Photography"> 
