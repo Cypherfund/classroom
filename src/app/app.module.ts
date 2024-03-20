@@ -45,7 +45,7 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { TableModule } from 'primeng/table';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
-import { AmountComponent } from './components/amount/amount.component';
+import { AccountComponent } from './components/account/account.component';
 
 
 
@@ -92,7 +92,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseIncludedComponent,
     SafePipe,
     DateFormatPipe,
-    AmountComponent
+    AccountComponent
   ],
   imports: [
     BrowserModule,
