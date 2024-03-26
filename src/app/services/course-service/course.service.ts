@@ -8,7 +8,7 @@ import {Course} from "../../models/course";
 })
 export class CourseService {
 
-  privateUrl = 'http://localhost:8000'
+  privateUrl = 'http://165.227.251.126/course-api'
 
   constructor(private http: HttpClient) { }
 

@@ -4,15 +4,15 @@
       Rating and Review
       <div class="d-flex pt-3 pb-3">
         <form [formGroup]="formGroup">
-          <span class="me-2 fw-bold">{{ratingsAndReviews.ratings.averageRating}}</span>
+          <span class="me-2 fw-bold">{{ratingsAndReviews?.ratings?.averageRating}}</span>
           <p-rating formControlName="value"></p-rating>
         </form>
-        <span class="ms-2 me-2">({{ratingsAndReviews.ratings.totalRatings}} rating)</span>
+        <span class="ms-2 me-2">({{ratingsAndReviews?.ratings?.totalRatings}} rating)</span>
         <span class="ms-2 me-2">7000 students</span>
       </div>
       <div class="row m-1">
         <div class="col-md-6">
-          <p-progressBar [showValue]="false" [value]="ratingsAndReviews.ratings.fiveStarPercentage"></p-progressBar>
+          <p-progressBar [showValue]="false" [value]="ratingsAndReviews?.ratings?.fiveStarPercentage"></p-progressBar>
         </div>
         <div class="col-md-6">
           <span><p-rating [(ngModel)]="valueRating5" [readonly]="true" [cancel]="false"
@@ -21,7 +21,7 @@
       </div>
       <div class="row m-1">
         <div class="col-md-6">
-          <p-progressBar [showValue]="false" [value]="ratingsAndReviews.ratings.fourStarPercentage"></p-progressBar>
+          <p-progressBar [showValue]="false" [value]="ratingsAndReviews?.ratings?.fourStarPercentage"></p-progressBar>
         </div>
         <div class="col-md-6">
           <span><p-rating [(ngModel)]="valueRating4" [readonly]="true" [cancel]="false"
@@ -30,7 +30,7 @@
       </div>
       <div class="row m-1">
         <div class="col-md-6">
-          <p-progressBar [showValue]="false" [value]="ratingsAndReviews.ratings.threeStarPercentage"></p-progressBar>
+          <p-progressBar [showValue]="false" [value]="ratingsAndReviews?.ratings?.threeStarPercentage"></p-progressBar>
         </div>
         <div class="col-md-6">
           <span><p-rating [(ngModel)]="valueRating3" [readonly]="true" [cancel]="false"
@@ -39,7 +39,7 @@
       </div>
       <div class="row m-1">
         <div class="col-md-6">
-          <p-progressBar [showValue]="false" [value]="ratingsAndReviews.ratings.twoStarPercentage"></p-progressBar>
+          <p-progressBar [showValue]="false" [value]="ratingsAndReviews?.ratings?.twoStarPercentage"></p-progressBar>
         </div>
         <div class="col-md-6">
           <span><p-rating [(ngModel)]="valueRating2" [readonly]="true" [cancel]="false"
@@ -48,7 +48,7 @@
       </div>
       <div class="row m-1">
         <div class="col-md-6">
-          <p-progressBar [value]="ratingsAndReviews.ratings.oneStarPercentage"
+          <p-progressBar [value]="ratingsAndReviews?.ratings?.oneStarPercentage"
                          [showValue]="false"></p-progressBar>
         </div>
         <div class="col-md-6">

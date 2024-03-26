@@ -41,6 +41,8 @@ import {AccordionModule} from "primeng/accordion";
 import {ProgressBarModule} from "primeng/progressbar";
 import {CarouselCourseContentComponent} from "./pages/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component";
 import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-included/course-included.component";
+import {UserService} from "./services/user/user.service";
+import {UserApiService} from "./services/user/user-api.service";
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -102,7 +104,9 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     provideClientHydration(),
-    MessageService
+    MessageService,
+    UserService,
+    UserApiService
   ],
   bootstrap: [AppComponent]
 })
