@@ -4,12 +4,12 @@
             <h1>Courses</h1>
         </div>
         <div>
-            <p-button icon="pi pi-add">Add New Course</p-button>
+            <button class="pi pi-plus p-2 newCourse">Add New Course</button>
         </div>
-        <div>
+        <div class="list">
             <h2>Course List</h2>
             <div class="d-flex p-3">
-                <input class="pi pi-user p-0.5" placeholder="search"/>
+               <input type="search" aria-label="search" placeholder="search"/>
                 <select>
                     <option>Filter</option>
                 </select>
@@ -19,7 +19,7 @@
                 <select>
                     <option>Filter</option>
                 </select>
-                <p>Displaying 4 results</p>
+                <p class="p-2" >Displaying 4 results</p>
             <label>sort:
                 <select>
                     <option>Most Recent</option>
