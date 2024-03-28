@@ -1,0 +1,9 @@
+.bordered-table {
+    border-collapse: collapse; /* Collapse table borders */
+    border: 1px solid #ccc; /* Add border to the table */
+}
+.bordered-table th,
+.bordered-table td {
+    border: 1px solid #ccc; /* Add border to table cells */
+    padding: 8px; /* Add padding to cells for better spacing */
+}

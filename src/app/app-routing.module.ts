@@ -7,6 +7,7 @@ import {PaymentsComponent} from "./pages/payments/payments.component";
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { AccountComponent } from './components/account/account.component';
+import { CourseComponent } from './pages/course-tab-details-page/instructor-details/course/course.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path:'transaction', component: TransactionComponent},
   { path:'about', component:AboutCourseComponent},
   { path: 'settings', component:SettingsComponent},
-  { path: 'account', component:AccountComponent}
+  { path: 'account', component:AccountComponent},
+  { path: 'course', component:CourseComponent}
 ];
 
 @NgModule({

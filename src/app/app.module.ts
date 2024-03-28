@@ -46,6 +46,7 @@ import { TableModule } from 'primeng/table';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { AccountComponent } from './components/account/account.component';
+import { CourseComponent } from './pages/course-tab-details-page/instructor-details/course/course.component';
 
 
 
@@ -92,7 +93,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseIncludedComponent,
     SafePipe,
     DateFormatPipe,
-    AccountComponent
+    AccountComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
