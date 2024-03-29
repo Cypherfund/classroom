@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MenuItem} from "primeng/api";
+import {appConfig} from "../../../environments/app.config";
 
 @Component({
   selector: 'app-homepage',
@@ -7,5 +7,11 @@ import {MenuItem} from "primeng/api";
   styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent {
+  valueRating4= 4;
+  courseImage = appConfig.courseImage
+  value: any;
+  value2: any;
+  studentName: string = 'Name';
+
 
 }

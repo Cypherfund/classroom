@@ -44,7 +44,7 @@ export class CourseTabDetailsPageComponent {
   }
 
   getCourse() {
-    this.courseService.getCourse().subscribe((course) => {
+    this.courseService.getCourses().subscribe((course) => {
       this.aboutResponse = course[0].about
       this.description = course[0].description
       this.courseContentResponse = course[0].courseContent

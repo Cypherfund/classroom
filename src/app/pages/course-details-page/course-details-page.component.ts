@@ -47,7 +47,7 @@ export class CourseDetailsPageComponent implements OnInit{
 
   getCourse() {
 
-    this.courseService.getCourse().subscribe((course) => {
+    this.courseService.getCourses().subscribe((course) => {
       this.course = course[0]; // Assigns the data to this.course
       this.courseTitle = this.course.title
       this.instructorName = this.course.instructor
