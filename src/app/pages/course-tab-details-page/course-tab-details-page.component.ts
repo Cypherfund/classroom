@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MenuItem} from "primeng/api";
-import {Router} from "@angular/router";
-import {CourseService} from "../../services/course-service/course.service";
 import {
   AboutPayload,
   CourseContentPayload,
@@ -17,7 +15,6 @@ import {
 })
 export class CourseTabDetailsPageComponent {
   items: MenuItem[] | undefined;
-
   activeItem: MenuItem | undefined;
   aboutResponse: AboutPayload | any;
   description: string  | any = "";
@@ -25,9 +22,11 @@ export class CourseTabDetailsPageComponent {
   courseIncludeResponse: CourseDetail[]  | any = [] ;
   instructorDetailsResponse: InstructorDetails | any;
   courseRatingsAndReviewsResponse: RatingsAndReviews  | any;
+  @Input() course: CourseDetail | any;
 
 
-  constructor(private route: Router, private courseService: CourseService) {
+
+  constructor() {
   }
 
   ngOnInit() {
@@ -44,16 +43,35 @@ export class CourseTabDetailsPageComponent {
   }
 
   getCourse() {
-    this.courseService.getCourse(1).subscribe((course) => {
-      console.log(course)
-
-      // this.aboutResponse = course[0].about
-      // this.description = course[0].description
-      // this.courseContentResponse = course[0].courseContent
-      // this.courseIncludeResponse = course[0].courseInclude
-      // this.instructorDetailsResponse = course[0].instructorDetails
-      // this.courseRatingsAndReviewsResponse = course[0].ratingsAndReviews
-      // console.log(this.courseRatingsAndReviewsResponse)
-    });
+    if (this.course) {
+      this.aboutResponse = {
+        duration: this.course.duration,
+        courseTopics: [{description: "", topic: ""}],
+        hasCompletionCertificate: this.course.hasCompletionCertificate,
+        hasRealWorldProjects: this.course.hasRealWorldProjects,
+        level: this.course.level,
+        targetAudience: this.course.targeAudience,
+        updatedOn: this.course.updatedOn
+      }
+      this.description = this.course.description
+      this.courseContentResponse = this.course.courseContents
+      this.courseIncludeResponse = this.course.courseInclude
+      this.instructorDetailsResponse = {
+        name: this.course.instructors?.instructorName,
+        profession: this.course.instructors?.profession,
+        perks: [
+          {
+            rating: this.course.instructors?.instructorRating,
+            numberOfCourses: this.course.instructors?.numberOfCourses,
+            numberOfStudents: this.course.instructors?.numberOfStudents,
+            yearsOfExperience: this.course.instructors?.yearsOfExperience
+          }],
+        description: this.course.instructors?.description,
+        profilePicture: this.course.instructors?.profilePicture
+      }
+      // Waiting for ratings and reviews to be included in the course payload
+      // this.courseRatingsAndReviewsResponse = this.course.ratingsAndReviews
+      // });
+    }
   }
 }

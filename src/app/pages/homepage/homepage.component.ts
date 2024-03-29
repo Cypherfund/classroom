@@ -9,7 +9,6 @@ import {Courses, Data} from "../../models/course";
   styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent {
-  valueRating4= 4;
   courseImage = appConfig.courseImage
   value: any;
   value2: any;
@@ -21,12 +20,18 @@ export class HomepageComponent {
 
   ngOnInit(){
     this.getCourses()
+    this.isLoggedIn()
   }
+
   getCourses(){
     const sub = this.courseService.getCourses().subscribe( res => {
-      console.log(res.data)
       this.courses = res.data
     })
   }
+  isLoggedIn(): boolean {
+    const token = new URLSearchParams(window.location.href).get('token');
+    return !!token;
+  }
+
 
 }

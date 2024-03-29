@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MenuItem} from "primeng/api";
 import { FormControl, FormGroup } from '@angular/forms';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../services/course-service/course.service";
-import {Course} from "../../models/course";
+import {CourseDetail} from "../../models/course";
 
 @Component({
   selector: 'app-course-details-page',
@@ -11,23 +11,22 @@ import {Course} from "../../models/course";
   styleUrl: './course-details-page.component.scss'
 })
 export class CourseDetailsPageComponent implements OnInit{
-  courseTitle: string = ''
-  numOFStudents: string = '7000'
-  numberOFRatings: string = '5,000'
-  instructorName: string = 'Jerry Peters'
-  price: string = '$50'
-
   items: MenuItem[] | undefined;
-
   home: MenuItem | undefined;
 
   formGroup!: FormGroup;
-  courseHighlight:  string = 'Dive into the world of product design where creativity meets functionality. Discover how to craft products that captivate and enhance everyday life';
-  course: Course | any
-  constructor(private route: Router, private courseService: CourseService) {
+  course: CourseDetail | any
+  activeCourseId: number = 0;
+  constructor(private route: Router,
+              private courseService: CourseService,
+              private activeRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
+
+    this.activeRoute.params.subscribe(params => {
+      this.activeCourseId = params['id'];
+    });
     this.getCourse()
 
     this.formGroup = new FormGroup({
@@ -46,13 +45,8 @@ export class CourseDetailsPageComponent implements OnInit{
   }
 
   getCourse() {
-
-    this.courseService.getCourses().subscribe((course) => {
-      // this.course = course[0]; // Assigns the data to this.course
-      // this.courseTitle = this.course.title
-      // this.instructorName = this.course.instructor
-      // this.courseHighlight = this.course.description
-      // this.price = "$"+this.course.price
+    this.courseService.getCourse(this.activeCourseId).subscribe((course) => {
+      this.course = course; // Assigns the data to this.course
     });
   }
 
