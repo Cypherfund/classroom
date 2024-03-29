@@ -10,7 +10,7 @@
 th{
     background: var(--gray-100, #F1F5F9);
 }
-.td{
+.tr{
     background: var(--gray-50, #F8FAFC);
 }
 .newCourse{
@@ -30,4 +30,8 @@ th{
 .activeDot{
     background: var(--success-100, #D1FAE5); 
     color: var(--success-500, #10B981); 
+}
+.one{
+   font-size: 12px;
+    background: var(--brand-500, #3B82F6);
 }
