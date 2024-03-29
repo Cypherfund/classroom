@@ -1,11 +1,10 @@
-.bordered-table {
-    border-collapse: collapse; /* Collapse table borders */
-    border: 1px solid #ccc; /* Add border to the table */
+
+table{
+    width:1006px;
 }
 .bordered-table th,
 .bordered-table td {
-    border: 1px solid #ccc; /* Add border to table cells */
-    padding: 8px; /* Add padding to cells for better spacing */
+    padding: 8px; 
 }
 th{
     background: var(--gray-100, #F1F5F9);
@@ -13,18 +12,10 @@ th{
 .tr{
     background: var(--gray-50, #F8FAFC);
 }
-.newCourse{
-    background: #A632DC;
-    border-color: #A632DC;
-    width: 227px;
-    height: 60px;
-    font-size: 20px;
-}
-.list{
-    margin-top: 50px;
+.search{
+    border: 1px solid var(--gray-200, #E2E8F0);
 }
 .dot{
-    font-size:12px;
     color: var(--success-500, #10B981);
 }
 .activeDot{
@@ -32,6 +23,6 @@ th{
     color: var(--success-500, #10B981); 
 }
 .one{
-   font-size: 12px;
+   
     background: var(--brand-500, #3B82F6);
 }
