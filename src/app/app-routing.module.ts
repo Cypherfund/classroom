@@ -13,13 +13,13 @@ import { CourseComponent } from './pages/course-tab-details-page/instructor-deta
 const routes: Routes = [
   { path:'', component: HomepageComponent},
   { path:'about', component:AboutCourseComponent},
-  { path: 'shopping_chart', component:ShoppingCartComponent},
+  { path:'shopping_chart', component:ShoppingCartComponent},
   { path:'payment', component:PaymentsComponent},
   { path:'transaction', component: TransactionComponent},
   { path:'about', component:AboutCourseComponent},
-  { path: 'settings', component:SettingsComponent},
-  { path: 'account', component:AccountComponent},
-  { path: 'course', component:CourseComponent}
+  { path:'settings', component:SettingsComponent},
+  { path:'account', component:AccountComponent},
+  { path:'course', component:CourseComponent}
 ];
 
 @NgModule({
