@@ -1,15 +1,15 @@
 <main>
-    <div>
+    <div class="d-flex flex-column justify-content-start align-items-center">
         <div>
-            <h1>Courses</h1>
+            <h1 class=>Courses</h1>
         </div>
         <div>
-            <button class="pi pi-plus p-2 newCourse">Add New Course</button>
+            <button class="pi pi-plus p-2 newCourse text-white rounded-1">Add New Course</button>
         </div>
         <div class="list">
             <h2>Course List</h2>
-            <div class="d-flex p-3">
-               <input type="search" aria-label="search" placeholder="search"/>
+            <div class="d-flex">
+              <button><em class="pi pi-search p-2"></em>Search</button>
                 <select>
                     <option>Filter</option>
                 </select>
@@ -20,18 +20,17 @@
                     <option>Filter</option>
                 </select>
                 <p class="p-2" >Displaying 4 results</p>
-            <label>sort:
-                <select>
+            <label>Sort:<select>
                     <option>Most Recent</option>
                 </select>
             </label>
             <button><em class="pi pi-ellipsis-v"></em></button>
-            <em class="pi pi-download"></em><input placeholder="Export" />
+            <button><em class="pi pi-download p-2"></em>Export</button>
             </div>
-            <table class="bordered-table">
+            <table class="bordered-table mt-4">
                 <thead>
                     <tr>
-                       <th><input type="checkbox"/>Course Created</th>
+                       <th><input  type="checkbox"/><em class="p-2"></em>Course Created</th>
                         <th>Start Date</th>
                         <th>Upload Status</th>
                         <th>Category</th>
@@ -41,33 +40,33 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="checkbox"/>Della Craig</td>
+                        <td><input type="checkbox"/><em class="p-2"></em>Della Craig</td>
                         <td>dellacraig&#64;gmail.com</td>
-                        <td></td>
+                        <td><button class=" rounded-5 border-0 activeDot"><em class="pi pi-circle-on p-1 dot"></em>Active</button></td>
                         <td>Design</td>
                         <td>Duke</td>
                         <td><em class="pi pi-ellipsis-v"></em></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox"/>Effie Vasquez</td>
+                        <td><input type="checkbox"/><em class="p-2"></em>Effie Vasquez</td>
                         <td>dellacraig&#64;gmail.com</td>
-                        <td></td>
+                        <td><button class=" rounded-5 border-0 activeDot"><em class="pi pi-circle-on p-1 dot "></em>Active</button></td>
                         <td>Programming</td>
                         <td>Mizzou</td>
                         <td><em class="pi pi-ellipsis-v"></em></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox"/>Corey Kim</td>
+                        <td><input type="checkbox"/><em class="p-2"></em>Corey Kim</td>
                         <td>corey.kim&#64;gmail.com</td>
-                        <td></td>
+                        <td><button class=" rounded-5 border-0"><em class="pi pi-circle-on p-1 dot text-black"></em>In Progress</button></td>
                         <td>Information tech</td>
                         <td>Georgia</td>
                         <td><em class="pi pi-ellipsis-v"></em></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox"/>Francis Newton</td>
+                        <td><input type="checkbox"/><em class="p-2"></em>Francis Newton</td>
                         <td>francis.newton&#64;gmail.com</td>
-                        <td></td>
+                        <td><button class=" rounded-5 border-0 activeDot"><em class="pi pi-circle-on p-1 dot"></em>Active</button></td>
                         <td>Data Analytics</td>
                         <td>UCLA</td>
                         <td><em class="pi pi-ellipsis-v"></em></td>

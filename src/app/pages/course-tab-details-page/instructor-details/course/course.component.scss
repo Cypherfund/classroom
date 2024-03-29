@@ -7,15 +7,27 @@
     border: 1px solid #ccc; /* Add border to table cells */
     padding: 8px; /* Add padding to cells for better spacing */
 }
+th{
+    background: var(--gray-100, #F1F5F9);
+}
+.td{
+    background: var(--gray-50, #F8FAFC);
+}
 .newCourse{
-    color: #FFF;
     background: #A632DC;
     border-color: #A632DC;
-    border-radius: 5px;
     width: 227px;
     height: 60px;
     font-size: 20px;
 }
 .list{
     margin-top: 50px;
+}
+.dot{
+    font-size:12px;
+    color: var(--success-500, #10B981);
+}
+.activeDot{
+    background: var(--success-100, #D1FAE5); 
+    color: var(--success-500, #10B981); 
 }
