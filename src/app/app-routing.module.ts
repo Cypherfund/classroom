@@ -10,9 +10,9 @@ import {CourseDetailsPageComponent} from "./pages/course-details-page/course-det
 const routes: Routes = [
   { path:'', component: HomepageComponent},
   { path:'transaction', component: TransactionComponent},
-  { path:'about', component:AboutCourseComponent},
+  { path:'about', component: AboutCourseComponent},
   { path: 'course_detail/:id', component: CourseDetailsPageComponent},
-  { path: 'settings', component:SettingsComponent}
+  { path: 'settings', component: SettingsComponent}
 ];
 
 @NgModule({

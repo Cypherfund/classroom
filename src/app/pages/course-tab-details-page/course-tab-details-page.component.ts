@@ -44,14 +44,16 @@ export class CourseTabDetailsPageComponent {
   }
 
   getCourse() {
-    this.courseService.getCourses().subscribe((course) => {
-      this.aboutResponse = course[0].about
-      this.description = course[0].description
-      this.courseContentResponse = course[0].courseContent
-      this.courseIncludeResponse = course[0].courseInclude
-      this.instructorDetailsResponse = course[0].instructorDetails
-      this.courseRatingsAndReviewsResponse = course[0].ratingsAndReviews
-      console.log(this.courseRatingsAndReviewsResponse)
+    this.courseService.getCourse(1).subscribe((course) => {
+      console.log(course)
+
+      // this.aboutResponse = course[0].about
+      // this.description = course[0].description
+      // this.courseContentResponse = course[0].courseContent
+      // this.courseIncludeResponse = course[0].courseInclude
+      // this.instructorDetailsResponse = course[0].instructorDetails
+      // this.courseRatingsAndReviewsResponse = course[0].ratingsAndReviews
+      // console.log(this.courseRatingsAndReviewsResponse)
     });
   }
 }

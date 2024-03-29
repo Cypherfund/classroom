@@ -22,5 +22,7 @@
   "Date": "Date",
   "Amount": "Amount",
   "Type": "Type",
-  "Course_Name": "Course_Name"
+  "Course_Name": "Course_Name",
+  "browse_course": "Browse our top courses",
+  "Trending": "Trending courses"
 }

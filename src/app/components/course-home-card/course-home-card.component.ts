@@ -7,11 +7,11 @@ import {Component, Input} from '@angular/core';
 })
 export class CourseHomeCardComponent {
   @Input() courseImage: string = '';
-  @Input() courseTitle: string = '';
-  @Input() courseProvider: string = '';
-  @Input() rating: number = 0;
-  @Input() ratingCount: number = 0;
-  @Input() coursePrice: string = '';
+  @Input() courseTitle?: string = '';
+  @Input() courseProvider?: any = '';
+  @Input() rating?: number = 0;
+  @Input() ratingCount?: any = 0;
+  @Input() coursePrice?: any = 0;
   maxRating: number = 5;
   @Input() navigationLink: string = '';
 
