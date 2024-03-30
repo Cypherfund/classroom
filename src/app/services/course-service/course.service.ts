@@ -18,7 +18,6 @@ export class CourseService {
   }
 
   getTrendingCourses(): any[]{
-    const date1 = formatDate(new Date(), 'yyyy-MM-dd', 'en_US')+"";
     const trendList: any[] = [];
     this.getCourses().subscribe((res:any) => {
       this.list = res.data;

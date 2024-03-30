@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {MenuItem} from "primeng/api";
 import { Router } from '@angular/router';
-import { CourseModel } from '../../components/course/course.model';
-import { DatePipe } from '@angular/common';
+import { CourseService } from '../../services/course-service/course.service';
 
 @Component({
   selector: 'app-homepage',
@@ -10,9 +9,15 @@ import { DatePipe } from '@angular/common';
   styleUrl: './homepage.component.scss',
 })
 export class HomepageComponent implements OnInit{
-  constructor(private router: Router) { }
+
+  trendingCourses: any [] = [];
+  constructor(
+    private router: Router,
+    private courseService: CourseService
+  ) { }
 
   ngOnInit(): void {
+    this.trendingCourses = this.courseService.getTrendingCourses();
   }
 
   Page(page: string) {
