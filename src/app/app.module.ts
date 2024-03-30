@@ -32,10 +32,14 @@ import { CourseIncludedComponent } from './pages/course-tab-details-page/course-
 import { InstructorDetailsComponent } from './pages/course-tab-details-page/instructor-details/instructor-details.component';
 import { ReviewsComponent } from './pages/course-tab-details-page/reviews/reviews.component';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { ListboxModule } from "primeng/listbox";
 // For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
 import { MessageService} from "primeng/api";
 import { CardGroupComponent } from './components/card-group/card-group.component';
+import { CourseModel } from './components/course/course.model';
+import { CataloguePageComponent } from './pages/catalogue-page/catalogue-page.component';
+import { DatePipe } from '@angular/common';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
@@ -55,7 +59,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseIncludedComponent,
     InstructorDetailsComponent,
     ReviewsComponent,
-    CardGroupComponent
+    CardGroupComponent,
+    CourseModel,
+    CataloguePageComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +72,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DropdownModule,
     BrowserAnimationsModule,
     MenubarModule,
-    CardModule,
+    ListboxModule,
     ButtonModule,
     InputTextModule,
     BreadcrumbModule,
@@ -91,7 +97,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     provideClientHydration(),
-    MessageService
+    MessageService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from '../../services/course-service/course.service';
 
 @Component({
   selector: 'app-card-group',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './card-group.component.scss'
 })
 export class CardGroupComponent {
-    // coursegroup: any | undefined;
+    coursegroup: any | undefined;
     course: any |undefined;
 
-    constructor(){}
+    constructor(
+      private cs: CourseService,
+    ){}
 
     ngOnInit(): void {
       this.course = {
@@ -24,11 +27,6 @@ export class CardGroupComponent {
       endDate: "2024-03-03T16:19:43.439+00:00"
       };
 
-      // this.coursegroup = {
-      //   course1: this.course,
-      //   course2: this.course,
-      //   course3: this.course,
-      //   course4: this.course,
-      // }
+      this.coursegroup = this.cs.getCourses();
     }
 }
