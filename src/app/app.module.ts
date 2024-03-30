@@ -43,6 +43,7 @@ import {CarouselCourseContentComponent} from "./pages/course-tab-details-page/co
 import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-included/course-included.component";
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
+import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -68,7 +69,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarouselCourseContentComponent,
     CourseIncludedComponent,
     SafePipe,
-    DateFormatPipe
+    DateFormatPipe,
+    CourseHomeCardComponent
   ],
   imports: [
     BrowserModule,

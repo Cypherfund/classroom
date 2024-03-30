@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {Course} from "../../models/course";
+import {Course, CourseDetail, Courses} from "../../models/course";
+import {environment} from "../../../environments/environment.development";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-  privateUrl = 'http://165.227.251.126/course-api'
+  privateUrl = environment.CourseUrl
 
   constructor(private http: HttpClient) { }
 
-  getCourse(): Observable<Course[]>{
-    return this.http.get<Course[]>(
-      `${this.privateUrl}/courses`
+  getCourses(): Observable<Courses>{
+    return this.http.get<Courses>(
+      `${this.privateUrl}/courses?pageNum=0&size=20`
+    )
+  }
+  getCourse(id: number): Observable<CourseDetail>{
+    return this.http.get<CourseDetail>(
+      `${this.privateUrl}/courses/${id}`
     )
   }
 }

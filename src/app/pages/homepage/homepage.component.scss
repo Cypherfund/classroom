@@ -1,2 +1,48 @@
+.header{
+  background-color: var(--main-color-shade-1);
+  padding: 10rem;
+}
+.text-purple{
+  color: var(--main-color-shade-1)
+}
+.bg-purple{
+  background-color: var(--main-color-shade-1)
+}
+::ng-deep a {
+  color: var(--color-grey-shade-3);
+  text-decoration: none;
+}
 
+::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: var(--color-white);
+  border-color: var(--main-color-shade-1);
+  color: var(--main-color-shade-1);
+}
+::ng-deep .p-tabview .p-tabview-nav li {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+::ng-deep .p-rating .p-rating-item .p-rating-icon {
+  color: gold;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  font-size: 11px;
+}
+::ng-deep .p-card {
+  background: #ffffff;
+  color: #4b5563;
+  box-shadow: none;
+  border-radius: 0;
+}
+::ng-deep  .p-card .p-card-body {
+  padding: 0.25rem;
+}
 
+::ng-deep button {
+  border-radius: 3rem;
+}
+input{
+  border: 0;
+}
+.card-schedule{
+  border-color: var(--main-color-shade-1)
+}

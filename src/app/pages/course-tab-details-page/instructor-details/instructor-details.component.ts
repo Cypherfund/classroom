@@ -8,7 +8,6 @@ import {InstructorDetails} from "../../../models/course";
   styleUrl: './instructor-details.component.scss'
 })
 export class InstructorDetailsComponent implements OnInit{
-  profileImage = appConfig.profileImage;
   @Input() instructorDetails!: InstructorDetails;
 
   constructor() {

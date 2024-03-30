@@ -3,8 +3,9 @@
   <div class="container w-75 ">
     <div class="flex justify-content-center ms-5">
       <div class="Titles mb-4">
-        {{courseContent?.numberOfSections}} Sections  | {{courseContent?.numberOfLectures}} Lectures  |
-        {{courseContent?.totalCourseDuration}}Total Length
+        {{courseContent?.numberOfSections}} {{'Sections' | translate}}  | {{courseContent?.numberOfLectures}}
+        {{'Lectures' | translate}}  |
+        {{courseContent?.totalCourseDuration}}{{'Total_Length' | translate}}
       </div>
       <p-accordion [activeIndex]="0" class="w-full" *ngFor="let lesson of courseContent?.lessons">
         <p-accordionTab>
@@ -12,7 +13,8 @@
             <div class="container">
               <div class="d-flex">
                 <div class="order-1 flex-grow-1 fw-bolder text-dark">{{lesson?.lessonTitle}}</div>
-                <div class="order-2 ">{{lesson?.totalNumberOfLectures}} Lectures | {{lesson?.lessonDuration}}</div>
+                <div class="order-2 ">{{lesson?.totalNumberOfLectures}} {{'Lectures' | translate}} |
+                  {{lesson?.lessonDuration}}</div>
               </div>
             </div>
           </ng-template>
