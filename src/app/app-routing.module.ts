@@ -10,7 +10,8 @@ const routes: Routes = [
   { path:'', component: HomepageComponent},
   { path:'transaction', component: TransactionComponent},
   { path:'about', component:AboutCourseComponent},
-  { path: 'settings', component:SettingsComponent}
+  { path: 'settings', component:SettingsComponent},
+  { path: 'course-admin', loadChildren: () => import('./pages/course-admin/course-admin.module').then(m => m.CourseAdminModule) },
 ];
 
 @NgModule({

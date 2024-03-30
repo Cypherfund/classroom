@@ -43,6 +43,7 @@ import {CarouselCourseContentComponent} from "./pages/course-tab-details-page/co
 import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-included/course-included.component";
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
+import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -97,10 +98,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [ HttpClient ]
       }
     }),
-    TableModule // Moved TableModule import to the imports array
+    TableModule, // Moved TableModule import to the imports array,
+    CourseAdminRoutingModule
+
   ],
   providers: [
     provideClientHydration(),
@@ -108,6 +111,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserService,
     UserApiService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
