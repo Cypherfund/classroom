@@ -13,7 +13,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MenubarModule } from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from "primeng/inputtext";
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CourseDetailsPageComponent } from './pages/course-details-page/course-details-page.component';
@@ -44,6 +43,8 @@ import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-in
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
 import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
+import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
+import { ButtonModule } from 'primeng/button';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -69,7 +70,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarouselCourseContentComponent,
     CourseIncludedComponent,
     SafePipe,
-    DateFormatPipe
+    DateFormatPipe,
+    CourseHomeCardComponent
   ],
   imports: [
     BrowserModule,

@@ -3,27 +3,30 @@
     <div class="ms-5">
       <div class="tag text-start">
         <div class="flex justify-content-between">
-          <p-tag value="{{'Last_Updated' | translate}} {{keyAspectsOfCourse.updatedOn | dateFormat}}"></p-tag>
+          <p-tag value="{{'Last_Updated' | translate}} {{keyAspectsOfCourse.updatedOn | dateFormat}}"
+                 *ngIf="keyAspectsOfCourse.updatedOn"></p-tag>
           <p-tag value="{{'Completion_Certificate' | translate}}" *ngIf="aboutPayload?.hasCompletionCertificate"></p-tag>
           <p-tag value="{{'RealWorld_Projects' | translate}}" *ngIf="aboutPayload?.hasRealWorldProjects"></p-tag>
-          <p-tag value="{{keyAspectsOfCourse?.duration}}"></p-tag>
-          <p-tag value="{{keyAspectsOfCourse?.level}}"></p-tag>
+          <p-tag value="{{keyAspectsOfCourse?.duration}} {{'Months' | translate}}"
+                 *ngIf="keyAspectsOfCourse.duration"></p-tag>
+          <p-tag value="{{keyAspectsOfCourse?.level}}" *ngIf="keyAspectsOfCourse.level"></p-tag>
         </div>
       </div>
       <div class="description card border-0 p-2 text-start text-wrap m-1" >
         <h4 class="fw-bold text-start">{{'Description' | translate}}</h4>
         {{aboutResponseBody.description}}
       </div>
-      <div class="learn card border-0 p-2 text-start text-wrap " >
+      <div class="learn card border-0 p-2 text-start text-wrap" *ngIf="aboutResponseBody.courseLearn.length">
         <h4 class="fw-bold text-start">{{'courseLearn' | translate}}</h4>
         <div class="m-2" *ngFor="let topic of aboutResponseBody.courseLearn; let i = index">
           {{i + 1}}. {{topic.topic}} : {{topic.description}}
         </div>
       </div>
-      <div class="learn card border-0 p-2 text-start text-wrap  " >
+
+      <div class="learn card border-0 p-2 text-start text-wrap"  *ngIf="aboutResponseBody.courseFor.length">
         <h4 class="fw-bold text-start">{{'courseFor' | translate}}</h4>
         <ul *ngFor="let course of aboutResponseBody.courseFor">
-          <li class="m-1">{{course.role}}</li>
+          <li class="m-1">{{course}}</li>
         </ul>
       </div>
     </div>

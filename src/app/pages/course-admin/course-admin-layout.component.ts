@@ -7,12 +7,4 @@ import { Sidebar } from 'primeng/sidebar';
   styleUrl: './course-admin-layout.component.scss'
 })
 export class CourseAdminLayoutComponent {
-  @ViewChild('sidebarRef') sidebarRef!: Sidebar;
-
-  // @ts-ignore
-  closeCallback(e): void {
-    this.sidebarRef.close(e);
-  }
-
-  sidebarVisible: boolean = false;
 }

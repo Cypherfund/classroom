@@ -8,20 +8,32 @@ import { CourseAdminLayoutComponent } from './course-admin-layout.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { InstructorSidebarComponent } from './components/instructor-sidebar/instructor-sidebar.component';
+import { OrderListModule } from 'primeng/orderlist';
+import { RippleModule } from 'primeng/ripple';
+import { DragDropModule } from 'primeng/dragdrop';
+import { DropdownModule } from 'primeng/dropdown';
+import { TreeModule } from 'primeng/tree';
+import { StyleClassModule } from 'primeng/styleclass';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     CourseComponent,
-    CourseAdminLayoutComponent
+    CourseAdminLayoutComponent,
+    InstructorSidebarComponent
   ],
   imports: [
     CommonModule,
     CourseAdminRoutingModule,
     SidebarModule,
     AvatarModule,
-    ButtonModule
+    ButtonModule,
+    RippleModule,
+    StyleClassModule
+
   ]
 })
 export class CourseAdminModule { }
