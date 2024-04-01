@@ -8,6 +8,7 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { SettingsComponent } from './pages/settings/settings.component';
 import { AccountComponent } from './components/account/account.component';
 import { CourseComponent } from './pages/course-tab-details-page/instructor-details/course/course.component';
+import {CourseDetailsPageComponent} from "./pages/course-details-page/course-details-page.component";
 
 
 const routes: Routes = [
@@ -16,8 +17,9 @@ const routes: Routes = [
   { path:'shopping_chart', component:ShoppingCartComponent},
   { path:'payment', component:PaymentsComponent},
   { path:'transaction', component: TransactionComponent},
-  { path:'about', component:AboutCourseComponent},
-  { path:'settings', component:SettingsComponent},
+  { path:'about', component: AboutCourseComponent},
+  { path: 'course_detail/:id', component: CourseDetailsPageComponent},
+  { path: 'settings', component: SettingsComponent},
   { path:'account', component:AccountComponent},
   { path:'course', component:CourseComponent}
 ];

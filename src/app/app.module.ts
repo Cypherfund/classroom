@@ -47,7 +47,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { AccountComponent } from './components/account/account.component';
 import { CourseComponent } from './pages/course-tab-details-page/instructor-details/course/course.component';
-
+import {UserApiService} from "./services/user/user-api.service";
+import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -94,7 +95,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SafePipe,
     DateFormatPipe,
     AccountComponent,
-    CourseComponent
+    CourseComponent,
+    CourseHomeCardComponent
   ],
   imports: [
     BrowserModule,
@@ -147,7 +149,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     provideClientHydration(),
-    MessageService
+    MessageService,
+    UserApiService
   ],
   bootstrap: [AppComponent]
 })

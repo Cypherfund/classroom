@@ -1,1 +1,214 @@
-<app-course-details-page></app-course-details-page>
+<app-navbar></app-navbar>
+<section>
+  <div class="header text-center text-white">
+    <h1 class="p-3">Learn something new everyday</h1>
+    <p>Become professionals and ready to join the world</p>
+  </div>
+  <div class="filter container " style="margin-top: -5rem">
+    <div class="bg-white p-5 rounded-5 card">
+       <h5 class="fw-semibold m-2">What do you want to learn ?</h5>
+      <div class="d-flex justify-content-center">
+        <div class="m-2 w-100">
+          <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
+                 placeholder="Find course, skills, software etc " />
+        </div>
+        <div class="m-2 w-75">
+          <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
+                 placeholder="Categories" />
+        </div>
+        <div class="m-2 w-50">
+          <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
+                 placeholder="Topic " />
+        </div>
+        <p-button label="Search" severity="help"></p-button>
+      </div>
+    </div>
+  </div>
+  <div class="my-learning container pt-5" *ngIf="isLoggedIn()">
+    <div class="d-flex flex-row justify-content-between">
+      <h3>Let's Start learning, {{studentName}}</h3>
+      <h5><a href="#" class=" me-2 text-purple text-decoration-underline ">My Learning</a>
+      </h5>
+    </div>
+    <div class="d-flex gap-4">
+      <div class="card card-schedule rounded-4 d-flex flex-row p-5 m-1 justify-content-center">
+        <div class="w-25">
+          <span class="pi pi-calendar" style="font-size: 6rem"></span>
+        </div>
+        <div class="w-75">
+          <h2>Create a Schedule</h2>
+          <span>
+            Schedule your learning and set a timer for  your learning.
+            <a href="#" class=" me-2 text-purple text-decoration-none">Get
+            Started</a>
+          </span>
+        </div>
+      </div>
+      <div class="card card-schedule rounded-4 d-flex flex-row p-5 m-1 justify-content-center">
+        <div class="w-25">
+          <span class="pi pi-stopwatch" style="font-size: 6rem"></span>
+        </div>
+        <div class="w-75">
+          <h2>No courses yet ?</h2>
+          <span>
+            Browse and visit our top courses and gain a new skill today.
+            <a href="#" class=" me-2 text-purple text-decoration-none">Start Learning</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="courses text-center">
+    <h4 class="p-5">{{'browse_course' | translate}}</h4>
+    <div class="nav-tab">
+      <div class="container">
+        <p-tabView>
+          <p-tabPanel header="Design">
+            <div class="top-course-page">
+                <div class="row">
+                  <div class="text-start col-3" *ngFor="let course of courses">
+                    <app-course-home-card
+                      [courseImage]="courseImage"
+                      [courseTitle]="course?.name"
+                      [courseProvider]="course?.instructors || 'TechAscend'"
+                      [rating]="course?.numberOfRatings || 4"
+                      [ratingCount]="course?.numberOfRatings || 120"
+                      [coursePrice]="course?.price + '$'"
+                      [navigationLink]="'course_detail/'+course?.id"
+                    ></app-course-home-card>
+                  </div>
+                </div>
+              </div>
+          </p-tabPanel>
+          <p-tabPanel header="Developer">
+            <div class="top-course-page">
+              <div class="row">
+                <div class="text-start col-3" *ngFor="let course of courses">
+                  <app-course-home-card
+                    [courseImage]="courseImage"
+                    [courseTitle]="course?.name"
+                    [courseProvider]="course?.instructors || 'TechAscend'"
+                    [rating]="course?.numberOfRatings || 4"
+                    [ratingCount]="course?.numberOfRatings || 120"
+                    [coursePrice]="course?.price + '$'"
+                    [navigationLink]="'course_detail/'+course?.id"
+                  ></app-course-home-card>
+                </div>
+              </div>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel header="Business">
+            <div class="top-course-page">
+              <div class="row">
+                <div class="text-start col-3" *ngFor="let course of courses">
+                  <app-course-home-card
+                    [courseImage]="courseImage"
+                    [courseTitle]="course?.name"
+                    [courseProvider]="course?.instructors || 'TechAscend'"
+                    [rating]="course?.numberOfRatings || 4"
+                    [ratingCount]="course?.numberOfRatings || 120"
+                    [coursePrice]="course?.price + '$'"
+                    [navigationLink]="'course_detail/'+course?.id"
+                  ></app-course-home-card>
+                </div>
+              </div>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel header="Marketing">
+            <div class="top-course-page">
+              <div class="row">
+                <div class="text-start col-3" *ngFor="let course of courses">
+                  <app-course-home-card
+                    [courseImage]="courseImage"
+                    [courseTitle]="course?.name"
+                    [courseProvider]="course?.instructors || 'TechAscend'"
+                    [rating]="course?.numberOfRatings || 4"
+                    [ratingCount]="course?.numberOfRatings || 120"
+                    [coursePrice]="course?.price + '$'"
+                    [navigationLink]="'course_detail/'+course?.id"
+                  ></app-course-home-card>
+                </div>
+              </div>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel header="Photography">
+            <div class="top-course-page">
+              <div class="row">
+                <div class="text-start col-3" *ngFor="let course of courses">
+                  <app-course-home-card
+                    [courseImage]="courseImage"
+                    [courseTitle]="course?.name"
+                    [courseProvider]="course?.instructors || 'TechAscend'"
+                    [rating]="course?.numberOfRatings || 4"
+                    [ratingCount]="course?.numberOfRatings || 120"
+                    [coursePrice]="course?.price + '$'"
+                    [navigationLink]="'course_detail/'+course?.id"
+                  ></app-course-home-card>
+                </div>
+              </div>
+            </div>
+          </p-tabPanel>
+        </p-tabView>
+      </div>
+    </div>
+    <div class="course-card bg-purple text-start text-white p-5 rounded-4 container">
+      <div>
+        <h2>Lorem ipsum dolor sit amet consectetur</h2>
+      <div class="mb-3" style="width: 40rem">
+        Lorem ipsum dolor sit amet consectetur. Vitae egestas aliquet habitant eget est et diam cursus. Aliquam urna eros rhoncus augue.
+      </div>
+      </div>
+      <p-button label="Join Techascend" severity="help"></p-button>
+    </div>
+    <br/>
+    <div>
+      <h4 class="fw-semibold p-2">{{'Trending' | translate}}</h4>
+      <div class="trending-courses d-flex container">
+        <div class="course-card bg-purple text-start  text-white p-5 rounded-4 container d-flex flex-column flex-grow-1">
+          <div class="mt-auto">
+            <h2 class="">Lorem ipsum dolor sit amet consectetur</h2>
+            <div class="mb-3" style="width: 30rem">
+              Lorem ipsum dolor sit amet consectetur. Vitae egestas aliquet habitant eget est et diam cursus. Aliquam urna eros rhoncus augue.
+            </div>
+          </div>
+        </div>
+          <div class="top-course-page ms-4">
+            <div class="row">
+              <div class="text-start col-6" *ngFor="let course of courses">
+                <app-course-home-card
+                  [courseImage]="courseImage"
+                  [courseTitle]="course?.name"
+                  [courseProvider]="course?.instructors || 'TechAscend'"
+                  [rating]="course?.numberOfRatings || 4"
+                  [ratingCount]="course?.numberOfRatings || 120"
+                  [coursePrice]="course?.price + '$'"
+                  [navigationLink]="'course_detail/'+course?.id"
+                ></app-course-home-card>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br/>
+    <div class="upcoming-course ">
+      <h4 class="fw-semibold p-2">{{'Upcoming' | translate}}</h4>
+      <div class="top-course-page container p-3 w-100">
+        <div class="row">
+          <div class="text-start col-3" *ngFor="let course of courses">
+            <app-course-home-card
+              [courseImage]="courseImage"
+              [courseTitle]="course?.name"
+              [courseProvider]="course?.instructors || 'TechAscend'"
+              [rating]="course?.numberOfRatings || 4"
+              [ratingCount]="course?.numberOfRatings || 120"
+              [coursePrice]="course?.price + '$'"
+              [navigationLink]="'course_detail/'+course?.id"
+            ></app-course-home-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br/>
+<app-footer></app-footer>
