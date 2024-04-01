@@ -13,7 +13,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MenubarModule } from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from "primeng/inputtext";
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CourseDetailsPageComponent } from './pages/course-details-page/course-details-page.component';
@@ -48,7 +47,10 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { AccountComponent } from './components/account/account.component';
 import { CourseComponent } from './pages/course-tab-details-page/instructor-details/course/course.component';
 import {UserApiService} from "./services/user/user-api.service";
+import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
 import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
+import { ButtonModule } from 'primeng/button';
+// import { ComponentModule } from './components/component.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -59,7 +61,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     TranslationComponent,
-    NavbarComponent,
     HomepageComponent,
     CourseDetailsPageComponent,
     CourseTabDetailsPageComponent,
@@ -71,19 +72,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReviewsComponent,
     PaymentsComponent,
     ShoppingCartComponent,
-    CarouselCourseContentComponent,
     DateFormatPipe,
     SafePipe,
     FooterComponent,
     TransactionComponent,
     SettingsComponent,
-    TranslationComponent,
     NavbarComponent,
     HomepageComponent,
-    CourseDetailsPageComponent,
-    CourseTabDetailsPageComponent,
     AboutCourseComponent,
-    CarouselCoursesComponent,
     TransactionComponent,
     SettingsComponent,
     FooterComponent,
@@ -91,7 +87,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReviewsComponent,
     InstructorDetailsComponent,
     CarouselCourseContentComponent,
-    CourseIncludedComponent,
     SafePipe,
     DateFormatPipe,
     AccountComponent,
@@ -142,16 +137,19 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [ HttpClient ]
       }
     }),
-    TableModule // Moved TableModule import to the imports array
+    TableModule, // Moved TableModule import to the imports array,
+    CourseAdminRoutingModule,
+    // ComponentModule
+
   ],
   providers: [
     provideClientHydration(),
     MessageService,
     UserApiService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

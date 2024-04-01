@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'course_detail/:id', component: CourseDetailsPageComponent},
   { path: 'settings', component: SettingsComponent},
   { path:'account', component:AccountComponent},
-  { path:'course', component:CourseComponent}
+  { path:'course', component:CourseComponent},
+  { path: 'course-admin', loadChildren: () => import('./pages/course-admin/course-admin.module').then(m => m.CourseAdminModule) },
 ];
 
 @NgModule({
