@@ -1,6 +1,5 @@
 <p-button *ngIf='!sidebarVisible' (click)="sidebarVisible = true" icon="pi-align-justify">
 </p-button>
-{{ targetRef }}
   <p-sidebar #sidebarRef [(visible)]="sidebarVisible"
              [appendTo]="targetRef"
              [modal] = "false"
