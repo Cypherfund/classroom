@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Sidebar } from 'primeng/sidebar';
 enum NAV {
   Course,
@@ -8,9 +8,11 @@ enum NAV {
 @Component({
   selector: 'app-instructor-sidebar',
   templateUrl: './instructor-sidebar.component.html',
-  styleUrl: './instructor-sidebar.component.scss'
+  styleUrl: './instructor-sidebar.component.scss',
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class InstructorSidebarComponent {
+  @Input() targetRef: any = 'body';
   sidebarVisible: boolean = true;
   activeNav: NAV = NAV.Course;
   @ViewChild('sidebarRef') sidebarRef!: Sidebar;

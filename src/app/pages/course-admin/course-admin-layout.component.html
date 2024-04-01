@@ -1,11 +1,7 @@
+<app-navbar></app-navbar>
 
-<!--<div class="card flex justify-content-center">-->
-<!--<app-instructor-sidebar></app-instructor-sidebar>-->
-<!--fqfqef-->
-<!--</div>-->
-
-<div class='flex'>
-  <app-instructor-sidebar class='sidebar'></app-instructor-sidebar>
+<div #content class='flex'>
+  <app-instructor-sidebar class='sidebar' [appendTo]='content' ></app-instructor-sidebar>
   <div class='main'>
     <router-outlet></router-outlet>
   </div>

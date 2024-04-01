@@ -45,6 +45,7 @@ import {UserApiService} from "./services/user/user-api.service";
 import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
 import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
 import { ButtonModule } from 'primeng/button';
+import { ComponentModule } from './components/component.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -55,7 +56,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     TranslationComponent,
-    NavbarComponent,
     HomepageComponent,
     CourseDetailsPageComponent,
     CourseTabDetailsPageComponent,
@@ -104,7 +104,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     TableModule, // Moved TableModule import to the imports array,
-    CourseAdminRoutingModule
+    CourseAdminRoutingModule,
+    ComponentModule
 
   ],
   providers: [
