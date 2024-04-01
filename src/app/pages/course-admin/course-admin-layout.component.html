@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <div #content class='flex'>
-  <app-instructor-sidebar class='sidebar' [appendTo]='content' ></app-instructor-sidebar>
+  <app-instructor-sidebar class='sidebar' [targetRef]='content' ></app-instructor-sidebar>
   <div class='main'>
     <router-outlet></router-outlet>
   </div>
