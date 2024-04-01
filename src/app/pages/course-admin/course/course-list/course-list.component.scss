@@ -1,0 +1,29 @@
+
+table{
+  width:1006px;
+}
+.bordered-table th,
+.bordered-table td {
+  padding: 8px;
+}
+th{
+  background: var(--gray-100, #F1F5F9);
+}
+.tr{
+  background: var(--gray-50, #F8FAFC);
+}
+.search{
+  border: 1px solid var(--gray-200, #E2E8F0);
+}
+.dot{
+  color: var(--success-500, #10B981);
+}
+.activeDot{
+  background: var(--success-100, #D1FAE5);
+  color: var(--success-500, #10B981);
+}
+.one{
+
+  background: var(--brand-500, #3B82F6);
+}
+
