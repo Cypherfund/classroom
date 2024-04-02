@@ -8,6 +8,8 @@ import { CourseEditComponent } from './course-edit/course-edit.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
+import { ButtonGroup, ButtonGroupModule } from 'primeng/buttongroup';
 
 const routes: Routes = [
   {
@@ -29,6 +31,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     DropdownModule,
+    ButtonModule,
+    ButtonGroupModule,
     RouterModule.forChild(routes),
     NgForOf
   ]
