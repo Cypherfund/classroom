@@ -1,1 +1,17 @@
-<p>course-form works!</p>
+<h1>New Course</h1>
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+
+  <div class="flex flex-column gap-2">
+    <label for="username">Title</label>
+    <input pInputText id="username" aria-describedby="name-help" formControlName="name" />
+    <small id="name-help">Enter your username to reset your password.</small>
+  </div>
+  <div class="flex flex-column gap-2">
+    <label for="username">Title</label>
+    <p-dropdown formControlName="status" [options]="['DRAFT', 'PUBLISHED', 'INACTIVE', 'ARCHIVED']" optionLabel="status" placeholder="Select status"></p-dropdown>
+  </div>
+
+  <!-- Other form controls -->
+
+  <button type="submit" [disabled]="courseForm.invalid">Submit</button>
+</form>

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgForOf } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseEditComponent } from './course-edit/course-edit.component';
 import { CourseFormComponent } from './course-form/course-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
 
 const routes: Routes = [
   {
@@ -24,7 +26,11 @@ const routes: Routes = [
     CommonModule,
     TableModule,
     CheckboxModule,
-    RouterModule.forChild(routes)
+    FormsModule,
+    ReactiveFormsModule,
+    DropdownModule,
+    RouterModule.forChild(routes),
+    NgForOf
   ]
 })
 export class CourseModule { }
