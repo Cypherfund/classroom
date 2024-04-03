@@ -6,3 +6,12 @@ input,button{
     border-radius: 10px;
     background: rgba(217, 217, 217, 0.00);
 }
+input{
+    border: 1px solid #000;
+}
+input:focus{
+    outline: 1px solid #A632DC;
+}
+button{
+    border: 1px solid #A632DC;
+}
