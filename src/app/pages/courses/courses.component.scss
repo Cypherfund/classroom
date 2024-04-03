@@ -1,0 +1,34 @@
+::ng-deep a {
+  color: var(--main-color-shade-1);
+  text-decoration: none;
+}
+::ng-deep .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
+  width: 17px;
+  height: 17px;
+  transition-duration: 0.2s;
+  background-color: #ffffff;
+}
+::ng-deep .p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: var(--main-color-shade-1);
+  background: var(--main-color-shade-1);
+}
+::ng-deep .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+  border-color: var(--main-color-shade-1);
+  background: var(--main-color-shade-1);
+  color: #ffffff;
+}
+::ng-deep  .p-radiobutton-label {
+  margin-left: 5rem;
+}
+::ng-deep span.ng-star-inserted{
+  margin-left: 1rem;
+}
+::ng-deep .p-contextmenu .p-menuitem > .p-menuitem-content {
+  color: #4b5563;
+  transition: box-shadow 0.2s;
+  border-radius: 0;
+  padding:1rem;
+}
+.categories-card{
+  height: 20px;
+}

@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<div class="container p-5">
+  <div class="header row">
+    <div class="div col-3 col-md-3 p-4 mt-4">
+      <h3>All Categories</h3>
+      <div class="mt-4 h-25">
+          <div class="flex justify-content-center categories-card">
+            <p-panelMenu [model]="items">
+              <ng-template let-item pTemplate="item">
+                <p-radioButton [value]="item.value" [(ngModel)]="selectedMenuItem"></p-radioButton>
+                <span>{{item.label}}</span>
+              </ng-template>
+            </p-panelMenu>
+          </div>
+      </div>
+    </div>
+    <div class="sort col-9 col-md-9">
+      <div class="p-4 text-end">
+        <form [formGroup]="formGroup">
+          <p-dropdown formControlName="selectedCity" [options]="cities" optionLabel="name"
+                      placeholder="Sort By Most Popular"></p-dropdown>
+        </form>
+      </div>
+
+      <div class="top-course-page">
+        <div class="row">
+          <div class="text-start col-4 p-3" *ngFor="let course of courses">
+            <app-course-home-card
+              [courseImage]="courseImage"
+              [courseTitle]="course?.name"
+              [courseProvider]="course?.instructors || 'TechAscend'"
+              [rating]="course?.numberOfRatings || 4"
+              [ratingCount]="course?.numberOfRatings || 120"
+              [coursePrice]="course?.price + '$'"
+              [navigationLink]="'course_detail/'+course?.id"
+            ></app-course-home-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

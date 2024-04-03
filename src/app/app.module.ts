@@ -44,6 +44,10 @@ import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-in
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
 import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
+import { CoursesComponent } from './pages/courses/courses.component';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { RadioButtonModule } from 'primeng/radiobutton';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -70,7 +74,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseIncludedComponent,
     SafePipe,
     DateFormatPipe,
-    CourseHomeCardComponent
+    CourseHomeCardComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +84,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     AppRoutingModule,
     DropdownModule,
+    RadioButtonModule,
     BrowserAnimationsModule,
     MenubarModule,
     CardModule,
@@ -94,6 +100,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AccordionModule,
     SplitButtonModule,
     ProgressBarModule,
+    PanelMenuModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

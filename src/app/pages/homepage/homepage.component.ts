@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
 import {CourseService} from "../../services/course-service/course.service";
 import {Courses, Data} from "../../models/course";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-homepage',
@@ -15,7 +16,8 @@ export class HomepageComponent {
   studentName: string = 'Name';
   courses: Data[] = []
 
-  constructor( private courseService: CourseService) {
+  constructor( private courseService: CourseService,
+               private router: Router) {
   }
 
   ngOnInit(){
@@ -33,5 +35,8 @@ export class HomepageComponent {
     return !!token;
   }
 
+  search(): void {
+    this.router.navigate(['/courses'], { queryParams: { category: this.value } });
+  }
 
 }
