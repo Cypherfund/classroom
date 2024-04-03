@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-list',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class CourseListComponent implements OnInit{
   enrollments!: any[];
   sellectedEnrollment!: any;
+
+  constructor(private router: Router,
+              private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.enrollments = this.getEnrollments();
@@ -79,6 +83,6 @@ export class CourseListComponent implements OnInit{
   }
 
   addNewCourse() {
-
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 }
