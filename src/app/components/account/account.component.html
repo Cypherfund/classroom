@@ -1,0 +1,68 @@
+
+    <form [formGroup]="accountForm" class="p-5">
+       <p-card header="ACCOUNT" [style]="{ width: '1200px' }">
+        <div>
+         <label for="fullName">Full Name</label>
+         <br>
+         <input type="text" name="fullName" id="fullName" class="w-full">
+        </div>
+        <small *ngIf="fullName.invalid && [fullName.dirty || fullName.touched]"></small>
+        <div>
+         <label for="email">Email Address</label>
+         <br>
+         <input type="email" name="email" id="email" class="w-full">
+        </div>
+        <small *ngIf="email.invalid && [email.dirty || email.touched]"></small>
+        <div>
+         <label for="timeZone">Timezone</label>
+         <br>
+         <input type="datetime-local" name="timeZone" id="timeZone" class="w-full">
+        </div>
+        <small *ngIf="timeZone.invalid && [timeZone.dirty || timeZone.touched]"></small>
+        <div>
+         <label for="language">Language</label>
+         <br>
+         <input type="text" lang="en-en" name="language" id="language" class="w-full">
+        </div>
+        <small *ngIf="language.invalid && [language.dirty || language.touched]"></small>
+        <br>
+        <p-button label="Save" styleClass="full-width-button" [disabled]="accountForm.invalid" (click)="onSave()"></p-button>
+        <div>
+         <h2>Name Verification</h2>
+         <p>Verify your real name to make sure you’re able to receive a certificate when you complete a course or Specialization.</p>
+         <br>
+         <p-button label="Verify My name" styleClass="full-width-button" [disabled]="accountForm.invalid" (click)="onVerifyName()"></p-button>
+        </div>
+ 
+        <div>
+         <h2>Password</h2>
+        <div>
+         <label for="cPassword">Current Password</label>
+         <br>
+         <input type="password" name="cPassword" id="cPassword" class="w-full">
+        </div>
+        <small *ngIf="currentPassword.invalid && [currentPassword.dirty || currentPassword.touched]"></small>
+        <div>
+         <label for="newPassword">New Password</label>
+         <br>
+         <input type="password" name="newPassword" id="newPassword" class="w-full">
+        </div>
+        <small *ngIf="newPassword.invalid && [newPassword.dirty || newPassword.touched]"></small>
+        <div>
+         <label for="retryPassword">Retry Password</label>
+         <br>
+         <input type="password" name="retryPassword" id="retryPassword" class="w-full">
+        </div>
+        <small *ngIf="retryPassword.invalid && [retryPassword.dirty || retryPassword.touched]"></small>
+        <br>
+        <p-button label="Change Password" styleClass="full-width-button" [disabled]="accountForm.invalid" (click)="onChangePassword()"></p-button>
+        </div>
+        <div>
+         <h3>Two factor Authentication (BETA)</h3>
+         <p>Two Factor Authentication adds an additional layer of security to your Coursera account. Each time you log in to the Platform, you will be asked to enter a unique code that is only available on your mobile phone. This extra protection ensures that you are the only one who will have access to your Course account and courses.</p>
+         <br>
+         <p-button>Enable Two-Factor Authentication?</p-button>
+        </div>
+       </p-card> 
+    </form>
+     

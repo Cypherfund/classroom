@@ -7,17 +7,9 @@
    
     <!-- This div contains the content of the sidebar. -->
    <div class="sidebar-content">
-    <!-- <ul style="list-style-type: none; padding: 5;">
-        <li><span class="pi pi-user "></span><a class="text-decoration-none">Account</a></li>
-        <li><span class="pi pi-credit-card"></span><a class="text-decoration-none">Payment</a></li>
-        <li><span class="pi pi-envelope "></span><a class="text-decoration-none">Communication Preferences</a></li>
-        <li><span class="pi pi-notes"></span><a class="text-decoration-none">Notes & Highlights</a></li>
-        <li><span class="pi pi-calendar"></span><a class="text-decoration-none">Calendar Sync</a></li>
-        <li><span class="pi pi-list"></span><a class="text-decoration-none" [routerLink]="['/transaction']">Transaction</a></li>
-    </ul> -->
-    <p-splitButton label="Account" icon="pi pi-user"  styleClass="first-splitbutton"></p-splitButton>
+    <p-splitButton label="Account" icon="pi pi-user" [routerLink]="['/account']" styleClass="first-splitbutton"></p-splitButton>
     <br>
-    <p-splitButton label="Payment" icon="pi pi-credit-card"  styleClass="first-splitbutton"></p-splitButton>
+    <p-splitButton label="Payment" icon="pi pi-credit-card" [routerLink]="['/payment']" styleClass="first-splitbutton"></p-splitButton>
     <br>
     <p-splitButton label="Communication Preferences" icon="pi pi-envelope"  styleClass="first-splitbutton"></p-splitButton>
     <br>

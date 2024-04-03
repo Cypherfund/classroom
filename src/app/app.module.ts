@@ -9,7 +9,6 @@ import { TranslationComponent } from './components/translation/translation.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MenubarModule } from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
@@ -25,27 +24,33 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CarouselModule } from 'primeng/carousel';
 import {TagModule} from "primeng/tag";
+import { AccordionModule } from 'primeng/accordion';
+import { CourseContentComponent } from './pages/course-tab-details-page/course-content/course-content.component';
+import { CourseIncludedComponent } from './pages/course-tab-details-page/course-included/course-included.component';
+import { InstructorDetailsComponent } from './pages/course-tab-details-page/instructor-details/instructor-details.component';
+import { ReviewsComponent } from './pages/course-tab-details-page/reviews/reviews.component';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ToastModule } from 'primeng/toast';
+import { MessageService} from "primeng/api";
+import { PaymentsComponent } from './pages/payments/payments.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CarouselCourseContentComponent } from './pages/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component';
+import { DateFormatPipe } from './pipe/date-format.pipe';
+import { SafePipe } from './pipe/DomSanitiser/safe.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { TableModule } from 'primeng/table';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
-import { MessageService } from 'primeng/api';
-import { CourseContentComponent} from "./pages/course-tab-details-page/course-content/course-content.component";
-import { ReviewsComponent} from "./pages/course-tab-details-page/reviews/reviews.component";
-import { FooterComponent } from './components/footer/footer.component';
-import { SafePipe } from "./pipe/DomSanitiser/safe.pipe";
-import { DateFormatPipe } from "./pipe/date-format.pipe";
-import {InstructorDetailsComponent} from "./pages/course-tab-details-page/instructor-details/instructor-details.component";
-import {AccordionModule} from "primeng/accordion";
-import {ProgressBarModule} from "primeng/progressbar";
-import {CarouselCourseContentComponent} from "./pages/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component";
-import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-included/course-included.component";
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
 import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
 import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
 import { ButtonModule } from 'primeng/button';
 import { ComponentModule } from './components/component.module';
+import { AccountComponent } from './components/account/account.component';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -55,6 +60,24 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    TranslationComponent,
+    HomepageComponent,
+    CourseDetailsPageComponent,
+    CourseTabDetailsPageComponent,
+    AboutCourseComponent,
+    CarouselCoursesComponent,
+    CourseContentComponent,
+    CourseIncludedComponent,
+    InstructorDetailsComponent,
+    ReviewsComponent,
+    PaymentsComponent,
+    ShoppingCartComponent,
+    CarouselCourseContentComponent,
+    DateFormatPipe,
+    SafePipe,
+    FooterComponent,
+    TransactionComponent,
+    SettingsComponent,
     TranslationComponent,
     HomepageComponent,
     CourseDetailsPageComponent,
@@ -71,7 +94,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseIncludedComponent,
     SafePipe,
     DateFormatPipe,
-    CourseHomeCardComponent
+    CourseHomeCardComponent,
+    DateFormatPipe,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +106,23 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     DropdownModule,
     BrowserAnimationsModule,
+    MenubarModule,
+    CardModule,
+    ButtonModule,
+    InputTextModule,
+    BreadcrumbModule,
+    RatingModule,
+    TabMenuModule,
+    TagModule,
+    TabViewModule,
+    ToolbarModule,
+    CardModule,
+    CarouselModule,
+    AccordionModule,
+    ProgressBarModule,
+    ToastModule,
+    CheckboxModule,
+    SplitButtonModule,
     MenubarModule,
     CardModule,
     ButtonModule,
