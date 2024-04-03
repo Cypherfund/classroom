@@ -5,7 +5,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 
 
-
 @NgModule({
   declarations: [NavbarComponent],
   imports: [

@@ -10,26 +10,26 @@ import { ButtonModule } from 'primeng/button';
 import { InstructorSidebarComponent } from './components/instructor-sidebar/instructor-sidebar.component';
 import { RippleModule } from 'primeng/ripple';
 import { StyleClassModule } from 'primeng/styleclass';
-// import { CourseModule } from './course/course.module';
-// import { ComponentModule } from '../../components/component.module';
+import { CourseModule } from './course/course.module';
+import { ComponentModule } from '../../components/component.module';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     CourseAdminLayoutComponent,
-    InstructorSidebarComponent
+    InstructorSidebarComponent,
   ],
   imports: [
     CommonModule,
     CourseAdminRoutingModule,
-    // CourseModule,
+    CourseModule,
     SidebarModule,
     AvatarModule,
     ButtonModule,
     RippleModule,
     StyleClassModule,
-    // ComponentModule
+    ComponentModule
 
   ]
 })

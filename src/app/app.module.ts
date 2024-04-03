@@ -9,7 +9,6 @@ import { TranslationComponent } from './components/translation/translation.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MenubarModule } from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
@@ -50,8 +49,7 @@ import {UserApiService} from "./services/user/user-api.service";
 import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
 import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
 import { ButtonModule } from 'primeng/button';
-// import { ComponentModule } from './components/component.module';
-
+import { ComponentModule } from './components/component.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
@@ -77,7 +75,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     TransactionComponent,
     SettingsComponent,
-    NavbarComponent,
     HomepageComponent,
     AboutCourseComponent,
     TransactionComponent,
@@ -142,7 +139,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     TableModule, // Moved TableModule import to the imports array,
     CourseAdminRoutingModule,
-    // ComponentModule
+    ComponentModule
 
   ],
   providers: [
