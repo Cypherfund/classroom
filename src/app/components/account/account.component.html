@@ -1,76 +1,79 @@
 <main>
   <div class=" d-flex m-4  justify-content-start align-items-start" style="background: #F0F3FF;flex-direction: column;padding: 50px 100px;">
    <h1>Account</h1>
-   <form [formGroup]="accountForm">
+   <form [formGroup]="accountForm" novalidate>
       <div style="border-bottom:1px solid #000;">
       <div class="d-flex mt-5" style="gap:20px;">
          <div>
-            <label>Full Name
+            <label class="font-bold block">{{'Full Name' | translate}}
                <br>
-               <input style="width:500px;height:50px"/>
+               <input type="text" style="width:500px;height:50px" class="form-control" pInputText formControlName="fullName"/>
             </label>
+            <small *ngIf="showError && fullName.invalid && [fullName.dirty || fullName.touched]" class="text-danger block">Name is required</small>
          </div>
          <div>
-            <label>Email
+            <label class="font-bold">Email
                <br>
-               <input class=" p-block" style="width:500px;height:50px" formControlName="accountForm"/>
+               <input type="email" style="width:500px;height:50px" class="form-control" formControlName="email"/>
             </label>
-            <small *ngIf="email.invalid && [email.dirty || email.touched]"></small>
+            <small *ngIf="showError && email.invalid && [email.dirty || email.touched]" class="block">Email is required</small>
          </div>
          
       </div>
       <div class="d-flex mt-5 mb-5" style="gap:20px;">
          <div>
-            <label>Time Zone
+            <label class="font-bold">Time Zone
                <br>
-               <input style="width:500px;height:50px"/>
+               <input type="text" style="width:500px;height:50px" class="form-control" formControlName="timeZone"/>
             </label>
+            <small *ngIf="showError && timeZone.invalid && [timeZone.dirty || timeZone.touched]" class="block">Time Zone is required</small>
          </div>
          <div>
-            <label>Language
+            <label class="font-bold">Language
                <br>
-               <input style="width:500px;height:50px"/>
+               <input style="width:500px;height:50px" class="form-control block" formControlName="language"/>
             </label>
+            <small *ngIf="showError && language.invalid && [language.dirty || language.touched]" class="block">Language is required</small>
          </div>
       </div>
-      <button label="Save" styleClass="full-width-button"  [disabled]="accountForm.invalid" class="mb-5" style="color: 
-      #A632DC;width:141px;height:47px;font-size:20px">Save</button>
+      <button styleClass="full-width-button"  [disabled]="accountForm.invalid" class="font-bold mb-5" style="color: 
+      #A632DC;width:141px;height:47px;font-size:20px" (click)="onSave()">Save</button>
       </div>
       <div class="mt-5 " style="border-bottom:1px solid #000;">
          <h2>Name Verification</h2>
          <p>Verify your real name to make sure you’re able to receive a certificate when you complete a course or Specialization.</p>
          <br>
-         <button label="Verify My name" class="mb-5" style="color: 
+         <button label="Verify My name" class="font-bold mb-5" style="color: 
          #A632DC;width:200px;height:50px;font-size:20px" [disabled]="accountForm.invalid" (click)="onVerifyName()">Verify My name</button>
         </div>
         <div style="border-bottom: 1px solid #000;">
          <h2>Password</h2>
          <div class="d-flex mb-3" style="gap: 20px">
             <div>
-               <label for="cPassword">Current Password</label>
+               <label class="font-bold" for="cPassword">Current Password</label>
                <br>
                <input style="width:500px;height:50px" type="password" name="cPassword" id="cPassword" >      
             </div>
             <div>
-               <label for="newPassword">New Password</label>
+               <label class="font-bold" for="newPassword">New Password</label>
                <br>
                <input style="width:500px;height:50px" type="password" name="newPassword" id="newPassword" >
               
             </div>
          </div>
          <div>
-            <label for="retryPassword">Retry Password</label>
+            <label class="font-bold" for="retryPassword">Retry Password</label>
             <br>
             <input class=" mb-3" style="width:1020px;height:55px" type="password" name="retryPassword" id="retryPassword" >   
          </div>
-         <button class="mb-5" style="color: 
+         <button class="font-bold mb-5" style="color: 
          #A632DC;width:200px;height:55px;font-size:20px" [disabled]="accountForm.invalid" (click)="onChangePassword()">Change Password</button>
         </div>
         <div class="mt-5">
          <h3>Two factor Authentication (BETA)</h3>
          <p>Two Factor Authentication adds an additional layer of security to your Coursera account. Each time you log in to the Platform, you will be asked to enter a unique code that is only available on your mobile phone. This extra protection ensures that you are the only one who will have access to your Course account and courses.</p>
          <br>
-         <button  style="color: 
+         <button class="font-bold"  style="color: 
          #A632DC;width:400px;height:50px;font-size: 20px;">Enable Two-Factor Authentication?</button>
         </div>
    </form>

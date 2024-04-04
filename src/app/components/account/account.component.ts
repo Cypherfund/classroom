@@ -9,13 +9,15 @@ import { Router } from '@angular/router'; // Import Router
 })
 export class AccountComponent implements OnInit{
     accountForm: FormGroup;
+    showError: boolean = false;
   
    constructor(
     private fb: FormBuilder,
     private router :Router
    ) {
+    this.showError = false;
     this.accountForm =  this.fb.group({
-      fullName: ['', Validators.required],
+      fullName: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
       email: ['', [Validators.required, Validators.email]],
       timeZone:['', Validators.required],
       language: ['', Validators.required],
@@ -27,6 +29,7 @@ export class AccountComponent implements OnInit{
    }
 
 ngOnInit(): void {
+  this.showError = false;
   this.accountForm =  this.fb.group({
     fullName: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
@@ -65,11 +68,12 @@ onSave(): void {
   if(this.accountForm.valid){
      // Form is valid, proceed with saving data
     console.log('Form date', this.accountForm.value);
+    this.showError = false;
   }
   //Form is invalid, display error messages
   else{
     console.log('Form is invalid');
-    
+    this.showError = true;
   }
 }
 onVerifyName(): void{
