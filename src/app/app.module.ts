@@ -23,6 +23,7 @@ import { AboutCourseComponent } from './pages/course-tab-details-page/about-cour
 import { TabMenuModule } from 'primeng/tabmenu';
 import { CarouselCoursesComponent } from './components/carousel-courses/carousel-courses.component';
 import { TabViewModule } from 'primeng/tabview';
+import { TieredMenuModule } from 'primeng/tieredmenu';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CarouselModule } from 'primeng/carousel';
 import {TagModule} from "primeng/tag";
@@ -78,6 +79,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BreadcrumbModule,
     RatingModule,
     TabMenuModule,
+    TieredMenuModule,
     TagModule,
     TabViewModule,
     ToolbarModule,

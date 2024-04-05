@@ -5,43 +5,32 @@
         <div class="sidenav">
             <p-accordion [activeIndex]="0">
                 <p-accordionTab header="Header I">
-                    <div class="btn-group dropend">
-                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropright
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropright
-                              </button>
-                              <ul class="dropdown-menu">
-                                <li>he</li>
-                                <li>j</li>
-                                <li>j</li>
-                                <li>j</li>
-                              </ul>
-                          </li>
-                          <li>ji</li>
-                          <li>dd</li>
-                        </ul>
-                    </div>
+                    <p-tieredMenu [model]="items"></p-tieredMenu>
                 </p-accordionTab>
                 <p-accordionTab header="Header II">
-                    <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-                    </p>
+                    <p-tieredMenu [model]="items"></p-tieredMenu>
                 </p-accordionTab>
                 <p-accordionTab header="Header III">
-                    <p>
-                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-                    </p>
+                    <p-tieredMenu [model]="items"></p-tieredMenu>
                 </p-accordionTab>
             </p-accordion>
         </div>
     </div>
-    <div class="catalogue">
+    <div class="main-body">
         <p-dropdown [options]="filter" optionLabel="name" [showClear]="true" placeholder="Sort by"></p-dropdown>
+        <div class="catalogue">
+            <div class="row" *ngFor="let item of courses.slice(0,18);">
+                <div class="card" style="width:250px">
+                    <!-- <img class="card-img-top" src="" alt="Card image"> -->
+                    <div class="card-img-top"></div>
+                    <div class="card-body">
+                      <h4 class="card-title">{{item.name}}</h4>
+                      <p class="card-text instructor">{{item.instructorId}}</p>
+                      <p class="card-text price">${{item.price}}</p>
+                      <p-rating [(ngModel)]="value" [readonly]="true" [cancel]="false"></p-rating>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
