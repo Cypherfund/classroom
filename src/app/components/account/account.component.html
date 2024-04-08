@@ -9,14 +9,14 @@
                <br>
                <input type="text" id="fullName" style="width:500px;height:50px" class="form-control" pInputText formControlName="fullName"/>
             </label>
-            <small *ngIf="showError && accountForm.get('fullName')?.invalid && accountForm.get('fullName')?.dirty" class="text-danger block">Name is required</small>
+            <small *ngIf="accountForm.get('fullName')?.invalid && accountForm.get('fullName')?.touched || showError" class="text-danger block">Name is required</small>
          </div>
          <div>
             <label for="email" class="font-bold">Email
                <br>
                <input id="email" type="email" style="width:500px;height:50px" class="form-control" formControlName="email"/>
             </label>
-            <small *ngIf="showError && accountForm.get('email')?.invalid && accountForm.get('email')?.dirty" class="block">Email is required</small>
+            <small *ngIf="accountForm.get('email')?.invalid && accountForm.get('email')?.touched || showError " class="text-danger block">Email is required</small>
          </div>
          
       </div>
@@ -26,14 +26,14 @@
                <br>
                <input type="text" id="textZone" style="width:500px;height:50px" class="form-control" formControlName="timeZone"/>
             </label>
-            <small *ngIf="showError && accountForm.get('timeZone')?.invalid &&  accountForm.get('timeZone')?.dirty" class="block">Time Zone is required</small>
+            <small *ngIf="accountForm.get('timeZone')?.invalid && accountForm.get('timeZone')?.touched || showError " class="text-danger block">Time Zone is required</small>
          </div>
          <div>
             <label for="language" class="font-bold">Language
                <br>
                <input style="width:500px;height:50px" id="language" class="form-control block" formControlName="language"/>
             </label>
-            <small *ngIf="showError && accountForm.get('language')?.invalid &&  accountForm.get('language')?.dirty" class="block">Language is required</small>
+            <small *ngIf="accountForm.get('language')?.invalid &&  accountForm.get('language')?.touched || showError" class="text-danger block">Language is required</small>
          </div>
       </div>
       <button type="submit" [disabled]="accountForm.invalid" class="font-bold mb-5" style="color: 

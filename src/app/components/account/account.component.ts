@@ -31,18 +31,18 @@ export class AccountComponent implements OnInit{
 
 ngOnInit(): void {}
  
-  //  get fullName () {
-  //   return this.accountForm.controls['fullName']
-  // }
-  // get email () {
-  //   return this.accountForm.controls['email']
-  // }
-  // get timeZone () {
-  //   return this.accountForm.controls['timeZone']
-  // }
-  // get language () {
-  //   return this.accountForm.controls['language']
-  // }
+   get fullName () {
+    return this.accountForm.controls['fullName']
+  }
+  get email () {
+    return this.accountForm.controls['email']
+  }
+  get timeZone () {
+    return this.accountForm.controls['timeZone']
+  }
+  get language () {
+    return this.accountForm.controls['language']
+  }
   get currentPassword () {
     return this.accountForm.controls['currentPassword']
   }
@@ -54,16 +54,21 @@ ngOnInit(): void {}
   }
 
 onSave(): void {
-  if(this.accountForm.valid){
+  if(this.accountForm.valid && this.accountForm.touched){
      // Form is valid, proceed with saving data
-    console.log('Form data:', this.accountForm.value);
-    this.showError = false;
+     console.log('Form is invalid');
+    this.showError = true;
+    Object.keys(this.accountForm.controls).forEach(key => {
+      const control = this.accountForm.get(key)
+      if(control){
+        control.markAsTouched()
+      };
+    });
   }
   //Form is invalid, display error messages
   else{
-    console.log('Form is invalid');
-    this.showError = true;
-    this.accountForm.markAllAsTouched();
+    console.log('Form data:', this.accountForm.value);
+    this.showError = false;
   }
 }
 onVerifyName(): void{
