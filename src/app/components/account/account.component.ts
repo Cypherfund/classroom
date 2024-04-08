@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors} from "@angular/forms";
 import { Router } from '@angular/router'; // Import Router
 
 @Component({
@@ -76,7 +76,19 @@ console.log('Verifying Name...');
 
 }
 onChangePassword(): void{
-  console.log('Changing Password...');
-  
+  if(!this.accountForm.valid || !this.accountForm.touched ){
+    console.log('Changing Password...');
+    this.showError = true;
+    Object.keys(this.accountForm.controls).forEach(key => {
+      const control = this.accountForm.get(key)
+      if(control){
+        control.markAsTouched()
+      };
+    });
+  }
+  else{
+    console.log('Form data:', this.accountForm.value);
+    this.showError = false;
+  }
 }
 }
