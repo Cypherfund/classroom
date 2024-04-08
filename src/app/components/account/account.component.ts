@@ -28,32 +28,20 @@ export class AccountComponent implements OnInit{
     })
    }
 
-ngOnInit(): void {
-  this.showError = false;
-  this.accountForm =  this.fb.group({
-    fullName: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    timeZone:['', Validators.required],
-    language: ['', Validators.required],
-    currentPassword: ['', Validators.required],
-    newPassword: ['', Validators.required],
-    retryPassword: ['', Validators.required]
-    
-  })
-}
+ngOnInit(): void {}
  
-   get fullName () {
-    return this.accountForm.controls['fullName']
-  }
-  get email () {
-    return this.accountForm.controls['email']
-  }
-  get timeZone () {
-    return this.accountForm.controls['timeZone']
-  }
-  get language () {
-    return this.accountForm.controls['language']
-  }
+  //  get fullName () {
+  //   return this.accountForm.controls['fullName']
+  // }
+  // get email () {
+  //   return this.accountForm.controls['email']
+  // }
+  // get timeZone () {
+  //   return this.accountForm.controls['timeZone']
+  // }
+  // get language () {
+  //   return this.accountForm.controls['language']
+  // }
   get currentPassword () {
     return this.accountForm.controls['currentPassword']
   }
@@ -67,13 +55,14 @@ ngOnInit(): void {
 onSave(): void {
   if(this.accountForm.valid){
      // Form is valid, proceed with saving data
-    console.log('Form date', this.accountForm.value);
+    console.log('Form data:', this.accountForm.value);
     this.showError = false;
   }
   //Form is invalid, display error messages
   else{
     console.log('Form is invalid');
     this.showError = true;
+    this.accountForm.markAllAsTouched();
   }
 }
 onVerifyName(): void{

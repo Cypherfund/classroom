@@ -1,42 +1,42 @@
 <main>
   <div class=" d-flex m-4  justify-content-start align-items-start" style="background: #F0F3FF;flex-direction: column;padding: 50px 100px;">
    <h1>Account</h1>
-   <form [formGroup]="accountForm" novalidate>
+   <form [formGroup]="accountForm" novalidate (ngSubmit)="onSave()">
       <div style="border-bottom:1px solid #000;">
       <div class="d-flex mt-5" style="gap:20px;">
          <div>
-            <label class="font-bold block">{{'Full Name' | translate}}
+            <label for="fullName" class="font-bold block">{{'Full Name' | translate}}
                <br>
-               <input type="text" style="width:500px;height:50px" class="form-control" pInputText formControlName="fullName"/>
+               <input type="text" id="fullName" style="width:500px;height:50px" class="form-control" pInputText formControlName="fullName"/>
             </label>
-            <small *ngIf="showError && fullName.invalid && [fullName.dirty || fullName.touched]" class="text-danger block">Name is required</small>
+            <small *ngIf="showError && accountForm.get('fullName')?.invalid && accountForm.get('fullName')?.dirty" class="text-danger block">Name is required</small>
          </div>
          <div>
-            <label class="font-bold">Email
+            <label for="email" class="font-bold">Email
                <br>
-               <input type="email" style="width:500px;height:50px" class="form-control" formControlName="email"/>
+               <input id="email" type="email" style="width:500px;height:50px" class="form-control" formControlName="email"/>
             </label>
-            <small *ngIf="showError && email.invalid && [email.dirty || email.touched]" class="block">Email is required</small>
+            <small *ngIf="showError && accountForm.get('email')?.invalid && accountForm.get('email')?.dirty" class="block">Email is required</small>
          </div>
          
       </div>
       <div class="d-flex mt-5 mb-5" style="gap:20px;">
          <div>
-            <label class="font-bold">Time Zone
+            <label id="textZone" class="font-bold">Time Zone
                <br>
-               <input type="text" style="width:500px;height:50px" class="form-control" formControlName="timeZone"/>
+               <input type="text" id="textZone" style="width:500px;height:50px" class="form-control" formControlName="timeZone"/>
             </label>
-            <small *ngIf="showError && timeZone.invalid && [timeZone.dirty || timeZone.touched]" class="block">Time Zone is required</small>
+            <small *ngIf="showError && accountForm.get('timeZone')?.invalid &&  accountForm.get('timeZone')?.dirty" class="block">Time Zone is required</small>
          </div>
          <div>
-            <label class="font-bold">Language
+            <label for="language" class="font-bold">Language
                <br>
-               <input style="width:500px;height:50px" class="form-control block" formControlName="language"/>
+               <input style="width:500px;height:50px" id="language" class="form-control block" formControlName="language"/>
             </label>
-            <small *ngIf="showError && language.invalid && [language.dirty || language.touched]" class="block">Language is required</small>
+            <small *ngIf="showError && accountForm.get('language')?.invalid &&  accountForm.get('language')?.dirty" class="block">Language is required</small>
          </div>
       </div>
-      <button styleClass="full-width-button"  [disabled]="accountForm.invalid" class="font-bold mb-5" style="color: 
+      <button type="submit" [disabled]="accountForm.invalid" class="font-bold mb-5" style="color: 
       #A632DC;width:141px;height:47px;font-size:20px" (click)="onSave()">Save</button>
       </div>
       <div class="mt-5 " style="border-bottom:1px solid #000;">
