@@ -1,0 +1,41 @@
+::ng-deep a {
+  color: rgba(0, 0, 0, 1);
+  text-decoration: none;
+}
+::ng-deep .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
+  width: 20px;
+  height: 20px;
+  transition-duration: 0.2s;
+}
+::ng-deep .p-radiobutton .p-radiobutton-box.p-highlight {
+  background: rgba(105, 105, 132, 1);
+  border: 1.5px solid rgba(105, 105, 132, 1);
+}
+::ng-deep .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+  border: 2px  var(--main-color-shade-1);
+  background-color: var(--main-color-shade-1);
+}
+::ng-deep  .p-radiobutton-label {
+  margin-left: 5rem;
+}
+::ng-deep span.ng-star-inserted{
+  margin-left: 0.6rem;
+}
+//::ng-deep .p-contextmenu .p-menuitem > .p-menuitem-content {
+//  color: #4b5563;
+//  transition: box-shadow 0.2s;
+//  border-radius: 0;
+//  padding:1rem;
+//}
+.categories-card{
+  height: 20px;
+}
+::ng-deep .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight.p-focus {
+  background: var(--main-color-shade-1);
+  border: 2px var(--main-color-shade-1);
+}
+
+::ng-deep .p-input-filled .p-radiobutton .p-radiobutton-box {
+  background-color: var(--main-color-shade-1);
+}
+

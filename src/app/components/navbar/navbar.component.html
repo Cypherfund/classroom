@@ -1,30 +1,19 @@
 <nav class="navbar navbar-expand-lg p-3 fw-light text-white">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">LOGO</a>
+    <a class="navbar-brand text-white text-start" href="#">LOGO</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{'Browse' | translate}}
+            {{'Explore' | translate}}
           </a>
           <ul class="dropdown-menu text-dark">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <form class="d-flex" role="search">
-            <input class="form-control rounded-start-3 border-white rounded-end-0 p-inputtext-sm search text-sm-start"
-                   type="search"
-                   placeholder="{{'search' | translate}}"
-                   aria-label="Search">
-            <em class="pi pi-search text-black bg-white p-2 rounded-start-0 rounded-end-3" (click)="searchNav()"></em>
-          </form>
         </li>
         <li class="nav-item mt-2">{{'become_inst' | translate}}</li>
         <li class="nav-item mt-2">
