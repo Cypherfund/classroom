@@ -37,7 +37,7 @@
          </div>
       </div>
       <button type="submit" [disabled]="accountForm.invalid" class="font-bold mb-5" style="color: 
-      #A632DC;width:141px;height:47px;font-size:20px" (click)="onSave()">Save</button>
+      #A632DC;width:141px;height:47px;font-size:20px" >Save</button>
       </div>
       <div class="mt-5 " style="border-bottom:1px solid #000;">
          <h2>Name Verification</h2>
@@ -46,7 +46,11 @@
          <button label="Verify My name" class="font-bold mb-5" style="color: 
          #A632DC;width:200px;height:50px;font-size:20px" [disabled]="accountForm.invalid" (click)="onVerifyName()">Verify My name</button>
         </div>
-        <div style="border-bottom: 1px solid #000;">
+        
+   </form>
+
+   <form [formGroup]="accountForm" novalidate (ngSubmit)="onChangePassword()">
+      <div style="border-bottom: 1px solid #000;">
          <h2>Password</h2>
          <div class="d-flex mb-3" style="gap: 20px">
             <div>
@@ -68,8 +72,8 @@
             <input class=" mb-3" style="width:1020px;height:55px" type="password" name="retryPassword" id="retryPassword" >   
             <small *ngIf="showError && accountForm.get('retryPassword')?.invalid && accountForm.get('retryPassword')?.dirty" class="block">Password mismatch</small>
          </div>
-         <button class="font-bold mb-5" style="color: 
-         #A632DC;width:200px;height:55px;font-size:20px" [disabled]="accountForm.invalid" (click)="onChangePassword()">Change Password</button>
+         <button type="submit" class="font-bold mb-5" style="color: 
+         #A632DC;width:200px;height:55px;font-size:20px" [disabled]="accountForm.invalid">Change Password</button>
         </div>
         <div class="mt-5">
          <h3>Two factor Authentication (BETA)</h3>

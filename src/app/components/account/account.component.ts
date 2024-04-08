@@ -16,14 +16,15 @@ export class AccountComponent implements OnInit{
     private router :Router
    ) {
     this.showError = false;
+    const pattern= /^(?=[^A-Z]*[A-Z])(?=[a-z]*[a-z])(?=\D*\d).{8,}$/;
     this.accountForm =  this.fb.group({
       fullName: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
       email: ['', [Validators.required, Validators.email]],
       timeZone:['', Validators.required],
       language: ['', Validators.required],
       currentPassword: ['', Validators.required],
-      newPassword: ['', Validators.required],
-      retryPassword: ['', Validators.required]
+      newPassword: ['', [Validators.required, Validators.pattern(pattern)]],
+      retryPassword: ['', Validators.required],
       
     })
    }
