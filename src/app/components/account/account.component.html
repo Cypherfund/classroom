@@ -56,21 +56,29 @@
             <div>
                <label class="font-bold" for="cPassword">Current Password</label>
                <br>
-               <input style="width:500px;height:50px" type="password" name="cPassword" id="cPassword" >      
-               <small *ngIf="accountForm.get('currentPassword')?.invalid && accountForm.get('currentPassword')?.touched && accountForm.get('currentPassword')?.pristine || !showError" class="text-danger block">Password not found</small>
+               <input style="width:500px;height:50px" type="password" name="cPassword" id="cPassword" class="form-control" formControlName="currentPassword">      
+               <small *ngIf="accountForm.get('currentPassword')?.invalid && accountForm.get('currentPassword')?.touched" class="text-danger block">Password not found</small>
             </div>
             <div>
                <label class="font-bold" for="newPassword">New Password</label>
                <br>
-               <input style="width:500px;height:50px" type="password" name="newPassword" id="newPassword" >
-               <small *ngIf="accountForm.get('newPassword')?.invalid && accountForm.get('newPassword')?.touched || !showError " class="text-danger block">Enter a valid password</small>
+               <input style="width:500px;height:50px" type="password" name="newPassword" id="newPassword" class="form-control" formControlName="newPassword">
+               <small *ngIf="accountForm.get('newPassword')?.invalid && accountForm.get('newPassword')?.touched" class="text-danger block">
+                  <span> Password should contain at least 8 characters.</span>
+                  <br>
+                  <span>one uppercase letter.</span>
+                  <br>
+                  <span>one lowercase letter.</span>
+                  <br>
+                  <span>one number.</span>
+               </small>
             </div>
          </div>
          <div>
             <label class="font-bold" for="retryPassword">Retry Password</label>
             <br>
-            <input class=" mb-3" style="width:1020px;height:55px" type="password" name="retryPassword" id="retryPassword" >   
-            <small *ngIf="accountForm.get('retryPassword')?.invalid && accountForm.get('retryPassword')?.touched || !showError" class="text-danger block">Password mismatch</small>
+            <input style="width:1020px;height:55px" type="password" name="retryPassword" id="retryPassword" class="form-control mb-3" formControlName="retryPassword">   
+            <small *ngIf="accountForm.hasError('passwordsNotMatch') && (accountForm.get('retryPassword')?.dirty || accountForm.get('retryPassword')?.touched)" class="text-danger block">Password mismatch</small>
          </div>
          <button type="submit" class="font-bold mb-5" style="color: 
          #A632DC;width:200px;height:55px;font-size:20px" [disabled]="accountForm.invalid">Change Password</button>

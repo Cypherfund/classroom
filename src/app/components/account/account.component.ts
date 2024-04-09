@@ -24,13 +24,33 @@ export class AccountComponent implements OnInit{
       language: ['', Validators.required],
       currentPassword: ['', Validators.required],
       newPassword: ['', [Validators.required, Validators.pattern(pattern)]],
-      retryPassword: ['', Validators.required],
-      
+      retryPassword: ['', [Validators.required, this.matchPassword.bind(this)]],
+    },{
+      validators: this.passwordsMatchValidator
     })
    }
 
 ngOnInit(): void {}
- 
+
+passwordsMatchValidator(control: FormGroup): ValidationErrors | null {
+  const newPassword = control.get('newPassword');
+  const retryPassword = control.get('retryPassword');
+
+  if(newPassword && retryPassword && newPassword.value !== retryPassword.value){
+return {passwordsNotMatch: true}
+  }
+  return null;
+}
+
+matchPassword(control: AbstractControl): ValidationErrors | null {
+  const newPassword = control.get("newPassword");
+  const retryPassword = control.get("retryPassword");
+  if(newPassword && retryPassword && newPassword.value !== retryPassword && retryPassword.value !== ''){
+    return {passwordMismatch: true}
+  }
+  return null
+}
+
    get fullName () {
     return this.accountForm.controls['fullName']
   }
