@@ -111,4 +111,7 @@ onChangePassword(): void{
     this.showError = false;
   }
 }
+enableTwoFactorAuthentication(): void{
+
+}
 }
