@@ -10,4 +10,8 @@ export class LocalStorageService {
   set(key: string, value: string) {
     localStorage.setItem(key, value);
   }
+  getToken(key: string): any {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+  }
 }

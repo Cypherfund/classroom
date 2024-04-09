@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Course, CourseDetail, Courses} from "../../models/course";
 import {environment} from "../../../environments/environment.development";
+import {CourseTopicsDTO} from "../../models/courseTopics";
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,14 @@ export class CourseService {
       `${this.privateUrl}/courses/${id}`
     )
   }
+  saveCourseTopic(payload: CourseTopicsDTO, courseId: number, token: string): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    });
+    return this.http.post<any>(`${this.privateUrl}/courses/${courseId}/topics`,payload, {
+      headers: headers
+    })
+  }
+
 }
