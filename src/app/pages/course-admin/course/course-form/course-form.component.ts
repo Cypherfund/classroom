@@ -104,11 +104,6 @@ export class CourseFormComponent {
     console.log(payload)
   }
 
-  getSelected(){
-
-  }
-
-
   saveCourseTopics(){
     this.loader = true
     const payload: CourseTopicsDTO = {
@@ -137,8 +132,5 @@ export class CourseFormComponent {
   onSelectContentType() {
     const selectedIndex =
       this.courseLessonForm.value.contentType
-      console.log(selectedIndex)
-    // this.showInputField = selectedIndex === 1;
-    // Show input field when 'option2' is selected
   }
 }

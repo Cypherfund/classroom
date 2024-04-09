@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>New Course</h1>
+  <h3>Add Course</h3>
   <div class="courseData">
     <form [formGroup]="courseForm" (ngSubmit)="onSubmit()" >
       <div class="mb-3">
@@ -115,7 +115,20 @@
             Has Real World Projects
           </label>
         </div>
-
+      </div>
+      <div class="mb-3 d-flex">
+        <div class="w-75">
+          <label class="form-label" for="name">Course Title</label>
+          <input aria-label=".form-control-sm example"
+                 formControlName=""
+                 class="form-control form-control-sm" id="targetAudience"
+                 placeholder="Enter a course audience" type="text">
+        </div>
+        <div class="w-25">
+          <label></label>
+          <button class="btn bg-purple text-white mb-2 text-center" type="submit"
+          ><span class="me-2 pi pi-plus"></span>Add</button>
+        </div>
       </div>
       <div class="mb-3">
         <label class="form-label" for="level">Level</label>
