@@ -112,7 +112,7 @@ export class CourseFormComponent {
       name: this.courseTopicForm.value.name,
       position: this.courseTopicForm.value.position
     }
-    this.token = this.localStorageService.getToken('data').token
+    this.token = this.localStorageService.get('token')
     console.log(payload)
     const sub = this.courseService.saveCourseTopic(payload, payload.courseId, this.token).subscribe(
       res => {
