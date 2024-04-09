@@ -112,6 +112,7 @@ onChangePassword(): void{
   }
 }
 enableTwoFactorAuthentication(): void{
+console.log('Two factor authentication enabled');
 
 }
 }
