@@ -1,4 +1,23 @@
 <main>
+  
+<div class="sidebar p-4" [ngClass]="{'sidebar-visible':'sidebarVisible'}">
+    
+   <div class="sidebar-content">
+    <p-splitButton label="Account" icon="pi pi-user" [routerLink]="['/account']" styleClass="first-splitbutton"></p-splitButton>
+    <br>
+    <p-splitButton label="Payment" icon="pi pi-credit-card" [routerLink]="['/payment']" styleClass="first-splitbutton"></p-splitButton>
+    <br>
+    <p-splitButton label="Communication Preferences" icon="pi pi-envelope"  styleClass="first-splitbutton"></p-splitButton>
+    <br>
+    <p-splitButton label="Notes & Highlights" icon="pi pi-pencil"  styleClass="first-splitbutton"></p-splitButton>
+    <br>
+    <p-splitButton label="Calendar Sync" icon="pi pi-calendar"  styleClass="first-splitbutton"></p-splitButton>
+    <br>
+    <p-splitButton label="Transaction" icon="pi pi-list" [routerLink]="['/transaction']" styleClass="secound-splitbutton"></p-splitButton>
+</div>
+
+</div>
+
   <div class=" d-flex m-4  justify-content-start align-items-start" style="background: #F0F3FF;flex-direction: column;padding: 50px 100px;">
    <h1>Account</h1>
    <form [formGroup]="accountForm" novalidate (ngSubmit)="onSave()">

@@ -50,6 +50,7 @@ import { CourseHomeCardComponent } from './components/course-home-card/course-ho
 import { ButtonModule } from 'primeng/button';
 import { ComponentModule } from './components/component.module';
 import { AccountComponent } from './components/account/account.component';
+import { RouterModule, Routes } from '@angular/router';
 
 import { CoursesComponent } from './pages/courses/courses.component';
 import { PanelMenuModule } from 'primeng/panelmenu';
@@ -109,6 +110,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule, 
     AppRoutingModule,
     DropdownModule,
     RadioButtonModule,

@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
 import {CourseService} from "../../services/course-service/course.service";
 import {Courses, Data} from "../../models/course";
-<<<<<<< HEAD
+import { Router } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
-=======
-import {Router} from "@angular/router";
->>>>>>> 3e2d245e363e16e91e1428a60b4173f64cecd9bb
 
 @Component({
   selector: 'app-homepage',
@@ -21,11 +18,8 @@ export class HomepageComponent {
   courses: Data[] = []
 
   constructor( private courseService: CourseService,
-<<<<<<< HEAD
-               private userService: UserService) {
-=======
+               private userService: UserService,
                private router: Router) {
->>>>>>> 3e2d245e363e16e91e1428a60b4173f64cecd9bb
   }
 
   ngOnInit(){
