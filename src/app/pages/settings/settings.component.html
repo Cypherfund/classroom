@@ -1,24 +1,122 @@
 <app-navbar></app-navbar>
 <!-- Create the side bar layout -->
-<div class="sidebar p-4" [ngClass]="{'sidebar-visible':'sidebarVisible'}">
+<main>
+  
+    <div class="sidebar p-4" [ngClass]="{'sidebar-visible':'sidebarVisible'}">
+        
+       <div class="sidebar-content">
+        <p-splitButton label="Account" icon="pi pi-user" [routerLink]="['/account']" styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Payment" icon="pi pi-credit-card" [routerLink]="['/payment']" styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Communication Preferences" icon="pi pi-envelope"  styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Notes & Highlights" icon="pi pi-pencil"  styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Calendar Sync" icon="pi pi-calendar"  styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Transaction" icon="pi pi-list" [routerLink]="['/transaction']" styleClass="secound-splitbutton"></p-splitButton>
+    </div>
     
-    <!-- This button serves as a toggle button to show/hide the sidebar. -->
-    <!-- <button type="button" pButton icon="pi pi-bars" (click)="toggleSideBar()" class="p-button p-button-rounded"></button> -->
-   
-    <!-- This div contains the content of the sidebar. -->
-   <div class="sidebar-content">
-    <p-splitButton label="Account" icon="pi pi-user" [routerLink]="['/account']" styleClass="first-splitbutton"></p-splitButton>
-    <br>
-    <p-splitButton label="Payment" icon="pi pi-credit-card" [routerLink]="['/payment']" styleClass="first-splitbutton"></p-splitButton>
-    <br>
-    <p-splitButton label="Communication Preferences" icon="pi pi-envelope"  styleClass="first-splitbutton"></p-splitButton>
-    <br>
-    <p-splitButton label="Notes & Highlights" icon="pi pi-pencil"  styleClass="first-splitbutton"></p-splitButton>
-    <br>
-    <p-splitButton label="Calendar Sync" icon="pi pi-calendar"  styleClass="first-splitbutton"></p-splitButton>
-    <br>
-    <p-splitButton label="Transaction" icon="pi pi-list" [routerLink]="['/transaction']" styleClass="secound-splitbutton"></p-splitButton>
-</div>
-
-      
-</div>
+    </div>
+    
+      <div class=" d-flex m-3  justify-content-start align-items-start" style="background: #F0F3FF;flex-direction: column;padding: 50px 100px;">
+       <h1>Account</h1>
+       <form [formGroup]="accountForm" novalidate (ngSubmit)="onSave()">
+          <div style="border-bottom:1px solid #000;">
+          <div class="d-flex mt-5" style="gap:20px;">
+             <div>
+                <label for="fullName" class="font-bold block">{{'Full Name' | translate}}
+                   <br>
+                   <input type="text" id="fullName" style="width:500px;height:50px" class="form-control" pInputText formControlName="fullName"/>
+                </label>
+                <small *ngIf="accountForm.get('fullName')?.invalid && accountForm.get('fullName')?.touched || showError" class="text-danger block">Name is required</small>
+             </div>
+             <div>
+                <label for="email" class="font-bold">Email
+                   <br>
+                   <input id="email" type="email" style="width:500px;height:50px" class="form-control" formControlName="email"/>
+                </label>
+                <small *ngIf="accountForm.get('email')?.invalid && accountForm.get('email')?.touched || showError " class="text-danger block">Email is required</small>
+             </div>
+             
+          </div>
+          <div class="d-flex mt-5 mb-5" style="gap:20px;">
+             <div>
+                <label id="textZone" class="font-bold">Time Zone
+                   <br>
+                   <input type="text" id="textZone" style="width:500px;height:50px" class="form-control" formControlName="timeZone"/>
+                </label>
+                <small *ngIf="accountForm.get('timeZone')?.invalid && accountForm.get('timeZone')?.touched || showError " class="text-danger block">Time Zone is required</small>
+             </div>
+             <div>
+                <label for="language" class="font-bold">Language
+                   <br>
+                   <input style="width:500px;height:50px" id="language" class="form-control block" formControlName="language"/>
+                </label>
+                <small *ngIf="accountForm.get('language')?.invalid &&  accountForm.get('language')?.touched || showError" class="text-danger block">Language is required</small>
+             </div>
+          </div>
+          <button type="submit" [disabled]="accountForm.invalid || accountForm.pristine" class="font-bold mb-5" style="color: 
+          #A632DC;width:141px;height:47px;font-size:20px" >Save</button>
+          </div>
+         
+       </form>
+       <form [formGroup]="accountForm" novalidate (ngSubmit)="onVerifyName()">
+          <div class="mt-5 " >
+             <h2>Name Verification</h2>
+             <p>Verify your real name to make sure you’re able to receive a certificate when you complete a course or Specialization.</p>
+             <br>
+             <button type="submit" class="font-bold mb-5" style="color: 
+             #A632DC;width:200px;height:50px;font-size:20px" [disabled]="accountForm.invalid">Verify My name</button>
+            </div>
+       </form>
+    
+       <form [formGroup]="accountForm" novalidate (ngSubmit)="onChangePassword()">
+          <div style="border-bottom: 1px solid #000;border-top: 1px solid #000;">
+             <h2>Password</h2>
+             <div class="d-flex mb-3" style="gap: 20px">
+                <div>
+                   <label class="font-bold" for="cPassword">Current Password</label>
+                   <br>
+                   <input style="width:500px;height:50px" type="password" name="cPassword" id="cPassword" class="form-control" formControlName="currentPassword">      
+                   <small *ngIf="accountForm.get('currentPassword')?.invalid && accountForm.get('currentPassword')?.touched" class="text-danger block">Password not found</small>
+                </div>
+                <div>
+                   <label class="font-bold" for="newPassword">New Password</label>
+                   <br>
+                   <input style="width:500px;height:50px" type="password" name="newPassword" id="newPassword" class="form-control" formControlName="newPassword">
+                   <small *ngIf="accountForm.get('newPassword')?.invalid && accountForm.get('newPassword')?.touched" class="text-danger block">
+                      <span>For your password to be strong:</span>
+                      <ul>
+                      <li>Add at least 8 characters.</li>
+                      <li>Add at least one uppercase letter.</li>
+                      <li>Add at least one lowercase letter.</li>
+                      <li>Add at least one number.</li>
+                      </ul>
+                   </small>
+                </div>
+             </div>
+             <div>
+                <label class="font-bold" for="retryPassword">Retry Password</label>
+                <br>
+                <input style="width:1020px;height:55px" type="password" name="retryPassword" id="retryPassword" class="form-control mb-3" formControlName="retryPassword">   
+                <small *ngIf="accountForm.hasError('passwordsNotMatch') && (accountForm.get('retryPassword')?.dirty || accountForm.get('retryPassword')?.touched)" class="text-danger block mb-2">Password mismatch</small>
+             </div>
+             <button type="submit" class="font-bold mb-5" style="color: 
+             #A632DC;width:200px;height:55px;font-size:20px" [disabled]="accountForm.invalid || accountForm.pristine"  >Change Password</button>
+            </div>     
+       </form>
+       <form [formGroup]="accountForm" novalidate (ngSubmit)="enableTwoFactorAuthentication()">
+          <div class="mt-5">
+             <h3>Two factor Authentication (BETA)</h3>
+             <p>Two Factor Authentication adds an additional layer of security to your Coursera account. Each time you log in to the Platform, you will be asked to enter a unique code that is only available on your mobile phone. This extra protection ensures that you are the only one who will have access to your Course account and courses.</p>
+             <br>
+             <button class="font-bold"  style="color: 
+             #A632DC;width:400px;height:50px;font-size: 20px;">Enable Two-Factor Authentication?</button>
+            </div>
+       </form>
+      </div>>
+    </main>
+    
+    
