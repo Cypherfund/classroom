@@ -51,6 +51,10 @@ import { ButtonModule } from 'primeng/button';
 import { ComponentModule } from './components/component.module';
 import { AccountComponent } from './components/account/account.component';
 
+import { CoursesComponent } from './pages/courses/courses.component';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { RadioButtonModule } from 'primeng/radiobutton';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -96,7 +100,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     DateFormatPipe,
     CourseHomeCardComponent,
     DateFormatPipe,
-    AccountComponent
+    AccountComponent,
+    CourseHomeCardComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +111,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     AppRoutingModule,
     DropdownModule,
+    RadioButtonModule,
     BrowserAnimationsModule,
     MenubarModule,
     CardModule,
@@ -137,6 +144,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AccordionModule,
     SplitButtonModule,
     ProgressBarModule,
+    PanelMenuModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

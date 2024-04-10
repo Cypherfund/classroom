@@ -8,6 +8,7 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { SettingsComponent } from './pages/settings/settings.component';
 import {CourseDetailsPageComponent} from "./pages/course-details-page/course-details-page.component";
 import { AccountComponent } from './components/account/account.component';
+import {CoursesComponent} from "./pages/courses/courses.component";
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'course-admin', loadChildren: () => import('./pages/course-admin/course-admin.module').then(m => m.CourseAdminModule) },
   { path:'about', component:AboutCourseComponent},
   { path: 'settings', component:SettingsComponent},
-  { path: 'account', component:AccountComponent}
+  { path: 'account', component:AccountComponent},
+  { path: 'courses', component: CoursesComponent}
 ];
 
 @NgModule({
