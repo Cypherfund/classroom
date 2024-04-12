@@ -1,22 +1,23 @@
 <app-navbar></app-navbar>
-<section class="container-fluid text-white">
+<section class="container-fluid text-white px-5 pt-4 first-section">
   <div class="">
     <p-breadcrumb class="max-w-full bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="items"
                   [home]="home"></p-breadcrumb>
   </div>
-  <div class="row pb-3 pt-3 ps-5 pe-5">
-    <div class="col-md-6 desc text-dark p-5">
+  <div class="row pb-3 pt-3 ps-5 pe-5 px-5">
+    <div class="col-md-6 text-dark p-5">
       <h4 class="fw-semibold pb-4">{{course.name}}</h4>
       <div class="d-flex pt-3 pb-3">
         <form [formGroup]="formGroup">
-          <p-rating formControlName="value"></p-rating>
+          <span>{{formGroup['value'].rating}}  </span>
+          <p-rating formControlName="value" [cancel]="false" [readonly]="true"></p-rating>
         </form>
         <span class="ms-2 me-2">({{course.numberOfRatings}} {{'ratings' | translate}})</span>
         <span class="ms-2 me-2">{{course.instructors?.numberOfStudents}} {{'students' | translate}}</span>
       </div>
 
-      <p>{{'Created_by' | translate}} <span class="ms-2 fw-bolder">{{course.instructors?.instructorName}}</span></p>
-    <div class="course-higlight fw-light text-wrap me-5">
+      <p>{{'Created_by' | translate}} <span class="mb-5 fw-bolder">{{course.instructors?.instructorName}}</span></p>
+    <div class="course-higlight fw-light text-wrap me-5 courseDesc">
       {{course.description}}
     </div>
     <p class="pt-3 pb-3">{{'Price' | translate}}: <span class="fw-bolder fs-5">{{course.price}}</span></p>
@@ -39,5 +40,8 @@
 </section>
 <section>
   <app-course-tab-details-page [course]="course"></app-course-tab-details-page>
+</section>
+<section>
+  <app-carousel-courses [carouselType]="'courses'"></app-carousel-courses>
 </section>
 <app-footer></app-footer>
