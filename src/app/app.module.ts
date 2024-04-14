@@ -41,7 +41,7 @@ import { SafePipe } from './pipe/DomSanitiser/safe.pipe';
 import { FooterComponent } from './components/footer/footer.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { TableModule } from 'primeng/table';
-import { SettingsComponent } from './pages/settings/settings.component';
+import { SettingsComponent } from './settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";

@@ -5,7 +5,7 @@ import {AboutCourseComponent} from "./pages/course-tab-details-page/about-course
 import {ShoppingCartComponent} from "./pages/shopping-cart/shopping-cart.component";
 import {PaymentsComponent} from "./pages/payments/payments.component";
 import { TransactionComponent } from './components/transaction/transaction.component';
-import { SettingsComponent } from './pages/settings/settings.component';
+import { SettingsComponent } from './settings/settings.component';
 import {CourseDetailsPageComponent} from "./pages/course-details-page/course-details-page.component";
 import { AccountComponent } from './components/account/account.component';
 import {CoursesComponent} from "./pages/courses/courses.component";
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path:'transaction', component: TransactionComponent},
   { path:'about', component: AboutCourseComponent},
   { path: 'course_detail/:id', component: CourseDetailsPageComponent},
-  { path: 'settings', component: SettingsComponent},
+  { path: 'settings',loadChildren: ()=> import('./settings/settings.module').then(m =>m.SettingsModule)},
   { path: 'course-admin', loadChildren: () => import('./pages/course-admin/course-admin.module').then(m => m.CourseAdminModule) },
   { path:'about', component:AboutCourseComponent},
   { path: 'settings', component:SettingsComponent},
