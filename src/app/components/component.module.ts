@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { CommunicationComponent } from './communication/communication.component';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, CommunicationComponent],
   imports: [
     CommonModule,
     TranslateModule.forChild(),
