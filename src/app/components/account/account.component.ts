@@ -11,25 +11,24 @@ export class AccountComponent implements OnInit{
     accountForm: FormGroup;
     showError: boolean = false;
   
-   constructor(
-    private fb: FormBuilder,
-    private router :Router
-   ) {
-    this.showError = false;
-    const pattern= /^(?=[^A-Z]*[A-Z])(?=[a-z]*[a-z])(?=\D*\d).{8,}$/;
-    this.accountForm =  this.fb.group({
-      fullName: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
-      email: ['', [Validators.required, Validators.email]],
-      timeZone:['', Validators.required],
-      language: ['', Validators.required],
-      currentPassword: ['', Validators.required],
-      newPassword: ['', [Validators.required, Validators.pattern(pattern)]],
-      retryPassword: ['', [Validators.required, this.matchPassword.bind(this)]],
-    },{
-      validators: this.passwordsMatchValidator
-    })
-   }
-
+    constructor(
+      private fb: FormBuilder,
+      private router :Router
+     ) {
+      this.showError = false;
+      const pattern= /^(?=[^A-Z]*[A-Z])(?=[a-z]*[a-z])(?=\D*\d).{8,}$/;
+      this.accountForm =  this.fb.group({
+        fullName: ['', [Validators.required,Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+        email: ['', [Validators.required, Validators.email]],
+        timeZone:['', Validators.required],
+        language: ['', Validators.required],
+        currentPassword: ['', Validators.required],
+        newPassword: ['', [Validators.required, Validators.pattern(pattern)]],
+        retryPassword: ['', [Validators.required, this.matchPassword.bind(this)]],
+      },{
+        validators: this.passwordsMatchValidator
+      })
+     } 
 ngOnInit(): void {}
 
 passwordsMatchValidator(control: FormGroup): ValidationErrors | null {

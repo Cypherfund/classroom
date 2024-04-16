@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,9 @@ import { NgForm } from '@angular/forms';
   templateUrl: './communication.component.html',
   styleUrl: './communication.component.scss'
 })
+
 export class CommunicationComponent {
+  // @Input() messageFromParent:string 
 preferences ={
   email: false,
   sms:false

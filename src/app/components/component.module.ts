@@ -14,6 +14,6 @@ import { CommunicationComponent } from './communication/communication.component'
     TranslateModule.forChild(),
     RouterModule.forChild([])
   ],
-  exports: [NavbarComponent]
+  exports: [NavbarComponent,CommunicationComponent]
 })
 export class ComponentModule { }

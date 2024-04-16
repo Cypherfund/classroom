@@ -111,6 +111,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     RouterModule, 
+    RouterModule.forRoot([]),
     AppRoutingModule,
     DropdownModule,
     RadioButtonModule,
