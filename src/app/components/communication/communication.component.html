@@ -1,0 +1,21 @@
+<main class="m-4">
+    <div>
+        <h2>Communication Preferences</h2>
+        <form (ngSubmit)="savePreferences()" >
+            <div>
+                <label>
+                    <input type="checkbox" name="email" >
+                    Receive Email Notifications
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" name="sms" >
+                    Receive SMS Notifications
+                </label>
+            </div>
+            <button type="submit"> Save Preferences</button>
+
+        </form>
+    </div>
+</main>

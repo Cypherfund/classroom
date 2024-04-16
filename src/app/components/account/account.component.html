@@ -1,6 +1,5 @@
 <main>
-  
-  <div class=" d-flex m-3  justify-content-start align-items-start" style="background: #F0F3FF;flex-direction: column;padding: 50px 100px;">
+  <div class=" d-flex m-0  justify-content-start align-items-start" style="background: #F0F3FF;flex-direction: column;padding: 50px 100px;">
    <h1>Account</h1>
    <form [formGroup]="accountForm" novalidate (ngSubmit)="onSave()">
       <div style="border-bottom:1px solid #000;">
@@ -8,14 +7,14 @@
          <div>
             <label for="fullName" class="font-bold block">{{'Full Name' | translate}}
                <br>
-               <input type="text" id="fullName" style="width:500px;height:50px" class="form-control" pInputText formControlName="fullName"/>
+               <input type="text" id="fullName" placeholder="Douanla Tiwa Valdese" style="width:500px;height:50px" class="form-control" pInputText formControlName="fullName"/>
             </label>
             <small *ngIf="accountForm.get('fullName')?.invalid && accountForm.get('fullName')?.touched || showError" class="text-danger block">Name is required</small>
          </div>
          <div>
             <label for="email" class="font-bold">Email
                <br>
-               <input id="email" type="email" style="width:500px;height:50px" class="form-control" formControlName="email"/>
+               <input id="email" type="email" style="width:500px;height:50px" class="form-control" formControlName="email" placeholder="tiwaval7@gmail.com"/>
             </label>
             <small *ngIf="accountForm.get('email')?.invalid && accountForm.get('email')?.touched || showError " class="text-danger block">Email is required</small>
          </div>
@@ -25,14 +24,20 @@
          <div>
             <label id="textZone" class="font-bold">Time Zone
                <br>
-               <input type="text" id="textZone" style="width:500px;height:50px" class="form-control" formControlName="timeZone"/>
+               <select id="textZone" style="width:500px;height:50px;background: #F0F3FF;" class="form-control" formControlName="timeZone">
+                  <option >GMT + 1</option>
+                  <option >GMT + 2</option>
+               </select>
             </label>
             <small *ngIf="accountForm.get('timeZone')?.invalid && accountForm.get('timeZone')?.touched || showError " class="text-danger block">Time Zone is required</small>
          </div>
          <div>
             <label for="language" class="font-bold">Language
                <br>
-               <input style="width:500px;height:50px" id="language" class="form-control block" formControlName="language"/>
+               <select style="width:500px;height:50px;background: #F0F3FF" id="language" class="form-control block" formControlName="language" >
+                  <option value="EN">English</option>
+                  <option value="FR">French</option>
+               </select>
             </label>
             <small *ngIf="accountForm.get('language')?.invalid &&  accountForm.get('language')?.touched || showError" class="text-danger block">Language is required</small>
          </div>
@@ -44,11 +49,11 @@
    </form>
    <form [formGroup]="accountForm" novalidate (ngSubmit)="onVerifyName()">
       <div class="mt-5 " >
-         <h2>Name Verification</h2>
-         <p>Verify your real name to make sure you’re able to receive a certificate when you complete a course or Specialization.</p>
+         <h2>Email Verification</h2>
+         <p>Verify your real email to make sure you’re able to receive a certificate when you complete a course or Specialization.</p>
          <br>
          <button type="submit" class="font-bold mb-5" style="color: 
-         #A632DC;width:200px;height:50px;font-size:20px" [disabled]="accountForm.invalid">Verify My name</button>
+         #A632DC;width:200px;height:50px;font-size:20px" [disabled]="accountForm.invalid">Verify My email</button>
         </div>
    </form>
 
@@ -96,6 +101,6 @@
          #A632DC;width:400px;height:50px;font-size: 20px;">Enable Two-Factor Authentication?</button>
         </div>
    </form>
-  </div>>
+  </div>
 </main>
 
