@@ -8,7 +8,7 @@ import { Component,OnInit } from '@angular/core';
 export class NotesHightlightsComponent implements OnInit{
 
   notes: {id:number, content:string}[]= []
-  hightlights: {id:number, content:string}[]= []
+  highlights: {id:number, content:string}[]= []
 
   constructor(){ }
 
@@ -24,7 +24,7 @@ this.notes = [
 ]
   }
   initializeHightlights():void{
-    this.hightlights = [
+    this.highlights = [
       {id:1,content:"hello world"},
       {id:2,content:"hey world"}
     ]
@@ -34,12 +34,14 @@ console.log('Editing note',note);
 
   }
   deleteNote(note:{id:number,content:string}): void{
-    
+    console.log('Deleting note',note)
+    this.notes = this.notes.filter(n => n.id !== note.id)
   }
-  editHightlight(note:{id:number,content:string}): void{
-    console.log('Editing hightlight');
+  editHightlight(highlight:{id:number,content:string}): void{
+    console.log('Editing hightlight',highlight);
   }
-  deleteHightlight(note:{id:number,content:string}): void{
-    
+  deleteHightlight(highlight:{id:number,content:string}): void{
+    console.log('Deleting hightlight',highlight);
+    this.highlights = this.highlights.filter(h =>h.id !== highlight.id)
   }
 }

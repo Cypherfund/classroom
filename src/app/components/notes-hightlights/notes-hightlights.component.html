@@ -4,16 +4,16 @@
         <h3>My Notes</h3>
         <div *ngFor="let note of notes">
             <p>{{note.content}}</p>
-            <button (onClick)="editNote">Edit</button>
-            <button (onClick)="deleteNote">Delete</button>
+            <button (click)="editNote(note)">Edit</button>
+            <button (click)="deleteNote(note)">Delete</button>
         </div>
     </div>
     <div>
-        <h3>My Hightlights</h3>
-        <div *ngFor="let highlight of hightlights">
+        <h3>My Highlights</h3>
+        <div *ngFor="let highlight of highlights">
             <p>{{highlight.content}}</p>
-            <button (onClick)="editHightlight">Edit</button>
-            <button (onClick)="deleteHightlight">Delete</button>
+            <button (click)="editHightlight(highlight)">Edit</button>
+            <button (click)="deleteHightlight(highlight)">Delete</button>
         </div>
     </div>
 </div>
