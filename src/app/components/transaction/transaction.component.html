@@ -1,12 +1,12 @@
 
 <!-- This code snippet represents a template for displaying transaction history in a web application. -->
-<div class="container p-5">
+<div class="container p-0" style="width:1000px;">
 <!-- The <h2> element displays the title "Transaction_History".
      This implies that the text is dynamically translated based on the current language/locale of the application. -->
 <h2>{{'Transaction_History' | translate}}</h2>
 
   <!-- The table will display data from the transaction property. -->
-<p-table [value]="transactions">
+<p-table [value]="transactions" styleClass="table">
   <!-- <ng-template> element defines a template for the table header with pTemplate which indicate the table row. -->
   <ng-template pTemplate="header">
     <tr>
