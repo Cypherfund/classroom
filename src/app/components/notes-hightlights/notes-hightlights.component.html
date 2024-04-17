@@ -4,16 +4,20 @@
         <h3>My Notes</h3>
         <div *ngFor="let note of notes">
             <p>{{note.content}}</p>
-            <button (click)="editNote(note)">Edit</button>
-            <button (click)="deleteNote(note)">Delete</button>
+            <button (click)="editNote(note)" class="font-bold btn mt-0 " style="color: 
+            #A632DC;width:80px;height:47px;font-size:20px;border: 1px solid #A632DC;background:#fff;">Edit</button>
+            <button (click)="deleteNote(note)" class="font-bold btn mt-0 ml-2" style="color: 
+            #A632DC;width:100px;height:47px;font-size:20px;border: 1px solid #A632DC;background:#fff;">Delete</button>
         </div>
     </div>
-    <div>
+    <div class="mt-3">
         <h3>My Highlights</h3>
         <div *ngFor="let highlight of highlights">
             <p>{{highlight.content}}</p>
-            <button (click)="editHightlight(highlight)">Edit</button>
-            <button (click)="deleteHightlight(highlight)">Delete</button>
+            <button (click)="editHightlight(highlight)" class="font-bold btn mb-0 " style="color: 
+            #A632DC;width:80px;height:47px;font-size:20px;border: 1px solid #A632DC;background:#fff;">Edit</button>
+            <button (click)="deleteHightlight(highlight)" class="font-bold btn mb-0 ml-2" style="color: 
+            #A632DC;width:100px;height:47px;font-size:20px;border: 1px solid #A632DC;background:#fff;">Delete</button>
         </div>
     </div>
 </div>
