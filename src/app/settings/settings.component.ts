@@ -20,67 +20,14 @@ export class SettingsComponent implements OnInit {
 
 ngOnInit(): void {}
 
-// renderSetting(setting: string): void {
-//   const settings = [
-//       'account', 'payment', 'communication', 'notesHighlights', 'calendarSync', 'transaction'
-//   ];
-
-//   settings.forEach(s => {
-//       this[s] = (s === setting);
-//   });
-// }
 
 renderSetting(setting:string):void{
- 
- if(setting == 'account' ){
-  this.account = true
-  this.payment= false
-  this.communication = false
-  this.notesHighlights = false
-  this.calendarSync = false
-  this.transaction = false
- }
- else if(setting == 'payment'){
-  this.payment= true
-  this.account = false
-  this.communication = false
-  this.notesHighlights = false
-  this.calendarSync = false
-  this.transaction = false
- } 
- else if(setting == 'communication'){
-  this.communication = true
-  this.account = false
-  this.payment= false
-  this.notesHighlights = false
-  this.calendarSync = false
-  this.transaction = false
- } 
- else if(setting == 'notesHighlights'){
-  this.notesHighlights = true
-  this.account = false
-  this.payment= false
-  this.communication = false
-  this.calendarSync = false
-  this.transaction = false
- } 
- else if(setting == 'calendarSync'){
-  
-  this.calendarSync = true
-  this.account = false
-  this.payment= false
-  this.communication = false
-  this.notesHighlights = false
-  this.transaction = false
- } 
- else if(setting == 'transaction'){
-  this.transaction = true
-  this.account = false
-  this.payment= false
-  this.communication = false
-  this.notesHighlights = false
-  this.calendarSync = false
- } 
+  this.account = setting === 'account'
+  this.payment= setting === 'payment'
+  this.communication = setting === 'communication'
+  this.notesHighlights = setting === 'notesHighlights'
+  this.calendarSync = setting === 'calendarSync'
+  this.transaction = setting === 'transaction'
  }
 }
 
