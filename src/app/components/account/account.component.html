@@ -25,9 +25,19 @@
             <label id="textZone" class="font-bold">Time Zone
                <br>
                <select id="textZone" style="width:500px;height:50px;background: #F0F3FF;" class="form-control" formControlName="timeZone">
-                  <option value="" disabled selected>WAT GMT + 1</option>
-                  <option >GMT + 1</option>
-                  <option >GMT + 2</option>
+                  <option value="" disabled selected>West Africa Time (WAT) GMT + 1</option>
+                  <option value="WAT">West Africa Time (WAT) GMT + 1</option>
+                  <option value="CAT">Central Africa Time (CAT) GMT + 2</option>
+                  <option value="EAT">East Africa Time (EAT) GMT + 3</option>
+                  <option value="MUT">Mauritius Standard Time (MUT) GMT + 4</option>
+                  <option value="PKT">Pakistan Standard Time (PKT) GMT + 5</option>
+                  <option value="BST">Bangladesh Standard Time (BST) GMT + 6</option>
+                  <option value="ICT">Indochina Time (ICT) GMT + 7</option>
+                  <option value="CST">China Standard Time (CST) GMT + 8</option>
+                  <option value="JST">Japan Standard Time (JST) GMT + 9</option>
+                  <option value="AEST">Australian Eastern Standard Time (AEST) GMT + 10</option>
+                  <option value="SBT">Solomon Islands Time (SBT) GMT + 11</option>
+                  <option value="NZST">New Zealand Standard Time (NZST) GMT + 12</option>
                </select>
             </label>
             <small *ngIf="accountForm.get('timeZone')?.invalid && accountForm.get('timeZone')?.touched || showError " class="text-danger block">Time Zone is required</small>

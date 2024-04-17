@@ -20,8 +20,19 @@ export class SettingsComponent implements OnInit {
 
 ngOnInit(): void {}
 
+// renderSetting(setting: string): void {
+//   const settings = [
+//       'account', 'payment', 'communication', 'notesHighlights', 'calendarSync', 'transaction'
+//   ];
+
+//   settings.forEach(s => {
+//       this[s] = (s === setting);
+//   });
+// }
+
 renderSetting(setting:string):void{
- if(setting == 'account'){
+ 
+ if(setting == 'account' ){
   this.account = true
   this.payment= false
   this.communication = false
@@ -70,6 +81,6 @@ renderSetting(setting:string):void{
   this.notesHighlights = false
   this.calendarSync = false
  } 
-}
+ }
 }
 
