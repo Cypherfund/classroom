@@ -1,1 +1,10 @@
-<p>calendar-sync works!</p>
+<div>
+    <button (click)="syncWithCalendar()" class="font-bold btn mt-2" style="color: 
+    #A632DC;width:200px;height:47px;font-size:20px;border: 1px solid #A632DC;background:#fff;">Sync with calendar</button>
+    <div *ngIf="isSyncing">
+Syncing
+    </div>
+    <div *ngIf="synError">
+Error syncing with calendar: {{synError}}
+    </div>
+</div>

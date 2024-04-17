@@ -13,7 +13,7 @@
         <br>
         <p-splitButton label="Notes & Highlights" icon="pi pi-pencil" (onClick)="renderSetting('notesHighlights')"  styleClass="first-splitbutton"></p-splitButton>
         <br>
-        <p-splitButton label="Calendar Sync" icon="pi pi-calendar"  styleClass="first-splitbutton"></p-splitButton>
+        <p-splitButton label="Calendar Sync" icon="pi pi-calendar" (onClick)="renderSetting('calendarSync')"  styleClass="first-splitbutton"></p-splitButton>
         <br>
         <p-splitButton label="Transaction" icon="pi pi-list" (onClick)="renderSetting('transaction')" styleClass="secound-splitbutton"></p-splitButton>
     </div>
@@ -24,7 +24,8 @@
        <app-amount *ngIf="account"></app-amount>
        <app-payments *ngIf="payment"></app-payments>
        <app-communication *ngIf="communication"></app-communication>
-       <app-notes-hightlights></app-notes-hightlights>
+       <app-notes-hightlights *ngIf="notesHighlights"></app-notes-hightlights>
+       <app-calendar-sync *ngIf="calendarSync"></app-calendar-sync>
        <app-transaction *ngIf="transaction"></app-transaction>
       </div>
     </main>

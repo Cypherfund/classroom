@@ -16,6 +16,6 @@ import { CalendarSyncComponent } from './calendar-sync/calendar-sync.component';
     TranslateModule.forChild(),
     RouterModule.forChild([])
   ],
-  exports: [NavbarComponent,CommunicationComponent,NotesHightlightsComponent]
+  exports: [NavbarComponent,CommunicationComponent,NotesHightlightsComponent,CalendarSyncComponent]
 })
 export class ComponentModule { }

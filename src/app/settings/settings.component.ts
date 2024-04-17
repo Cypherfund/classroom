@@ -15,6 +15,7 @@ export class SettingsComponent implements OnInit {
   payment:boolean = false;
  communication:boolean = false;
  notesHighlights:boolean = false
+ calendarSync: boolean = false;
  transaction:boolean = false;
 
 ngOnInit(): void {}
@@ -25,6 +26,7 @@ renderSetting(setting:string):void{
   this.payment= false
   this.communication = false
   this.notesHighlights = false
+  this.calendarSync = false
   this.transaction = false
  }
  else if(setting == 'payment'){
@@ -32,6 +34,7 @@ renderSetting(setting:string):void{
   this.account = false
   this.communication = false
   this.notesHighlights = false
+  this.calendarSync = false
   this.transaction = false
  } 
  else if(setting == 'communication'){
@@ -39,6 +42,7 @@ renderSetting(setting:string):void{
   this.account = false
   this.payment= false
   this.notesHighlights = false
+  this.calendarSync = false
   this.transaction = false
  } 
  else if(setting == 'notesHighlights'){
@@ -46,6 +50,16 @@ renderSetting(setting:string):void{
   this.account = false
   this.payment= false
   this.communication = false
+  this.calendarSync = false
+  this.transaction = false
+ } 
+ else if(setting == 'calendarSync'){
+  
+  this.calendarSync = true
+  this.account = false
+  this.payment= false
+  this.communication = false
+  this.notesHighlights = false
   this.transaction = false
  } 
  else if(setting == 'transaction'){
@@ -54,6 +68,7 @@ renderSetting(setting:string):void{
   this.payment= false
   this.communication = false
   this.notesHighlights = false
+  this.calendarSync = false
  } 
 }
 }
