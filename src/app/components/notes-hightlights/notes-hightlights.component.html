@@ -1,1 +1,19 @@
-<p>notes-hightlights works!</p>
+<div>
+    <h2>Notes and Hightlights</h2>
+    <div>
+        <h3>My Notes</h3>
+        <div *ngFor="let note of notes">
+            <p>{{note.content}}</p>
+            <button (onClick)="editNote">Edit</button>
+            <button (onClick)="deleteNote">Delete</button>
+        </div>
+    </div>
+    <div>
+        <h3>My Hightlights</h3>
+        <div *ngFor="let highlight of hightlights">
+            <p>{{highlight.content}}</p>
+            <button (onClick)="editHightlight">Edit</button>
+            <button (onClick)="deleteHightlight">Delete</button>
+        </div>
+    </div>
+</div>

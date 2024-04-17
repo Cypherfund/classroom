@@ -15,6 +15,6 @@ import { NotesHightlightsComponent } from './notes-hightlights/notes-hightlights
     TranslateModule.forChild(),
     RouterModule.forChild([])
   ],
-  exports: [NavbarComponent,CommunicationComponent]
+  exports: [NavbarComponent,CommunicationComponent,NotesHightlightsComponent]
 })
 export class ComponentModule { }
