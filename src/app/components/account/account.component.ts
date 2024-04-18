@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors} from "@angular/forms";
 import { Router } from '@angular/router'; // Import Router
+import { AccountService } from '../../services/account-service/account.service';
 
 @Component({
   selector: 'app-amount',
@@ -10,10 +11,11 @@ import { Router } from '@angular/router'; // Import Router
 export class AccountComponent implements OnInit{
     accountForm: FormGroup;
     showError: boolean = false;
-  
+    userData : any;
     constructor(
       private fb: FormBuilder,
-      private router :Router
+      private router :Router,
+      private accountService: AccountService
      ) {
       this.showError = false;
       const pattern= /^(?=[^A-Z]*[A-Z])(?=[a-z]*[a-z])(?=\D*\d).{8,}$/;
@@ -29,7 +31,16 @@ export class AccountComponent implements OnInit{
         validators: this.passwordsMatchValidator
       })
      } 
-ngOnInit(): void {}
+ngOnInit(): void {
+  this.accountService.getUserData().subscribe((data) =>{
+    this.userData = data
+  },
+  (error) =>{
+   console.error('Error fetching user data:', error);
+   
+  }
+)
+}
 
 passwordsMatchValidator(control: FormGroup): ValidationErrors | null {
   const newPassword = control.get('newPassword');
