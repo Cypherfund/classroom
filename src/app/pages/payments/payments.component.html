@@ -57,19 +57,19 @@
           <small>Summary</small>
           <div>
             <div class="d-flex mb-3">
-              <div class="w-25 me-2">
+              <!-- <div class="w-25 me-2">
                 <img [src]="imageFour" height="75" width="120" alt="product_image"/>
-              </div>
-              <div class="w-75">
-                <h6>Product Design for Beginners</h6>
-                <div class="">By <span class="fw-bolder">Jerry Peters</span></div>
-                <span class="fw-semibold">$50.00</span>
+              </div> -->
+              <div class="w-75" *ngFor="let course of courses">
+                <h6>{{course.name}}</h6>
+                <div class="">By <span class="fw-bolder">{{course.instructors}}</span></div>
+                <span class="fw-semibold">{{course.price}}</span>
               </div>
             </div>
             <div class="d-flex">
-              <div class="w-25 me-2">
+              <!-- <div class="w-25 me-2">
                 <img [src]="imageTwo" height="75" width="120" alt="product_image"/>
-              </div>
+              </div> -->
               <div class="w-75">
                 <h6>Product Design for Beginners</h6>
                 <div class="">By <span class="fw-bolder">Jerry Peters</span></div>
@@ -80,22 +80,22 @@
           <hr/>
           <div class="d-flex justify-content-between">
             <span>Subtotal</span>
-            <span>$100.00</span>
+            <span>{{subtotal}}</span>
           </div>
           <hr/>
           <div class="d-flex justify-content-between">
             <span>Coupon Discount</span>
-            <span>$100.00</span>
+            <span>{{discount}}</span>
           </div>
           <hr/>
           <div class="d-flex justify-content-between">
             <span>Tax</span>
-            <span>$100.00</span>
+            <span>{{tax}}</span>
           </div>
           <hr/>
           <div class="d-flex justify-content-between fw-bold">
             <span>Total</span>
-            <span>$400.00</span>
+            <span>{{total}}</span>
           </div>
         </div>
       </div>

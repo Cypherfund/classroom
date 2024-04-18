@@ -14,6 +14,7 @@ export class ShoppingCartComponent {
 
   cartCourses: any[] = [];
   TotalPayment = 50;
+  discountCoupon: any;
 
   constructor(private cartService: CartService,
               private route: Router,
@@ -23,9 +24,7 @@ export class ShoppingCartComponent {
   }
 
   getTotal(){
-    this.cartCourses.forEach(course => {
-        this.TotalPayment = this.TotalPayment + parseFloat(course.price)
-    });
+    this.TotalPayment = this.cartService.getTotal();
   }
 
   checkout() {

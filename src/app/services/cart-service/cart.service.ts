@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Course } from '../../models/course';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   private courses: any[] = [];
+  private totalPayment = 50;
 
   constructor() {}
 
   // Add a course to the cart
   addToCart(course: any) {
-    if (!this.courses.includes(course)) {
+    if (this.courses.findIndex(course)===-1) {
       this.courses.push(course);
     }
   }
@@ -24,5 +24,13 @@ export class CartService {
   //Remove a course from the cart
   removeFromCart(index: number){
       this.courses.splice(index);
+  }
+
+  //get the total price
+  getTotal(){
+    this.courses.forEach(course => {
+      this.totalPayment = this.totalPayment + parseFloat(course.price)
+    });
+    return this.totalPayment;
   }
 }
