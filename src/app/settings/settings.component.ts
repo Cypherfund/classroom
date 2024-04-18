@@ -30,4 +30,3 @@ renderSetting(setting:string):void{
   this.transaction = setting === 'transaction'
  }
 }
-
