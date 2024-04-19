@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import {AboutCourseComponent} from "./pages/course-tab-details-page/about-course/about-course.component";
-import {ShoppingCartComponent} from "./pages/shopping-cart/shopping-cart.component";
-import {PaymentsComponent} from "./pages/payments/payments.component";
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { SettingsComponent } from './settings/settings.component';
 import {CourseDetailsPageComponent} from "./pages/course-details-page/course-details-page.component";
