@@ -11,7 +11,7 @@ import { AccountService } from '../../services/account-service/account.service';
 export class AccountComponent implements OnInit{
     accountForm: FormGroup;
     showError: boolean = false;
-    userData : any;
+    userData : any = {};
     constructor(
       private fb: FormBuilder,
       private router :Router,
@@ -100,6 +100,17 @@ onSave(): void {
     console.log('Form data:', this.accountForm.value);
     this.showError = false;
   }
+  this.userData = {
+    fullName: 'Douanla Tiwa Valdese',
+    email: 'tiwaval7@gmail.com',
+    timeZone: 'West Africa Time (WAT) GMT + 1',
+    language: 'English'
+  }
+  this.saveUserData(this.userData)
+}
+saveUserData(data:any): void{
+console.log('Saving user data', data);
+
 }
 onVerifyName(): void{
 console.log('Verifying Name...');
