@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
 import {LocalStorageService} from "./services/localstorage/local-storage.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent {
   constructor(translate: TranslateService,
               private route: ActivatedRoute,
               private router: Router,
+              private location: Location,
               private userApiService: UserApiService,
               private stoarageService: LocalStorageService,
               private userService: UserService) {
@@ -29,7 +31,7 @@ export class AppComponent {
   }
 
   private loginUserIfTokenPresent() {
-    const token = new URLSearchParams(window.location.href).get('token');
+    const token = new URLSearchParams(this.location.path(true)).get('token');
     if (!!token) {
       this.userApiService.verifyToken(token).subscribe((response) => {
         if (response.success) {

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
 import {CourseService} from "../../services/course-service/course.service";
 import {Courses, Data} from "../../models/course";
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-homepage',
@@ -17,6 +18,7 @@ export class HomepageComponent {
   courses: Data[] = []
 
   constructor( private courseService: CourseService,
+               private userService: UserService,
                private router: Router) {
   }
 
@@ -31,8 +33,7 @@ export class HomepageComponent {
     })
   }
   isLoggedIn(): boolean {
-    const token = new URLSearchParams(window.location.href).get('token');
-    return !!token;
+    return !!Object.keys(this.userService.user).length;
   }
 
   search(): void {

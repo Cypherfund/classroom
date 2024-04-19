@@ -15,6 +15,20 @@
             <li><a class="dropdown-item" href="#">Another action</a></li>
           </ul>
         </li>
+        <li class="nav-item">
+          <form class="d-flex" role="search">
+            <input class="form-control rounded-start-3 border-white rounded-end-0 p-inputtext-sm search text-sm-start"
+                   type="search"
+                   placeholder="{{'search' | translate}}"
+                   aria-label="Search">
+            <em class="pi pi-search text-black bg-white p-2 rounded-start-0 rounded-end-3" (click)="searchNav()"></em>
+          </form>
+        </li>
+        <li class="nav-item mt-2" >
+          <a routerLink='/course-admin' class="nav-link text-white" role="button" >
+            {{'become_inst' | translate}}
+          </a>
+          </li>
         <li class="nav-item mt-2">{{'become_inst' | translate}}</li>
         <li class="nav-item mt-2">
           <em class="pi pi-shopping-cart"  [routerLink]="['shopping_chart']"></em>
@@ -22,10 +36,13 @@
         <li class="nav-item mt-2 ">
           <em class="pi pi-bell"></em>
         </li>
+        <li class="nav-item rounded-circle rounded-5 text-end na">
+          <a class="text-decoration-none" [routerLink]="['settings']">
+          <img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"></a>
         <li class="nav-item rounded-circle rounded-5">
-          <a class="text-decoration-none" [routerLink]="['settings']"><img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"
+          <!-- <a class="text-decoration-none" [routerLink]="['settings']"><img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"
                style="border-radius:
-          4rem"></a>
+          4rem"></a> -->
         </li>
       </ul>
     </div>
