@@ -1,0 +1,30 @@
+<h1>New Course</h1>
+<div class='d-flex'>
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="title" class="form-control" pInputText id="title" aria-describedby="name-help" formControlName="name" >
+      <small id="name-help">Enter your name of the course.</small>
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select class="form-control" id="status" formControlName='status'>
+        <option *ngFor="let option of ['DRAFT', 'PUBLISHED', 'INACTIVE', 'ARCHIVED']">{{ option }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="description">About</label>
+      <textarea class="form-control" id="description" rows="3" formControlName='description'></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-2" [disabled]="courseForm.invalid">Submit</button>
+
+  </form>
+  <div>
+    <p-buttonGroup>
+      <p-button label="Save" icon="pi pi-check"></p-button>
+      <p-button label="Cancel" icon="pi pi-times" [outlined]="true"></p-button>
+    </p-buttonGroup>
+  </div>
+</div>

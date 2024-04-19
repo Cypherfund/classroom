@@ -17,5 +17,19 @@
   "RealWorld_Projects": "Real-World Projects",
   "Completion_Certificate": "Completion Certificate",
   "includes": "This Course Includes",
-  "months": "months ago"
+  "months": "months ago",
+  "Transaction_History": "Transaction History",
+  "Date": "Date",
+  "Amount": "Amount",
+  "Type": "Type",
+  "Course_Name": "Course_Name",
+  "browse_course": "Browse our top courses",
+  "Trending": "Trending courses",
+  "Upcoming": "Upcoming courses",
+  "Months": "Months",
+  "Sections": "Sections",
+  "Lectures": "Lectures",
+  "Total_Length": "Total Length",
+  "Explore": "Explore"
 }
+
