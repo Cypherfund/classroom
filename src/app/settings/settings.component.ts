@@ -12,7 +12,7 @@ import { Router } from '@angular/router'; // Import Router
 
 export class SettingsComponent implements OnInit {
   account: boolean = true;
-  payment:boolean = false;
+  paymentOption:boolean = false;
  communication:boolean = false;
  notesHighlights:boolean = false
  calendarSync: boolean = false;
@@ -23,7 +23,7 @@ ngOnInit(): void {}
 
 renderSetting(setting:string):void{
   this.account = setting === 'account'
-  this.payment= setting === 'payment'
+  this.paymentOption= setting === 'paymentOption'
   this.communication = setting === 'communication'
   this.notesHighlights = setting === 'notesHighlights'
   this.calendarSync = setting === 'calendarSync'

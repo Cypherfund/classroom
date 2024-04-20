@@ -6,11 +6,12 @@ import { RouterModule } from '@angular/router';
 import { CommunicationComponent } from './communication/communication.component';
 import { NotesHightlightsComponent } from './notes-hightlights/notes-hightlights.component';
 import { CalendarSyncComponent } from './calendar-sync/calendar-sync.component';
+import { PaymentOptionComponent } from './payment-option/payment-option.component';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent, CommunicationComponent, NotesHightlightsComponent, CalendarSyncComponent],
+  declarations: [NavbarComponent, CommunicationComponent, NotesHightlightsComponent, CalendarSyncComponent, PaymentOptionComponent],
   imports: [
     CommonModule,
     TranslateModule.forChild(),
