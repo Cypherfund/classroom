@@ -7,7 +7,7 @@
        <div class="sidebar-content">
         <p-splitButton label="Account" icon="pi pi-user" (onClick)="renderSetting('account')" styleClass="first-splitbutton"></p-splitButton>
         <br>
-        <p-splitButton label="Payment Option" icon="pi pi-credit-card" (onClick)="renderSetting('payment')" styleClass="first-splitbutton"></p-splitButton>
+        <p-splitButton label="Payment Option" icon="pi pi-credit-card" (onClick)="renderSetting('paymentOption')" styleClass="first-splitbutton"></p-splitButton>
         <br>
         <p-splitButton label="Communication Preferences" icon="pi pi-envelope" (onClick)="renderSetting('communication')"  styleClass="first-splitbutton"></p-splitButton>
         <br>
@@ -22,7 +22,7 @@
     
       <div class=" d-flex m-3  justify-content-start align-items-start" style="flex-direction: column;padding: 20px 50px;">
        <app-amount *ngIf="account"></app-amount>
-       <app-payments *ngIf="payment"></app-payments>
+       <app-payment-option *ngIf="paymentOption"></app-payment-option>
        <app-communication *ngIf="communication"></app-communication>
        <app-notes-hightlights *ngIf="notesHighlights"></app-notes-hightlights>
        <app-calendar-sync *ngIf="calendarSync"></app-calendar-sync>

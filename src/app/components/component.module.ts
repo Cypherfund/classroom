@@ -17,6 +17,6 @@ import { PaymentOptionComponent } from './payment-option/payment-option.componen
     TranslateModule.forChild(),
     RouterModule.forChild([])
   ],
-  exports: [NavbarComponent,CommunicationComponent,NotesHightlightsComponent,CalendarSyncComponent]
+  exports: [NavbarComponent,CommunicationComponent,NotesHightlightsComponent,CalendarSyncComponent, PaymentOptionComponent]
 })
 export class ComponentModule { }
