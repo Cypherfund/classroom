@@ -1,3 +1,12 @@
 .input{
   margin-top: 2rem;
 }
+
+.momoImage:hover, .momoImage.active{
+  width: 85px;
+  height: auto;
+  border: 2px solid #A632DC;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}

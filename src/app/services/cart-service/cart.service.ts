@@ -11,7 +11,9 @@ export class CartService {
 
   // Add a course to the cart
   addToCart(course: any) {
-    if (this.courses.findIndex(course)===-1) {
+    console.log(this.courses);
+    console.log(this.courses.indexOf(course));
+    if (this.courses.indexOf(course)==-1) {
       this.courses.push(course);
     }
   }
@@ -29,7 +31,7 @@ export class CartService {
   //get the total price
   getTotal(){
     this.courses.forEach(course => {
-      this.totalPayment = this.totalPayment + parseFloat(course.price)
+      this.totalPayment = this.totalPayment + course.price;
     });
     return this.totalPayment;
   }

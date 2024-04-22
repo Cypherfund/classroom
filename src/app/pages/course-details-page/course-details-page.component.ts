@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../services/course-service/course.service";
 import {CourseDetail} from "../../models/course";
 import { CartService } from '../../services/cart-service/cart.service';
+import { PaymentService } from '../../services/payment-service/payment.service';
 
 @Component({
   selector: 'app-course-details-page',
@@ -21,7 +22,8 @@ export class CourseDetailsPageComponent implements OnInit{
   constructor(private route: Router,
               private courseService: CourseService,
               private activeRoute: ActivatedRoute,
-              private cartService: CartService) {
+              private cartService: CartService,
+              private paymentService: PaymentService) {
   }
 
   ngOnInit() {
@@ -40,6 +42,7 @@ export class CourseDetailsPageComponent implements OnInit{
     this.home = { icon: 'pi pi-home', routerLink: '/' };
   }
   buyNow(){
+    this.paymentService.setCourse(this.course);
     this.route.navigate(['/payment'])
   }
 
@@ -51,9 +54,7 @@ export class CourseDetailsPageComponent implements OnInit{
   getCourse() {
     this.courseService.getCourse(this.activeCourseId).subscribe((course) => {
       this.course = course; // Assigns the data to this.course
-      console.log(course);
     });
-    
   }
 
 }

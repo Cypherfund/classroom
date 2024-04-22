@@ -55,8 +55,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
-import { PaymentsComponent } from './pages/payments/payments.component';
 
 
 
