@@ -1,1 +1,47 @@
-<p>reminder-popup2 works!</p>
+<div class="m-5  d-flex   justify-content-start align-items-start" style="flex-direction: column;">
+    <form>
+        <div>
+        Frequency
+        </div>
+        <div class="mt-5 d-flex" style="gap:10px;">
+           <button style="background:#A632DC;color:#fff;border:none;">Once</button>
+           <button style="color:#A632DC;border:none;">Daily</button>
+           <button style="color:#A632DC;border:none;">Weekly</button>
+           <button style="color:#A632DC;border:none;">Monthly</button>
+        </div>
+        <div class="mt-5">
+            <div>Calendar</div>
+            <input type="text" placeholder="0" class="pl-3" style="width:40px;height:44px;border-radius: 5px 0 0 5px;">
+            <input type="date" class="pl-3" style="width:500px;height:44px;border-radius: 0 5px 5px 0px;">
+        </div>
+        <div class="mt-5 d-flex" style="gap:10px;">
+            <button style="background:#A632DC;color:#fff;border:none;">5mins</button>
+            <button style="color:#A632DC;border:none;">10mins</button>
+            <button style="color:#A632DC;border:none;">30mins</button>
+            <button style="color:#A632DC;border:none;">1hr</button>
+         </div>
+         <div class="mt-5 ">
+            <label>Time
+                <br>
+                <input type="time" class="pl-3" placeholder="Select time" style="width:500px;height:44px; border-radius: 10px;">
+            </label>
+         </div>
+         <div class="mt-5 ">
+            <select style="width:500px;height:44px">
+                <option value="email" class="pl-3">Notification(email)</option>
+                <option value="sms" class="pl-3">Notification(sms)</option>
+            </select>
+         </div>
+         <div class="mt-5 ">
+            <img  style="width:500px;" src="/assets/images/Google-button-groups.png">
+            <img  style="width:500px;" src="/assets/images/Facebook-button-groups.png">
+            <img  style="width:500px;" src="/assets/images/Apple-button-groups.png">
+         </div>
+        <div class="mt-5">
+        <button style="color:#A632DC;background:#fff;width:100px;height:47px;font-size:16px">Previous</button>
+        <button [routerLink]="['reminder-popup2']" class="ml-1" style="background: 
+        #A632DC;color:#fff;width:80px;height:47px;font-size:16px">Done</button>
+        </div>
+    </form>
+</div>
+
