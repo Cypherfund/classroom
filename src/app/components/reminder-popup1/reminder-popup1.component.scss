@@ -2,6 +2,10 @@ input{
     border-radius: 10px;
     border: 1px solid #D0D5DD
 }
+::ng-deep input[type="checkbox" i] {
+    border-radius: 2px;
+    border: 1px solid #D0D5DD;
+}
 button{
     border: 1px solid #A632DC;
     border-radius: 10px;

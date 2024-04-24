@@ -3,24 +3,25 @@
         <div>
         <label>Reminder title
             <br>
-            <input class="mt-1 pl-2" type="text" style="width:500px;height:44px" placeholder="time to learn">
+            <input class="mt-1 pl-3" type="text" style="width:500px;height:44px" placeholder="Time to learn">
         </label>
         </div>
         <div class="mt-5">
-            <label><input type="checkbox">  Product design for beginners</label>
+            <label class="mb-2"><input type="checkbox" >&nbsp;  Product design for beginners</label>
             <br>
-            <label><input type="checkbox">Python</label>
+            <label class="mb-2"><input type="checkbox">&nbsp;  Python</label>
             <br>
-            <label><input type="checkbox">None</label>
+            <label><input type="checkbox">&nbsp;  None</label>
         </div>
         <div class="mt-5">
             <label>Search
             <br>
-            <input type="text" class="mt-1 pl-2" style="width:500px;height:44px" placeholder="Search for course"></label>
+            <i class="pi pi-envelope m-3 ml-3" style="position:absolute;z-index:2;color:#667085;"></i><input type="text" class="mt-1" style="width:500px;height:44px;padding-left:2.3rem" placeholder="Search for course">
+        </label>
         </div>
         <div class="mt-5">
         <button style="color:#A632DC;background:#fff;width:80px;height:47px;font-size:16px">Cancel</button>
-        <button [routerLink]="['reminder-popup2']" class="ml-2" style="background: 
+        <button [routerLink]="['reminder-popup2']" class="ml-1" style="background: 
         #A632DC;color:#fff;width:80px;height:47px;font-size:16px">Next</button>
         </div>
     </form>
