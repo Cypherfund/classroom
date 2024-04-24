@@ -1,30 +1,259 @@
-<h1>New Course</h1>
-<div class='d-flex'>
-  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input type="title" class="form-control" pInputText id="title" aria-describedby="name-help" formControlName="name" >
-      <small id="name-help">Enter your name of the course.</small>
-    </div>
-    <div class="form-group">
-      <label for="status">Status</label>
-      <select class="form-control" id="status" formControlName='status'>
-        <option *ngFor="let option of ['DRAFT', 'PUBLISHED', 'INACTIVE', 'ARCHIVED']">{{ option }}</option>
-      </select>
-    </div>
+<div class="container">
+  <h3>Add Course</h3>
+  <div class="courseData">
+    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()" >
+      <div class="mb-3">
+        <label class="form-label" for="name">Course Title</label>
+        <input aria-label=".form-control-sm example"
+               formControlName="name"
+               class="form-control form-control-sm" id="name"
+               placeholder="Enter a course topic" type="text">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea class="form-control" formControlName='description' id="description" rows="3"></textarea>
+      </div>
+      <div class="d-flex">
+        <div class="mb-3 w-100">
+          <label class="form-label" for="startDate">Start Date</label>
+          <input aria-label=".form-control-sm example"
+                 formControlName="startDate"
+                 class="form-control form-control-sm" id="startDate"
+                 placeholder="Enter course start date" type="date">
+        </div>
+        <div class="mb-3 w-100">
+          <label class="form-label" for="endDate">End Date</label>
+          <input aria-label=".form-control-sm example"
+                 formControlName="endDate"
+                 class="form-control form-control-sm" id="endDate"
+                 placeholder="Enter course end date" type="date">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="duration">Duration</label>
+        <input aria-label=".form-control-sm example"
+               formControlName="duration"
+               class="form-control form-control-sm" id="duration"
+               placeholder="Enter course duration" type="text">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="price">Price</label>
+        <input aria-label=".form-control-sm example"
+               formControlName="price"
+               class="form-control form-control-sm" id="price"
+               placeholder="Enter course price" type="number">
+      </div>
+      <div class="mb-3">
+        <label for="status">Status</label>
+        <select class="form-control" formControlName='status' id="status">
+          <option *ngFor="let option of ['DRAFT', 'PUBLISHED', 'INACTIVE', 'ARCHIVED']">{{ option }}</option>
+        </select>
+      </div>
+      <div class="instructorDetails">
+        <div formGroupName="instructors">
+          <div class="mb-3">
+            <label class="form-label" for="instructorName">Instructor Name</label>
+            <input aria-label=".form-control-sm example"
+                   formControlName="instructorName"
+                   class="form-control form-control-sm" id="instructorName"
+                   placeholder="Enter course price" type="text">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="profession">Profession</label>
+            <input aria-label=".form-control-sm example"
+                   formControlName="profession"
+                   class="form-control form-control-sm" id="profession"
+                   placeholder="Enter course price" type="text">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="yearsOfExperience">Years Of Experience</label>
+            <input aria-label=".form-control-sm example"
+                   formControlName="yearsOfExperience"
+                   class="form-control form-control-sm" id="yearsOfExperience"
+                   placeholder="Enter course price" type="number">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="InstructorDescription">Description</label>
+            <textarea class="form-control" formControlName='description' id="InstructorDescription" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="profPic">Upload Profile Picture</label>
+            <input aria-label=".form-control-sm example"
+                   formControlName="profilePicture"
+                   class="form-control form-control-sm" id="profPic"
+                   placeholder="Enter Profile Picture" type="file">
+<!--            <div *ngIf="file.invalid && (file.dirty || file.touched)" class="error-message">-->
+<!--              <div *ngIf="file.errors.required">File is required.</div>-->
+<!--            </div>-->
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="category">Category</label>
+        <input aria-label=".form-control-sm example"
+               formControlName="category"
+               class="form-control form-control-sm" id="category"
+               placeholder="Enter course category" type="text">
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="discountedPrice">Discounted Price</label>
+        <input aria-label=".form-control-sm example"
+               formControlName="discountedPrice"
+               class="form-control form-control-sm" id="discountedPrice"
+               placeholder="Enter course discounted price" type="number">
+      </div>
+      <div class="mb-3 d-flex">
+        <div class="form-check">
+          <input class="form-check-input" formControlName="hasCompletionCertificate" type="checkbox" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Has Completion Certificate
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" formControlName="hasRealWorldProjects" type="checkbox" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2">
+            Has Real World Projects
+          </label>
+        </div>
+      </div>
+      <div class="mb-3 d-flex">
+        <div class="w-75">
+          <label class="form-label" for="name">Course Title</label>
+          <input aria-label=".form-control-sm example"
+                 formControlName=""
+                 class="form-control form-control-sm" id="targetAudience"
+                 placeholder="Enter a course audience" type="text">
+        </div>
+        <div class="w-25">
+          <label></label>
+          <button class="btn bg-purple text-white mb-2 text-center" type="submit"
+          ><span class="me-2 pi pi-plus"></span>Add</button>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="level">Level</label>
+        <select class="form-control" formControlName='level' id="level">
+          <option class="text-capitalize"
+                  *ngFor="let option of ['Beginner', 'Intermediate', 'Advanced', 'Expert']">{{ option }}</option>
+        </select>
+      </div>
+      <button class="btn bg-purple text-white mb-2 text-center" type="submit"
+      >Save
+        course</button>
 
-    <div class="form-group">
-      <label for="description">About</label>
-      <textarea class="form-control" id="description" rows="3" formControlName='description'></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary mb-2" [disabled]="courseForm.invalid">Submit</button>
-
-  </form>
-  <div>
-    <p-buttonGroup>
-      <p-button label="Save" icon="pi pi-check"></p-button>
-      <p-button label="Cancel" icon="pi pi-times" [outlined]="true"></p-button>
-    </p-buttonGroup>
+    </form>
+  </div>
+  <div class="courseTopic mb-3 ">
+    <button class="btn bg-purple text-white w-25" data-bs-target="#exampleModal1" data-bs-toggle="modal" type="button">
+      <span class="me-2 pi pi-plus"></span> Add Course Topic
+    </button>
+  </div>
+  <div class="courseLesson mb-3 ">
+    <button class="btn bg-purple text-white w-25" data-bs-target="#exampleModal2" data-bs-toggle="modal" type="button">
+      <span class="me-2 pi pi-plus"></span> Add Course Lesson
+    </button>
   </div>
 </div>
+
+
+
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal1" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="saveCourseTopics()" [formGroup]="courseTopicForm">
+          <div class="mb-3">
+            <label class="form-label" for="topicName">Course Topic Name</label>
+            <input aria-label=".form-control-sm example"
+                   formControlName="name"
+                   class="form-control form-control-sm" id="topicName"
+                   placeholder="Enter a course topic" type="text">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="topicPosition">Course Topic Position</label>
+            <input aria-label=".form-control-sm example"
+                   class="form-control form-control-sm"
+                   id="topicPosition"
+                   formControlName="position"
+                   placeholder="Enter the course topic position" type="number">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="topicDuration">Course Topic Duration</label>
+            <input aria-label=".form-control-sm example"
+                   formControlName="duration"
+                   class="form-control form-control-sm"
+                   id="topicDuration"
+                   placeholder="Enter the course topic duration" type="text">
+          </div>
+          <button class="btn bg-purple text-white" type="submit">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal2" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Lesson Form</h5>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="saveCourseLesson()" [formGroup]="courseLessonForm">
+          <div class="mb-3">
+            <label class="form-label" for="topicName">Lesson Name</label>
+            <input aria-label=".form-control-sm example"
+                   formControlName="lessonName"
+                   class="form-control form-control-sm" id="lessonName"
+                   placeholder="Enter lesson name" type="text">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="topicPosition">Title</label>
+            <input aria-label=".form-control-sm example"
+                   class="form-control form-control-sm"
+                   id="title"
+                   formControlName="title"
+                   placeholder="Enter the title" type="text">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="topicDuration">Lesson Position</label>
+            <input aria-label=".form-control-sm example"
+                   formControlName="position"
+                   class="form-control form-control-sm"
+                   id="position"
+                   placeholder="Enter the course topic duration" type="text">
+          </div>
+          <div class="mb-3">
+            <label for="status">Content Type</label>
+            <select class="form-control" formControlName='contentType' id="contentType"
+            (change)="onSelectContentType()">
+              <option [ngValue]="i"
+                      *ngFor="let option of ['VIDEO', 'LECTURE', 'QUIZ']; let i = index">{{ option }}</option>
+            </select>
+          </div>
+          <div class="mb-3" *ngIf="courseLessonForm.get('contentType')!.value === 1">
+            <label class="form-label" for="content">Content :</label>
+            <textarea type="text"
+                      class="form-control form-control-sm"
+                      formcontrolName="content" id="content">
+            </textarea>
+          </div>
+          <div class="mb-3" *ngIf="courseLessonForm.get('contentType')!.value === 0">
+            <label class="form-label" for="video">Upload the videoUrl :</label>
+            <input type="file"
+                      class="form-control form-control-sm"
+                      formcontrolName="content" id="video">
+          </div>
+          <button class="btn bg-purple text-white" type="submit">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

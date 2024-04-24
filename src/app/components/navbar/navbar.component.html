@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-        <li class="nav-item dropdown">
+        <li class="nav-item mt-2 dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{'Explore' | translate}}
           </a>
@@ -14,15 +14,6 @@
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <form class="d-flex" role="search">
-            <input class="form-control rounded-start-3 border-white rounded-end-0 p-inputtext-sm search text-sm-start"
-                   type="search"
-                   placeholder="{{'search' | translate}}"
-                   aria-label="Search">
-            <em class="pi pi-search text-black bg-white p-2 rounded-start-0 rounded-end-3" (click)="searchNav()"></em>
-          </form>
         </li>
         <li class="nav-item mt-2" >
           <a routerLink='/course-admin' class="nav-link text-white" role="button" >

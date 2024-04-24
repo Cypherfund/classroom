@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { ButtonGroup, ButtonGroupModule } from 'primeng/buttongroup';
+import { DialogModule } from 'primeng/dialog';
+
 
 const routes: Routes = [
   {
@@ -32,6 +34,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     DropdownModule,
     ButtonModule,
+    DialogModule,
     ButtonGroupModule,
     RouterModule.forChild(routes),
     NgForOf

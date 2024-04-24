@@ -18,8 +18,9 @@ export class HomepageComponent {
   courses: Data[] = []
 
   constructor( private courseService: CourseService,
-               private userService: UserService,
-               private router: Router) {
+               private router: Router,
+               private userService: UserService) {
+
   }
 
   ngOnInit(){
