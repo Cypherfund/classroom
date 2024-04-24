@@ -4,6 +4,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../services/course-service/course.service";
 import {CourseDetail} from "../../models/course";
+import { CartService } from '../../services/cart-service/cart.service';
+import { PaymentService } from '../../services/payment-service/payment.service';
 
 @Component({
   selector: 'app-course-details-page',
@@ -19,7 +21,9 @@ export class CourseDetailsPageComponent implements OnInit{
   activeCourseId: number = 0;
   constructor(private route: Router,
               private courseService: CourseService,
-              private activeRoute: ActivatedRoute) {
+              private activeRoute: ActivatedRoute,
+              private cartService: CartService,
+              private paymentService: PaymentService) {
   }
 
   ngOnInit() {
@@ -30,18 +34,21 @@ export class CourseDetailsPageComponent implements OnInit{
     this.getCourse()
 
     this.formGroup = new FormGroup({
-      value: new FormControl(4)
+      value: new FormControl(4.6),
+      rating: new FormControl(4.6)
     });
     this.items = [{ label: 'All Programs' }, { label: 'Design' }, { label: 'Product Design' }];
 
     this.home = { icon: 'pi pi-home', routerLink: '/' };
   }
   buyNow(){
+    this.paymentService.setCourse(this.course);
     this.route.navigate(['/payment'])
   }
 
   addToCart(){
-    this.route.navigate(['/shopping_chart'])
+    this.cartService.addToCart(this.course);
+    this.route.navigate(['/shopping_chart']);
   }
 
   getCourse() {

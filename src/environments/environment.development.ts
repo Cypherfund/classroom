@@ -2,5 +2,7 @@ export const environment = {
   production: true,
   envName: 'development',
   apiUrl: '',
-  CourseUrl: 'http://165.227.251.126/course-api',
+  CourseUrl: 'https://tech-ascend.com/course-api',
+  enrollmentUrl:'https://tech-ascend.com/course-api/enrollments',
+  providerUrl:'https://tech-ascend.com/payment-api/payment/providers/'
 };

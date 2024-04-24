@@ -17,14 +17,14 @@
         {{aboutResponseBody.description}}
       </div>
       <div class="learn card border-0 p-2 text-start text-wrap" *ngIf="aboutResponseBody.courseLearn.length">
-        <h4 class="fw-bold text-start">{{'courseLearn' | translate}}</h4>
+        <h4 class="fw-bold text-start">{{'What youll learn' | translate}}</h4>
         <div class="m-2" *ngFor="let topic of aboutResponseBody.courseLearn; let i = index">
           {{i + 1}}. {{topic.topic}} : {{topic.description}}
         </div>
       </div>
 
       <div class="learn card border-0 p-2 text-start text-wrap"  *ngIf="aboutResponseBody.courseFor.length">
-        <h4 class="fw-bold text-start">{{'courseFor' | translate}}</h4>
+        <h4 class="fw-bold text-start">{{'Who this course is for?' | translate}}</h4>
         <ul *ngFor="let course of aboutResponseBody.courseFor">
           <li class="m-1">{{course}}</li>
         </ul>

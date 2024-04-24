@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-        <li class="nav-item dropdown">
+        <li class="nav-item mt-2 dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{'Explore' | translate}}
           </a>
@@ -15,17 +15,25 @@
             <li><a class="dropdown-item" href="#">Another action</a></li>
           </ul>
         </li>
+        <li class="nav-item mt-2" >
+          <a routerLink='/course-admin' class="nav-link text-white" role="button" >
+            {{'become_inst' | translate}}
+          </a>
+          </li>
         <li class="nav-item mt-2">{{'become_inst' | translate}}</li>
         <li class="nav-item mt-2">
-          <em class="pi pi-shopping-cart"></em>
+          <a><em class="pi pi-shopping-cart"  [routerLink]="['/shopping_chart']"></em></a>
         </li>
         <li class="nav-item mt-2 ">
           <em class="pi pi-bell"></em>
         </li>
+        <li class="nav-item rounded-circle rounded-5 text-end na">
+          <a class="text-decoration-none" [routerLink]="['settings']">
+          <img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"></a>
         <li class="nav-item rounded-circle rounded-5">
-          <a class="text-decoration-none" [routerLink]="['settings']"><img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"
+          <!-- <a class="text-decoration-none" [routerLink]="['settings']"><img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"
                style="border-radius:
-          4rem"></a>
+          4rem"></a> -->
         </li>
       </ul>
     </div>

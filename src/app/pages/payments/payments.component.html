@@ -9,19 +9,27 @@
         </div>
         <div class="d-flex justify-content-between pe-5 ps-5 pb-3">
           <div>
-            <img [src]="imageOne" height="50px" width="75px" alt="paypal"/>
+            <input type="image" [src]="imageOne" height="50px" width="75px" alt="paypal">
+            <!-- <img [src]="imageOne" height="50px" width="75px" alt="paypal"/> -->
           </div>
           <div>
-            <img [src]="imageTwo" height="50px" width="75px"  alt="american_card"/>
+            <input type="image" [src]="imageTwo" height="50px" width="75px"  alt="american_card">
+            <!-- <img [src]="imageTwo" height="50px" width="75px"  alt="american_card"/> -->
           </div>
           <div>
-            <img [src]="imageThree" height="50px" width="75px"  alt="visa_card"/>
+            <input type="image" [src]="imageThree" height="50px" width="75px"  alt="visa_card">
+            <!-- <img [src]="imageThree" height="50px" width="75px"  alt="visa_card"/> -->
           </div>
           <div>
-            <img [src]="imageFour" height="50px" width="75px"  alt="master_card"/>
+            <input type="image" [src]="imageFour" height="50px" width="75px"  alt="master_card">
+            <!-- <img [src]="imageFour" height="50px" width="75px"  alt="master_card"/> -->
+          </div>
+          <div>
+            <img [src]="imageFive" height="50px" width="75px"  alt="mobile_money" class="momoImage" />
           </div>
         </div>
-        <div class="card border-0 pe-5 ps-5">
+
+        <div class="card border-0 pe-5 ps-5" *ngIf="selectedMethod=='paypal'">
           <div class="input">
             <span>Name</span>
             <input class="form-control form-control-sm rounded-3" placeholder="Enter Name"/>
@@ -50,6 +58,32 @@
           <button class="btn btn-light btn-sm mt-3 rounded-3" style="background-color: #A632DC; color: #FFFFFF">Confirm
             Payment</button>
         </div>
+
+        <div class="card border-0 pe-5 ps-5" *ngIf="selectedMethod =='MOBILE_WALLET'">
+          <div class="input">
+            <span>Name</span>
+            <input class="form-control form-control-sm rounded-3" placeholder="Enter Name"/>
+          </div>
+          <div class="d-flex input">
+            <div class="w-50">
+              <span>Country Code</span>
+              <input class="form-control form-control-sm rounded-3" type="date" placeholder="+237"/>
+            </div>
+            <div class="w-50 me-2">
+              <span>Phone Number</span>
+              <input type="tel" [ngModel]="momoForm.phn" class="form-control form-control-sm rounded-3" placeholder="Enter phone number" required="true"/>
+            </div>
+          </div>
+          <div class="input">
+            <form class="flex align-items-center gap-1" [formGroup]="formGroup">
+              <p-checkbox formControlName="city" value="New York" inputId="ny"></p-checkbox>
+              <label for="ny" class="ms-2">Save my information for faster checkout</label>
+            </form>
+          </div>
+          <button class="btn btn-light btn-sm mt-3 rounded-3" style="background-color: #A632DC; color: #FFFFFF" (click)="pay()">Confirm
+            Payment</button>
+        </div>
+
       </div>
       <!--      side card-->
       <div class="container pt-5" style="font-size: 14px;">
@@ -57,45 +91,35 @@
           <small>Summary</small>
           <div>
             <div class="d-flex mb-3">
-              <div class="w-25 me-2">
+              <!-- <div class="w-25 me-2">
                 <img [src]="imageFour" height="75" width="120" alt="product_image"/>
-              </div>
+              </div> -->
               <div class="w-75">
-                <h6>Product Design for Beginners</h6>
-                <div class="">By <span class="fw-bolder">Jerry Peters</span></div>
-                <span class="fw-semibold">$50.00</span>
-              </div>
-            </div>
-            <div class="d-flex">
-              <div class="w-25 me-2">
-                <img [src]="imageTwo" height="75" width="120" alt="product_image"/>
-              </div>
-              <div class="w-75">
-                <h6>Product Design for Beginners</h6>
-                <div class="">By <span class="fw-bolder">Jerry Peters</span></div>
-                <span class="fw-semibold">$50.00</span>
+                <h6>{{courses.name}}</h6>
+                <div class="">By <span class="fw-bolder">{{courses.instructors}}</span></div>
+                <span class="fw-semibold">{{courses.price}}</span>
               </div>
             </div>
           </div>
           <hr/>
           <div class="d-flex justify-content-between">
             <span>Subtotal</span>
-            <span>$100.00</span>
+            <span>{{subtotal}}</span>
           </div>
           <hr/>
           <div class="d-flex justify-content-between">
             <span>Coupon Discount</span>
-            <span>$100.00</span>
+            <span>{{discount}}</span>
           </div>
           <hr/>
           <div class="d-flex justify-content-between">
             <span>Tax</span>
-            <span>$100.00</span>
+            <span>{{tax}}</span>
           </div>
           <hr/>
           <div class="d-flex justify-content-between fw-bold">
             <span>Total</span>
-            <span>$400.00</span>
+            <span>{{total}}</span>
           </div>
         </div>
       </div>
