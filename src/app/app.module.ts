@@ -57,7 +57,6 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { RadioButtonModule } from 'primeng/radiobutton';
 
 
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -103,7 +102,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DateFormatPipe,
     AccountComponent,
     CourseHomeCardComponent,
-    CoursesComponent
+    CoursesComponent,
   ],
   imports: [
     BrowserModule,

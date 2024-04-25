@@ -11,6 +11,7 @@ import { CommunicationComponent } from './components/communication/communication
 import { LearningRemindersComponent } from './components/learning-reminders/learning-reminders.component';
 import { ReminderPopup1Component } from './components/reminder-popup1/reminder-popup1.component';
 import { ReminderPopup2Component } from './components/reminder-popup2/reminder-popup2.component';
+import { LearningScheduleComponent } from './components/learning-schedule/learning-schedule.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'communication', component: CommunicationComponent},
   { path: 'learning-reminder', component: LearningRemindersComponent},
   { path: 'reminder-popup1', component: ReminderPopup1Component},
-  { path: 'reminder-popup2', component: ReminderPopup2Component}
+  { path: 'reminder-popup2', component: ReminderPopup2Component},
+  { path: 'learning-schedule', component: LearningScheduleComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 <div class="m-5  d-flex   justify-content-start align-items-start" style="flex-direction: column;">
-    <form>
+    <form [formGroup]="reminderForm" novalidate (ngSubmit)="learningReminder()">
         <div>
         Frequency
         </div>
@@ -40,9 +40,8 @@
             <img  style="width:550px;height:50px;" src="/assets/images/Apple-button.png">
          </div>
         <div class="mt-5">
-        <button style="color:#A632DC;background:#fff;width:100px;height:47px;font-size:16px">Previous</button>
-        <button [routerLink]="['reminder-popup2']" class="ml-1" style="background: 
-        #A632DC;color:#fff;width:80px;height:47px;font-size:16px">Done</button>
+        <button routerLink="/reminder-popup1" style="color:#A632DC;background:#fff;width:100px;height:47px;font-size:16px">Previous</button>
+        <button type="submit" class="ml-1 done"  [disabled]="reminderForm.invalid || reminderForm.pristine" [ngClass]="{ 'disabled-button': reminderForm.invalid || reminderForm.pristine }" >Done</button>
         </div>
     </form>
 </div>

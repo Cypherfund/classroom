@@ -11,3 +11,18 @@ select{
     border: 1px solid #D0D5DD;
     border-radius: 10px;
 }
+.done{
+  
+    background-color: #A632DC;
+    color: #fff;
+    width: 80px;
+    height: 47px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.disabled-button{
+    background-color: #A888DC;
+    cursor: not-allowed;
+}
