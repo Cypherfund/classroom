@@ -1,9 +1,13 @@
 input{
    
-    border: 1px solid #D0D5DD
+    border: 1px solid #D0D5DD;
 }
 
-button,select{
+button{
     border: 1px solid #A632DC;
+    border-radius: 10px;
+}
+select{
+    border: 1px solid #D0D5DD;
     border-radius: 10px;
 }

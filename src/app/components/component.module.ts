@@ -10,11 +10,12 @@ import { PaymentOptionComponent } from './payment-option/payment-option.componen
 import { LearningRemindersComponent } from './learning-reminders/learning-reminders.component';
 import { ReminderPopup1Component } from './reminder-popup1/reminder-popup1.component';
 import { ReminderPopup2Component } from './reminder-popup2/reminder-popup2.component';
+import { LearningScheduleComponent } from './learning-schedule/learning-schedule.component';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent, CommunicationComponent, NotesHightlightsComponent, CalendarSyncComponent, PaymentOptionComponent, LearningRemindersComponent, ReminderPopup1Component, ReminderPopup2Component],
+  declarations: [NavbarComponent, CommunicationComponent, NotesHightlightsComponent, CalendarSyncComponent, PaymentOptionComponent, LearningRemindersComponent, ReminderPopup1Component, ReminderPopup2Component, LearningScheduleComponent],
   imports: [
     CommonModule,
     TranslateModule.forChild(),
