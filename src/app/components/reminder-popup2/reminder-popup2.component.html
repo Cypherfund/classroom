@@ -4,10 +4,26 @@
         Frequency
         </div>
         <div class="mt-5 d-flex" style="gap:10px;">
-           <button style="background:#A632DC;color:#fff;border:none;">Once</button>
-           <button style="color:#A632DC;border:none;">Daily</button>
-           <button style="color:#A632DC;border:none;">Weekly</button>
-           <button style="color:#A632DC;border:none;">Monthly</button>
+           <button 
+           [style.background]="once ? '#A632DC' : '#FDF7FF'"
+           [style.color]="once ? '#fff' : '#A632DC'"
+           [style.border] = "once ? 'none' : 'none'"
+            (click)="currentFrequency('once')">Once</button>
+           <button  
+           [style.background]="daily ? '#A632DC' : '#FDF7FF'"
+           [style.color]="daily ? '#fff' : '#A632DC'"
+           [style.border] = "daily ? 'none' : 'none'"
+           (click)="currentFrequency('daily')">Daily</button>
+           <button
+           [style.background]="weekly ? '#A632DC' : '#FDF7FF'"
+           [style.color]="weekly ? '#fff' : '#A632DC'"
+           [style.border] = "weekly ? 'none' : 'none'"
+           (click)="currentFrequency('weekly')">Weekly</button>
+           <button 
+           [style.background]="monthly ? '#A632DC' : '#FDF7FF'"
+           [style.color]="monthly ? '#fff' : '#A632DC'"
+           [style.border] = "monthly ? 'none' : 'none'"
+           (click)="currentFrequency('monthly')">Monthly</button>
         </div>
         <div class="mt-5">
             <div>Calendar</div>
@@ -15,10 +31,30 @@
             <input type="date" class="pl-3" style="width:460px;height:50px;border-radius: 0 5px 5px 0px;">
         </div>
         <div class="mt-5 d-flex" style="gap:10px;">
-            <button style="background:#A632DC;color:#fff;border:none;">5mins</button>
-            <button style="color:#A632DC;border:none;">10mins</button>
-            <button style="color:#A632DC;border:none;">30mins</button>
-            <button style="color:#A632DC;border:none;">1hr</button>
+            <button
+            [style.background]="fiveMins ? '#A632DC' : '#FDF7FF'"
+            [style.color] = "fiveMins ? '#fff' : '#A632DC' "
+            [style.border] = "fiveMins ? 'none' : 'none'"
+            (click)="currentTime('fiveMins')"
+            >5mins</button>
+            <button 
+            [style.background]="tenMins ? '#A632DC' : '#FDF7FF'"
+            [style.color] = "tenMins ? '#fff' : '#A632DC' "
+            [style.border] = "tenMins ? 'none' : 'none'"
+            (click)="currentTime('tenMins')"
+            >10mins</button>
+            <button 
+            [style.background]="thirtyMins ? '#A632DC' : '#FDF7FF'"
+            [style.color] = "thirtyMins ? '#fff' : '#A632DC' "
+            [style.border] = "thirtyMins ? 'none' : 'none'"
+            (click)="currentTime('thirtyMins')"
+            >30mins</button>
+            <button 
+            [style.background]="oneHour ? '#A632DC' : '#FDF7FF'"
+            [style.color] = "oneHour ? '#fff' : '#A632DC' "
+            [style.border] = "oneHour ? 'none' : 'none'"
+            (click)="currentTime('oneHour')"
+            >1hr</button>
          </div>
          <div class="mt-5 ">
             <label>Time
