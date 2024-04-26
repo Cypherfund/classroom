@@ -16,9 +16,11 @@ export class ReminderPopup2Component implements OnInit {
   tenMins: boolean = false;
   thirtyMins: boolean = false;
   oneHour: boolean = false;
+  showError: boolean = false;
   constructor(
     private fb: FormBuilder
   ){
+    this.showError = false
     this.reminderForm =  this.fb.group({
       frequency: ['', Validators.required],
       calendar: ['', Validators.required], 
@@ -30,16 +32,26 @@ export class ReminderPopup2Component implements OnInit {
 ngOnInit(): void {
     
 }
+get calendar(){
+  return this.reminderForm.controls['calendar']
+}
+get time(){
+  return this.reminderForm.controls['time']
+}
+get notificationMethod(){
+  return this.reminderForm.controls['notificationMethod']
+}
   learningReminder():void{
 if(this.reminderForm.valid){
   console.log('Form submitted successfully');
-  
+  this.showError = true
 }
 else{
   console.log('Form is invalid');
-  
+  this.showError = false
 }
   }
+
   currentFrequency(reminderPopUp2:string):void{
 this.once = reminderPopUp2 === "once"
 this.daily = reminderPopUp2 === "daily"

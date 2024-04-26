@@ -28,7 +28,8 @@
         <div class="mt-5">
             <div>Calendar</div>
             <input type="text" placeholder="0" class="pl-3" style="width:40px;height:50px;border-radius: 5px 0 0 5px;">
-            <input type="date" class="pl-3" style="width:460px;height:50px;border-radius: 0 5px 5px 0px;">
+            <input type="date" class="pl-3" style="width:460px;height:50px;border-radius: 0 5px 5px 0px;" pInputText formControlName="calendar">
+            <small *ngIf="reminderForm.get('calendar')?.invalid && reminderForm.get('calendar')?.touched || showError" class="text-danger block">Date is required</small>
         </div>
         <div class="mt-5 d-flex" style="gap:10px;">
             <button
@@ -59,14 +60,17 @@
          <div class="mt-5 ">
             <label>Time
                 <br>
-                <input type="time" class="pl-3" placeholder="Select time" style="width:500px;height:50px; border-radius: 10px;">
+                <input type="time" class="pl-3" placeholder="Select time" style="width:500px;height:50px; border-radius: 10px;" pInputText formControlName="time">
             </label>
+            <small *ngIf="reminderForm.get('time')?.invalid && reminderForm.get('time')?.touched || showError" class="text-danger block">Time is required</small>
          </div>
          <div class="mt-5 ">
-            <select style="width:500px;height:50px">
+            <select style="width:500px;height:50px"  pInputText formControlName="notificationMethod">
+                <option value ="" diabled selected >Notification(email)</option>
                 <option value="email" class="pl-3">Notification(email)</option>
                 <option value="sms" class="pl-3">Notification(sms)</option>
-            </select>
+                </select>
+            <small *ngIf="reminderForm.get('notificationMethod')?.invalid && reminderForm.get('notificationMethod')?.touched || showError" class="text-danger block">Select a method</small>
          </div>
          <div class="mt-5 ">
             <img  style="width:550px;height:50px;" src="/assets/images/Google-button.png">
