@@ -1,0 +1,118 @@
+<main>
+  <div class=" d-flex m-0  justify-content-start align-items-start" style="background: #F0F3FF;flex-direction: column;padding: 50px 100px;">
+   <h1>Account</h1>
+   <form [formGroup]="accountForm" novalidate (ngSubmit)="onSave()">
+      <div style="border-bottom:1px solid #000;">
+      <div class="d-flex mt-5" style="gap:20px;">
+         <div>
+            <label for="fullName" class="font-bold block">Full Name:{{userData.fullName}}
+               <br>
+               <input type="text" id="fullName" placeholder="Douanla Tiwa Valdese" style="width:500px;height:50px" class="form-control" pInputText formControlName="fullName"/>
+            </label>
+            <small *ngIf="accountForm.get('fullName')?.invalid && accountForm.get('fullName')?.touched || showError" class="text-danger block">Name is required</small>
+         </div>
+         <div>
+            <label for="email" class="font-bold">Email:{{userData.email}}
+               <br>
+               <input id="email" type="email"  style="width:500px;height:50px" class="form-control" formControlName="email" placeholder="tiwaval7@gmail.com"/>
+            </label>
+            <small *ngIf="accountForm.get('email')?.invalid && accountForm.get('email')?.touched || showError " class="text-danger block">Email is required</small>
+         </div>
+         
+      </div>
+      <div class="d-flex mt-5 mb-5" style="gap:20px;">
+         <div>
+            <label id="textZone" class="font-bold">Time Zone:{{userData.timeZone}}
+               <br>
+               <select id="textZone" style="width:500px;height:50px;background: #F0F3FF;" class="form-control" formControlName="timeZone">
+                  <option value="" disabled selected>West Africa Time (WAT) GMT + 1</option>
+                  <option value="WAT">West Africa Time (WAT) GMT + 1</option>
+                  <option value="CAT">Central Africa Time (CAT) GMT + 2</option>
+                  <option value="EAT">East Africa Time (EAT) GMT + 3</option>
+                  <option value="MUT">Mauritius Standard Time (MUT) GMT + 4</option>
+                  <option value="PKT">Pakistan Standard Time (PKT) GMT + 5</option>
+                  <option value="BST">Bangladesh Standard Time (BST) GMT + 6</option>
+                  <option value="ICT">Indochina Time (ICT) GMT + 7</option>
+                  <option value="CST">China Standard Time (CST) GMT + 8</option>
+                  <option value="JST">Japan Standard Time (JST) GMT + 9</option>
+                  <option value="AEST">Australian Eastern Standard Time (AEST) GMT + 10</option>
+                  <option value="SBT">Solomon Islands Time (SBT) GMT + 11</option>
+                  <option value="NZST">New Zealand Standard Time (NZST) GMT + 12</option>
+               </select>
+            </label>
+            <small *ngIf="accountForm.get('timeZone')?.invalid && accountForm.get('timeZone')?.touched || showError " class="text-danger block">Time Zone is required</small>
+         </div>
+         <div>
+            <label for="language" class="font-bold">Language:{{userData.language}}
+               <br>
+               <select style="width:500px;height:50px;background: #F0F3FF" id="language" class="form-control block" formControlName="language" >
+                  <option value="" disabled selected>English</option>
+                  <option value="EN">English</option>
+                  <option value="FR">French</option>
+               </select>
+            </label>
+            <small *ngIf="accountForm.get('language')?.invalid &&  accountForm.get('language')?.touched || showError" class="text-danger block">Language is required</small>
+         </div>
+      </div>
+      <button type="submit" [disabled]="accountForm.invalid || accountForm.pristine" class="font-bold mb-5" style="color: 
+      #A632DC;width:141px;height:47px;font-size:20px" >Save</button>
+      </div>
+     
+   </form>
+   <form [formGroup]="accountForm" novalidate (ngSubmit)="onVerifyName()">
+      <div class="mt-5 " >
+         <h2>Email Verification</h2>
+         <p>Verify your real email to make sure you’re able to receive a certificate when you complete a course or Specialization.</p>
+         <br>
+         <button type="submit" class="font-bold mb-5" style="color: 
+         #A632DC;width:200px;height:50px;font-size:20px" [disabled]="accountForm.invalid">Verify My email</button>
+        </div>
+   </form>
+
+   <form [formGroup]="accountForm" novalidate (ngSubmit)="onChangePassword()">
+      <div style="border-bottom: 1px solid #000;border-top: 1px solid #000;">
+         <h2>Password</h2>
+         <div class="d-flex mb-3" style="gap: 20px">
+            <div>
+               <label class="font-bold" for="cPassword">Current Password</label>
+               <br>
+               <input style="width:500px;height:50px" type="password" name="cPassword" id="cPassword" class="form-control" formControlName="currentPassword">      
+               <small *ngIf="accountForm.get('currentPassword')?.invalid && accountForm.get('currentPassword')?.touched" class="text-danger block">Password not found</small>
+            </div>
+            <div>
+               <label class="font-bold" for="newPassword">New Password</label>
+               <br>
+               <input style="width:500px;height:50px" type="password" name="newPassword" id="newPassword" class="form-control" formControlName="newPassword">
+               <small *ngIf="accountForm.get('newPassword')?.invalid && accountForm.get('newPassword')?.touched" class="text-danger block">
+                  <span>For your password to be strong:</span>
+                  <ul>
+                  <li>Add at least 8 characters.</li>
+                  <li>Add at least one uppercase letter.</li>
+                  <li>Add at least one lowercase letter.</li>
+                  <li>Add at least one number.</li>
+                  </ul>
+               </small>
+            </div>
+         </div>
+         <div>
+            <label class="font-bold" for="retryPassword">Retry Password</label>
+            <br>
+            <input style="width:1020px;height:55px" type="password" name="retryPassword" id="retryPassword" class="form-control mb-3" formControlName="retryPassword">   
+            <small *ngIf="accountForm.hasError('passwordsNotMatch') && (accountForm.get('retryPassword')?.dirty || accountForm.get('retryPassword')?.touched)" class="text-danger block mb-2">Password mismatch</small>
+         </div>
+         <button type="submit" class="font-bold mb-5" style="color: 
+         #A632DC;width:200px;height:55px;font-size:20px" [disabled]="accountForm.invalid || accountForm.pristine"  >Change Password</button>
+        </div>     
+   </form>
+   <form [formGroup]="accountForm" novalidate (ngSubmit)="enableTwoFactorAuthentication()">
+      <div class="mt-5">
+         <h3>Two factor Authentication (BETA)</h3>
+         <p>Two Factor Authentication adds an additional layer of security to your Coursera account. Each time you log in to the Platform, you will be asked to enter a unique code that is only available on your mobile phone. This extra protection ensures that you are the only one who will have access to your Course account and courses.</p>
+         <br>
+         <button class="font-bold"  style="color: 
+         #A632DC;width:400px;height:50px;font-size: 20px;">Enable Two-Factor Authentication?</button>
+        </div>
+   </form>
+  </div>
+</main>
+

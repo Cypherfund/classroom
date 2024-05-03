@@ -1,6 +1,38 @@
+
+<!-- This code snippet represents a template for displaying transaction history in a web application. -->
+<div class="container p-0" style="width:1000px;">
+<!-- The <h2> element displays the title "Transaction_History".
+     This implies that the text is dynamically translated based on the current language/locale of the application. -->
+<h2>{{'Transaction_History' | translate}}</h2>
+
+  <!-- The table will display data from the transaction property. -->
+<p-table [value]="transactions" styleClass="table">
+  <!-- <ng-template> element defines a template for the table header with pTemplate which indicate the table row. -->
+  <ng-template pTemplate="header">
+    <tr>
+      <th>{{'Date' | translate}}</th>
+      <th>{{'Amount' | translate}}</th>
+      <th>{{'Type' | translate}}</th>
+      <th>{{'Course_Name' | translate}}</th>
+    </tr>
+  </ng-template>
+  <!-- Loop through transactions to display each one -->
+  <ng-template pTemplate="body" let-transaction>
+    <tr>
+      <td>{{ transaction.date }}</td>
+      <td>{{ transaction.amount | currency: 'USD':'symbol':'1.2-2' }}</td>
+      <td>{{ transaction.type }}</td>
+      <td>{{ transaction.courseName }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+</div>
+
+
+<!-- 
 <app-navbar></app-navbar>
 <div class="p-5">
-<h2>Transaction History</h2> <!-- Heading for the transaction history -->
+<h2>Transaction History</h2>
 
 <p-table [value]="transactions">
   <ng-template pTemplate="header">
@@ -11,7 +43,6 @@
       <th>Course Name</th>
     </tr>
   </ng-template>
-<!-- Loop through transactions to display each one -->
   <ng-template pTemplate="body" let-transaction>
     <tr>
       <td>{{ transaction.date }}</td>
@@ -19,7 +50,6 @@
       <td>{{ transaction.type }}</td>
       <td>{{ transaction.courseName }}</td>
     </tr>
-
   </ng-template>
 </p-table>
-</div>
+</div> -->

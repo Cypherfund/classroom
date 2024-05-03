@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<!-- Create the side bar layout -->
+<main >
+  
+    <div class="sidebar p-4" [ngClass]="{'sidebar-visible':'sidebarVisible'}">
+        
+       <div class="sidebar-content">
+        <p-splitButton label="Account" icon="pi pi-user" (onClick)="renderSetting('account')" styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Payment Option" icon="pi pi-credit-card" (onClick)="renderSetting('paymentOption')" styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Communication Preferences" icon="pi pi-envelope" (onClick)="renderSetting('communication')"  styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Notes & Highlights" icon="pi pi-pencil" (onClick)="renderSetting('notesHighlights')"  styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Calendar Sync" icon="pi pi-calendar" (onClick)="renderSetting('calendarSync')"  styleClass="first-splitbutton"></p-splitButton>
+        <br>
+        <p-splitButton label="Transaction" icon="pi pi-list" (onClick)="renderSetting('transaction')" styleClass="secound-splitbutton"></p-splitButton>
+    </div>
+
+    </div>
+    
+      <div class=" d-flex m-3  justify-content-start align-items-start" style="flex-direction: column;padding: 20px 50px;">
+       <app-amount *ngIf="account"></app-amount>
+       <app-payment-option *ngIf="paymentOption"></app-payment-option>
+       <app-communication *ngIf="communication"></app-communication>
+       <app-notes-hightlights *ngIf="notesHighlights"></app-notes-hightlights>
+       <app-calendar-sync *ngIf="calendarSync"></app-calendar-sync>
+       <app-transaction *ngIf="transaction"></app-transaction>
+      </div>
+    </main>
+    
+    

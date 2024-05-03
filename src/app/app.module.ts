@@ -9,11 +9,9 @@ import { TranslationComponent } from './components/translation/translation.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MenubarModule } from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from "primeng/inputtext";
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CourseDetailsPageComponent } from './pages/course-details-page/course-details-page.component';
@@ -26,12 +24,37 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CarouselModule } from 'primeng/carousel';
 import {TagModule} from "primeng/tag";
+import { AccordionModule } from 'primeng/accordion';
+import { CourseContentComponent } from './pages/course-tab-details-page/course-content/course-content.component';
+import { CourseIncludedComponent } from './pages/course-tab-details-page/course-included/course-included.component';
+import { InstructorDetailsComponent } from './pages/course-tab-details-page/instructor-details/instructor-details.component';
+import { ReviewsComponent } from './pages/course-tab-details-page/reviews/reviews.component';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ToastModule } from 'primeng/toast';
+import { MessageService} from "primeng/api";
+import { PaymentsComponent } from './pages/payments/payments.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CarouselCourseContentComponent } from './pages/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component';
+import { DateFormatPipe } from './pipe/date-format.pipe';
+import { SafePipe } from './pipe/DomSanitiser/safe.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { TableModule } from 'primeng/table';
-import { SettingsComponent } from './pages/settings/settings.component';
+import { SettingsComponent } from './settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
-import { MessageService } from 'primeng/api';
-import { FooterComponent } from './components/footer/footer.component';
+import {UserService} from "./services/user/user.service";
+import {UserApiService} from "./services/user/user-api.service";
+import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
+import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
+import { ButtonModule } from 'primeng/button';
+import { ComponentModule } from './components/component.module';
+import { AccountComponent } from './components/account/account.component';
+import { RouterModule, Routes } from '@angular/router';
+
+import { CoursesComponent } from './pages/courses/courses.component';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { RadioButtonModule } from 'primeng/radiobutton';
 
 
 
@@ -43,7 +66,24 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     TranslationComponent,
-    NavbarComponent,
+    HomepageComponent,
+    CourseDetailsPageComponent,
+    CourseTabDetailsPageComponent,
+    AboutCourseComponent,
+    CarouselCoursesComponent,
+    CourseContentComponent,
+    CourseIncludedComponent,
+    InstructorDetailsComponent,
+    ReviewsComponent,
+    PaymentsComponent,
+    ShoppingCartComponent,
+    CarouselCourseContentComponent,
+    DateFormatPipe,
+    SafePipe,
+    FooterComponent,
+    TransactionComponent,
+    SettingsComponent,
+    TranslationComponent,
     HomepageComponent,
     CourseDetailsPageComponent,
     CourseTabDetailsPageComponent,
@@ -52,14 +92,29 @@ export function HttpLoaderFactory(http: HttpClient) {
     TransactionComponent,
     SettingsComponent,
     FooterComponent,
+    CourseContentComponent,
+    ReviewsComponent,
+    InstructorDetailsComponent,
+    CarouselCourseContentComponent,
+    CourseIncludedComponent,
+    SafePipe,
+    DateFormatPipe,
+    CourseHomeCardComponent,
+    DateFormatPipe,
+    AccountComponent,
+    CourseHomeCardComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule, 
+    RouterModule.forRoot([]),
     AppRoutingModule,
     DropdownModule,
+    RadioButtonModule,
     BrowserAnimationsModule,
     MenubarModule,
     CardModule,
@@ -71,22 +126,47 @@ export function HttpLoaderFactory(http: HttpClient) {
     TagModule,
     TabViewModule,
     ToolbarModule,
+    CardModule,
     CarouselModule,
+    AccordionModule,
+    ProgressBarModule,
+    ToastModule,
+    CheckboxModule,
     SplitButtonModule,
+    MenubarModule,
+    CardModule,
+    ButtonModule,
+    InputTextModule,
+    BreadcrumbModule,
+    RatingModule,
+    TabMenuModule,
+    TagModule,
+    TabViewModule,
+    ToolbarModule,
+    CarouselModule,
+    AccordionModule,
+    SplitButtonModule,
+    ProgressBarModule,
+    PanelMenuModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [ HttpClient ]
       }
     }),
-    TableModule // Moved TableModule import to the imports array
+    TableModule, // Moved TableModule import to the imports array,
+    CourseAdminRoutingModule,
+    ComponentModule
+
   ],
   providers: [
     provideClientHydration(),
-    MessageService
+    MessageService,
+    UserService,
+    UserApiService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
