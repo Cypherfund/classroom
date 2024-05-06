@@ -13,7 +13,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MenubarModule } from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from "primeng/inputtext";
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CourseDetailsPageComponent } from './pages/course-details-page/course-details-page.component';
@@ -43,11 +42,13 @@ import {CarouselCourseContentComponent} from "./pages/course-tab-details-page/co
 import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-included/course-included.component";
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
+import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
 import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { RadioButtonModule } from 'primeng/radiobutton';
-
+import { ButtonModule } from 'primeng/button';
+import { ComponentModule } from './components/component.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,7 +59,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     TranslationComponent,
-    NavbarComponent,
     HomepageComponent,
     CourseDetailsPageComponent,
     CourseTabDetailsPageComponent,
@@ -106,10 +106,13 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [ HttpClient ]
       }
     }),
-    TableModule // Moved TableModule import to the imports array
+    TableModule, // Moved TableModule import to the imports array,
+    CourseAdminRoutingModule,
+    ComponentModule
+
   ],
   providers: [
     provideClientHydration(),
@@ -117,6 +120,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserService,
     UserApiService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
