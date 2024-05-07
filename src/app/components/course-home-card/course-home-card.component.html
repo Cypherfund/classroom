@@ -1,9 +1,10 @@
 <a [routerLink]="navigationLink" class="text-decoration-none">
-  <p-card [style]="{ width: '280px'}">
+  <p-card [style]="{ 'max-width': '280px'}">
+<!--  <p-card >-->
     <ng-template pTemplate="header">
       <img alt="Card" [src]="courseImage" class="rounded-3" />
     </ng-template>
-    <div>{{ courseTitle }}</div>
+    <div class="text-size">{{ courseTitle }}</div>
     <div class="icon pi pi-user"></div><small class="text-purple ms-1">{{ courseProvider }}</small>
     <div class="ratings">
     <span>

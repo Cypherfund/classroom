@@ -111,6 +111,7 @@ export interface Data {
   instructorId?: string;
   price?: number;
   status?: string;
+  imageUrl: string;
   instructors?: {
     instructorId?: string;
     instructorName?: string;

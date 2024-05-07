@@ -5,6 +5,7 @@ import {AboutCourseComponent} from "./pages/course-tab-details-page/about-course
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import {CourseDetailsPageComponent} from "./pages/course-details-page/course-details-page.component";
+import {CoursesComponent} from "./pages/courses/courses.component";
 
 
 const routes: Routes = [
@@ -12,7 +13,10 @@ const routes: Routes = [
   { path:'transaction', component: TransactionComponent},
   { path:'about', component: AboutCourseComponent},
   { path: 'course_detail/:id', component: CourseDetailsPageComponent},
-  { path: 'settings', component: SettingsComponent}
+  { path: 'settings', component: SettingsComponent},
+  { path: 'courses', component: CoursesComponent},
+  { path: 'course-admin', loadChildren: () => import('./pages/course-admin/course-admin.module').then(m => m.CourseAdminModule)
+  },
 ];
 
 @NgModule({
