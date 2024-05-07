@@ -3,11 +3,12 @@
     <a class="navbar-brand text-white text-start" href="#">
       <img src="assets/images/logo.png"/>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+    <div class="collapse navbar-collapse " id="navbarSupportedContent1">
+      <ul class="navbar-nav">
         <li class="nav-item mt-2 dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{'Explore' | translate}}
@@ -21,7 +22,15 @@
           <a routerLink='/course-admin' class="nav-link text-white" role="button" >
             {{'become_inst' | translate}}
           </a>
-          </li>
+        </li>
+      </ul>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " *ngIf='isLogged' id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
         <li class="nav-item mt-2">
           <em class="pi pi-shopping-cart"></em>
         </li>
@@ -34,6 +43,10 @@
           4rem"></a>
         </li>
       </ul>
+    </div>
+    <div class="flex align-items-center gap-2" *ngIf='!isLogged'>
+      <button type="button" class="btn btn-primary btn-lg">Log In</button>
+      <button type="button" class="btn btn-secondary btn-lg">Sign Up</button>
     </div>
   </div>
 </nav>
