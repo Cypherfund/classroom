@@ -1,6 +1,13 @@
 .header{
   background-color: var(--main-color-shade-1);
-  padding: 10rem;
+  background-image: url("/assets/images/hero-image.png"); /* Replace with your image path */
+  background-size: cover; /* Scales the image to cover the container */
+  background-repeat: no-repeat; /* Prevents repeating the image */
+  background-position: center; /* Centers the image horizontally and vertically */
+}
+.padded-text {
+  padding: 10rem ;
+
 }
 .text-purple{
   color: var(--main-color-shade-1)

@@ -2,5 +2,5 @@ export const environment = {
   production: true,
   envName: 'development',
   apiUrl: '',
-  CourseUrl: 'http://165.227.251.126/course-api',
+  CourseUrl: 'http://161.35.249.4/course-api',
 };
