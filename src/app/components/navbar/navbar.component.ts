@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
-import { MenuItem } from 'primeng/api';
 import { UserService } from '../../services/user/user.service';
+import { environment } from '../../../environments/environment';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,8 +11,8 @@ import { UserService } from '../../services/user/user.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  items: MenuItem[] | undefined;
   isLogged: boolean = false;
+  subscriptions: Subscription[] = [];
 
   profileImage = appConfig.profileImage
 
@@ -20,65 +21,20 @@ export class NavbarComponent {
 
   ngOnInit() {
     this.isLogged = !!Object.keys(this.userService.user).length;
+    this.subscriptions.push(
+      this.userService.login$.pipe().subscribe( loginVal => {
+        if (loginVal === 1) {
+          this.isLogged = !!Object.keys(this.userService.user).length;
+        }
+    })
+    );
 
-    this.items = [
-      {
-        label: 'Home',
-        icon: 'pi pi-home'
-      },
-      {
-        label: 'Features',
-        icon: 'pi pi-star'
-      },
-      {
-        label: 'Projects',
-        icon: 'pi pi-search',
-        items: [
-          {
-            label: 'Core',
-            icon: 'pi pi-bolt',
-            shortcut: '⌘+S'
-          },
-          {
-            label: 'Blocks',
-            icon: 'pi pi-server',
-            shortcut: '⌘+B'
-          },
-          {
-            label: 'UI Kit',
-            icon: 'pi pi-pencil',
-            shortcut: '⌘+U'
-          },
-          {
-            separator: true
-          },
-          {
-            label: 'Templates',
-            icon: 'pi pi-palette',
-            items: [
-              {
-                label: 'Apollo',
-                icon: 'pi pi-palette',
-                badge: '2'
-              },
-              {
-                label: 'Ultima',
-                icon: 'pi pi-palette',
-                badge: '3'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        label: 'Contact',
-        icon: 'pi pi-envelope',
-        badge: '3'
-      }
-    ];
   }
   searchNav(){
     console.log('found course')
   }
 
+  navigateToAuth() {
+    window.location.href = environment.authUrl;
+  }
 }

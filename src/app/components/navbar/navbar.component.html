@@ -45,8 +45,8 @@
       </ul>
     </div>
     <div class="flex align-items-center gap-2" *ngIf='!isLogged'>
-      <button type="button" class="btn btn-primary btn-lg">Log In</button>
-      <button type="button" class="btn btn-secondary btn-lg">Sign Up</button>
+      <button type="button" class="btn btn-primary btn-lg" (click)='navigateToAuth()'>Log In</button>
+      <button type="button" class="btn btn-secondary btn-lg" (click)='navigateToAuth()'>Sign Up</button>
     </div>
   </div>
 </nav>
