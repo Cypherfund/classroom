@@ -34,22 +34,17 @@ export class HomepageComponent {
   private configureScrollingOptions() {
     this.responsiveOptions = [
       {
-        breakpoint: '1199px',
-        numVisible: 4,
-        numScroll: 1
-      },
-      {
-        breakpoint: '991px',
+        breakpoint: '1400px',
         numVisible: 3,
-        numScroll: 1
+        numScroll: 3
       },
       {
-        breakpoint: '650px',
+        breakpoint: '1220px',
         numVisible: 2,
-        numScroll: 1
+        numScroll: 2
       },
       {
-        breakpoint: '600px',
+        breakpoint: '1100px',
         numVisible: 1,
         numScroll: 1
       }

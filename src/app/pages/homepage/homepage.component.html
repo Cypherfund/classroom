@@ -209,14 +209,14 @@
     <div class="upcoming-course ">
       <h4 class="fw-semibold p-2">{{'Upcoming' | translate}}</h4>
       <p-carousel
-        [value]="courses | slice:0:4"
+        [value]="courses"
         [numVisible]="4"
         [numScroll]="3"
         [circular]="false"
         [responsiveOptions]="responsiveOptions"
       >
         <ng-template let-course pTemplate="item">
-          <div class="text-start ">
+          <div class="text-start item">
             <app-course-home-card
               [courseImage]="course.imageUrl || 'assets/images/course-img-2.png'"
               [courseTitle]="course?.name"
