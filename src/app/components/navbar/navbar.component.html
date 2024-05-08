@@ -1,39 +1,38 @@
 <nav class="navbar navbar-expand-lg p-3 fw-light text-white">
   <div class="container-fluid">
-    <a class="navbar-brand text-white text-start" href="#">LOGO</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand text-white text-start" href="#">
+      <img src="assets/images/logo.png"/>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-        <li class="nav-item mt-2 dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{'Explore' | translate}}
-          </a>
-          <ul class="dropdown-menu text-dark">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-          </ul>
-        </li>
-        <li class="nav-item mt-2" >
-          <a routerLink='/course-admin' class="nav-link text-white" role="button" >
-            {{'become_inst' | translate}}
-          </a>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent1">
+      <div class="d-md-flex justify-content-between w-100">
+        <ul class="navbar-nav">
+          <li class="nav-item mt-2 dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{'Explore' | translate}}
+            </a>
+            <ul class="dropdown-menu text-dark">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+            </ul>
           </li>
-        <li class="nav-item mt-2">
-          <em class="pi pi-shopping-cart"></em>
-        </li>
-        <li class="nav-item mt-2 ">
-          <em class="pi pi-bell"></em>
-        </li>
-        <li class="nav-item rounded-circle rounded-5">
-          <a class="text-decoration-none" [routerLink]="['settings']"><img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"
-               style="border-radius:
-          4rem"></a>
-        </li>
-      </ul>
+          <li class="nav-item mt-2" >
+            <a routerLink='/course-admin' class="nav-link text-white" role="button" >
+              {{'become_inst' | translate}}
+            </a>
+          </li>
+        </ul>
+        <div class="flex align-items-center gap-2" *ngIf='!isLogged'>
+          <button type="button" class="btn btn-primary btn-lg" (click)='navigateToAuth()'>Log In</button>
+          <button type="button" class="btn btn-secondary btn-lg" (click)='navigateToAuth()'>Sign Up</button>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </nav>
-
 

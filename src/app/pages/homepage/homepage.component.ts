@@ -16,6 +16,8 @@ export class HomepageComponent {
   value2: any;
   studentName: string = 'Name';
   courses: Data[] = []
+  upcomingCourses: Data[] = []
+  responsiveOptions: any[] | undefined;
 
   constructor( private courseService: CourseService,
                private router: Router,
@@ -24,13 +26,35 @@ export class HomepageComponent {
   }
 
   ngOnInit(){
+    this.configureScrollingOptions();
     this.getCourses()
     this.isLoggedIn()
+  }
+
+  private configureScrollingOptions() {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1400px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '1220px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '1100px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
   }
 
   getCourses(){
     const sub = this.courseService.getCourses().subscribe( res => {
       this.courses = res.data
+      this.upcomingCourses = Array.from({ length: 2 }, () => this.courses).flat();
     })
   }
   isLoggedIn(): boolean {

@@ -31,15 +31,16 @@ export class AppComponent {
   }
 
   private loginUserIfTokenPresent() {
-    const token = new URLSearchParams(this.location.path(true)).get('token');
+    const token = new URLSearchParams(this.location.path(true)).get('token') || this.stoarageService.get('token');
     if (!!token) {
       this.userApiService.verifyToken(token).subscribe((response) => {
         if (response.success) {
           this.stoarageService.set('token', token); //todo add security
-          this.userService.setUser(response.data);
+          this.userService.user = response.data;
           this.router.navigate(['/']);
         }
       })
+      return;
     }
   }
 }

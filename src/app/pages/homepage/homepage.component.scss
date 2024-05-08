@@ -6,14 +6,18 @@
   background-position: center; /* Centers the image horizontally and vertically */
 }
 .padded-text {
-  padding: 10rem ;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 }
 .text-purple{
   color: var(--main-color-shade-1)
 }
 .bg-purple{
-  background-color: var(--main-color-shade-1)
+  background-color: var(--main-color-shade-2)
 }
 ::ng-deep a {
   color: var(--color-grey-shade-3);
@@ -48,4 +52,35 @@ input{
 }
 .card-schedule{
   border-color: var(--main-color-shade-1)
+}
+
+.btn.btn-primary {
+  background-color: var(--main-color-shade-1);
+  border: 1px solid var(--color-white);
+  border-radius: 10px;
+  color: var(--color-white);
+  height: 50px;
+}
+
+.trending {
+  background-image: url('/assets/images/home-image.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .what-to-learn {
+    flex-wrap:  wrap;
+  }
+}
+
+.what-to-learn {
+  .bg-secondary-subtle {
+    color: #1B1B1B;
+    font-size: 20px;
+  }
+}
+.item {
+  margin: 0 1rem;
 }
