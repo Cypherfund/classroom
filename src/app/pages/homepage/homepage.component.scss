@@ -59,6 +59,7 @@ input{
   border: 1px solid var(--color-white);
   border-radius: 10px;
   color: var(--color-white);
+  height: 50px;
 }
 
 .trending {
@@ -66,4 +67,17 @@ input{
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .what-to-learn {
+    flex-wrap:  wrap;
+  }
+}
+
+.what-to-learn {
+  .bg-secondary-subtle {
+    color: #1B1B1B;
+    font-size: 20px;
+  }
 }

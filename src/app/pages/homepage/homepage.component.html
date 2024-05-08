@@ -10,12 +10,12 @@
   <div class="filter container " style="margin-top: -5rem">
     <div class="bg-white p-5 rounded-5 card">
        <h5 class="fw-semibold m-2">What do you want to learn ?</h5>
-      <div class="d-flex justify-content-center">
-        <div class="m-2 w-100">
+      <div class="d-flex justify-content-center align-items-center what-to-learn">
+        <div class="m-2 w-75">
           <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
                  placeholder="Find course, skills, software etc " />
         </div>
-        <div class="m-2 w-75">
+        <div class="m-2 w-50">
           <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
                  placeholder="Categories" />
         </div>
@@ -23,7 +23,7 @@
           <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
                  placeholder="Topic " />
         </div>
-        <p-button label="Search" severity="help" (click)="search()"></p-button>
+        <button type="button" class="btn btn-primary btn-lg w-30" (click)="search()">Search</button>
       </div>
     </div>
   </div>
