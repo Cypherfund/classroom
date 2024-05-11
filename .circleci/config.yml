@@ -68,7 +68,7 @@ workflows:
           branches:
             only:
             - main
-            - dev
+            - develop
             - staging
     - deploy-prod:
         requires:
@@ -78,5 +78,5 @@ workflows:
           branches:
             only:
             - main
-            - dev
+            - develop
             - staging
