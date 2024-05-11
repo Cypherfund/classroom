@@ -1,5 +1,5 @@
 export const appConfig = {
-  profileImage: 'assets/images/download-img.png',
+  profileImage: 'assets/images/profile.jpg',
   imageOne: 'assets/images/paypal.png',
   imageTwo: 'assets/images/american-express.png',
   imageThree: 'assets/images/visa.png',
