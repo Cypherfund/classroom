@@ -1,5 +1,5 @@
 <a [routerLink]="'course_detail/'+course?.id" class="text-decoration-none">
-  <p-card >
+  <p-card [style]="{'max-width': '300px'}">
     <ng-template pTemplate="header">
       <img alt="Card" [src]="course?.imageUrl || courseImage " class="rounded-3" />
     </ng-template>
@@ -8,7 +8,7 @@
         <span> <img alt="dropdown icon" src="/assets/svg/solar_widget-linear.svg"/> {{ category || 'Programming' }}</span>
         <span> <img alt="dropdown icon" src="/assets/svg/solar_alarm-linear.svg"/>3 Months</span>
       </div>
-      <p class="text-size fw-bold text-left">{{ course?.name }}</p>
+      <h5 class="text-left text-size text-overflow-ellipsis">{{ course?.name }}</h5>
       <div class='d-flex justify-content-start'>
         <p-avatar
           [image]="instructorImage"
