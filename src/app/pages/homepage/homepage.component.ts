@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
 import {CourseService} from "../../services/course-service/course.service";
-import {Courses, Data} from "../../models/course";
+import {  Courses, CourseDetail } from '../../models/course';
 import {Router} from "@angular/router";
 import { UserService } from '../../services/user/user.service';
 
@@ -15,10 +15,10 @@ export class HomepageComponent {
   value: any;
   value2: any;
   studentName: string = 'Name';
-  courses: Data[] = []
-  upcomingCourses: Data[] = []
+  courses: CourseDetail[] = []
+  upcomingCourses: CourseDetail[] = []
   responsiveOptions: any[] | undefined;
-
+  maxRating: number = 5;
   constructor( private courseService: CourseService,
                private router: Router,
                private userService: UserService) {

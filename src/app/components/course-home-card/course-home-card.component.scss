@@ -1,8 +1,36 @@
 .text-size{
   font-size: 14px;
+  margin-bottom: unset;
 }
 ::ng-deep .p-rating .p-rating-item .p-rating-icon {
-  color: gold;
+  color: #B59410;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   font-size: 11px;
+}
+
+::ng-deep  .p-card-content {
+  padding: 5px;
+}
+::ng-deep  .p-rating .p-rating-item {
+  padding: 2px;
+  width: unset;
+}
+
+.pricing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-style: italic;
+
+}
+
+.sale-price {
+  color:  var(--main-color-shade-1);
+  font-size: 16px;
+  font-weight: bold;
 }

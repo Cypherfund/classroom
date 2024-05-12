@@ -4,5 +4,6 @@ export const appConfig = {
   imageTwo: 'assets/images/american-express.png',
   imageThree: 'assets/images/visa.png',
   imageFour: 'assets/images/master-card.png',
-  courseImage: 'assets/images/course-img.jpg'
+  courseImage: 'assets/images/course-img-2.png',
+  instructorImage: 'assets/images/instructor.jpeg',
 }
