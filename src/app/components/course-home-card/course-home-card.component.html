@@ -1,17 +1,30 @@
-<a [routerLink]="navigationLink" class="text-decoration-none">
-<!--  <p-card [style]="{ 'max-width': '280px'}">-->
-  <p-card >
+<a [routerLink]="'course_detail/'+course?.id" class="text-decoration-none">
+  <p-card>
+<!--  <p-card [style]="{'max-width': '300px'}">-->
     <ng-template pTemplate="header">
-      <img alt="Card" [src]="courseImage" class="rounded-3" />
+      <img alt="Card" [src]="course?.imageUrl || courseImage " class="rounded-3" />
     </ng-template>
-    <div class="text-size">{{ courseTitle }}</div>
-    <div class="icon pi pi-user"></div><small class="text-purple ms-1">{{ courseProvider }}</small>
-    <div class="ratings">
-    <span>
-      <p-rating [(ngModel)]="rating" [readonly]="true" [cancel]="false" [stars]="maxRating"></p-rating>
-    </span>
-      <small class="ms-1">({{ ratingCount }})</small>
+    <div class='d-flex flex-column row-gap-1'  style=''>
+      <div class='d-flex justify-content-between'>
+        <span> <img alt="dropdown icon" src="/assets/svg/solar_widget-linear.svg"/> {{ category || 'Programming' }}</span>
+        <span> <img alt="dropdown icon" src="/assets/svg/solar_alarm-linear.svg"/>3 Months</span>
+      </div>
+      <h5 class="text-left text-size text-overflow-ellipsis">{{ course?.name }}</h5>
+      <div class='d-flex justify-content-start'>
+        <p-avatar
+          [image]="instructorImage"
+          styleClass="mr-2"
+          size="large"
+          shape="circle" />
+        <div class='d-flex flex-column align-items-start'>
+          <small class="text-purple fw-bold"> {{ course?.instructors || 'TechAscend' }}</small>
+          <span style='color: #999'><p-rating [ngModel]="course?.numberOfRatings || 4" [readonly]="true" [cancel]="false" ></p-rating>(1.2k)</span>
+        </div>
+      </div>
+      <div class="pricing d-flex justify-content-start column-gap-2">
+        <span class="original-price">$100.00</span>
+        <span class="sale-price">$80.00</span>
+      </div>
     </div>
-    <div><h4>{{ coursePrice }}</h4></div>
   </p-card>
 </a>

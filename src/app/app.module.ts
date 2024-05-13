@@ -49,6 +49,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ButtonModule } from 'primeng/button';
 import { ComponentModule } from './components/component.module';
+import { AvatarModule } from 'primeng/avatar';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -111,7 +112,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     TableModule, // Moved TableModule import to the imports array,
     CourseAdminRoutingModule,
-    ComponentModule
+    ComponentModule,
+    AvatarModule
 
   ],
   providers: [

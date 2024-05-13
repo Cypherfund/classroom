@@ -1,4 +1,6 @@
 import {Component, Input} from '@angular/core';
+import { CourseDetail } from '../../models/course';
+import { appConfig } from '../../../environments/app.config';
 
 @Component({
   selector: 'app-course-home-card',
@@ -7,13 +9,11 @@ import {Component, Input} from '@angular/core';
 })
 export class CourseHomeCardComponent {
   @Input() courseImage: string = '';
-  @Input() courseTitle?: string = '';
-  @Input() courseProvider?: any = '';
-  @Input() rating?: number = 0;
-  @Input() ratingCount?: any = 0;
-  @Input() coursePrice?: any = 0;
+  instructorImage: string = appConfig.instructorImage;
+  rating: number = 4;
+  @Input() category?: string = '';
   maxRating: number = 5;
-  @Input() navigationLink: string = '';
+  @Input() course: CourseDetail | null = null;
 
   constructor() { }
   ngOnInit(){

@@ -63,97 +63,17 @@
   </div>
   <div class="courses container  text-center">
     <h4 class="p-5">{{'browse_course' | translate}}</h4>
-    <div class="nav-tab">
-      <div class="container">
-        <p-tabView>
-          <p-tabPanel header="Design">
-            <div class="top-course-page">
-                <div class="row">
-                  <div class="text-start col-sm-6 col-md-4 col-lg-3" *ngFor="let course of courses | slice:0:4">
-                    <app-course-home-card
-                      [courseImage]="course.imageUrl || 'assets/images/course-img-2.png'"
-                      [courseTitle]="course?.name"
-                      [courseProvider]="course?.instructors || 'TechAscend'"
-                      [rating]="course?.numberOfRatings || 4"
-                      [ratingCount]="course?.numberOfRatings || 120"
-                      [coursePrice]="course?.price + '$'"
-                      [navigationLink]="'course_detail/'+course?.id"
-                    ></app-course-home-card>
-                  </div>
-                </div>
-              </div>
-          </p-tabPanel>
-          <p-tabPanel header="Developer">
-            <div class="top-course-page">
-              <div class="row">
-                <div class="text-start col-sm-6 col-md-4 col-lg-3" *ngFor="let course of courses ">
-                  <app-course-home-card
-                    [courseImage]="course.imageUrl || 'assets/images/course-img-2.png'"
-                    [courseTitle]="course?.name"
-                    [courseProvider]="course?.instructors || 'TechAscend'"
-                    [rating]="course?.numberOfRatings || 4"
-                    [ratingCount]="course?.numberOfRatings || 120"
-                    [coursePrice]="course?.price + '$'"
-                    [navigationLink]="'course_detail/'+course?.id"
-                  ></app-course-home-card>
-                </div>
-              </div>
-            </div>
-          </p-tabPanel>
-          <p-tabPanel header="Business">
-            <div class="top-course-page">
-              <div class="row">
-                <div class="text-start col-sm-6 col-md-4 col-lg-3" *ngFor="let course of courses">
-                  <app-course-home-card
-                    [courseImage]="course.imageUrl || 'assets/images/course-img-2.png'"
-                    [courseTitle]="course?.name"
-                    [courseProvider]="course?.instructors || 'TechAscend'"
-                    [rating]="course?.numberOfRatings || 4"
-                    [ratingCount]="course?.numberOfRatings || 120"
-                    [coursePrice]="course?.price + '$'"
-                    [navigationLink]="'course_detail/'+course?.id"
-                  ></app-course-home-card>
-                </div>
-              </div>
-            </div>
-          </p-tabPanel>
-          <p-tabPanel header="Marketing">
-            <div class="top-course-page">
-              <div class="row">
-                <div class="text-start col-sm-6 col-md-4 col-lg-3" *ngFor="let course of courses">
-                  <app-course-home-card
-                    [courseImage]="course.imageUrl || 'assets/images/course-img-2.png'"
-                    [courseTitle]="course?.name"
-                    [courseProvider]="course?.instructors || 'TechAscend'"
-                    [rating]="course?.numberOfRatings || 4"
-                    [ratingCount]="course?.numberOfRatings || 120"
-                    [coursePrice]="course?.price + '$'"
-                    [navigationLink]="'course_detail/'+course?.id"
-                  ></app-course-home-card>
-                </div>
-              </div>
-            </div>
-          </p-tabPanel>
-          <p-tabPanel header="Photography">
-            <div class="top-course-page">
-              <div class="row">
-                <div class="text-start col-sm-6 col-md-4 col-lg-3" *ngFor="let course of courses">
-                  <app-course-home-card
-                    [courseImage]="course.imageUrl || 'assets/images/course-img-2.png'"
-                    [courseTitle]="course?.name"
-                    [courseProvider]="course?.instructors || 'TechAscend'"
-                    [rating]="course?.numberOfRatings || 4"
-                    [ratingCount]="course?.numberOfRatings || 120"
-                    [coursePrice]="course?.price + '$'"
-                    [navigationLink]="'course_detail/'+course?.id"
-                  ></app-course-home-card>
-                </div>
-              </div>
-            </div>
-          </p-tabPanel>
-        </p-tabView>
-      </div>
-    </div>
+    <p-tabView>
+      <p-tabPanel *ngFor="let category of ['Design', 'Developer', 'Business', 'Marketing', 'Photography']" [header]="category">
+        <div class="top-course-page">
+          <app-course-home-card *ngFor="let course of courses | slice:0:4"
+                                [courseImage]="courseImage"
+                                [course]="course"
+                                [category]='category'
+          ></app-course-home-card>
+        </div>
+      </p-tabPanel>
+    </p-tabView>
     <div class="course-card bg-purple text-start text-white p-5 rounded-4 container">
       <div>
         <h2 class='fw-bold text-black'>Lorem ipsum dolor sit amet consectetur</h2>
@@ -175,17 +95,13 @@
             </div>
           </div>
         </div>
-          <div class="top-course-page ms-4">
+          <div class=" ms-4">
             <div class="row">
               <div class="text-start col-md-12 col-lg-6" *ngFor="let course of courses | slice:0:4">
                 <app-course-home-card
-                  [courseImage]="course.imageUrl || 'assets/images/course-img-2.png'"
-                  [courseTitle]="course?.name"
-                  [courseProvider]="course?.instructors || 'TechAscend'"
-                  [rating]="course?.numberOfRatings || 4"
-                  [ratingCount]="course?.numberOfRatings || 120"
-                  [coursePrice]="course?.price + '$'"
-                  [navigationLink]="'course_detail/'+course?.id"
+                  [courseImage]="courseImage"
+                  [course]="course"
+                  [category]=''
                 ></app-course-home-card>
               </div>
             </div>
@@ -205,13 +121,9 @@
         <ng-template let-course pTemplate="item">
           <div class="text-start item">
             <app-course-home-card
-              [courseImage]="course.imageUrl || 'assets/images/course-img-2.png'"
-              [courseTitle]="course?.name"
-              [courseProvider]="course?.instructors || 'TechAscend'"
-              [rating]="course?.numberOfRatings || 4"
-              [ratingCount]="course?.numberOfRatings || 120"
-              [coursePrice]="course?.price + '$'"
-              [navigationLink]="'course_detail/'+course?.id"
+              [courseImage]="courseImage"
+              [course]="course"
+              [category]=''
             ></app-course-home-card>
           </div>
         </ng-template>
