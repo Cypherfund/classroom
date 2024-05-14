@@ -14,6 +14,7 @@ export class CourseHomeCardComponent {
   @Input() category?: string = '';
   maxRating: number = 5;
   @Input() course: CourseDetail | null = null;
+  @Input() maxWidth: string = '';
 
   constructor() { }
   ngOnInit(){

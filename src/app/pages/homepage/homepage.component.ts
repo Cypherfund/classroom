@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
 import {CourseService} from "../../services/course-service/course.service";
-import {  Courses, CourseDetail } from '../../models/course';
+import {  CourseDetail } from '../../models/course';
 import {Router} from "@angular/router";
 import { UserService } from '../../services/user/user.service';
 
@@ -13,12 +13,10 @@ import { UserService } from '../../services/user/user.service';
 export class HomepageComponent {
   courseImage = appConfig.courseImage
   value: any;
-  value2: any;
   studentName: string = 'Name';
   courses: CourseDetail[] = []
   upcomingCourses: CourseDetail[] = []
   responsiveOptions: any[] | undefined;
-  maxRating: number = 5;
   constructor( private courseService: CourseService,
                private router: Router,
                private userService: UserService) {
@@ -34,17 +32,22 @@ export class HomepageComponent {
   private configureScrollingOptions() {
     this.responsiveOptions = [
       {
-        breakpoint: '1400px',
+        breakpoint: '1199px',
+        numVisible: 4,
+        numScroll: 1
+      },
+      {
+        breakpoint: '991px',
         numVisible: 3,
-        numScroll: 3
+        numScroll: 1
       },
       {
-        breakpoint: '1220px',
+        breakpoint: '767px',
         numVisible: 2,
-        numScroll: 2
+        numScroll: 1
       },
       {
-        breakpoint: '1100px',
+        breakpoint: '400px',
         numVisible: 1,
         numScroll: 1
       }

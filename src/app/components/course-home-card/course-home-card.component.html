@@ -1,5 +1,5 @@
 <a [routerLink]="'course_detail/'+course?.id" class="text-decoration-none">
-  <p-card>
+  <p-card [style.max-width]="maxWidth" >
 <!--  <p-card [style]="{'max-width': '300px'}">-->
     <ng-template pTemplate="header">
       <img alt="Card" [src]="course?.imageUrl || courseImage " class="rounded-3" />
