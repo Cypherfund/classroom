@@ -9,16 +9,16 @@
         <span> <img alt="dropdown icon" src="/assets/svg/solar_widget-linear.svg"/> {{ category || 'Programming' }}</span>
         <span> <img alt="dropdown icon" src="/assets/svg/solar_alarm-linear.svg"/>3 Months</span>
       </div>
-      <h5 class="text-left text-size text-overflow-ellipsis">{{ course?.name }}</h5>
+      <p class="text-left text-size text-overflow-ellipsis">{{ course?.name }}</p>
       <div class='d-flex justify-content-start'>
         <p-avatar
           [image]="instructorImage"
           styleClass="mr-2"
           size="large"
           shape="circle" />
-        <div class='d-flex flex-column align-items-start'>
+        <div class='d-flex flex-column align-items-start d-none'>
           <small class="text-purple fw-bold"> {{ course?.instructors || 'TechAscend' }}</small>
-          <span style='color: #999'><p-rating [ngModel]="course?.numberOfRatings || 4" [readonly]="true" [cancel]="false" ></p-rating>(1.2k)</span>
+          <span style='color: #999'><p-rating  [ngModel]="course?.numberOfRatings || 4" [readonly]="true" [cancel]="false" ></p-rating>(1.2k)</span>
         </div>
       </div>
       <div class="pricing d-flex justify-content-start column-gap-2">
