@@ -6,4 +6,6 @@ export const appConfig = {
   imageFour: 'assets/images/master-card.png',
   courseImage: 'assets/images/course-img-2.png',
   instructorImage: 'assets/images/instructor.jpeg',
+  starImage: 'assets/svg/solar_star-linear.svg',
+  unstarImage: 'assets/svg/unstar.svg',
 }

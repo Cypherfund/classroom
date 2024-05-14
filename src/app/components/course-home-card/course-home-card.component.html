@@ -1,6 +1,5 @@
 <a [routerLink]="'course_detail/'+course?.id" class="text-decoration-none">
   <p-card [style.max-width]="maxWidth" >
-<!--  <p-card [style]="{'max-width': '300px'}">-->
     <ng-template pTemplate="header">
       <img alt="Card" [src]="course?.imageUrl || courseImage " class="rounded-3" />
     </ng-template>
@@ -16,9 +15,20 @@
           styleClass="mr-2"
           size="large"
           shape="circle" />
-        <div class='d-flex flex-column align-items-start d-none'>
+        <div class='d-flex flex-column align-items-start'>
           <small class="text-purple fw-bold"> {{ course?.instructors || 'TechAscend' }}</small>
-          <span style='color: #999'><p-rating  [ngModel]="course?.numberOfRatings || 4" [readonly]="true" [cancel]="false" ></p-rating>(1.2k)</span>
+          <span style='color: #999'>
+            <p-rating [ngModel]="course?.numberOfRatings || 4" [readonly]="true" [cancel]="false" >
+              <ng-template pTemplate="onicon">
+                <img
+                  [src]="starImage"/>
+              </ng-template>
+              <ng-template pTemplate="officon">
+                <img
+                  [src]="unstarImage"/>
+              </ng-template>
+            </p-rating>
+            (1.2k)</span>
         </div>
       </div>
       <div class="pricing d-flex justify-content-start column-gap-2">

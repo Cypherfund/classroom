@@ -10,6 +10,8 @@ import { appConfig } from '../../../environments/app.config';
 export class CourseHomeCardComponent {
   @Input() courseImage: string = '';
   instructorImage: string = appConfig.instructorImage;
+  starImage: string = appConfig.starImage;
+  unstarImage: string = appConfig.unstarImage;
   rating: number = 4;
   @Input() category?: string = '';
   maxRating: number = 5;
