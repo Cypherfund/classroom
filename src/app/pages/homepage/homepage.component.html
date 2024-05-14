@@ -65,7 +65,7 @@
     <h4 class="p-5">{{'browse_course' | translate}}</h4>
     <p-tabView>
       <p-tabPanel *ngFor="let category of ['Design', 'Developer', 'Business', 'Marketing', 'Photography']" [header]="category">
-        <div class="top-course-page">
+        <div class="top-course-page justify-content-center">
           <app-course-home-card *ngFor="let course of courses | slice:0:4"
                                 [courseImage]="courseImage"
                                 [course]="course"
@@ -86,7 +86,7 @@
     <br/>
     <div>
       <h4 class="fw-semibold p-2">{{'Trending' | translate}}</h4>
-      <div class="trending-courses d-flex container">
+      <div class="trending-courses d-flex">
         <div class="trending course-card bg-purple d-none d-md-block text-start  text-white p-5 rounded-4 container d-flex flex-column flex-grow-1">
           <div class="mt-auto">
             <h2 class="fw-bold text-black">Lorem ipsum dolor sit amet consectetur</h2>
@@ -124,7 +124,6 @@
               [courseImage]="courseImage"
               [course]="course"
               [category]=''
-              [maxWidth]="'300px'"
             ></app-course-home-card>
           </div>
         </ng-template>

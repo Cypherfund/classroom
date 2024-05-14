@@ -1,7 +1,7 @@
 <a [routerLink]="'course_detail/'+course?.id" class="text-decoration-none">
   <p-card [style.max-width]="maxWidth" >
     <ng-template pTemplate="header">
-      <img alt="Card" [src]="course?.imageUrl || courseImage " class="rounded-3" />
+      <img alt="Card" [src]="course?.imageUrl || courseImage " class="rounded-3 image" />
     </ng-template>
     <div class='d-flex flex-column row-gap-1'  style=''>
       <div class='d-flex justify-content-between'>
