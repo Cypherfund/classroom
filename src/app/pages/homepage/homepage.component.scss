@@ -56,7 +56,8 @@ input{
   border: 0;
 }
 .card-schedule{
-  border-color: var(--main-color-shade-1)
+  border-color: var(--main-color-shade-1);
+  max-width: 520px;
 }
 
 .btn.btn-primary {
@@ -111,6 +112,14 @@ input{
     }
   }
 }
+
+
+@media screen and (max-width: 1200px) {
+  .d-flex.gap-4.justify-content-between.flex-wrap {
+    justify-content: center !important;
+  }
+}
+
 
 .top-course-page {
   max-width: 100%;
