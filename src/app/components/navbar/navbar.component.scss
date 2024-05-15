@@ -47,8 +47,9 @@
 
 .container-fluid {
   column-gap: 5rem;
-  @media screen and (max-width: 390px) {
+  @media screen and (max-width: 482px) {
     column-gap: 0;
+    padding: unset;
     .navbar-brand img {
       max-width: 200px;
     }
