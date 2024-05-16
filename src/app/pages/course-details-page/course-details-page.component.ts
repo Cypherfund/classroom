@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../services/course-service/course.service";
 import {CourseDetail} from "../../models/course";
+import {appConfig} from "../../../environments/app.config";
 
 @Component({
   selector: 'app-course-details-page',
@@ -17,6 +18,9 @@ export class CourseDetailsPageComponent implements OnInit{
   formGroup!: FormGroup;
   course: CourseDetail | any
   activeCourseId: number = 0;
+
+  starImage: string = appConfig.starImage;
+  unstarImage: string = appConfig.unstarImage;
   constructor(private route: Router,
               private courseService: CourseService,
               private activeRoute: ActivatedRoute) {

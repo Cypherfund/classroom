@@ -1,5 +1,5 @@
 .container-fluid{
-  background-color: var(--color-white);
+  background-color: var(--color-main-background);
 }
 .btn-cart{
   border-color: var(--main-color-shade-1);
@@ -35,4 +35,12 @@
   &:hover {
     text-decoration: none;
   }
+}
+
+.course-higlight {
+  max-width: 420px;
+  color: var(--main-color-black);
+  font-size: 18px;
+  font-weight: 400 !important;
+  word-wrap: break-word;
 }

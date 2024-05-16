@@ -1,8 +1,6 @@
 <app-navbar></app-navbar>
-<section class="container-fluid text-white">
-  <div class="">
-    <p-breadcrumb class="max-w-full bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="items"></p-breadcrumb>
-  </div>
+<section class="container-fluid  d-flex flex-column text-white">
+  <p-breadcrumb class="max-w-full bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="items"></p-breadcrumb>
   <div class="d-flex align-items-center pb-3 pt-3 ps-5 pe-5 flex-wrap flex-row-reverse justify-content-center">
     <div class="p-5">
       <iframe class="rounded-4 mt-2" width='373' height="259" [src]="'https://www.youtube.com/embed/tgbNymZ7vqY' |
@@ -10,18 +8,28 @@
     </div>
     <div style='min-width:271px' class="desc text-dark w-60 ">
       <h4 class="fw-semibold">{{course.name}}</h4>
-      <div class="d-flex">
+      <div class="d-flex align-items-center gap-2px">
+        {{course?.numberOfRatings || 4.6}}
         <form [formGroup]="formGroup">
-          <p-rating formControlName="value" [cancel]='false'></p-rating>
+          <p-rating formControlName="value" [cancel]="false" >
+            <ng-template pTemplate="onicon">
+              <img height="17"
+                [src]="starImage"/>
+            </ng-template>
+            <ng-template pTemplate="officon">
+              <img height="17"
+                [src]="unstarImage"/>
+            </ng-template>
+          </p-rating>
         </form>
         <span class="ms-2 me-2 text-decoration-underline"><a>({{course.numberOfRatings || 5000 | number}} {{'ratings' | translate}})</a></span>
         <span class="ms-2 me-2">{{course.instructors?.numberOfStudents || 7000 | number}} {{'students' | translate}}</span>
       </div>
 
       <p>{{'Created_by' | translate}} <span class="ms-2 fw-bolder">{{course.instructors?.instructorName}}</span></p>
-    <div class="course-higlight fw-light text-wrap me-5">
+    <p class="course-higlight fw-light text-wrap" >
       {{course.description}}
-    </div>
+    </p>
     <p class="pt-3 pb-3">{{'Price' | translate}}: <span class="fw-bolder fs-5">{{course.price}}</span></p>
       <div class="d-flex justify-content-start gap-4">
         <div class="buttons">
