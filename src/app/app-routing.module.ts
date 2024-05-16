@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:'', component: HomepageComponent},
   { path:'transaction', component: TransactionComponent},
   { path:'about', component: AboutCourseComponent},
-  { path: 'course_detail/:id', component: CourseDetailsPageComponent},
+  { path: 'course-detail/:id', component: CourseDetailsPageComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'courses', component: CoursesComponent},
   { path: 'course-admin', loadChildren: () => import('./pages/course-admin/course-admin.module').then(m => m.CourseAdminModule)
