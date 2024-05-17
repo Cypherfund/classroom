@@ -21,6 +21,7 @@ export class CourseDetailsPageComponent implements OnInit{
 
   starImage: string = appConfig.starImage;
   unstarImage: string = appConfig.unstarImage;
+  previewCourseVideoImage: string = appConfig.previewCourseVideoImage;
   constructor(private route: Router,
               private courseService: CourseService,
               private activeRoute: ActivatedRoute) {

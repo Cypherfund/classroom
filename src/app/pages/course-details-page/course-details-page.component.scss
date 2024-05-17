@@ -44,3 +44,53 @@ main{
   font-weight: 400 !important;
   word-wrap: break-word;
 }
+.preview-div {
+  /* Replace with your image path */
+  background-size: cover !important; /* Scales the image to cover the container */
+  /* Prevents repeating the image */
+  /* Centers the image horizontally and vertically */
+  background: var(--main-color-shade-1) url("/assets/images/course-thumbnail.png") no-repeat center;
+  width: 373px;
+  height: 259px;
+  padding: 20px;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 45px;
+  display: inline-flex;
+}
+
+.cours-name{
+  font-size: 34px;
+  font-weight: 400;
+  word-wrap: break-word;
+  color: var(--main-color-black);
+  line-height: 2rem;
+}
+
+.course-desc {
+  align-items: start !important;
+  flex-direction: row-reverse;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+  row-gap: 2rem;
+
+  @media screen and (max-width: 690px) {
+    .desc {
+      width: 80%;
+      max-width: unset !important;
+    }
+    .preview-div {
+      width:80%;
+    }
+    .cours-name {
+      line-height: 2.5rem;
+    }
+    .buttons {
+      max-width: 141px;
+    }
+  }
+
+}
