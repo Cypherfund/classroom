@@ -47,11 +47,11 @@ export class CourseTabDetailsPageComponent {
       this.aboutResponse = {
         duration: this.course.duration,
         courseTopics: [{description: "", topic: ""}],
-        hasCompletionCertificate: this.course.hasCompletionCertificate,
-        hasRealWorldProjects: this.course.hasRealWorldProjects,
-        level: this.course.level,
+        hasCompletionCertificate: true,
+        hasRealWorldProjects: true,
+        level: 'Beginner',
         targetAudience: this.course.targeAudience,
-        updatedOn: this.course.updatedOn
+        updatedOn: new Date()
       }
       this.description = this.course.description
       this.courseContentResponse = this.course.courseContents

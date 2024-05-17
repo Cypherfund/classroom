@@ -26,3 +26,9 @@
 ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   border-bottom: unset;
 }
+::ng-deep .p-tabview-panels {
+  padding: unset;
+}
+::ng-deep p-tag {
+  min-width: 220px;
+}
