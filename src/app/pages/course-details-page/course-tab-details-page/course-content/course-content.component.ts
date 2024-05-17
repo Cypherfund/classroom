@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CourseContentPayload} from "../../../models/course";
+import {CourseContentPayload} from "../../../../models/course";
 
 @Component({
   selector: 'app-course-content',

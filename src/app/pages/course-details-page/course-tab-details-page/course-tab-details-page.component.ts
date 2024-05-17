@@ -6,7 +6,7 @@ import {
   CourseDetail,
   InstructorDetails,
   RatingsAndReviews
-} from "../../models/course";
+} from "../../../models/course";
 
 @Component({
   selector: 'app-course-tab-details-page',

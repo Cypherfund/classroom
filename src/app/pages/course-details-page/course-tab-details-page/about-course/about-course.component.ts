@@ -1,5 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {AboutPayload} from "../../../models/course";
+import {AboutPayload} from "../../../../models/course";
 
 @Component({
   selector: 'app-about-course',

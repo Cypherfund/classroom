@@ -1,0 +1,28 @@
+::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: var(--color-white);
+  border-color: var(--main-color-shade-1);
+  color: var(--main-color-shade-1);
+}
+::ng-deep .p-tabview .p-tabview-nav li {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+::ng-deep .p-tabview-nav-content {
+  max-width: fit-content;
+  //margin: auto;
+}
+::ng-deep .p-tabview-nav{
+  min-width: unset;
+  border-bottom: unset;
+  padding-left:unset;
+}
+::ng-deep .p-tabview .p-tabview-nav .p-tabview-ink-bar {
+  background: var(--main-color-shade-1);
+}
+::ng-deep a {
+  color: var(--color-grey-shade-3);
+  text-decoration: none;
+}
+::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  border-bottom: unset;
+}

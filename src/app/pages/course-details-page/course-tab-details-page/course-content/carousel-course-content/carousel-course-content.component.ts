@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Lectures} from "../../../../models/course";
+import {Lectures} from "../../../../../models/course";
 
 @Component({
   selector: 'app-carousel-course-content',

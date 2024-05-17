@@ -62,7 +62,11 @@ main{
   gap: 45px;
   display: inline-flex;
 }
-
+.course-tab {
+  margin: auto;
+  max-width: fit-content;
+  padding-left: 3rem;
+}
 .cours-name{
   font-size: 34px;
   font-weight: 400;
@@ -93,6 +97,9 @@ main{
     .buttons {
       max-width: 141px;
     }
+    .course-tab {
+      width: 80%;
+    }
   }
 
 }
@@ -103,3 +110,10 @@ main{
     margin: auto;
   }
 }
+.course-tab {
+  padding-left: 1rem;
+}
+.extra-info {
+  max-width: 67rem;
+}
+

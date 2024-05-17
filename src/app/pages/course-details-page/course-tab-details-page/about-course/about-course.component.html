@@ -1,6 +1,6 @@
 <section id="about">
-  <div class="container w-75">
-    <div class="ms-5">
+  <div class="container">
+    <div>
       <div class="tag text-start">
         <div class="flex justify-content-between">
           <p-tag value="{{'Last_Updated' | translate}} {{keyAspectsOfCourse.updatedOn | dateFormat}}"
@@ -12,7 +12,7 @@
           <p-tag value="{{keyAspectsOfCourse?.level}}" *ngIf="keyAspectsOfCourse.level"></p-tag>
         </div>
       </div>
-      <div class="description card border-0 p-2 text-start text-wrap m-1" >
+      <div class="description card border-0 text-start text-wrap" >
         <h4 class="fw-bold text-start">{{'Description' | translate}}</h4>
         {{aboutResponseBody.description}}
       </div>

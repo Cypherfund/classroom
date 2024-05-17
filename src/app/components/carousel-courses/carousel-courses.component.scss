@@ -29,3 +29,13 @@
     border-radius: 5rem;
   }
 }
+
+::ng-deep .p-card {
+  background: #ffffff;
+  color: #4b5563;
+  box-shadow: none;
+  border-radius: 0;
+}
+::ng-deep  .p-card .p-card-body {
+  padding: 0.25rem;
+}

@@ -12,6 +12,7 @@ import {Lectures} from "../../models/course";
 export class CarouselCoursesComponent {
   similarCourses: any;
   profileImage = appConfig.profileImage
+  courseImage = appConfig.courseImage
   @Input() carouselType = 'courses'
   responsiveOptions: any;
   @Input() lectures: Lectures[] = []
@@ -73,17 +74,22 @@ export class CarouselCoursesComponent {
 
     this.responsiveOptions = [
       {
-        breakpoint: '1400px',
+        breakpoint: '1199px',
+        numVisible: 4,
+        numScroll: 1
+      },
+      {
+        breakpoint: '991px',
         numVisible: 3,
-        numScroll: 3
+        numScroll: 1
       },
       {
-        breakpoint: '1220px',
+        breakpoint: '767px',
         numVisible: 2,
-        numScroll: 2
+        numScroll: 1
       },
       {
-        breakpoint: '1100px',
+        breakpoint: '400px',
         numVisible: 1,
         numScroll: 1
       }
