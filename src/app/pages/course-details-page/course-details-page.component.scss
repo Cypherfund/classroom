@@ -24,8 +24,9 @@ main{
   background-color: transparent;
   border: none;
   text-decoration: none;
-  width: 67rem;
+  max-width: 65rem;
   margin: auto;
+  padding-left: unset;
 }
 ::ng-deep .p-rating .p-rating-item .p-rating-icon {
   color: var(--color-gold);
