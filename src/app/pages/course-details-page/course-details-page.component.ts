@@ -37,7 +37,7 @@ export class CourseDetailsPageComponent implements OnInit{
     this.formGroup = new FormGroup({
       value: new FormControl(4)
     });
-    this.items = [{ label: 'All Programs' }, { label: 'Design' }, { label: 'Product Design' }];
+    this.items = [ { label: 'Design' }, { label: 'Product Design' }];
 
     this.home = { icon: 'pi pi-home', routerLink: '/' };
   }

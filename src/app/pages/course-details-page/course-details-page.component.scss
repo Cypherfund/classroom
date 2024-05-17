@@ -50,10 +50,7 @@ main{
   word-wrap: break-word;
 }
 .preview-div {
-  /* Replace with your image path */
-  background-size: cover !important; /* Scales the image to cover the container */
-  /* Prevents repeating the image */
-  /* Centers the image horizontally and vertically */
+  background-size: cover !important;
   background: var(--main-color-shade-1) url("/assets/images/course-thumbnail.png") no-repeat center;
   width: 373px;
   height: 259px;

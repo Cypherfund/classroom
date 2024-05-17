@@ -37,7 +37,6 @@ export class AppComponent {
         if (response.success) {
           this.stoarageService.set('token', token); //todo add security
           this.userService.user = response.data;
-          // this.router.navigate(['/']);
         }
       })
       return;
