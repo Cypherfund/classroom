@@ -88,18 +88,34 @@ main{
     .desc {
       width: 80%;
       max-width: unset !important;
+      div span {
+        font-size: 0.7em;
+        font-weight: 500;
+      }
+      buttons {
+        max-width: 141px;
+      }
+      div {
+        gap: 0.3rem !important;
+      }
     }
     .preview-div {
       width:80%;
     }
     .cours-name {
-      line-height: 2.5rem;
+      font-size: 1.2em;
+      line-height: unset;
+      font-weight: 500;
     }
     .buttons {
       max-width: 141px;
     }
     .course-tab {
       width: 80%;
+    }
+    .course-higlight {
+      font-size: 1.1em;
+      color: var(--main-color-black);
     }
   }
 
