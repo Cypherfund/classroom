@@ -1,6 +1,9 @@
 main{
   background-color: var(--color-main-background);
 }
+.container-fluid {
+  padding: unset;
+}
 .btn-cart{
   border-color: var(--main-color-shade-1);
   color: var(--main-color-shade-1);
