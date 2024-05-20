@@ -13,7 +13,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MenubarModule } from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from "primeng/inputtext";
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CourseDetailsPageComponent } from './pages/course-details-page/course-details-page.component';
@@ -31,8 +30,26 @@ import { TableModule } from 'primeng/table';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessageService } from 'primeng/api';
+import { CourseContentComponent} from "./pages/course-tab-details-page/course-content/course-content.component";
+import { ReviewsComponent} from "./pages/course-tab-details-page/reviews/reviews.component";
 import { FooterComponent } from './components/footer/footer.component';
-
+import { SafePipe } from "./pipe/DomSanitiser/safe.pipe";
+import { DateFormatPipe } from "./pipe/date-format.pipe";
+import {InstructorDetailsComponent} from "./pages/course-tab-details-page/instructor-details/instructor-details.component";
+import {AccordionModule} from "primeng/accordion";
+import {ProgressBarModule} from "primeng/progressbar";
+import {CarouselCourseContentComponent} from "./pages/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component";
+import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-included/course-included.component";
+import {UserService} from "./services/user/user.service";
+import {UserApiService} from "./services/user/user-api.service";
+import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
+import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
+import { CoursesComponent } from './pages/courses/courses.component';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { ButtonModule } from 'primeng/button';
+import { ComponentModule } from './components/component.module';
+import { AvatarModule } from 'primeng/avatar';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,7 +60,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     TranslationComponent,
-    NavbarComponent,
     HomepageComponent,
     CourseDetailsPageComponent,
     CourseTabDetailsPageComponent,
@@ -52,6 +68,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     TransactionComponent,
     SettingsComponent,
     FooterComponent,
+    CourseContentComponent,
+    ReviewsComponent,
+    InstructorDetailsComponent,
+    CarouselCourseContentComponent,
+    CourseIncludedComponent,
+    SafePipe,
+    DateFormatPipe,
+    CourseHomeCardComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +85,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     AppRoutingModule,
     DropdownModule,
+    RadioButtonModule,
     BrowserAnimationsModule,
     MenubarModule,
     CardModule,
@@ -72,21 +98,30 @@ export function HttpLoaderFactory(http: HttpClient) {
     TabViewModule,
     ToolbarModule,
     CarouselModule,
+    AccordionModule,
     SplitButtonModule,
+    ProgressBarModule,
+    PanelMenuModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [ HttpClient ]
       }
     }),
-    TableModule // Moved TableModule import to the imports array
+    TableModule, // Moved TableModule import to the imports array,
+    CourseAdminRoutingModule,
+    ComponentModule,
+    AvatarModule
+
   ],
   providers: [
     provideClientHydration(),
-    MessageService
+    MessageService,
+    UserService,
+    UserApiService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

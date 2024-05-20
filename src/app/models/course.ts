@@ -28,9 +28,7 @@ export interface AboutPayload {
     topic?: string;
     description?: string
   }];
-  targetAudience?:[{
-    role?: string
-  }]
+  targetAudience?: string[]
 }
 
 export interface CourseContentPayload
@@ -90,4 +88,78 @@ export interface RatingsAndReviews {
       timestamp?: string;
       userProfilePicture?: string;
     }]
+}
+
+export interface Courses {
+  success?: true;
+  message?: string;
+  data: CourseDetail[];
+  page?: {
+    number: number;
+    size: number;
+    totalElements: number;
+    totalPages: number
+  }
+}
+
+
+export interface CourseDetail {
+  id: number,
+  name: string,
+  description?: string,
+  startDate: string,
+  endDate: string,
+  duration: string,
+  instructorId: string,
+  price: number,
+  status: string,
+  imageUrl?: string,
+  instructors: {
+    instructorId: string,
+    instructorName: string,
+    profession: string,
+    instructorRating: string,
+    numberOfCourses: number,
+    numberOfStudents: number,
+    yearsOfExperience: number,
+    description: string,
+    profilePicture: string
+  },
+  category: string,
+  discountedPrice: number,
+  numberOfRatings: number,
+  updatedOn: string,
+  hasCompletionCertificate: true,
+  hasRealWorldProjects: true,
+  level: string,
+  targeAudience: [
+    string
+  ],
+  courseContents: [
+    {
+      numberOfSections: string,
+      numberOfLectures: string,
+      totalCourseDuration: string,
+      lessons: [
+        {
+          lessonId: string,
+          lessonDuration: string,
+          totalNumberOfLectures: number,
+          lectures: [
+            {
+              lectureId: string,
+              lectureTitle: string,
+              lectureDuration: string,
+              lectureContent: string,
+              lectureVideo: string
+            }
+          ],
+          lessonTitle: string
+        }
+      ]
+    }
+  ],
+  courseInclude: [
+    string
+  ]
 }

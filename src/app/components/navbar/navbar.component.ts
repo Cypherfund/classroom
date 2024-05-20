@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
-import {MenuItem, SelectItem} from "primeng/api";
+import { UserService } from '../../services/user/user.service';
+import { environment } from '../../../environments/environment';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -9,13 +11,30 @@ import {MenuItem, SelectItem} from "primeng/api";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
- profileImage = appConfig.profileImage
+  isLogged: boolean = false;
+  subscriptions: Subscription[] = [];
+
+  profileImage = appConfig.profileImage
+
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
+    this.isLogged = !!Object.keys(this.userService.user).length;
+    this.subscriptions.push(
+      this.userService.login$.pipe().subscribe( loginVal => {
+        if (loginVal === 1) {
+          this.isLogged = !!Object.keys(this.userService.user).length;
+        }
+    })
+    );
 
   }
   searchNav(){
     console.log('found course')
   }
 
+  navigateToAuth() {
+    window.location.href = environment.authUrl;
+  }
 }

@@ -1,0 +1,12 @@
+.main{
+  padding: 1rem;
+}
+/* Media query for screens between 0 and 665px width */
+@media (min-width: 665px) {
+  .sidebar {
+    flex: 0 0 20rem; /* Optional: Set a default width for larger screens */
+  }
+  .main{
+    flex: 1 1 auto;
+  }
+}
