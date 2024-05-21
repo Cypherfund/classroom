@@ -17,9 +17,7 @@ export class CourseTabDetailsPageComponent {
   items: MenuItem[] | undefined;
   activeItem: MenuItem | undefined;
   aboutResponse: AboutPayload | any;
-  description: string  | any = "";
   courseContentResponse: CourseContentPayload | any;
-  courseIncludeResponse: CourseDetail[]  | any = [] ;
   instructorDetailsResponse: InstructorDetails | any;
   courseRatingsAndReviewsResponse: RatingsAndReviews  | any;
   @Input() course: CourseDetail | any;
@@ -47,15 +45,13 @@ export class CourseTabDetailsPageComponent {
       this.aboutResponse = {
         duration: this.course.duration,
         courseTopics: [{description: "", topic: ""}],
-        hasCompletionCertificate: true,
-        hasRealWorldProjects: true,
-        level: 'Beginner',
-        targetAudience: this.course.targeAudience,
-        updatedOn: new Date()
+        hasCompletionCertificate: this.course.issueCertificate,
+        hasRealWorldProjects: this.course.hasRealWorldProjects,
+        level:  this.course.level,
+        updatedOn: new Date(),
+        description: this.course.description
       }
-      this.description = this.course.description
       this.courseContentResponse = this.course.courseContents
-      this.courseIncludeResponse = this.course.courseInclude
       this.instructorDetailsResponse = {
         name: this.course.instructors?.instructorName,
         profession: this.course.instructors?.profession,
@@ -66,7 +62,7 @@ export class CourseTabDetailsPageComponent {
             numberOfStudents: this.course.instructors?.numberOfStudents,
             yearsOfExperience: this.course.instructors?.yearsOfExperience
           }],
-        description: this.course.instructors?.description,
+        description: this.course?.instructor?.bio,
         profilePicture: this.course.instructors?.profilePicture
       }
       // Waiting for ratings and reviews to be included in the course payload

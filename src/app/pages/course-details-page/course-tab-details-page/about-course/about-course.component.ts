@@ -11,7 +11,6 @@ export class AboutCourseComponent implements OnInit, OnDestroy{
   keyAspectsOfCourse: any | undefined;
   aboutResponseBody: any | undefined;
   @Input() aboutPayload!: AboutPayload;
-  @Input() description!: string;
 
   constructor() {
   }
@@ -24,9 +23,9 @@ export class AboutCourseComponent implements OnInit, OnDestroy{
     }
 
     this.aboutResponseBody = {
-      description: this.description,
-      courseLearn: this.aboutPayload?.courseTopics,
-      courseFor: this.aboutPayload?.targetAudience
+      description: this.aboutPayload.description,
+      hasCompletionCertificate: this.aboutPayload?.hasCompletionCertificate,
+      hasRealWorldProjects: this.aboutPayload?.hasRealWorldProjects
     }
   }
 

@@ -49,9 +49,6 @@ import {
   CarouselCourseContentComponent
 } from "./pages/course-details-page/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component";
 import {
-  CourseIncludedComponent
-} from "./pages/course-details-page/course-tab-details-page/course-included/course-included.component";
-import {
   CourseContentComponent
 } from "./pages/course-details-page/course-tab-details-page/course-content/course-content.component";
 import {ReviewsComponent} from "./pages/course-details-page/course-tab-details-page/reviews/reviews.component";
@@ -83,7 +80,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReviewsComponent,
     InstructorDetailsComponent,
     CarouselCourseContentComponent,
-    CourseIncludedComponent,
     SafePipe,
     DateFormatPipe,
     CourseHomeCardComponent,

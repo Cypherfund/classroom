@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {appConfig} from "../../../environments/app.config";
 import {CourseService} from "../../services/course-service/course.service";
 import {  CourseDetail } from '../../models/course';
 import {Router} from "@angular/router";
@@ -11,7 +10,6 @@ import { UserService } from '../../services/user/user.service';
   styleUrl: './homepage.component.scss'
 })
 export class HomepageComponent {
-  courseImage = appConfig.courseImage
   value: any;
   studentName: string = 'Name';
   courses: CourseDetail[] = []

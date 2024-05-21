@@ -1,36 +1,18 @@
 <section id="about">
-  <div class="container">
-    <div>
-      <div class="tag text-start">
-        <div class="flex justify-content-start flex-wrap">
-          <p-tag value="{{'Last_Updated' | translate}} {{keyAspectsOfCourse.updatedOn | dateFormat}}"
-                 *ngIf="keyAspectsOfCourse.updatedOn"></p-tag>
-          <p-tag value="{{'Completion_Certificate' | translate}}" *ngIf="aboutPayload?.hasCompletionCertificate"></p-tag>
-          <p-tag value="{{'RealWorld_Projects' | translate}}" *ngIf="aboutPayload?.hasRealWorldProjects"></p-tag>
-          <p-tag value="{{keyAspectsOfCourse?.duration}} {{'Months' | translate}}"
-                 *ngIf="keyAspectsOfCourse.duration"></p-tag>
-          <p-tag value="{{keyAspectsOfCourse?.level}}" *ngIf="keyAspectsOfCourse.level"></p-tag>
-        </div>
+  <div class="m-3">
+    <div class="tag text-start">
+      <div class="flex justify-content-start flex-wrap">
+        <p-tag value="{{'Last_Updated' | translate}} {{keyAspectsOfCourse.updatedOn | dateFormat}}"
+               *ngIf="keyAspectsOfCourse.updatedOn"></p-tag>
+        <p-tag value="{{'Completion_Certificate' | translate}}" *ngIf="aboutPayload?.hasCompletionCertificate"></p-tag>
+        <p-tag value="{{'RealWorld_Projects' | translate}}" *ngIf="aboutPayload?.hasRealWorldProjects"></p-tag>
+        <p-tag value="{{keyAspectsOfCourse?.duration}} {{'Months' | translate}}"
+               *ngIf="keyAspectsOfCourse.duration"></p-tag>
+        <p-tag value="{{keyAspectsOfCourse?.level}}" *ngIf="keyAspectsOfCourse.level"></p-tag>
       </div>
-      <div style="padding-right: 10px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 30px; display: inline-flex">
-        <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
-          <div style="color: #3D3D3D; font-size: 24px; font-family: Inter; font-weight: 700; line-height: 34.80px; word-wrap: break-word">Description</div>
-          <div style="color: black; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 28.80px; word-wrap: break-word">Product design is the art and science of crafting products that captivate consumers, seamlessly blending style with function to create experiences that delight and inspire. It's about understanding people's desires, anticipating their needs, and infusing innovation into every detail, from aesthetics to usability. Product designers are the architects of tomorrow's must-have items, shaping the way we interact with the world and enhancing our daily lives with creativity and ingenuity.</div>
-        </div>
-        <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
-          <div style="color: #3D3D3D; font-size: 24px; font-family: Inter; font-weight: 700; line-height: 34.80px; word-wrap: break-word">What you’ll learn</div>
-          <div style="color: black; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 28.80px; word-wrap: break-word">1. Design Thinking: Learn problem-solving techniques and innovation strategies.
-            <br/>2. User Research: Understand how to gather insights and empathize with users.
-            <br/>3. Prototyping: Develop skills in creating and iterating on product concepts.
-            <br/>4. Usability and UX Design: Focus on creating intuitive and user-friendly interfaces.
-            <br/>5. Visual Design: Explore principles of typography, color theory, and layout.
-            <br/>6. Collaboration and Communication: Enhance skills in teamwork, stakeholder engagement, and effective presentation of design ideas.</div>
-        </div>
-        <div style="flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: flex">
-          <div style="color: #3D3D3D; font-size: 24px; font-family: Inter; font-weight: 700; line-height: 34.80px; word-wrap: break-word">Who this course is for?</div>
-          <div style=" color: black; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 28.80px; word-wrap: break-word">Aspiring designers<br/>Entrepreneurs developing products<br/>Professionals in related fields<br/>Students seeking to enhance skills<br/>Individuals interested in creativity</div>
-        </div>
-      </div>
+    </div>
+    <div style="padding-right: 10px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 30px; display: inline-flex">
+      {{aboutPayload.description}}
     </div>
   </div>
 </section>

@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {CourseService} from "../../services/course-service/course.service";
 import {appConfig} from "../../../environments/app.config";
-import {Lectures} from "../../models/course";
+import {CourseDetail, Lectures} from "../../models/course";
 
 
 @Component({
@@ -10,9 +10,8 @@ import {Lectures} from "../../models/course";
   styleUrl: './carousel-courses.component.scss'
 })
 export class CarouselCoursesComponent {
-  similarCourses: any;
+  similarCourses: CourseDetail[] = [];
   profileImage = appConfig.profileImage
-  courseImage = appConfig.courseImage
   @Input() carouselType = 'courses'
   responsiveOptions: any;
   @Input() lectures: Lectures[] = []
@@ -21,56 +20,7 @@ export class CarouselCoursesComponent {
   constructor(private courseService: CourseService) {}
 
   ngOnInit() {
-    this.similarCourses = [
-      {
-        id: '1000',
-        code: 'f230fh0g3',
-        name: 'Bamboo Watch',
-        description: 'Product Description',
-        image: 'bamboo-watch.jpg',
-        price: 65,
-        category: 'Accessories',
-        quantity: 24,
-        inventoryStatus: 'INSTOCK',
-        rating: 5
-      },
-      {
-        id: '1000',
-        code: 'f230fh0g3',
-        name: 'Bamboo Watch',
-        description: 'Product Description',
-        image: 'bamboo-watch.jpg',
-        price: 65,
-        category: 'Accessories',
-        quantity: 24,
-        inventoryStatus: 'INSTOCK',
-        rating: 5
-      },
-      {
-        id: '1000',
-        code: 'f230fh0g3',
-        name: 'Bamboo Watch',
-        description: 'Product Description',
-        image: 'bamboo-watch.jpg',
-        price: 65,
-        category: 'Accessories',
-        quantity: 24,
-        inventoryStatus: 'INSTOCK',
-        rating: 5
-      },
-      {
-        id: '1000',
-        code: 'f230fh0g3',
-        name: 'Bamboo Watch',
-        description: 'Product Description',
-        image: 'bamboo-watch.jpg',
-        price: 65,
-        category: 'Accessories',
-        quantity: 24,
-        inventoryStatus: 'INSTOCK',
-        rating: 5
-      },
-    ]
+    this.getSimilarCourse()
 
     this.responsiveOptions = [
       {
@@ -104,6 +54,12 @@ export class CarouselCoursesComponent {
     const monthsDiff = currentDate.getMonth() - givenDate.getMonth();
 
     return yearsDiff * 12 + monthsDiff;
+  }
+
+  getSimilarCourse(){
+    const sub = this.courseService.getCourses().subscribe( res => {
+      this.similarCourses = res.data
+    })
   }
 
 }

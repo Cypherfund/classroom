@@ -1,12 +1,12 @@
 <p-tabView>
   <p-tabPanel header="About">
-    <app-about-course [aboutPayload]="aboutResponse" [description]="description"></app-about-course>
+    <app-about-course [aboutPayload]="aboutResponse"></app-about-course>
   </p-tabPanel>
   <p-tabPanel header="Course Content">
     <app-course-content [courseContent]="courseContentResponse"></app-course-content>
   </p-tabPanel>
   <p-tabPanel header="What's Included">
-    <app-course-included [courseIncludePayload]="courseIncludeResponse"></app-course-included>
+    <div [innerHTML]="course.perks"></div>
   </p-tabPanel>
   <p-tabPanel header="Instructor(s)">
     <app-instructor-details [instructorDetails]="instructorDetailsResponse"></app-instructor-details>
