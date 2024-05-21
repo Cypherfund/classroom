@@ -119,6 +119,11 @@ input{
   }
 }
 
+@media screen and (max-width: 390px) {
+  .card-schedule{
+    padding: 1rem !important;
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .d-flex.gap-4.justify-content-between.flex-wrap {
