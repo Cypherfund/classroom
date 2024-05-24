@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Cypherfund';
+  title = 'TechAscend';
 
   constructor(translate: TranslateService,
               private route: ActivatedRoute,
