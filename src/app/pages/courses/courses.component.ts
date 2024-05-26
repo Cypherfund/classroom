@@ -13,7 +13,6 @@ import {MenuItem} from "primeng/api";
 export class CoursesComponent {
   cities: any;
   formGroup: any;
-  courseImage = appConfig.courseImage
   value: any;
   value2: any;
   courses: CourseDetail[] = []

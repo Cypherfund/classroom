@@ -1,5 +1,8 @@
-.container-fluid{
-  background-color: var(--color-white);
+main{
+  background-color: var(--color-main-background);
+}
+.container-fluid {
+  padding: unset;
 }
 .btn-cart{
   border-color: var(--main-color-shade-1);
@@ -21,6 +24,9 @@
   background-color: transparent;
   border: none;
   text-decoration: none;
+  max-width: 65rem;
+  margin: auto;
+  padding-left: unset;
 }
 ::ng-deep .p-rating .p-rating-item .p-rating-icon {
   color: var(--color-gold);
@@ -36,3 +42,95 @@
     text-decoration: none;
   }
 }
+
+.course-higlight {
+  max-width: 420px;
+  color: var(--main-color-black);
+  font-size: 18px;
+  font-weight: 400 !important;
+  word-wrap: break-word;
+}
+.preview-div {
+  background-size: cover !important;
+  background: var(--main-color-shade-1) url("/assets/images/course-thumbnail.png") no-repeat center;
+  width: 373px;
+  height: 259px;
+  padding: 20px;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 45px;
+  display: inline-flex;
+}
+.course-tab {
+  margin: auto;
+  //max-width: fit-content;
+  padding-left: 3rem;
+}
+.cours-name{
+  font-size: 34px;
+  font-weight: 400;
+  word-wrap: break-word;
+  color: var(--main-color-black);
+  line-height: 2rem;
+}
+
+.course-desc {
+  align-items: start !important;
+  flex-direction: row-reverse;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+  row-gap: 2rem;
+
+  @media screen and (max-width: 690px) {
+    .desc {
+      width: 80%;
+      max-width: unset !important;
+      div span {
+        font-size: 0.7em;
+        font-weight: 500;
+      }
+      buttons {
+        max-width: 141px;
+      }
+      div {
+        gap: 0.3rem !important;
+      }
+    }
+    .preview-div {
+      width:80%;
+    }
+    .cours-name {
+      font-size: 1.2em;
+      line-height: unset;
+      font-weight: 500;
+    }
+    .buttons {
+      max-width: 141px;
+    }
+    .course-tab {
+      width: 80%;
+    }
+    .course-higlight {
+      font-size: 1.1em;
+      color: var(--main-color-black);
+    }
+  }
+
+}
+
+@media screen and (max-width: 690px) {
+  ::ng-deep .p-breadcrumb {
+    width: 100%;
+    margin: auto;
+  }
+}
+.course-tab {
+  padding-left: 1rem;
+}
+.extra-info {
+  max-width: 67rem;
+}
+

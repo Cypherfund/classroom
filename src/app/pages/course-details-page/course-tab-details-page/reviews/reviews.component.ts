@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import { MessageService } from 'primeng/api';
-import {RatingsAndReviews} from "../../../models/course";
+import {RatingsAndReviews} from "../../../../models/course";
 
 
 @Component({

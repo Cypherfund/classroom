@@ -4,4 +4,5 @@ export const environment = {
   apiUrl: '',
   authUrl: 'https://auth.tech-ascend.com',
   CourseUrl: 'https://tech-ascend/course-api',
+  imagebucket: 'assets/images/'
 };

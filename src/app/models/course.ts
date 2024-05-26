@@ -24,11 +24,7 @@ export interface AboutPayload {
   hasRealWorldProjects?: boolean;
   duration?: string;
   level?: string;
-  courseTopics?: [{
-    topic?: string;
-    description?: string
-  }];
-  targetAudience?: string[]
+  description?: string;
 }
 
 export interface CourseContentPayload
@@ -51,10 +47,6 @@ export interface Lectures {
   lectureDuration?: string;
   lectureContent?: string;
   lectureVideo?: string
-}
-export interface CourseDetail {
-  title?: string;
-  description?: string
 }
 export interface InstructorDetails {
   name?: string;
@@ -102,64 +94,52 @@ export interface Courses {
   }
 }
 
+interface Category {
+  id: number;
+  name: string;
+  description: string;
+}
+
+interface Instructor {
+  id: number;
+  name: string;
+  img: string;
+  title: string;
+  bio: string;
+  rating: number;
+  totalReviews: number;
+  totalStudents: number;
+  totalCourses: number;
+  yearsOfExperience: number;
+  userId: string;
+}
 
 export interface CourseDetail {
-  id: number,
-  name: string,
-  description?: string,
-  startDate: string,
-  endDate: string,
-  duration: string,
-  instructorId: string,
-  price: number,
-  status: string,
-  imageUrl?: string,
-  instructors: {
-    instructorId: string,
-    instructorName: string,
-    profession: string,
-    instructorRating: string,
-    numberOfCourses: number,
-    numberOfStudents: number,
-    yearsOfExperience: number,
-    description: string,
-    profilePicture: string
-  },
-  category: string,
-  discountedPrice: number,
-  numberOfRatings: number,
-  updatedOn: string,
-  hasCompletionCertificate: true,
-  hasRealWorldProjects: true,
-  level: string,
-  targeAudience: [
-    string
-  ],
-  courseContents: [
-    {
-      numberOfSections: string,
-      numberOfLectures: string,
-      totalCourseDuration: string,
-      lessons: [
-        {
-          lessonId: string,
-          lessonDuration: string,
-          totalNumberOfLectures: number,
-          lectures: [
-            {
-              lectureId: string,
-              lectureTitle: string,
-              lectureDuration: string,
-              lectureContent: string,
-              lectureVideo: string
-            }
-          ],
-          lessonTitle: string
-        }
-      ]
-    }
-  ],
-  courseInclude: [
-    string
-  ]
+  category: Category;
+  id: number;
+  syllabus: string | null;
+  requirements: string | null;
+  prerequisites: string | null;
+  position: number;
+  perks: string | null;
+  discountedPrice: number | null;
+  discounted: boolean;
+  about: string | null;
+  imgUrl: string;
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  duration: string;
+  price: number;
+  dtCreated: string;
+  issueCertificate: boolean;
+  status: string;
+  type: string;
+  level: string;
+  instructor: Instructor;
+  numberOfRatings: number;
+  updatedOn: string | null;
+  hasRealWorldProjects: boolean;
+  courseContents: string | null;
 }

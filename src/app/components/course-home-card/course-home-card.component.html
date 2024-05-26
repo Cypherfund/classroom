@@ -1,7 +1,7 @@
-<a [routerLink]="'course_detail/'+course?.id" class="text-decoration-none">
+<a [routerLink]="'course-detail/'+course?.id" class="text-decoration-none">
   <p-card [style.max-width]="maxWidth" >
     <ng-template pTemplate="header">
-      <img alt="Card" [src]="course?.imageUrl || courseImage " class="rounded-3 image" />
+      <img alt="Card" [src]="imagebucket + course?.imgUrl || courseImage " class="rounded-3 image" />
     </ng-template>
     <div class='d-flex flex-column row-gap-1'  style=''>
       <div class='d-flex justify-content-between'>
@@ -16,7 +16,7 @@
           size="large"
           shape="circle" />
         <div class='d-flex flex-column align-items-start'>
-          <small class="text-purple fw-bold"> {{ course?.instructors || 'TechAscend' }}</small>
+          <small class="text-purple fw-bold"> {{ course?.instructor?.name}}</small>
           <span style='color: #999'>
             <p-rating [ngModel]="course?.numberOfRatings || 4" [readonly]="true" [cancel]="false" >
               <ng-template pTemplate="onicon">
