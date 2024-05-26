@@ -29,5 +29,4 @@
   <msg id="eb.start_learning">Start Learning</msg>
   <msg id="eb.lorem_text">Lorem ipsum dolor sit amet consectetur</msg>
   <msg id="eb.lorem_text_desc"> Lorem ipsum dolor sit amet consectetur. Vitae egestas aliquet habitant eget est et diam cursus. Aliquam urna eros rhoncus augue. </msg>
-  <msg id="eb.lorem_text_desc_update"> Lorem ipsum dolor sit amet consectetur. Vitae egestas aliquet habitant eget est et diam cursus. Aliquam urna eros rhoncus augue. </msg>
 </messagebundle>

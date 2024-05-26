@@ -6,7 +6,7 @@
     "TechAscend": {
       "i18n": {
         "locales": {
-          "fr-Fr": "src/locale/messages.fr.xlf"
+          "fr-Fr": "src/locale/messages.fr.json"
         },
         "sourceLocale": "en-US"
       },
