@@ -6,7 +6,10 @@
     "TechAscend": {
       "i18n": {
         "locales": {
-          "fr-Fr": "src/locale/messages.fr.json"
+          "fr-Fr": {
+            "translation": "src/locale/messages.fr.json",
+            "baseHref": ""
+          }
         },
         "sourceLocale": "en-US"
       },
@@ -30,7 +33,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize": ["fr-Fr"],
+            "localize": false,
             "outputPath": "dist/techascend",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -99,6 +102,9 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.staging.ts"
                 }]
+            },
+            "fr-Fr": {
+              "localize": ["fr-Fr"]
             }
           },
           "defaultConfiguration": "development"
