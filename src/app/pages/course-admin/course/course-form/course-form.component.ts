@@ -5,6 +5,7 @@ import {CourseTopicsDTO} from "../../../../models/courseTopics";
 import {HttpErrorResponse} from "@angular/common/http";
 import {LocalStorageService} from "../../../../services/localstorage/local-storage.service";
 import {CourseDTO} from "../../../../models/CourseDTO";
+import { MessageService, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-course-form',
@@ -21,9 +22,16 @@ export class CourseFormComponent {
   contentForm!: FormGroup;
   showInputField = false;
 
+  files = [];
 
+  totalSize : number = 0;
 
-  constructor(private fb: FormBuilder, private courseService: CourseService, private localStorageService: LocalStorageService) {}
+  totalSizePercent : number = 0;
+
+  constructor(private fb: FormBuilder, private courseService: CourseService,
+              private localStorageService: LocalStorageService,
+              private messageService: MessageService,
+              private config: PrimeNGConfig) {}
 
   ngOnInit() {
     this.courseForm = this.fb.group({
@@ -34,18 +42,13 @@ export class CourseFormComponent {
       duration: ['', Validators.required],
       price: ['', Validators.required],
       status: ['DRAFT', Validators.required],
-      instructors: this.fb.group({
-        instructorName: ['', Validators.required],
-        profession: ['', Validators.required],
-        yearsOfExperience: ['', [Validators.required, Validators.min(1)]],
-        description: ['', Validators.required],
-        profilePicture: ['', Validators.required]
-      }),
-      category: ['', Validators.required],
+      category: [{'id': 1}, Validators.required],
       discountedPrice: ['', [Validators.required, Validators.min(1)]],
-      hasCompletionCertificate: [false, Validators.required],
-      hasRealWorldProjects: [false, Validators.required],
+      about: [''],
+      perks: [''],
+      issueCertificate: [false, Validators.required],
       level: ['', Validators.required],
+      type: ['', Validators.required]
     });
     this.courseTopicForm = this.fb.group({
       name: ['', Validators.required],
@@ -124,6 +127,51 @@ export class CourseFormComponent {
       ).add(() => {
         (this.loader = false)
       });
+  }
+  choose(event: Event, callback: any) {
+    callback();
+  }
+
+  onRemoveTemplatingFile(event: Event, file: File, removeFileCallback: any, index: number) {
+    removeFileCallback(event, index);
+    this.totalSize -= parseInt(this.formatSize(file.size));
+    this.totalSizePercent = this.totalSize / 10;
+  }
+
+  onClearTemplatingUpload(clear: any) {
+    clear();
+    this.totalSize = 0;
+    this.totalSizePercent = 0;
+  }
+
+  onTemplatedUpload() {
+    this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+  }
+
+  onSelectedFiles(event: any) {
+    this.files = event.currentFiles;
+    this.files.forEach((file: any) => {
+      this.totalSize += parseInt(this.formatSize(file.size));
+    });
+    this.totalSizePercent = this.totalSize / 10;
+  }
+
+  uploadEvent(callback: any) {
+    callback();
+  }
+
+  formatSize(bytes: any) {
+    const k = 1024;
+    const dm = 3;
+    const sizes = this.config.translation.fileSizeTypes || [];
+    if (bytes === 0) {
+      return `0 ${sizes[0]}`;
+    }
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
+
+    return `${formattedSize} ${sizes[i]}`;
   }
 
   saveCourseLesson() {

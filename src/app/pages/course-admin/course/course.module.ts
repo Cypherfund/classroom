@@ -11,6 +11,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { ButtonGroup, ButtonGroupModule } from 'primeng/buttongroup';
 import { DialogModule } from 'primeng/dialog';
+import { FileUploadModule } from 'primeng/fileupload';
+import { BadgeModule } from 'primeng/badge';
+import { ToastModule } from 'primeng/toast';
 
 
 const routes: Routes = [
@@ -37,7 +40,10 @@ const routes: Routes = [
     DialogModule,
     ButtonGroupModule,
     RouterModule.forChild(routes),
-    NgForOf
+    NgForOf,
+    FileUploadModule,
+    BadgeModule,
+    ToastModule
   ]
 })
 export class CourseModule { }
