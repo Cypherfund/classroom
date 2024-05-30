@@ -58,6 +58,7 @@ import {
 import {
   CourseTabDetailsPageComponent
 } from "./pages/course-details-page/course-tab-details-page/course-tab-details-page.component";
+import { HttpService } from './services/http.service';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -127,7 +128,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     provideClientHydration(),
     MessageService,
     UserService,
-    UserApiService
+    UserApiService,
+    HttpService
   ],
   bootstrap: [ AppComponent ]
 })

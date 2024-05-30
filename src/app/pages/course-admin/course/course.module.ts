@@ -14,6 +14,8 @@ import { DialogModule } from 'primeng/dialog';
 import { FileUploadModule } from 'primeng/fileupload';
 import { BadgeModule } from 'primeng/badge';
 import { ToastModule } from 'primeng/toast';
+import { EditorModule } from 'primeng/editor';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 
 
 const routes: Routes = [
@@ -43,7 +45,9 @@ const routes: Routes = [
     NgForOf,
     FileUploadModule,
     BadgeModule,
-    ToastModule
+    ToastModule,
+    EditorModule,
+    FileUploadComponent
   ]
 })
 export class CourseModule { }
