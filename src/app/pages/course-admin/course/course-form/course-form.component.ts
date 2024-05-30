@@ -49,7 +49,7 @@ export class CourseFormComponent {
       about: [''],
       perks: [''],
       issueCertificate: [false, Validators.required],
-      level: ['Beginner', Validators.required],
+      level: ['BEGINNER', Validators.required],
       type: ['COURSE', Validators.required]
     });
     this.courseTopicForm = this.fb.group({
