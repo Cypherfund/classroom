@@ -1,0 +1,14 @@
+
+<p-toast position="top-center" key="tc"></p-toast>
+<ng-container
+  *ngIf="{
+  courseDetail: (courseResult$ | async),
+  loading: (loading$ | async)
+} as observables"
+>
+  <app-course-form
+    [course]='observables?.courseDetail'
+    (createOrUpdateCourse)='createOrUpdateCourse($event)'>
+
+  </app-course-form>
+</ng-container>

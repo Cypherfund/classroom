@@ -59,13 +59,17 @@
                 <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" [class]="'flag flag-' + 'cmr'" style="width: 20px">
                 <span class="ml-1 vertical-align-middle">{{course?.instructor?.name}}</span>
               </td>
-              <td>{{course?.instructor?.name}}</td>
+              <td>{{course?.dtCreated | date : 'dd/MM/yyyy hh:mm'}}</td>
               <td *ngIf='course.status === "DRAFT"'><button class=" rounded-5 border-0"><em class="pi pi-circle-on p-1 dot text-black" style="font-size: 12px;"></em>In Progress</button></td>
               <td *ngIf='course.status === "PUBLISHED"'><button class=" rounded-5 border-0 activeDot"><em class="pi pi-circle-on p-1 dot" style="font-size: 12px;"></em>Active</button></td>
               <td *ngIf='course.status != "PUBLISHED" && course.status != "DRAFT"'><button class=" rounded-5 border-0 activeDot"><em class="pi pi-circle-on p-1 dot" style="font-size: 12px;"></em>Active</button></td>
               <td>{{course?.category?.name}}</td>
               <td>{{course.duration}}</td>
-              <td><em class="pi pi-ellipsis-v"></em></td>
+              <td>
+                <a [routerLink]="course.id" class="p-menuitem-link">
+                  <i class="pi pi-user-edit"></i>
+                </a>
+              </td>
             </tr>
           </ng-template>
         </p-table>

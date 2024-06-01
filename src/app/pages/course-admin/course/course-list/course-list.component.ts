@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { CourseDetail } from '../../../../models/course';
 import { CourseService } from '../services/course.service';
 import { CourseApiService } from '../services/course-api.service';
-import { MessageService } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { APIResponse } from '../../../../models/user';
 
 @Component({

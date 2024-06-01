@@ -21,7 +21,7 @@ export class CourseService {
     this.loading$ = this.loadingTrigger$.asObservable().pipe(distinctUntilChanged<boolean>());
 
     this.courses$ = this.refreshTrigger$.pipe(
-      switchMap(() => this.fetchCourses())
+      switchMap(() => this.fetchInstructorsCourses())
     ).pipe(
         filter(course => course !== null && course !== undefined),
         share()
@@ -33,7 +33,7 @@ export class CourseService {
         switchMap( courseId => {
           this.loadingTrigger$.next(true);
           return this.courseApi.getCourseById(courseId).pipe(
-            map(result => result?.data),
+            map(result => result),
             tap(() => {
               this.loadingTrigger$.next(false);
             }),
@@ -73,7 +73,7 @@ export class CourseService {
     );
   }
 
-  public fetchCourses() {
+  public fetchInstructorsCourses() {
     this.loadingTrigger$.next(true);
     return this.courseApi.getCourses()
       .pipe(

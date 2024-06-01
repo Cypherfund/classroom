@@ -59,6 +59,8 @@ import {
   CourseTabDetailsPageComponent
 } from "./pages/course-details-page/course-tab-details-page/course-tab-details-page.component";
 import { HttpService } from './services/http.service';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { QuillModule } from 'ngx-quill';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -110,6 +112,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SplitButtonModule,
     ProgressBarModule,
     PanelMenuModule,
+    SpinnerComponent,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
@@ -121,7 +124,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TableModule, // Moved TableModule import to the imports array,
     CourseAdminRoutingModule,
     ComponentModule,
-    AvatarModule
+    AvatarModule,
+    QuillModule.forRoot()
 
   ],
   providers: [

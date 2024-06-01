@@ -16,7 +16,7 @@ export class CourseApiService {
     return this.http.get(`${ this.basePath }/courses`);
   }
 
-  getCourseById(id: string): Observable<APIResponse<CourseDetail>> {
+  getCourseById(id: string): Observable<CourseDetail> {
     return this.http.get(`${ this.basePath }/courses/${id}`)
   }
   createCourse(courseDetail: CourseDetail): Observable<APIResponse<CourseDetail>> {

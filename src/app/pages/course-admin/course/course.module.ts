@@ -4,18 +4,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CourseListComponent } from './course-list/course-list.component';
-import { CourseEditComponent } from './course-edit/course-edit.component';
-import { CourseFormComponent } from './course-form/course-form.component';
+import { CourseCreateComponent } from './course-create/course-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
-import { ButtonGroup, ButtonGroupModule } from 'primeng/buttongroup';
+import { ButtonGroupModule } from 'primeng/buttongroup';
 import { DialogModule } from 'primeng/dialog';
 import { FileUploadModule } from 'primeng/fileupload';
 import { BadgeModule } from 'primeng/badge';
 import { ToastModule } from 'primeng/toast';
 import { EditorModule } from 'primeng/editor';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
+import { CourseFormComponent } from './components/course-form/course-form.component';
+import { MenuModule } from 'primeng/menu';
+import { QuillModule } from 'ngx-quill';
 
 
 const routes: Routes = [
@@ -25,12 +27,17 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: CourseEditComponent
+    component: CourseCreateComponent
   }
 ];
 
 @NgModule({
-  declarations: [CourseListComponent, CourseEditComponent, CourseFormComponent],
+  declarations: [
+    CourseListComponent,
+    CourseCreateComponent,
+    CourseFormComponent
+  ]
+  ,
   imports: [
     CommonModule,
     TableModule,
@@ -47,7 +54,9 @@ const routes: Routes = [
     BadgeModule,
     ToastModule,
     EditorModule,
-    FileUploadComponent
+    FileUploadComponent,
+    MenuModule,
+    QuillModule.forRoot()
   ]
 })
 export class CourseModule { }
