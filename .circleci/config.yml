@@ -13,7 +13,7 @@ jobs:
         node-version: '20.12.0'
     - run: node --version
     - node/install-packages:
-        override-ci-command: legacy-peer-deps
+        override-ci-command: npm install --legacy-peer-deps
 
   build-image:
     executor: docker/docker
