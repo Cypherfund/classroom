@@ -124,8 +124,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TableModule, // Moved TableModule import to the imports array,
     CourseAdminRoutingModule,
     ComponentModule,
-    AvatarModule,
-    QuillModule.forRoot()
+    AvatarModule
 
   ],
   providers: [

@@ -63,12 +63,12 @@
         </select>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="about">About this course</label>
-        <p-editor id='about' formControlName="about" [style]="{ height: '320px' }" />
+        <label class="form-label" for="about">About this course</label><br>
+        <app-rich-text id='about' [richText]='courseForm.get("about")?.value || ""' (textChange)="courseForm.get('about')?.setValue($event)"></app-rich-text>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="perks">Course Benefits</label>
-        <p-editor id='perks' formControlName="perks" [style]="{ height: '320px' }" />
+        <label class="form-label" for="perks">Course Benefits</label><br>
+        <app-rich-text id='perks' [richText]='courseForm.get("perks")?.value || ""' (textChange)="courseForm.get('perks')?.setValue($event)"></app-rich-text>
       </div>
       <file-upload></file-upload>
       <div class="mb-3 d-flex">

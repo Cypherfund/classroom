@@ -14,7 +14,7 @@ export class CourseFormComponent implements OnInit, OnChanges{
   courseTopicForm!: FormGroup;
   courseLessonForm!: FormGroup;
   loader: boolean = false;
-
+  text= 'hello workd';
   categories: Category[] = [
     {id: 1, name: 'technology', description: ''}
   ]

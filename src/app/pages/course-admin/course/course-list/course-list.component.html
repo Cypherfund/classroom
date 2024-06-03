@@ -58,6 +58,7 @@
               <td>
                 <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" [class]="'flag flag-' + 'cmr'" style="width: 20px">
                 <span class="ml-1 vertical-align-middle">{{course?.instructor?.name}}</span>
+                <p>{{course?.name}}</p>
               </td>
               <td>{{course?.dtCreated | date : 'dd/MM/yyyy hh:mm'}}</td>
               <td *ngIf='course.status === "DRAFT"'><button class=" rounded-5 border-0"><em class="pi pi-circle-on p-1 dot text-black" style="font-size: 12px;"></em>In Progress</button></td>

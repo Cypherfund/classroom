@@ -18,6 +18,7 @@ import { FileUploadComponent } from '../../../components/file-upload/file-upload
 import { CourseFormComponent } from './components/course-form/course-form.component';
 import { MenuModule } from 'primeng/menu';
 import { QuillModule } from 'ngx-quill';
+import { RichTextComponent } from '../../../components/rich-text/rich-text.component';
 
 
 const routes: Routes = [
@@ -56,7 +57,7 @@ const routes: Routes = [
     EditorModule,
     FileUploadComponent,
     MenuModule,
-    QuillModule.forRoot()
+    RichTextComponent
   ]
 })
 export class CourseModule { }
