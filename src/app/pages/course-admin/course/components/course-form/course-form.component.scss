@@ -1,0 +1,12 @@
+form {
+  //make this take 60% of the flex container
+  width: 60%;
+}
+
+.d-flex {
+  //make a flex gap of 1rem
+  gap: 1rem;
+}
+.bg-purple{
+  background-color: var(--main-color-shade-1)
+}
