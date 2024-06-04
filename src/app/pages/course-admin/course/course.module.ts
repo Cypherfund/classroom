@@ -13,11 +13,9 @@ import { DialogModule } from 'primeng/dialog';
 import { FileUploadModule } from 'primeng/fileupload';
 import { BadgeModule } from 'primeng/badge';
 import { ToastModule } from 'primeng/toast';
-import { EditorModule } from 'primeng/editor';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { CourseFormComponent } from './components/course-form/course-form.component';
 import { MenuModule } from 'primeng/menu';
-import { QuillModule } from 'ngx-quill';
 import { RichTextComponent } from '../../../components/rich-text/rich-text.component';
 
 
@@ -54,7 +52,6 @@ const routes: Routes = [
     FileUploadModule,
     BadgeModule,
     ToastModule,
-    EditorModule,
     FileUploadComponent,
     MenuModule,
     RichTextComponent

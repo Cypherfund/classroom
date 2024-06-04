@@ -28,7 +28,9 @@ export class RichTextComponent {
         ['bold','italic','underline'],
         [{'list':'ordered'},{'list':'bullet'}],
         [{'color':[]},{'background':[]}],
-        ['link','image']
+        ['link','image'],
+        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }]
       ],
       blotFormatter: {}
     }
