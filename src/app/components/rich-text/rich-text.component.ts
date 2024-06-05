@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import BlotFormatter from 'quill-blot-formatter';
+// import BlotFormatter from 'quill-blot-formatter';
 import Quill from 'quill';
 import { QuillModule } from 'ngx-quill';
 import { FormsModule } from '@angular/forms';
 
-Quill.register('modules/blotFormatter', BlotFormatter)
+// Quill.register('modules/blotFormatter', BlotFormatter)
 @Component({
   selector: 'app-rich-text',
   templateUrl: './rich-text.component.html',
