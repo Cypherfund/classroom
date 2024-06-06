@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {MenuItem} from "primeng/api";
 import {
   AboutPayload,
-  CourseContentPayload,
+  CourseContentSummary,
   CourseDetail,
   InstructorDetails,
   RatingsAndReviews
@@ -17,7 +17,7 @@ export class CourseTabDetailsPageComponent {
   items: MenuItem[] | undefined;
   activeItem: MenuItem | undefined;
   aboutResponse: AboutPayload | any;
-  courseContentResponse: CourseContentPayload | any;
+  courseContentResponse: CourseContentSummary | any;
   instructorDetailsResponse: InstructorDetails | any;
   courseRatingsAndReviewsResponse: RatingsAndReviews  | any;
   @Input() course: CourseDetail | any;
@@ -51,7 +51,7 @@ export class CourseTabDetailsPageComponent {
         updatedOn: new Date(),
         about: this.course.about
       }
-      this.courseContentResponse = this.course.courseContents
+      this.courseContentResponse = this.course.contentSummary
       this.instructorDetailsResponse = {
         name: this.course.instructors?.instructorName,
         profession: this.course.instructors?.profession,

@@ -57,7 +57,7 @@ export class CourseFormComponent implements OnInit, OnChanges{
       price: [ '', Validators.required ],
       status: [ 'DRAFT', Validators.required ],
       category: [ { 'id': 1 }, Validators.required ],
-      discountedPrice: [ '', [ Validators.required, Validators.min(1) ] ],
+      discountedPrice: [ '' ],
       about: [ '' ],
       perks: [ '' ],
       issueCertificate: [ false, Validators.required ],

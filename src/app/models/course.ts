@@ -27,13 +27,23 @@ export interface AboutPayload {
   about?: string;
 }
 
-export interface CourseContentPayload
+export interface CourseContentSummary
 {
-  numberOfSections?: string;
-  numberOfLectures?: string;
-  totalCourseDuration?: string;
-  lessons?: Lesson[]
+  totalSections?: string;
+  totalLectures?: string;
+  totalHours?: string;
+  sections?: Lesson[]
 }
+
+export interface Section {
+  id?: string;
+  name?: string;
+  description?: string;
+  totalHours?: string;
+  totalLectures?: string;
+  lectures?: Lectures[]
+}
+
 export interface Lesson {
   lessonId?: string;
   lessonTitle?: string;
@@ -141,5 +151,5 @@ export interface CourseDetail {
   numberOfRatings: number;
   updatedOn: string | null;
   hasRealWorldProjects: boolean;
-  courseContents: string | null;
+  contentSummary?: CourseContentSummary;
 }

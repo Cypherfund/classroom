@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CourseContentPayload} from "../../../../models/course";
+import {CourseContentSummary} from "../../../../models/course";
 
 @Component({
   selector: 'app-course-content',
@@ -7,7 +7,7 @@ import {CourseContentPayload} from "../../../../models/course";
   styleUrl: './course-content.component.scss'
 })
 export class CourseContentComponent implements OnInit{
- @Input() courseContent?: CourseContentPayload
+ @Input() courseContent?: CourseContentSummary
   constructor() {
   }
 
