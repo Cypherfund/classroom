@@ -50,8 +50,8 @@ export class CourseDetailsPageComponent implements OnInit{
   }
 
   getCourse() {
-    this.courseService.getCourse(this.activeCourseId).subscribe((course) => {
-      this.course = course; // Assigns the data to this.course
+    this.courseService.getCourseGraphqls(this.activeCourseId).subscribe((course) => {
+      this.course = course?.data?.courseById;
     });
   }
 

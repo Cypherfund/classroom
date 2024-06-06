@@ -60,9 +60,7 @@ import {
 } from "./pages/course-details-page/course-tab-details-page/course-tab-details-page.component";
 import { HttpService } from './services/http.service';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { QuillModule } from 'ngx-quill';
-
-
+import { GraphQLModule } from './graphql.module';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -113,6 +111,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProgressBarModule,
     PanelMenuModule,
     SpinnerComponent,
+    GraphQLModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

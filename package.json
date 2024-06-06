@@ -27,6 +27,7 @@
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@types/quill": "^2.0.14",
+    "apollo-angular": "^7.0.2",
     "bootstrap": "^5.3.3",
     "express": "^4.18.2",
     "ngx-quill": "^25.3.2",

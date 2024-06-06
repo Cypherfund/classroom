@@ -49,7 +49,7 @@ export class CourseTabDetailsPageComponent {
         hasRealWorldProjects: this.course.hasRealWorldProjects,
         level:  this.course.level,
         updatedOn: new Date(),
-        description: this.course.description
+        about: this.course.about
       }
       this.courseContentResponse = this.course.courseContents
       this.instructorDetailsResponse = {

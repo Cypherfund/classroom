@@ -2,17 +2,16 @@
   <div class="m-3">
     <div class="tag text-start">
       <div class="flex justify-content-start flex-wrap">
-        <p-tag value="{{'Last_Updated' | translate}} {{keyAspectsOfCourse.updatedOn | dateFormat}}"
-               *ngIf="keyAspectsOfCourse.updatedOn"></p-tag>
+        <p-tag value="{{'Last_Updated' | translate}} {{aboutPayload.updatedOn | dateFormat}}"
+               *ngIf="aboutPayload.updatedOn"></p-tag>
         <p-tag value="{{'Completion_Certificate' | translate}}" *ngIf="aboutPayload?.hasCompletionCertificate"></p-tag>
         <p-tag value="{{'RealWorld_Projects' | translate}}" *ngIf="aboutPayload?.hasRealWorldProjects"></p-tag>
-        <p-tag value="{{keyAspectsOfCourse?.duration}} {{'Months' | translate}}"
-               *ngIf="keyAspectsOfCourse.duration"></p-tag>
-        <p-tag value="{{keyAspectsOfCourse?.level}}" *ngIf="keyAspectsOfCourse.level"></p-tag>
+        <p-tag value="{{aboutPayload?.duration}} {{'Months' | translate}}"
+               *ngIf="aboutPayload.duration"></p-tag>
+        <p-tag value="{{aboutPayload?.level}}" *ngIf="aboutPayload.level"></p-tag>
       </div>
     </div>
-    <div style="padding-right: 10px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 30px; display: inline-flex">
-      {{aboutPayload.description}}
+    <div [innerHTML]='aboutPayload?.about'>
     </div>
   </div>
 </section>

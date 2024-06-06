@@ -24,7 +24,7 @@ export interface AboutPayload {
   hasRealWorldProjects?: boolean;
   duration?: string;
   level?: string;
-  description?: string;
+  about?: string;
 }
 
 export interface CourseContentPayload
