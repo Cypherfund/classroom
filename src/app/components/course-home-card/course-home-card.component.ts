@@ -8,7 +8,7 @@ import { appConfig } from '../../../environments/app.config';
   styleUrl: './course-home-card.component.scss'
 })
 export class CourseHomeCardComponent {
-  courseImage: string = 'assets/images/course-img-2.png';
+  courseImage: string = 'course-img-2.png';
   instructorImage: string = appConfig.instructorImage;
   starImage: string = appConfig.starImage;
   unstarImage: string = appConfig.unstarImage;
