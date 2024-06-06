@@ -66,10 +66,9 @@ export class CourseService {
               name
             }
             issueCertificate
-            hasDiscount
             discountedPrice
             level
-            img
+            imgUrl
             perks
             reviewSummary {
               rating
@@ -190,10 +189,9 @@ export class CourseService {
               name
             }
             issueCertificate
-            hasDiscount
             discountedPrice
             level
-            img
+            imgUrl
             perks
             reviewSummary {
               rating
