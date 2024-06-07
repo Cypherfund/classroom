@@ -4,8 +4,7 @@ import {
   AboutPayload,
   CourseContentSummary,
   CourseDetail,
-  InstructorDetails,
-  RatingsAndReviews
+  InstructorDetails
 } from "../../../models/course";
 
 @Component({
@@ -19,7 +18,6 @@ export class CourseTabDetailsPageComponent {
   aboutResponse: AboutPayload | any;
   courseContentResponse: CourseContentSummary | any;
   instructorDetailsResponse: InstructorDetails | any;
-  courseRatingsAndReviewsResponse: RatingsAndReviews  | any;
   @Input() course: CourseDetail | any;
 
 

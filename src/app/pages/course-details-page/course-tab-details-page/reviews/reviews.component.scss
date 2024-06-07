@@ -24,3 +24,7 @@
   margin: 0;
   background: var(--main-color-shade-1);
 }
+
+::ng-deep .p-rating .p-rating-item .p-rating-icon {
+  color: var(--color-gold)
+}

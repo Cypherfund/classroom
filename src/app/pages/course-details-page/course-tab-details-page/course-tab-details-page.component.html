@@ -12,7 +12,7 @@
     <app-instructor-details [instructorDetails]="instructorDetailsResponse"></app-instructor-details>
   </p-tabPanel>
   <p-tabPanel header="Reviews">
-    <app-reviews [ratingsAndReviews]="courseRatingsAndReviewsResponse"></app-reviews>
+    <app-reviews [ratingsAndReviews]="course?.reviewSummary"></app-reviews>
   </p-tabPanel>
 </p-tabView>
 

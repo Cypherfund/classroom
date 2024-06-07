@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import { MessageService } from 'primeng/api';
-import {RatingsAndReviews} from "../../../../models/course";
-
+import { ReviewSummary } from '../../../../models/course';
+import { appConfig } from '../../../../../environments/app.config';
 
 @Component({
   selector: 'app-reviews',
@@ -12,7 +12,9 @@ import {RatingsAndReviews} from "../../../../models/course";
 export class ReviewsComponent {
   formGroup!: FormGroup;
   value: number = 0;
-  @Input() ratingsAndReviews: RatingsAndReviews | any;
+  starImage: string = appConfig.starImage;
+  unstarImage: string = appConfig.unstarImage;
+  @Input() ratingsAndReviews: ReviewSummary | any;
   valueRating5: number = 5;
   valueRating4: number = 4;
   valueRating3: number = 3;
@@ -27,7 +29,6 @@ export class ReviewsComponent {
     this.formGroup = new FormGroup({
       value: new FormControl(4)
     });
-    console.log(this.ratingsAndReviews)
   }
 
 }

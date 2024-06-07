@@ -12,6 +12,7 @@ import {CourseDetail, Lectures} from "../../models/course";
 export class CarouselCoursesComponent {
   similarCourses: CourseDetail[] = [];
   profileImage = appConfig.profileImage
+  imagebucket: string = appConfig.imagebucket;
   @Input() carouselType = 'courses'
   responsiveOptions: any;
   @Input() lectures: Lectures[] = []

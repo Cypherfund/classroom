@@ -1,22 +1,3 @@
-export interface Course {
-  courseId?: string;
-  title?: string;
-  description?: string;
-  instructor?: string;
-  categoryId?: string;
-  price?: string;
-  discountedPrice?: string;
-  startDate?: string;
-  endDate?: string;
-  numberOfStudents?: string;
-  numberOfRatings?: string;
-  previewVideo?: string;
-  about?: AboutPayload;
-  courseContent?: CourseContent
-  courseInclude?: CourseDetail[];
-  instructorDetails?: InstructorDetails;
-  ratingsAndReviews?: RatingsAndReviews;
-}
 
 export interface AboutPayload {
   updatedOn?: string;
@@ -72,26 +53,6 @@ export interface CourseContent {
   totalCourseDuration?: string;
   lessons?: Lesson[];
 }
-export interface RatingsAndReviews {
-  ratings?: {
-    totalRatings?: number;
-    averageRating?: number;
-    fiveStarPercentage?: number;
-    fourStarPercentage?: number;
-    threeStarPercentage?: number;
-    twoStarPercentage?: number;
-    oneStarPercentage?: number;
-  };
-  reviews?:
-    [{
-      id?: string;
-      userName?: string;
-      rating?: number;
-      comment?: string;
-      timestamp?: string;
-      userProfilePicture?: string;
-    }]
-}
 
 export interface Courses {
   success?: true;
@@ -128,9 +89,6 @@ interface Instructor {
 export interface CourseDetail {
   category: Category;
   id: number;
-  syllabus: string | null;
-  requirements: string | null;
-  prerequisites: string | null;
   position: number;
   perks: string | null;
   discountedPrice: number | null;
@@ -153,4 +111,31 @@ export interface CourseDetail {
   updatedOn: string | null;
   hasRealWorldProjects: boolean;
   contentSummary?: CourseContentSummary;
+  reviewSummary?: ReviewSummary;
+}
+
+export interface Student {
+  id: string;
+  name: string;
+  img: string;
+}
+
+export interface Review {
+  id: string;
+  rating: number;
+  review: string;
+  student: Student;
+  date?: string;
+}
+
+export interface ReviewSummary {
+  rating: number;
+  totalReviews: number;
+  totalStudents: number;
+  totalFives: number;
+  totalFours: number;
+  totalThrees: number;
+  totalTwos: number;
+  totalOnes: number;
+  reviews: Review[];
 }
