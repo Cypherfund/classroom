@@ -33,7 +33,7 @@ export class CarouselCourseContentComponent implements OnInit {
   }
 
   trackLectureById(index: number, lecture: Lectures) {
-    return lecture.lectureId;
+    return lecture.id;
   }
 
 }

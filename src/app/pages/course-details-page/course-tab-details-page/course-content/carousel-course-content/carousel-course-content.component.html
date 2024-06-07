@@ -7,15 +7,15 @@
           <div class="product-item">
             <div class="product-item-content p-2">
               <div class="mb-2">
-                <iframe class="rounded-4 mt-2" width="100%" height="135" [src]="lecture.lectureVideo | safe"
+                <iframe class="rounded-4 mt-2" width="100%" height="135" [src]="(lecture.lectureVideo || 'https://youtu.be/VwcY7PwFvMc?si=B5BFwINs_27b8Cnt') | safe"
                         title="none"></iframe>
               </div>
-              <div class="text-start m-2 fw-bolder">{{lecture.lectureTitle}}
+              <div class="text-start m-2 fw-bolder">{{lecture.name}}
                 <br/>
-                <div class="text-start m-0 p-0 pi pi-stopwatch"><small class="ms-1">{{lecture.lectureDuration}}</small></div>
+                <div class="text-start m-0 p-0 pi pi-stopwatch"><small class="ms-1">{{lecture.lectureDuration || '3mins'}}</small></div>
               </div>
               <div class="text-start m-2">
-                {{lecture.lectureContent}}
+                {{lecture.lectureContent || 'Welcome to product design for beginners'}}
               </div>
             </div>
           </div>

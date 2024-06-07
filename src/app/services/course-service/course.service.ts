@@ -109,14 +109,13 @@ export class CourseService {
                 id
                 name
                 description
-                totalHours
+                position
+                duration
                 totalLectures
                 lectures {
                   id
                   name
-                  description
-                  duration
-                  type
+                  position
                   parts {
                     id
                     name
@@ -149,130 +148,6 @@ export class CourseService {
     });
   }
 
-  getCourseGraphql(id: number): void{
-    this.apollo.watchQuery({
-      query: gql`
-        query {
-          courseById(id: ${id}) {
-            id
-            name
-            description
-            startDate
-            endDate
-            duration
-            subCourses {
-              id
-              name
-              description
-              startDate
-              endDate
-              duration
-            }
-            instructor {
-              id
-              name
-              img
-              title
-              bio
-              rating
-              totalReviews
-              totalStudents
-              totalCourses
-              yearsOfExperience
-            }
-            about
-            price
-            status
-            type
-            category {
-              id
-              name
-            }
-            issueCertificate
-            discountedPrice
-            level
-            imgUrl
-            perks
-            reviewSummary {
-              rating
-              totalReviews
-              totalStudents
-              totalFives
-              totalFours
-              totalThrees
-              totalTwos
-              totalOnes
-              reviews {
-                id
-                rating
-                review
-                student {
-                  id
-                  name
-                  img
-                }
-              }
-            }
-            projects {
-              id
-              name
-              description
-              duration
-              img
-              content
-              contentType
-              videoUrl
-              position
-            }
-            contentSummary {
-              totalSections
-              totalLectures
-              totalHours
-              sections {
-                id
-                name
-                description
-                totalHours
-                totalLectures
-                lectures {
-                  id
-                  name
-                  description
-                  duration
-                  type
-                  parts {
-                    id
-                    name
-                    description
-                    duration
-                    content
-                    contentType
-                    videoUrl
-                    position
-                    quiz {
-                      id
-                      name
-                      description
-                      questions {
-                        id
-                        question
-                        options
-                        correctAnswer
-                        explanation
-                        position
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `,
-    }).valueChanges.subscribe({next: (result: any) => {
-      console.log(result);
-    }});
-  }
   saveCourseTopic(payload: CourseTopicsDTO, courseId: number, token: string): Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

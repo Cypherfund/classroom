@@ -45,18 +45,19 @@ export interface Section {
 }
 
 export interface Lesson {
-  lessonId?: string;
-  lessonTitle?: string;
-  lessonDuration?: string;
-  totalNumberOfLectures?: string;
+  id?: string;
+  name?: string;
+  postion?: number;
+  totalLectures?: number;
+  description?: string;
+  duration?: string;
   lectures?: Lectures[]
 }
 export interface Lectures {
-  lectureId?:string;
-  lectureTitle?: string;
-  lectureDuration?: string;
-  lectureContent?: string;
-  lectureVideo?: string
+  id?:string;
+  name?: string;
+  position?: number;
+  parts?: any[];
 }
 export interface InstructorDetails {
   name?: string;
