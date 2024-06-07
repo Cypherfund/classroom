@@ -22,8 +22,8 @@
              </ng-template>
            </p-rating>
          </form>
-         <span class="ms-2 me-2 text-decoration-underline">({{course.numberOfRatings || 5000 | number}} {{'ratings' | translate}})</span>
-         <span class="ms-2 me-2">{{course.instructors?.numberOfStudents || 7000 | number}} {{'students' | translate}}</span>
+         <span class="ms-2 me-2 text-decoration-underline">({{course?.numberOfRatings || 5000 | number}} {{'ratings' | translate}})</span>
+         <span class="ms-2 me-2">{{course?.instructors?.numberOfStudents || 7000 | number}} {{'students' | translate}}</span>
        </div>
 
        <p>{{'Created_by' | translate}} <span class="fw-bolder">{{course?.instructor?.name}}</span></p>

@@ -1,4 +1,6 @@
 ::ng-deep .p-accordion-header-link{
   text-align: start;
-  background-color:rgba(240, 243, 255, 1)
+  background-color:rgba(240, 243, 255, 1);
+  border: 2px solid var(--color-grey-shade-3);
+  height: 65px;
 }

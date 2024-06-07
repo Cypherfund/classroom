@@ -2,12 +2,13 @@
 :host ::ng-deep {
   .product-item {
     .product-item-content {
-      border: 1px solid var(--main-color-shade-1);
+      border: 1px solid var(--color-grey-shade-3);
       border-radius: 0.6rem;
       margin: .3rem;
       text-align: center;
       padding: 0 0;
-      box-shadow: 0 1px 2px var(--main-color-shade-1), 0 1px 2px var(--main-color-shade-1)
+      box-shadow: 0 1px 2px var(--color-grey-shade-3), 0 1px 2px var(--color-grey-shade-3);
+      max-width: 214px;
     }
   }
 }
