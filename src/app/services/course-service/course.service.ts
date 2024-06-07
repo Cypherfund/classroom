@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Course, CourseDetail, Courses} from "../../models/course";
-import {environment} from "../../../environments/environment.development";
+import {CourseDetail, Courses} from "../../models/course";
+import {environment} from "../../../environments/environment";
 import {CourseTopicsDTO} from "../../models/courseTopics";
 import { Apollo, gql } from 'apollo-angular';
 
