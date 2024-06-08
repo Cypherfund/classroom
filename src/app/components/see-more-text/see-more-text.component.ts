@@ -13,7 +13,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SeeMoreTextComponent {
   @Input() text: string = '';
-  maxCharacters: number = 10; // Adjust as needed
+  maxCharacters: number = 80; // Adjust as needed
   isCollapsed: boolean = true;
 
   toggleCollapsed(event: any) {
