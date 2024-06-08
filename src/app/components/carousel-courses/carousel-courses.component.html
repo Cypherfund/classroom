@@ -1,6 +1,11 @@
 <section id="carousel-reviews" class="" *ngIf="carouselType === 'reviews'" >
   <div class="card border-0 reviews">
-    <p-carousel [value]="reviews" [showNavigators]='false' [numVisible]="2" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+    <p-carousel
+      [value]="reviews"
+      [showNavigators]='false'
+      [numVisible]="2"
+      [numScroll]="1"
+      [responsiveOptions]="responsiveOptions">
       <ng-template let-review pTemplate="item" *ngFor="let review of reviews">
         <div class="product-item" >
           <div class="product-item-content-reviews p-2">
@@ -12,6 +17,16 @@
                 <div style="font-size: 5px">
                   <p-rating [(ngModel)]="(review?.rating + '').split('.')[0]" [readonly]="true" [cancel]="false"
                 ></p-rating>
+<!--                  <p-rating [(ngModel)]="(review?.rating + '').split('.')[0]" [cancel]="false" [readonly]="true" >-->
+<!--                    <ng-template pTemplate="onicon">-->
+<!--                      <img height="17"-->
+<!--                           [src]="starImage"/>-->
+<!--                    </ng-template>-->
+<!--                    <ng-template pTemplate="officon">-->
+<!--                      <img height="17"-->
+<!--                           [src]="unstarImage"/>-->
+<!--                    </ng-template>-->
+<!--                  </p-rating>-->
                   <span style="font-size: 12px" class="pi pi-stopwatch "><span
                     class="ms-1">{{getMonthsAgo(review?.date || 'Fri Jun 07 2024')}}  {{'months' | translate}}</span></span>
                 </div>

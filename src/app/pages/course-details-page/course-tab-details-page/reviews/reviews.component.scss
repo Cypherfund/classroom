@@ -26,7 +26,7 @@
 }
 
 ::ng-deep .p-rating .p-rating-item .p-rating-icon {
-  color: var(--color-gold)
+  color: var(--color-gold-2)
 }
 
 @media screen and (max-width: 450px) {
@@ -44,4 +44,12 @@
   min-width: 250px;
   max-width: 250px;
   margin-right: 1rem;
+}
+
+::ng-deep .p-button-rounded {
+  border-radius: 10px;
+}
+
+::ng-deep .p-button-success.p-button-rounded.p-button-outlined {
+  color: var(--color-grey-shade-3);
 }

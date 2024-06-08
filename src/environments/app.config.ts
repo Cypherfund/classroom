@@ -10,6 +10,6 @@ export const appConfig = {
   previewCourseVideoImage: 'assets/images/gcourse-thumbnail.png',
   instructorImage: environment.imagebucket + 'instructor.jpeg',
   imagebucket: environment.imagebucket,
-  starImage: 'assets/svg/solar_star-linear.svg',
-  unstarImage: 'assets/svg/unstar.svg',
+  starImage: 'assets/svg/solar_star-linear-4.svg',
+  unstarImage: 'assets/svg/solar_unstar-linear.svg'
 }

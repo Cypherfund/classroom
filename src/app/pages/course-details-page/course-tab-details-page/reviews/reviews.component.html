@@ -26,16 +26,6 @@
         <div class="flex-grow-1">
           <span>
             <p-rating [ngModel]="5" [readonly]="true" [cancel]="false" [stars]="5"></p-rating>
-<!--             <p-rating [ngModel]="5" [readonly]="true" [cancel]="false" [stars]="5">-->
-<!--              <ng-template pTemplate="onicon">-->
-<!--                <img-->
-<!--                  [src]="starImage"/>-->
-<!--              </ng-template>-->
-<!--              <ng-template pTemplate="officon">-->
-<!--                <img-->
-<!--                  [src]="unstarImage"/>-->
-<!--              </ng-template>-->
-<!--            </p-rating>-->
           </span>
         </div>
       </div>
@@ -75,6 +65,13 @@
           <span><p-rating [ngModel]="1" [stars]="1" [readonly]="true" [cancel]="false"
                           ></p-rating></span>
         </div>
+      </div>
+      <div class='d-flex gap-5'>
+        <p-button label="All" severity="help" [rounded]="true"  />
+        <p-button [outlined]="true" severity='success' [rounded]="true" *ngFor='let star of [5,4,3,2,1]'>
+          <span>{{ star }}</span>
+          <i class="pi pi-star-fill" style="color: var(--color-gold-2)"></i>
+        </p-button>
       </div>
     </div>
   </div>
