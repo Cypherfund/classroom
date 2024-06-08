@@ -2,9 +2,9 @@
   <div class="w-75">
     <div class="card border-0">
       Rating and Review
-      <div class="d-flex pt-3 pb-3">
+      <div class="d-flex pt-3 pb-3 review-summary">
         <form [formGroup]="formGroup">
-          <span class="me-2 fw-bold">{{ratingsAndReviews?.rating}}</span>
+          <span class="me-2 fw-bold">{{_ratingsAndReviews?.rating}}</span>
           <p-rating formControlName="value" [cancel]="false" >
             <ng-template pTemplate="onicon">
               <img height="17"
@@ -16,56 +16,67 @@
             </ng-template>
           </p-rating>
         </form>
-        <span class="ms-2 me-2">({{ratingsAndReviews?.totalReviews}} rating)</span>
-        <span class="ms-2 me-2">{{ratingsAndReviews?.totalStudents}} students</span>
+        <span class="ms-2 me-2">({{_ratingsAndReviews?.totalReviews}} rating)</span>
+        <span class="ms-2 me-2">{{_ratingsAndReviews?.totalStudents}} students</span>
       </div>
-      <div class="row m-1">
-        <div class="col-md-6">
-          <p-progressBar [showValue]="false" [value]="ratingsAndReviews?.totalFives"></p-progressBar>
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [showValue]="false" [value]="fivePercentage"></p-progressBar>
         </div>
-        <div class="col-md-6">
-          <span><p-rating [(ngModel)]="valueRating5" [readonly]="true" [cancel]="false"
-                          [stars]="5"></p-rating></span>
+        <div class="flex-grow-1">
+          <span>
+            <p-rating [ngModel]="5" [readonly]="true" [cancel]="false" [stars]="5"></p-rating>
+<!--             <p-rating [ngModel]="5" [readonly]="true" [cancel]="false" [stars]="5">-->
+<!--              <ng-template pTemplate="onicon">-->
+<!--                <img-->
+<!--                  [src]="starImage"/>-->
+<!--              </ng-template>-->
+<!--              <ng-template pTemplate="officon">-->
+<!--                <img-->
+<!--                  [src]="unstarImage"/>-->
+<!--              </ng-template>-->
+<!--            </p-rating>-->
+          </span>
         </div>
       </div>
-      <div class="row m-1">
-        <div class="col-md-6">
-          <p-progressBar [showValue]="false" [value]="ratingsAndReviews?.totalFours"></p-progressBar>
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [showValue]="false" [value]="fourPercentage"></p-progressBar>
         </div>
-        <div class="col-md-6">
-          <span><p-rating [(ngModel)]="valueRating4" [readonly]="true" [cancel]="false"
+        <div class="flex-grow-1">
+          <span><p-rating [ngModel]="4" [readonly]="true" [cancel]="false"
                           [stars]="4"></p-rating></span>
         </div>
       </div>
-      <div class="row m-1">
-        <div class="col-md-6">
-          <p-progressBar [showValue]="false" [value]="ratingsAndReviews?.totalThrees"></p-progressBar>
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [showValue]="false" [value]="threePercentage"></p-progressBar>
         </div>
-        <div class="col-md-6">
-          <span><p-rating [(ngModel)]="valueRating3" [readonly]="true" [cancel]="false"
+        <div class="flex-grow-1">
+          <span><p-rating [ngModel]="3" [readonly]="true" [cancel]="false"
                           [stars]="3"></p-rating></span>
         </div>
       </div>
-      <div class="row m-1">
-        <div class="col-md-6">
-          <p-progressBar [showValue]="false" [value]="ratingsAndReviews?.totalTwos"></p-progressBar>
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [showValue]="false" [value]="twoPercentage"></p-progressBar>
         </div>
-        <div class="col-md-6">
-          <span><p-rating [(ngModel)]="valueRating2" [readonly]="true" [cancel]="false"
+        <div class="flex-grow-1">
+          <span><p-rating [ngModel]="2" [readonly]="true" [cancel]="false"
                           [stars]="2"></p-rating></span>
         </div>
       </div>
-      <div class="row m-1">
-        <div class="col-md-6">
-          <p-progressBar [value]="ratingsAndReviews?.totalOnes"
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [value]="onePercentage"
                          [showValue]="false"></p-progressBar>
         </div>
-        <div class="col-md-6">
-          <span><p-rating [(ngModel)]="valueRating1" [stars]="1" [readonly]="true" [cancel]="false"
+        <div class="flex-grow-1">
+          <span><p-rating [ngModel]="1" [stars]="1" [readonly]="true" [cancel]="false"
                           ></p-rating></span>
         </div>
       </div>
     </div>
   </div>
-  <app-carousel-courses [reviews]="ratingsAndReviews?.reviews" [carouselType]="'reviews'"></app-carousel-courses>
+  <app-carousel-courses [reviews]="_ratingsAndReviews?.reviews" [carouselType]="'reviews'"></app-carousel-courses>
 </section>

@@ -1,13 +1,14 @@
-import {Component, Input} from '@angular/core';
-import {CourseService} from "../../services/course-service/course.service";
-import {appConfig} from "../../../environments/app.config";
-import {CourseDetail, Lectures} from "../../models/course";
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { CourseService } from '../../services/course-service/course.service';
+import { appConfig } from '../../../environments/app.config';
+import { CourseDetail, Lectures } from '../../models/course';
 
 
 @Component({
   selector: 'app-carousel-courses',
   templateUrl: './carousel-courses.component.html',
-  styleUrl: './carousel-courses.component.scss'
+  styleUrl: './carousel-courses.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CarouselCoursesComponent {
   similarCourses: CourseDetail[] = [];

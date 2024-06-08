@@ -1,26 +1,25 @@
 <section id="carousel-reviews" class="" *ngIf="carouselType === 'reviews'" >
-  <div class="card border-0">
-    <p-carousel [value]="reviews" [numVisible]="2" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+  <div class="card border-0 reviews">
+    <p-carousel [value]="reviews" [showNavigators]='false' [numVisible]="2" [numScroll]="1" [responsiveOptions]="responsiveOptions">
       <ng-template let-review pTemplate="item" *ngFor="let review of reviews">
         <div class="product-item" >
-          <div class="product-item-content-reviews p-1">
-            <div class="row">
-              <div class="col-md-3">
-                <img [src]="(imagebucket + review?.student.img ) || profileImage"
-                     [alt]="review?.student.name" class="product-image-review" />
-              </div>
-              <div class="col-md-8 text-start mt-3">
-                <small>{{review?.student.name}}</small>
-                <div style="font-size: 5px"><p-rating [(ngModel)]="review.rating" [readonly]="true" [cancel]="false"
+          <div class="product-item-content-reviews p-2">
+            <div class="d-flex align-items-end">
+              <img [src]="(imagebucket + review?.student.img ) || profileImage"
+                   [alt]="review?.student.name" class="product-image-review" />
+              <div class='d-flex flex-column align-items-baseline'>
+                <small class='ps-2'>{{review?.student.name}}</small>
+                <div style="font-size: 5px">
+                  <p-rating [(ngModel)]="(review?.rating + '').split('.')[0]" [readonly]="true" [cancel]="false"
                 ></p-rating>
+                  <span style="font-size: 12px" class="pi pi-stopwatch "><span
+                    class="ms-1">{{getMonthsAgo(review?.date || 'Fri Jun 07 2024')}}  {{'months' | translate}}</span></span>
                 </div>
-                <span style="font-size: 12px" class="pi pi-stopwatch "><span
-                  class="ms-1">{{getMonthsAgo(review?.date || 'Fri Jun 07 2024')}}  {{'months' | translate}}</span></span>
               </div>
 
             </div>
-            <div class="text-start pe-3 ps-3 pb-1 pt-1">
-              {{review.review}}
+            <div class="text-start">
+              <app-see-more-text [text]='review.review'></app-see-more-text>
             </div>
           </div>
         </div>
@@ -42,6 +41,7 @@
       [numScroll]="3"
       [circular]="false"
       [responsiveOptions]="responsiveOptions"
+      [page]='2'
     >
       <ng-template let-course pTemplate="item">
         <div class="mr-3">

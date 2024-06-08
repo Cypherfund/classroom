@@ -16,7 +16,7 @@
 ::ng-deep .p-progressbar {
   border: 0 none;
   height: .75rem;
-  background: #e5e7eb;
+  background: var(--color-grey-shade-2);
   border-radius: 6px;
 }
 ::ng-deep  .p-progressbar .p-progressbar-value {
@@ -27,4 +27,21 @@
 
 ::ng-deep .p-rating .p-rating-item .p-rating-icon {
   color: var(--color-gold)
+}
+
+@media screen and (max-width: 450px) {
+  .review-summary {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .detail-review {
+    display: none !important;
+  }
+}
+
+.flex-grow-3 {
+  flex-grow: 3;
+  min-width: 250px;
+  max-width: 250px;
+  margin-right: 1rem;
 }
