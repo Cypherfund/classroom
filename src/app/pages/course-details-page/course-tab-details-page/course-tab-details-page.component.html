@@ -8,8 +8,8 @@
   <p-tabPanel header="What's Included">
     <div [innerHTML]="course?.perks"></div>
   </p-tabPanel>
-  <p-tabPanel header="Instructor(s)">
-    <app-instructor-details [instructorDetails]="instructorDetailsResponse"></app-instructor-details>
+  <p-tabPanel header="Instructor">
+    <app-instructor-details [instructorDetails]="course?.instructor"></app-instructor-details>
   </p-tabPanel>
   <p-tabPanel header="Reviews">
     <app-reviews [ratingsAndReviews]="course?.reviewSummary"></app-reviews>

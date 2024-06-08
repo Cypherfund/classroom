@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {InstructorDetails} from "../../../../models/course";
+import { Instructor, InstructorDetails } from '../../../../models/course';
+import { appConfig } from '../../../../../environments/app.config';
 
 @Component({
   selector: 'app-instructor-details',
@@ -7,8 +8,8 @@ import {InstructorDetails} from "../../../../models/course";
   styleUrl: './instructor-details.component.scss'
 })
 export class InstructorDetailsComponent implements OnInit{
-  @Input() instructorDetails!: InstructorDetails;
-
+  @Input() instructorDetails!: Instructor;
+  imagebucket: string = appConfig.imagebucket;
   constructor() {
   }
 

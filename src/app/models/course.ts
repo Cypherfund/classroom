@@ -72,7 +72,7 @@ interface Category {
   description: string;
 }
 
-interface Instructor {
+export interface Instructor {
   id: number;
   name: string;
   img: string;

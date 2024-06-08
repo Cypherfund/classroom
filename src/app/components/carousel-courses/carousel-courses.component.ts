@@ -14,8 +14,6 @@ export class CarouselCoursesComponent {
   similarCourses: CourseDetail[] = [];
   profileImage = appConfig.profileImage
   imagebucket: string = appConfig.imagebucket;
-  starImage: string = appConfig.starImage;
-  unstarImage: string = appConfig.unstarImage;
   @Input() carouselType = 'courses'
   responsiveOptions: any;
   @Input() lectures: Lectures[] = []

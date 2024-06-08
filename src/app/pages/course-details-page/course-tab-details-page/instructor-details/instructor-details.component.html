@@ -1,27 +1,41 @@
 <section id="carousel">
-  <div class="container w-75">
-    <div class="card border-0 m-5">
-      Instructor
-      <div>
-        <img [src]="instructorDetails?.profilePicture" class="figure-img p-3" height="250px" width="260px"
-             alt="profile_image"
-             style="border-radius:9rem">
-      </div>
-      <h4 class="fw-bolder mb-2">{{instructorDetails?.name}}</h4>
-      <h6 class="mb-3">{{instructorDetails?.profession}}</h6>
+  <div class="card border-0">
+    <img [src]="(imagebucket + instructorDetails?.img )" class="figure-img p-3" height="150px" width="150px"
+         alt="profile_image"
+         style="border-radius:9rem">
+    <h4 class="fw-bolder mb-2">{{instructorDetails?.name}}</h4>
+    <h6 class="mb-3">{{instructorDetails?.title}}</h6>
 
-      <div class="tag text-start">
-        <div class="flex justify-content-between" *ngFor="let perk of instructorDetails?.perks">
-          <p-tag value="{{perk.rating}} Instructor Rating"></p-tag>
-          <p-tag value="{{perk.numberOfCourses}} Courses"></p-tag>
-          <p-tag value="{{perk.numberOfStudents}} Students"></p-tag>
-          <p-tag value="{{perk.yearsOfExperience}} Years Experience"></p-tag>
-        </div>
+    <div class="tag text-start">
+      <div class="flex justify-content-start flex-wrap">
+        <p-tag value="{{instructorDetails?.rating}} Instructor Rating"></p-tag>
+        <p-tag value="{{instructorDetails?.totalCourses}} Courses"></p-tag>
+        <p-tag value="{{instructorDetails?.totalStudents}} Students"></p-tag>
+        <p-tag value="{{instructorDetails?.yearsOfExperience}} Years Experience"></p-tag>
       </div>
+    </div>
 
-      <div class="fw-light">
-        {{instructorDetails?.description}}
-      </div>
+    <div class="fw-light">
+      {{instructorDetails?.bio}}
     </div>
   </div>
 </section>
+
+<!--<p-card>-->
+<!--  <div class="profile-header">-->
+<!--    <p-avatar image="assets/instructor.jpg" size="xlarge" shape="circle"></p-avatar>-->
+<!--    <div class="profile-info">-->
+<!--      <h2>Jerry Peters</h2>-->
+<!--      <p>Product Designer at Tech-Ascend</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="profile-stats">-->
+<!--    <p-tag value="4.6 Instructor Rating"></p-tag>-->
+<!--    <p-tag value="20 Courses"></p-tag>-->
+<!--    <p-tag value="8,000 Students"></p-tag>-->
+<!--    <p-tag value="5+ Years Experience"></p-tag>-->
+<!--  </div>-->
+<!--  <div class="profile-description">-->
+<!--    <p>Jerry Peters is a seasoned product designer with a Bachelor's degree in Industrial Design from a reputable university...</p>-->
+<!--  </div>-->
+<!--</p-card>-->
