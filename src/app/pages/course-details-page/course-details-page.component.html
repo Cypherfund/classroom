@@ -11,7 +11,7 @@
        <div class="d-flex align-items-center gap-2px">
          {{course?.numberOfRatings || 4.6}}
          <form [formGroup]="formGroup">
-           <p-rating formControlName="value" [cancel]="false" >
+           <p-rating formControlName="value" [cancel]="false">
              <ng-template pTemplate="onicon">
                <img height="17"
                     [src]="starImage"/>
@@ -34,7 +34,7 @@
        <div class="d-flex justify-content-start gap-4 flex-wrap">
          <div class="buttons">
            <button class="submit-btn btn btn-buy rounded-3 text-white py-2 px-1 buttons"
-                   type="submit" (click)="buyNow()">{{'buy_now' | translate}}</button>
+                   type="submit" (click)="buyNow()">{{'enroll' | translate}}</button>
          </div>
          <div class="buttons">
            <button class="submit-btn btn btn-light btn-cart rounded-3 py-2 px-1 buttons"
