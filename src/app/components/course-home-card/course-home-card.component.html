@@ -32,8 +32,8 @@
         </div>
       </div>
       <div class="pricing d-flex justify-content-start column-gap-2">
-        <span class="original-price">$100.00</span>
-        <span class="sale-price">{{ course?.price }}</span>
+        <span [class.original-price]='!!course?.discountedPrice || course?.discountedPrice == 0' [class.sale-price]='!course?.discountedPrice' >{{ course?.price == 0 ? 'Free' : course?.price | currency}}</span>
+        <span class="sale-price" *ngIf='!!course?.discountedPrice || course?.discountedPrice == 0'>{{ course?.discountedPrice | currency}}</span>
       </div>
     </div>
   </p-card>
