@@ -15,6 +15,8 @@ const routes: Routes = [
   { path: 'courses', component: CoursesComponent},
   { path: 'course-admin', loadChildren: () => import('./pages/course-admin/course-admin.module').then(m => m.CourseAdminModule)
   },
+  { path: 'my-courses', loadChildren: () => import('./pages/my-courses/my-courses.module').then(m => m.MyCoursesModule)
+  },
 ];
 
 @NgModule({

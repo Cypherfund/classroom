@@ -7,8 +7,15 @@
           <div class="product-item">
             <div class="product-item-content p-2">
               <div class="mb-2">
-                <iframe class="rounded-4 mt-2" width="100%" height="135" [src]="(lecture.lectureVideo || 'https://youtu.be/VwcY7PwFvMc?si=B5BFwINs_27b8Cnt') | safe"
-                        title="none"></iframe>
+<!--                <iframe class="rounded-4 mt-2" width="100%" height="135" [src]="(lecture.lectureVideo || 'https://youtu.be/VwcY7PwFvMc?si=B5BFwINs_27b8Cnt') | safe"-->
+<!--                        title="none"></iframe>-->
+                <div class="video-preview" style="position: relative; display: inline-block; cursor: pointer;">
+                  <img src="assets/images/course-thoumbnail.webp" alt="Video Preview" style="width: 100%;">
+                  <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <img [src]="playbuttonImage" alt="Play" style="width: 64px; height: 64px;">
+                  </div>
+                </div>
+
               </div>
               <div class="text-start m-2 fw-bolder">{{lecture.name}}
                 <br/>

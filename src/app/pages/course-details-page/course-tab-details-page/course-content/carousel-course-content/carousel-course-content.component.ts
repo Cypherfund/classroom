@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Lectures} from "../../../../../models/course";
+import { appConfig } from '../../../../../../environments/app.config';
 
 @Component({
   selector: 'app-carousel-course-content',
@@ -9,6 +10,7 @@ import {Lectures} from "../../../../../models/course";
 export class CarouselCourseContentComponent implements OnInit {
   @Input() lectures: Lectures[] | any;
   responsiveOptions: any;
+  playbuttonImage: string = appConfig.playButtonImage;
   constructor() {
   }
 

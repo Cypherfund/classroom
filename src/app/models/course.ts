@@ -1,3 +1,10 @@
+export interface EnrollCoursePayload {
+  userId: string;
+  courseId: number;
+  paymentMethod?: string;
+  paymentCode?: string;
+  phn?: string;
+}
 
 export interface AboutPayload {
   updatedOn?: string;

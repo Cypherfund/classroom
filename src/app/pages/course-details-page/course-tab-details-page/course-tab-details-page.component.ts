@@ -10,7 +10,7 @@ import {
 @Component({
   selector: 'app-course-tab-details-page',
   templateUrl: './course-tab-details-page.component.html',
-  styleUrl: './course-tab-details-page.component.scss'
+  styleUrls: ['./course-tab-details-page.component.scss', '../../../../styles/tabs.scss']
 })
 export class CourseTabDetailsPageComponent {
   items: MenuItem[] | undefined;
@@ -20,7 +20,7 @@ export class CourseTabDetailsPageComponent {
   instructorDetailsResponse: InstructorDetails | any;
   @Input() course: CourseDetail | any;
 
-  activeIndex: number = 0
+  activeIndex: number = 1
 
   constructor() {
   }

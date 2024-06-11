@@ -12,3 +12,20 @@
     }
   }
 }
+.video-preview {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.video-preview img {
+  width: 100%;
+  height: auto;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

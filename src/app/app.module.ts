@@ -62,6 +62,7 @@ import { HttpService } from './services/http.service';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { GraphQLModule } from './graphql.module';
 import { RoundDownPipe } from './pipe/round-down.pipe';
+import {MyCoursesModule} from "./pages/my-courses/my-courses.module";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -125,7 +126,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TableModule, // Moved TableModule import to the imports array,
     CourseAdminRoutingModule,
     ComponentModule,
-    AvatarModule
+    AvatarModule,
+    MyCoursesModule
 
   ],
   providers: [
