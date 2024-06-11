@@ -1,0 +1,92 @@
+body {
+  overflow-y: hidden;
+}
+::ng-deep .custom-breadcrumb {
+  background-color: transparent;
+  border: 0;
+  ol{
+    margin-bottom: unset;
+  }
+}
+::ng-deep .p-menubar {
+  padding:unset;
+}
+
+.course-container {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  flex: 1;
+  padding: 20px;
+  max-width: 320px;
+}
+
+.main-content {
+  flex: 3;
+  padding: 20px;
+  overflow-y: scroll;
+  max-height: calc(100vh - 200px);
+  scrollbar-width: none; /* Firefox */
+  scrollbar-color: var(--main-color-shade-1) #e0e0e0; /* Firefox */
+}
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+  max-height: calc(100vh - 200px);; /* Set max height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--main-color-shade-1) #e0e0e0; /* Firefox */
+}
+
+::ng-deep .p-tabview-nav {
+  border: 1px solid var(--main-color-shade-1) !important;
+  border-radius: 10px;
+  width: 100%;
+}
+
+::ng-deep .p-tabview-nav-content {
+  max-width: 100% !important;
+}
+
+.lesson-list li {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lesson-list li.active {
+  background-color: var(--main-color-shade-1);
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .course-container {
+    flex-direction: column;
+  }
+
+  .main-content, .sidebar {
+    max-width: unset;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .video-preview img {
+    width: 100%;
+  }
+
+  .lesson-list li {
+    width: 100%;
+  }
+}

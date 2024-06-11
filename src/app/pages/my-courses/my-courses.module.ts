@@ -7,17 +7,28 @@ import {TabViewModule} from "primeng/tabview";
 import {ProgressBarModule} from "primeng/progressbar";
 import {ComponentModule} from "../../components/component.module";
 import {ButtonModule} from "primeng/button";
+import { LearningComponent } from './learning/learning.component';
+import {ToggleButtonModule} from "primeng/togglebutton";
+import {TabMenuModule} from "primeng/tabmenu";
+import {BreadcrumbModule} from "primeng/breadcrumb";
+import {MenubarModule} from "primeng/menubar";
+import {LessonPartComponent} from "./learning/lesson-part/lesson-part.component";
 
 const routes: Routes = [
   {
     path: '',
     component: StudentHomeComponent,
   },
+  {
+    path: 'learning',
+    component: LearningComponent
+  }
 ];
 
 @NgModule({
   declarations: [
-    StudentHomeComponent
+    StudentHomeComponent,
+    LearningComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +37,12 @@ const routes: Routes = [
     TabViewModule,
     ProgressBarModule,
     ComponentModule,
-    ButtonModule
+    ButtonModule,
+    ToggleButtonModule,
+    TabMenuModule,
+    BreadcrumbModule,
+    MenubarModule,
+    LessonPartComponent
   ]
 })
 export class MyCoursesModule { }

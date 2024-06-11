@@ -146,3 +146,28 @@ export interface ReviewSummary {
   totalOnes: number;
   reviews: Review[];
 }
+
+export interface LessonPart {
+  id: number;
+  lessonId: number;
+  title: string;
+  content: string;
+  contentType: 'LECTURE' | 'VIDEO' | 'QUIZ';
+  videoUrl?: string;
+  position: number;
+  quizId?: number;
+  quizTitle?: string;
+}
+
+
+export const lessonParts: LessonPart[] = [
+  { id: 1, lessonId: 1, title: 'Java Syntax Basics', content: 'This lesson covers basic syntax elements in Java programming language.', contentType: 'LECTURE', position: 1 },
+  { id: 2, lessonId: 1, title: 'Variables and Data Types', content: 'Learn about variables and different data types in Java.', contentType: 'LECTURE', position: 2 },
+  { id: 3, lessonId: 1, title: 'Conditional Statements', content: 'Understand how to use conditional statements like if, else, and switch in Java.', contentType: 'VIDEO', videoUrl: 'https://www.youtube.com/embed/tgbNymZ7vqY', position: 3 },
+  { id: 4, lessonId: 2, title: 'HTML Structure', content: 'Learn about the basic structure of HTML documents.', contentType: 'LECTURE', position: 1 },
+  { id: 5, lessonId: 2, title: 'HTML Tags and Elements', content: 'Understand different HTML tags and elements.', contentType: 'VIDEO', videoUrl: 'https://www.youtube.com/embed/tgbNymZ7vqY', position: 2 },
+  { id: 6, lessonId: 2, title: 'Building Forms in HTML', content: 'Learn how to create forms and handle form inputs in HTML.', contentType: 'QUIZ', quizId: 1, position: 3 },
+  { id: 7, lessonId: 3, title: 'Python Data Structures', content: 'Learn about lists, tuples, dictionaries, and sets in Python.', contentType: 'VIDEO', videoUrl: 'https://www.youtube.com/embed/tgbNymZ7vqY', position: 1 },
+  { id: 8, lessonId: 3, title: 'Working with Functions', content: 'Understand how to define and use functions in Python.', contentType: 'LECTURE', position: 2 },
+  { id: 9, lessonId: 3, title: 'Modules and Packages', content: 'Learn about organizing code into modules and packages in Python.', contentType: 'LECTURE', position: 3 }
+];

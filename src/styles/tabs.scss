@@ -3,6 +3,12 @@
   border-color: var(--main-color-shade-1);
   color: var(--main-color-shade-1);
 }
+::ng-deep .p-tabmenu p-tabmenu-nav li.p-highlight .p-tabmenu-nav-link {
+  background: var(--color-white);
+  border-color: var(--main-color-shade-1);
+  color: var(--main-color-shade-1);
+  padding-left: unset;
+}
 ::ng-deep .p-tabview .p-tabview-nav li {
   margin-right: 0.5rem;
   margin-left: 0.5rem;
@@ -11,7 +17,7 @@
   max-width: fit-content;
   //margin: auto;
 }
-::ng-deep .p-tabview-nav{
+::ng-deep .p-tabview-nav, ::ng-deep .p-tabmenu-nav{
   min-width: unset;
   border-bottom: unset;
   padding-left:unset;

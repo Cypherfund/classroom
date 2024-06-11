@@ -63,6 +63,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { GraphQLModule } from './graphql.module';
 import { RoundDownPipe } from './pipe/round-down.pipe';
 import {MyCoursesModule} from "./pages/my-courses/my-courses.module";
+import {CustomPipesModule} from "./pipe/custom-pipes.module";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -83,7 +84,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReviewsComponent,
     InstructorDetailsComponent,
     CarouselCourseContentComponent,
-    SafePipe,
     DateFormatPipe,
     RoundDownPipe,
     CourseHomeCardComponent,
@@ -115,6 +115,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PanelMenuModule,
     SpinnerComponent,
     GraphQLModule,
+    CustomPipesModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
