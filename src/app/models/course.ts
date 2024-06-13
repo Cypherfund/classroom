@@ -171,3 +171,14 @@ export const lessonParts: LessonPart[] = [
   { id: 8, lessonId: 3, title: 'Working with Functions', content: 'Understand how to define and use functions in Python.', contentType: 'LECTURE', position: 2 },
   { id: 9, lessonId: 3, title: 'Modules and Packages', content: 'Learn about organizing code into modules and packages in Python.', contentType: 'LECTURE', position: 3 }
 ];
+export interface Enrollment {
+  id: number;
+  userId: string;
+  courseId: number;
+  courseName: string;
+  courseImgUrl: string;
+  courseInstructorName: string;
+  enrollmentDate: string;
+  status: string;
+  progress: number;
+}
