@@ -146,3 +146,14 @@ export interface ReviewSummary {
   totalOnes: number;
   reviews: Review[];
 }
+export interface Enrollment {
+  id: number;
+  userId: string;
+  courseId: number;
+  courseName: string;
+  courseImgUrl: string;
+  courseInstructorName: string;
+  enrollmentDate: string;
+  status: string;
+  progress: number;
+}
