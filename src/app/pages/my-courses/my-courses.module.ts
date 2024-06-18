@@ -13,6 +13,8 @@ import {TabMenuModule} from "primeng/tabmenu";
 import {BreadcrumbModule} from "primeng/breadcrumb";
 import {MenubarModule} from "primeng/menubar";
 import {LessonPartComponent} from "./learning/lesson-part/lesson-part.component";
+import {SidebarModule} from "primeng/sidebar";
+import {AvatarModule} from "primeng/avatar";
 
 const routes: Routes = [
   {
@@ -42,7 +44,9 @@ const routes: Routes = [
     TabMenuModule,
     BreadcrumbModule,
     MenubarModule,
-    LessonPartComponent
+    LessonPartComponent,
+    SidebarModule,
+    AvatarModule
   ]
 })
 export class MyCoursesModule { }

@@ -1,20 +1,27 @@
 <app-navbar></app-navbar>
 <p-breadcrumb class="bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="menus" [home]="home"></p-breadcrumb>
-<div class="course-container">
-  <div class="main-content">
-    <h2 class="mb-5 me-auto w-80 m-auto">{{ selectedLesson }}</h2>
+<p-button #test *ngIf="!sidebarVisible" (click)="sidebarVisible = true" icon="pi pi-bars" />
+<div class="container-learn" #newsidenav>
+  <div class="side-nav" *ngIf="sidebarVisible">
+    <p-sidebar [(visible)]="sidebarVisible"
+               [appendTo]="newsidenav"
+               [dismissible]="false"
+               [showCloseIcon]="true"
+               [modal]="false">
+      <p-tabView>
+        <p-tabPanel header="Content">
+          <ul class="lesson-list">
+            <li *ngFor="let lesson of lessons" (click)="selectLesson(lesson)" [class.active]="lesson === selectedLesson">{{ lesson }}</li>
+          </ul>
+        </p-tabPanel>
+        <p-tabPanel header="Resources">
+        </p-tabPanel>
+      </p-tabView>
+    </p-sidebar>
+  </div>
+  <div class="main-content" [class.add-margin]="!sidebarVisible">
+    <h2 class="">{{ selectedLesson }}</h2>
     <app-lesson-part [lessonParts]="lessonParts"></app-lesson-part>
   </div>
-  <div class="sidebar">
-    <p-tabView>
-      <p-tabPanel header="Content">
-        <ul class="lesson-list">
-          <li *ngFor="let lesson of lessons" (click)="selectLesson(lesson)" [class.active]="lesson === selectedLesson">{{ lesson }}</li>
-        </ul>
-      </p-tabPanel>
-      <p-tabPanel header="Resources">
-
-      </p-tabPanel>
-    </p-tabView>
-  </div>
 </div>
+
