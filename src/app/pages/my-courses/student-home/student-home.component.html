@@ -4,7 +4,7 @@
   <div class="stats-cards d-flex justify-content-between flex-wrap mb-4">
     <p-card class="stat-card">
       <ng-template pTemplate="header">
-        <img alt="Card" src="assets/svg/solar_notebook-minimalistic-linear.svg" height="60" width="60" />
+        <img alt="Card" src="assets/svg/solar_notebook-minimalistic-linear.svg" height="80" width="80" />
       </ng-template>
       <div class="d-flex flex-column align-items-center mt-2">
         <h2>2</h2>
@@ -13,7 +13,7 @@
     </p-card>
     <p-card class="stat-card">
       <ng-template pTemplate="header">
-        <img alt="Card" src="assets/svg/solar_square-academic-cap-linear.svg" height="60" width="60" />
+        <img alt="Card" src="assets/svg/solar_square-academic-cap-linear.svg" height="80" width="80" />
       </ng-template>
       <div class="d-flex flex-column align-items-center mt-2">
         <h2>2</h2>
@@ -22,7 +22,7 @@
     </p-card>
     <p-card class="stat-card">
       <ng-template pTemplate="header">
-        <img alt="Card" src="assets/svg/solar_medal-ribbon-star-linear.svg" height="60" width="60" />
+        <img alt="Card" src="assets/svg/solar_medal-ribbon-star-linear.svg" height="80" width="80" />
       </ng-template>
       <div class="d-flex flex-column align-items-center mt-2">
         <h2>2</h2>
@@ -37,44 +37,27 @@
 
   <p-tabView>
     <p-tabPanel header="Currently Learning">
-      <div class="main-course-card">
+      <div *ngFor="let enrollment of (enrolledCourses$ | async)" class="main-course-card">
         <div class="course-card">
           <img src="assets/images/course-img-2.png" alt="Course Thumbnail" class="course-thumbnail">
           <div class="course-info">
-            <p class="course-title">Product Design for Beginners</p>
-            <p>By <strong>Jerry Peters</strong></p>
+            <p class="course-title">{{enrollment.courseName}}</p>
+            <p>By <strong>{{enrollment.courseInstructorName}}</strong></p>
             <div class="course-actions d-flex justify-content-start gap-5">
               <button pButton type="button" label="Overview" class="p-button-outlined overview"></button>
               <button pButton type="button" label="Continue" [routerLink]="'learning'" class="p-button-raised p-button-rounded p-button-success"></button>
             </div>
           </div>
         </div>
-        <p-progressBar [value]="5" ></p-progressBar>
-        <p>5% Complete</p>
+        <p-progressBar [value]="enrollment.progress" ></p-progressBar>
+        <p>{{enrollment.progress}}% Complete</p>
       </div>
-      <!-- Duplicate the course card for more courses -->
-      <div class="main-course-card">
-        <div class="course-card">
-          <img src="assets/images/course-img-2.png" alt="Course Thumbnail" class="course-thumbnail">
-          <div class="course-info">
-            <p class="course-title">Product Design for Beginners</p>
-            <p>By <strong>Jerry Peters</strong></p>
-            <div class="course-actions d-flex justify-content-start gap-5">
-              <button pButton type="button" label="Overview" class="p-button-outlined overview"></button>
-              <button pButton type="button" label="Continue" [routerLink]="'learning'" class="p-button-raised p-button-rounded p-button-success"></button>
-            </div>
-          </div>
-        </div>
-        <p-progressBar [value]="5"></p-progressBar>
-        <p>5% Complete</p>
-      </div>
-
 
     </p-tabPanel>
     <p-tabPanel header="Completed">
       <!-- Completed courses content -->
     </p-tabPanel>
-    <p-tabPanel header="Learning Reminders">
+    <p-tabPanel header="Total Courses">
       <!-- Total courses content -->
     </p-tabPanel>
   </p-tabView>

@@ -38,7 +38,7 @@ export class AppComponent {
           this.stoarageService.set('token', token); //todo add security
           this.userService.user = response.data;
         }
-      })
+      }, (error) => {});
       return;
     }
   }
