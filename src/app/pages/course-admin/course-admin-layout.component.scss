@@ -14,7 +14,7 @@
 ::ng-deep .p-sidebar {
   position: absolute;
   box-shadow: unset;
-  height: 100vh;
+  height: calc(100vh - 100px);
 }
 
 ::ng-deep .p-sidebar-content {
@@ -22,6 +22,7 @@
   scrollbar-width: thin;
   scrollbar-color: var(--main-color-shade-1) #e0e0e0;
   padding: unset;
+  height: calc(100vh - 80px);
 }
 
 ::ng-deep .p-sidebar-header {
