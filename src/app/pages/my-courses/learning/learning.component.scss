@@ -12,6 +12,9 @@
 
 ::ng-deep .p-ripple.p-element.p-button.p-component.p-button-icon-only {
   border-radius: 0 10px 10px 0;
+  background: unset;
+  border: 1px solid var(--main-color-shade-1);
+  color: var(--main-color-shade-1);
 }
 
 .lesson-list {
@@ -73,12 +76,6 @@
 
   .course-container {
     flex-direction: column;
-  }
-
-  .main-content, .sidebar {
-    max-width: unset;
-    width: 100%;
-    padding: 10px;
   }
 
   .video-preview img {

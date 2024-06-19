@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <p-breadcrumb class="bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="menus" [home]="home"></p-breadcrumb>
-<p-button #test *ngIf="!sidebarVisible" (click)="sidebarVisible = true" icon="pi pi-bars" />
+<p-button *ngIf="!sidebarVisible" (click)="sidebarVisible = true" icon="pi pi-bars" />
 <div class="container-learn" #newsidenav>
   <div class="side-nav" *ngIf="sidebarVisible">
     <p-sidebar [(visible)]="sidebarVisible"

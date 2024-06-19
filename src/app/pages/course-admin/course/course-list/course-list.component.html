@@ -12,29 +12,6 @@
     </div>
     <div class="list" style="margin-top:50px;" >
       <h2>Course List</h2>
-      <div class="d-flex" style="width:1006px;gap:5px;">
-                <span class="p-input-icon-left" style="width: 200px; height:36px;text-align: center;">
-                    <i class="pi pi-search"></i>
-                    <input type="text" class="bg-white search border-1 p-1" placeholder="Search" style="width: 200px; height:36px;text-align: center;" />
-                </span>
-        <!-- <button class="bg-white search border-1" style="width: 200px; height:36px;text-align: left;"><em class="pi pi-search p-2"></em>Search</button> -->
-        <select class=" search border-1" style="height:36px;width:90px;">
-          <option>Filter</option>
-        </select>
-        <select class=" search border-1" style="height:36px;width:90px">
-          <option>Filter</option>
-        </select>
-        <select class=" search border-1" style="height:36px;width:90px">
-          <option>Filter</option>
-        </select>
-        <p class="p-2" style="height:36px;width:150px" >Displaying 4 results</p>
-        <label  style="height:36px;width:179px">Sort:<select class=" search border-1 p-1" style="height:36px;width:139px">
-          <option>Most Recent</option>
-        </select>
-        </label>
-        <button class="bg-white search border-1" style="height:36px;width:36px"><em class="pi pi-ellipsis-v"></em></button>
-        <button class="bg-white search border-1" style="height:36px;width:139px"><em class="pi pi-download p-2"></em>Export</button>
-      </div>
       <div class="card">
         <p-table [value]="observables?.courses?.data!!" dataKey="id" [tableStyle]="{'min-width': '50rem'}">
           <ng-template pTemplate="header">

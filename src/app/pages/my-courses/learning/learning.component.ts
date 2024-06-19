@@ -6,7 +6,8 @@ import {DOCUMENT} from "@angular/common";
 @Component({
   selector: 'app-learning',
   templateUrl: './learning.component.html',
-  styleUrls: ['./learning.component.scss', '../../../../styles/tabs.scss']
+  styleUrls: ['./learning.component.scss', '../../../../styles/tabs.scss'],
+  host: {ngSkipHydration: 'true'}
 })
 export class LearningComponent implements OnInit, OnDestroy{
   items = [
@@ -17,12 +18,11 @@ export class LearningComponent implements OnInit, OnDestroy{
   lessonParts: LessonPart[] = lessonParts;
   menus: MenuItem[] | undefined;
   home: MenuItem | undefined;
-  @ViewChild('test') button: any | undefined;
 
   lessons = ['Course Overview', 'Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4', 'Lesson 5', 'Exam', 'Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4', 'Lesson 5', 'Exam',  'Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4', 'Lesson 5', 'Exam', 'Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4', 'Lesson 5', 'Exam'];
   selectedLesson = 'Course Overview';
 
-  sidebarVisible: boolean = false;
+  sidebarVisible: boolean = true;
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.menus = [

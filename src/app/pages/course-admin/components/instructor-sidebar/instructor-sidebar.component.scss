@@ -20,3 +20,10 @@ li.active {
     background-color: var(--main-color-shade-1) !important;
   }
 }
+
+::ng-deep p-button .p-ripple.p-element.p-button.p-component.p-button-icon-only {
+  border-radius: 0 10px 10px 0;
+  background: unset;
+  border: 1px solid var(--main-color-shade-1);
+  color: var(--main-color-shade-1);
+}

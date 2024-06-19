@@ -15,10 +15,4 @@ export class InstructorSidebarComponent {
   @Input() targetRef: any = 'body';
   sidebarVisible: boolean = true;
   activeNav: NAV = NAV.Course;
-  @ViewChild('sidebarRef') sidebarRef!: Sidebar;
-
-  // @ts-ignore
-  closeCallback(e): void {
-    this.sidebarRef.close(e);
-  }
 }
