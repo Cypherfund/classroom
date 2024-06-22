@@ -15,6 +15,12 @@ import {MenubarModule} from "primeng/menubar";
 import {LessonPartComponent} from "./learning/lesson-part/lesson-part.component";
 import {SidebarModule} from "primeng/sidebar";
 import {AvatarModule} from "primeng/avatar";
+import { OverviewComponent } from './overview/overview.component';
+import { MyCourseService } from './services/my-course-service';
+import { MyCourseApiService } from './services/my-course-api-service';
+import { ChipModule } from 'primeng/chip';
+import { TopicComponent } from './overview/topic/topic.component';
+import { AccordionModule } from 'primeng/accordion';
 
 const routes: Routes = [
   {
@@ -22,15 +28,20 @@ const routes: Routes = [
     component: StudentHomeComponent,
   },
   {
-    path: 'learning',
+    path: 'learning/:courseId',
     component: LearningComponent
+  },
+  {
+    path: 'overview/:courseId',
+    component: OverviewComponent
   }
 ];
 
 @NgModule({
   declarations: [
     StudentHomeComponent,
-    LearningComponent
+    LearningComponent,
+    OverviewComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +57,11 @@ const routes: Routes = [
     MenubarModule,
     LessonPartComponent,
     SidebarModule,
-    AvatarModule
-  ]
+    AvatarModule,
+    ChipModule,
+    TopicComponent,
+    AccordionModule
+  ],
+  providers: [MyCourseService, MyCourseApiService]
 })
 export class MyCoursesModule { }

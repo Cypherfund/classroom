@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+
+<main class='container'>
+  <h1>{{ course?.name || 'Product Design for Beginners' }}</h1>
+  <p-progressBar [value]="enrollment?.progress || 50" /><br/>
+
+  <p-card>
+    <div class='d-flex justify-content-between align-items-end'>
+      <div>
+        <p>Pick up where you left off</p>
+        <h2 class='d-flex gap-1 align-items-end'>
+          <p-chip label="Topic" icon="pi pi-book" />
+          <span>Kubernetes</span>
+        </h2>
+      </div>
+      <a [routerLink]="['/my-courses/learning', 3]"><h4>Resume <span class="pi pi-arrow-right"></span></h4></a>
+    </div>
+  </p-card>
+
+  <section *ngIf='hasSubcourses; else singleCourseTemplate'>
+    <section class='content'>
+      <h2>Curriculum</h2>
+      <div class="card flex justify-content-center">
+        <p-accordion>
+          <p-accordionTab  *ngFor='let courses of [1,2,3]'>
+            <ng-template pTemplate="header">
+              <span class="flex-column align-items-center gap-2 w-full">
+                    <h3>{{ course?.name || 'Welcome to the Agile Software Developer Nanodegree Program' }}</h3>
+                    <p-progressBar [value]="enrollment?.progress || 50" />
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <div *ngIf='course?.projects || true'>
+                      <b>Projects</b>
+                      <div *ngFor='let project of course?.projects || [1]'>
+                        <span class='pi pi-check-circle'></span><span>Project: </span><span>WorldVisitz Mobile Application Agile Delivery Launch</span>
+                      </div>
+                    </div>
+                </span>
+            </ng-template>
+            <app-topic *ngFor='let topic of [1,2,3]'></app-topic>
+          </p-accordionTab>
+        </p-accordion>
+      </div>
+    </section>
+  </section>
+
+  <ng-template #singleCourseTemplate>
+    <section class='content'>
+      <h2>Topics</h2>
+      <app-topic *ngFor='let topic of [1,2,3]'></app-topic>
+    </section>
+  </ng-template>
+</main>
+
+
+<!--<div class="p-grid p-nogutter">-->
+<!--  <div class="p-col-fixed" style="width: 250px;">-->
+<!--    <p-panelMenu [model]="items"></p-panelMenu>-->
+<!--  </div>-->
+<!--  <div class="p-col">-->
+<!--    <div class="p-p-4">-->
+<!--      <p-card header="Dashboard Content" styleClass="ui-card-shadow">-->
+<!--        <p>This is where your main content goes.</p>-->
+<!--        &lt;!&ndash; Add PrimeNG components as needed &ndash;&gt;-->
+<!--        <p-chart type="line" [data]="lineData"></p-chart>-->
+<!--      </p-card>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

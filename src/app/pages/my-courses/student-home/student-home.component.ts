@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {CourseDetail, Enrollment} from "../../../models/course";
 import {CourseService} from "../../../services/course-service/course.service";
 import {Observable} from "rxjs";
+import { MyCourseService } from '../services/my-course-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-home',
@@ -11,13 +13,20 @@ import {Observable} from "rxjs";
 export class StudentHomeComponent {
   enrolledCourses$: Observable<Enrollment[]>;
 
-  constructor(private readonly courseService: CourseService) {
+  constructor(private readonly courseService: CourseService,
+              private readonly router: Router,
+              private readonly myCourseService: MyCourseService) {
     this.enrolledCourses$ = this.courseService.enrolledCourses();
   }
 
   ngOnInit(): void {
-    this.enrolledCourses$.subscribe((response) => {
-      console.log(response);
-    });
+  }
+
+  navigateToOverview(courseId: number) {
+    this.router.navigate(['/my-courses/overview', courseId])
+  }
+
+  navigateToLearning(courseId: number) {
+    this.router.navigate(['/my-courses/learning', courseId]);
   }
 }

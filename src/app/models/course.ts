@@ -119,6 +119,8 @@ export interface CourseDetail {
   hasRealWorldProjects: boolean;
   contentSummary?: CourseContentSummary;
   reviewSummary?: ReviewSummary;
+  subCourses?: CourseDetail[];
+  projects?: any[];
 }
 
 export interface Student {

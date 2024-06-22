@@ -44,8 +44,8 @@
             <p class="course-title">{{enrollment.courseName}}</p>
             <p>By <strong>{{enrollment.courseInstructorName}}</strong></p>
             <div class="course-actions d-flex justify-content-start gap-5">
-              <button pButton type="button" label="Overview" class="p-button-outlined overview"></button>
-              <button pButton type="button" label="Continue" [routerLink]="'learning'" class="p-button-raised p-button-rounded p-button-success"></button>
+              <button pButton type="button" label="Overview" (click)='navigateToOverview(enrollment.courseId)' class="p-button-outlined overview"></button>
+              <button pButton type="button" label="Continue" (click)='navigateToLearning(enrollment.courseId)' class="p-button-raised p-button-rounded p-button-success"></button>
             </div>
           </div>
         </div>
