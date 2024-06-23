@@ -11,12 +11,10 @@ export class LoaderService {
   }
 
   turnOnLoading() {
-    console.log('turning on loading');
     this.loaderSubject$.next(true);
   }
 
   turnOffLoading() {
-    console.log('turning off loading');
     this.loaderSubject$.next(false);
   }
 

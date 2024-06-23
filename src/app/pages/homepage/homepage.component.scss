@@ -129,6 +129,23 @@ input{
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .trending-courses {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .trending {
+    width: 90%
+  }
+  .trending-flex {
+    display: none !important;
+  }
+  .trending-carousel {
+    display: block !important;
+    width:100%;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .d-flex.gap-4.justify-content-between.flex-wrap {
     justify-content: center !important;
