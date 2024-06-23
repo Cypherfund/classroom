@@ -3,6 +3,7 @@ import {CourseService} from "../../services/course-service/course.service";
 import {  CourseDetail } from '../../models/course';
 import {Router} from "@angular/router";
 import { UserService } from '../../services/user/user.service';
+import { LoaderService } from '../../services/loader-service';
 
 @Component({
   selector: 'app-homepage',
@@ -17,6 +18,7 @@ export class HomepageComponent {
   responsiveOptions: any[] | undefined;
   constructor( private courseService: CourseService,
                private router: Router,
+               private loaderService: LoaderService,
                private userService: UserService) {
 
   }
@@ -52,12 +54,21 @@ export class HomepageComponent {
     ];
   }
 
-  getCourses(){
-    const sub = this.courseService.getCourses().subscribe( res => {
-      this.courses = res.data
-      this.upcomingCourses = Array.from({ length: 2 }, () => this.courses).flat();
-    })
+  getCourses() {
+    this.loaderService.turnOnLoading();
+    const sub = this.courseService.getCourses().subscribe(
+      {
+        next: (response) => {
+          this.courses = response.data
+          this.upcomingCourses = Array.from({ length: 2 }, () => this.courses).flat();
+          this.loaderService.turnOffLoading();
+        },
+        error: (error) => {
+          this.loaderService.turnOffLoading();
+        }
+      });
   }
+
   isLoggedIn(): boolean {
     return !!Object.keys(this.userService.user).length;
   }

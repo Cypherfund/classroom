@@ -68,6 +68,7 @@ import { ErrorMessageComponent } from './components/error-message/error-message.
 import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { LoaderTemplateComponent } from './components/loader-template/loader-template.component';
+import { LoaderService } from './services/loader-service';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -144,7 +145,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MessageService,
     UserService,
     UserApiService,
-    HttpService
+    HttpService,
+    LoaderService
   ],
   bootstrap: [ AppComponent ]
 })

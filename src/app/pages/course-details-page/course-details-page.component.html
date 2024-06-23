@@ -56,8 +56,8 @@
     </aside>
   </section>
 </ng-container>
-<app-loader-template *ngIf='loadingCourses'></app-loader-template>
-<app-error-message *ngIf='!loadingCourses && !course' (retryEvent)="handleRetry()"></app-error-message>
+<app-error-message *ngIf='loadError' (retryEvent)="handleRetry()"></app-error-message>
+<app-loader-template ></app-loader-template>
 
 <footer>
   <app-footer></app-footer>

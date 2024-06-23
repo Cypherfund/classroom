@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
+import { LoaderService } from '../../services/loader-service';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'app-loader-template',
   template: `
-    <div class="loader-container">
+    <div class="loader-container" *ngIf='showLoader'>
       <div class="loader-content">
         <img [src]="'assets/images/logo-round.png'" height='200' width='200' alt="Error GIF" class="loader">
         <h2>Please wait...</h2>
       </div>
     </div>
   `,
-  imports: [],
+  imports: [NgIf, AsyncPipe ],
   styles: `
       .loader-container {
         display: flex;
@@ -39,4 +41,11 @@ import { Component } from '@angular/core';
 
   `
 })
-export class LoaderTemplateComponent {}
+export class LoaderTemplateComponent {
+  showLoader: boolean = false;
+  constructor(public loaderService: LoaderService) {
+    this.loaderService.getLoader().subscribe((value) => {
+      this.showLoader = value;
+    });
+  }
+}

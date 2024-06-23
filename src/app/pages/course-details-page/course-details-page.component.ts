@@ -8,6 +8,7 @@ import {appConfig} from "../../../environments/app.config";
 import { finalize, Subscription } from 'rxjs';
 import {UserService} from "../../services/user/user.service";
 import { error } from '@angular/compiler-cli/src/transformers/util';
+import { LoaderService } from '../../services/loader-service';
 
 @Component({
   selector: 'app-course-details-page',
@@ -21,16 +22,16 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
   formGroup!: FormGroup;
   course: CourseDetail | any
   activeCourseId: number = 0;
-  loadingCourses: boolean = false;
-
   starImage: string = appConfig.starImage;
   unstarImage: string = appConfig.unstarImage;
 
   subscriptions: Subscription[] = [];
+  loadError: boolean = false;
   constructor(private route: Router,
               private courseService: CourseService,
               private userService: UserService,
               private readonly messsageService: MessageService,
+              public loaderService: LoaderService,
               private activeRoute: ActivatedRoute) {
   }
 
@@ -83,11 +84,14 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
   }
 
   getCourse() {
-    this.loadingCourses = true;
+    this.loaderService.turnOnLoading();
     this.courseService.getCourseGraphqls(this.activeCourseId).subscribe({
       next: value => this.course = value?.data?.courseById,
-      error: () => this.loadingCourses = false,
-      complete: () => this.loadingCourses = false
+      error: () => {
+        this.loaderService.turnOffLoading()
+        this.loadError = true;
+      },
+      complete: () => this.loaderService.turnOffLoading()
     })
   }
 

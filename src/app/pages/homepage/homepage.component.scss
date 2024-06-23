@@ -13,6 +13,9 @@
   align-items: center;
 
 }
+::ng-deep .loader-container{
+  height: unset !important;
+}
 .text-purple{
   color: var(--main-color-shade-1)
 }
@@ -64,6 +67,7 @@ input{
 .card-schedule{
   border-color: var(--main-color-shade-1);
   max-width: 520px;
+  width: 450px;
 }
 
 .btn.btn-primary {
