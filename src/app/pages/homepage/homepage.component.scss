@@ -123,6 +123,9 @@ input{
   }
 }
 
+.trending-item {
+  flex: 1;
+}
 @media screen and (max-width: 390px) {
   .card-schedule{
     padding: 1rem !important;
