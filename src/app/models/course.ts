@@ -103,7 +103,7 @@ export interface CourseDetail {
   about: string | null;
   imgUrl: string;
   name: string;
-  description: string;
+  description?: string;
   startDate: string;
   endDate: string;
   duration: string;
@@ -117,6 +117,7 @@ export interface CourseDetail {
   numberOfRatings: number;
   updatedOn: string | null;
   hasRealWorldProjects: boolean;
+  isEnrolled?: boolean;
   contentSummary?: CourseContentSummary;
   reviewSummary?: ReviewSummary;
   subCourses?: CourseDetail[];

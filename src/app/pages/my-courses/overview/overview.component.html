@@ -1,26 +1,28 @@
 <app-navbar></app-navbar>
 
-<main class='container'>
-  <h1>{{ course?.name || 'Product Design for Beginners' }}</h1>
-  <p-progressBar [value]="enrollment?.progress || 50" /><br/>
 
-  <p-card>
-    <div class='d-flex justify-content-between align-items-end'>
-      <div>
-        <p>Pick up where you left off</p>
-        <h2 class='d-flex gap-1 align-items-end'>
-          <p-chip label="Topic" icon="pi pi-book" />
-          <span>Kubernetes</span>
-        </h2>
+<main class='overflow-y-scroll'>
+
+  <section class='container mt-5'>
+    <h1>{{ course?.name || 'Product Design for Beginners' }}</h1>
+    <p-progressBar [value]="enrollment?.progress || 50" /><br/>
+
+    <p-card>
+      <div class='d-flex justify-content-between align-items-end'>
+        <div>
+          <p>Pick up where you left off</p>
+          <h2 class='d-flex gap-1 align-items-end'>
+            <p-chip label="Topic" icon="pi pi-book" />
+            <span>Kubernetes</span>
+          </h2>
+        </div>
+        <a [routerLink]="['/my-courses/learning', 3]"><h4>Resume <span class="pi pi-arrow-right"></span></h4></a>
       </div>
-      <a [routerLink]="['/my-courses/learning', 3]"><h4>Resume <span class="pi pi-arrow-right"></span></h4></a>
-    </div>
-  </p-card>
+    </p-card>
 
-  <section *ngIf='hasSubcourses; else singleCourseTemplate'>
-    <section class='content'>
-      <h2>Curriculum</h2>
-      <div class="card flex justify-content-center">
+    <section *ngIf='hasSubcourses; else singleCourseTemplate'>
+      <section class='content'>
+        <h2>Curriculum</h2>
         <p-accordion>
           <p-accordionTab  *ngFor='let courses of [1,2,3]'>
             <ng-template pTemplate="header">
@@ -34,7 +36,10 @@
                     <div *ngIf='course?.projects || true'>
                       <b>Projects</b>
                       <div *ngFor='let project of course?.projects || [1]'>
-                        <span class='pi pi-check-circle'></span><span>Project: </span><span>WorldVisitz Mobile Application Agile Delivery Launch</span>
+                        <span class='pi pi-check-circle me-1' *ngIf='true; else notcompleted'></span>
+                        <ng-template #notcompleted><span class='pi pi-circle-off me-1'></span></ng-template>
+                        <span>Project: </span>
+                        <span>WorldVisitz Mobile Application Agile Delivery Launch</span>
                       </div>
                     </div>
                 </span>
@@ -42,30 +47,14 @@
             <app-topic *ngFor='let topic of [1,2,3]'></app-topic>
           </p-accordionTab>
         </p-accordion>
-      </div>
+      </section>
     </section>
+
+    <ng-template #singleCourseTemplate>
+      <section class='content'>
+        <h2>Topics</h2>
+        <app-topic *ngFor='let topic of [1,2,3]'></app-topic>
+      </section>
+    </ng-template>
   </section>
-
-  <ng-template #singleCourseTemplate>
-    <section class='content'>
-      <h2>Topics</h2>
-      <app-topic *ngFor='let topic of [1,2,3]'></app-topic>
-    </section>
-  </ng-template>
 </main>
-
-
-<!--<div class="p-grid p-nogutter">-->
-<!--  <div class="p-col-fixed" style="width: 250px;">-->
-<!--    <p-panelMenu [model]="items"></p-panelMenu>-->
-<!--  </div>-->
-<!--  <div class="p-col">-->
-<!--    <div class="p-p-4">-->
-<!--      <p-card header="Dashboard Content" styleClass="ui-card-shadow">-->
-<!--        <p>This is where your main content goes.</p>-->
-<!--        &lt;!&ndash; Add PrimeNG components as needed &ndash;&gt;-->
-<!--        <p-chart type="line" [data]="lineData"></p-chart>-->
-<!--      </p-card>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->

@@ -1,58 +1,64 @@
 <app-navbar></app-navbar>
-<main>
-  <p-breadcrumb class="bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="items" [home]="home"></p-breadcrumb>
-  <figure class="d-flex flex-column text-white container-fluid">
-   <div class="pb-3 course-desc">
-     <div class='preview-div' >
-       <div style="color: white; font-size: 20px; font-weight: 800; word-wrap: break-word">Preview this course</div>
-     </div>
-     <div style='max-width:600px' class="desc text-dark w-40">
-       <p class="cours-name">{{course?.name}}</p>
-       <div class="d-flex align-items-center gap-2px">
-         {{course?.numberOfRatings || 4.6}}
-         <form [formGroup]="formGroup">
-           <p-rating formControlName="value" [cancel]="false">
-             <ng-template pTemplate="onicon">
-               <img height="17"
-                    [src]="starImage"/>
-             </ng-template>
-             <ng-template pTemplate="officon">
-               <img height="17"
-                    [src]="unstarImage"/>
-             </ng-template>
-           </p-rating>
-         </form>
-         <span class="ms-2 me-2 text-decoration-underline">({{course?.numberOfRatings || 5000 | number}} {{'ratings' | translate}})</span>
-         <span class="ms-2 me-2">{{course?.instructors?.numberOfStudents || 7000 | number}} {{'students' | translate}}</span>
-       </div>
 
-       <p>{{'Created_by' | translate}} <span class="fw-bolder">{{course?.instructor?.name}}</span></p>
-       <p class="course-higlight fw-light text-wrap" >
-         {{course.description}}
-       </p>
-       <p>{{'Price' | translate}}: <span class="fw-bolder fs-5">{{course.price ? '$' + course.price : 'FREE'}}</span></p>
-       <div class="d-flex justify-content-start gap-4 flex-wrap">
-         <div class="buttons">
-           <button class="submit-btn btn btn-buy rounded-3 text-white py-2 px-1 buttons"
-                   type="submit" (click)="buyNow()">{{'enroll' | translate}}</button>
-         </div>
-         <div class="buttons">
-           <button class="submit-btn btn btn-light btn-cart rounded-3 py-2 px-1 buttons"
-                   type="submit" (click)="addToCart()">{{'add_to_cart' | translate}}</button>
-         </div>
-       </div>
-     </div>
-   </div>
- </figure>
-</main>
-<section  class="container extra-info">
-  <section class="course-tab">
-    <app-course-tab-details-page [course]="course"></app-course-tab-details-page>
+<ng-container *ngIf='course'>
+  <main>
+    <p-breadcrumb class="bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="items" [home]="home"></p-breadcrumb>
+    <figure class="d-flex flex-column text-white container-fluid">
+      <div class="pb-3 course-desc">
+        <div class='preview-div' >
+          <div style="color: white; font-size: 20px; font-weight: 800; word-wrap: break-word">Preview this course</div>
+        </div>
+        <div style='max-width:600px' class="desc text-dark w-40">
+          <p class="cours-name">{{course?.name}}</p>
+          <div class="d-flex align-items-center gap-2px">
+            {{course?.numberOfRatings || 4.6}}
+            <form [formGroup]="formGroup">
+              <p-rating formControlName="value" [cancel]="false">
+                <ng-template pTemplate="onicon">
+                  <img height="17"
+                       [src]="starImage"/>
+                </ng-template>
+                <ng-template pTemplate="officon">
+                  <img height="17"
+                       [src]="unstarImage"/>
+                </ng-template>
+              </p-rating>
+            </form>
+            <span class="ms-2 me-2 text-decoration-underline">({{course?.numberOfRatings || 5000 | number}} {{'ratings' | translate}})</span>
+            <span class="ms-2 me-2">{{course?.instructors?.numberOfStudents || 7000 | number}} {{'students' | translate}}</span>
+          </div>
+
+          <p>{{'Created_by' | translate}} <span class="fw-bolder">{{course?.instructor?.name}}</span></p>
+          <p class="course-higlight fw-light text-wrap" >
+            {{course?.description}}
+          </p>
+          <p>{{'Price' | translate}}: <span class="fw-bolder fs-5">{{course.price ? '$' + course.price : 'FREE'}}</span></p>
+          <div class="d-flex justify-content-start gap-4 flex-wrap">
+            <div class="buttons">
+              <button class="submit-btn btn btn-buy rounded-3 text-white py-2 px-1 buttons"
+                      type="submit" (click)="processCourseAction()">{{(course?.isEnrolled ? 'continue' : 'enroll') | translate}}</button>
+            </div>
+            <div class="buttons">
+              <button class="submit-btn btn btn-light btn-cart rounded-3 py-2 px-1 buttons"
+                      type="submit" (click)="processAlternateClick()">{{(course?.isEnrolled ? 'unenroll' : 'add_to_cart') | translate}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </figure>
+  </main >
+  <section  class="container extra-info">
+    <section class="course-tab">
+      <app-course-tab-details-page [course]="course"></app-course-tab-details-page>
+    </section>
+    <aside>
+      <app-carousel-courses></app-carousel-courses>
+    </aside>
   </section>
-  <aside>
-    <app-carousel-courses></app-carousel-courses>
-  </aside>
-</section>
+</ng-container>
+<app-loader-template *ngIf='loadingCourses'></app-loader-template>
+<app-error-message *ngIf='!loadingCourses && !course' (retryEvent)="handleRetry()"></app-error-message>
+
 <footer>
   <app-footer></app-footer>
 </footer>

@@ -7,6 +7,7 @@ export const COURSE_SUMMARY = `
             startDate
             endDate
             duration
+            isEnrolled
             subCourses {
               id
               name

@@ -5,8 +5,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../services/course-service/course.service";
 import {CourseDetail, EnrollCoursePayload} from "../../models/course";
 import {appConfig} from "../../../environments/app.config";
-import {Subscription} from "rxjs";
+import { finalize, Subscription } from 'rxjs';
 import {UserService} from "../../services/user/user.service";
+import { error } from '@angular/compiler-cli/src/transformers/util';
 
 @Component({
   selector: 'app-course-details-page',
@@ -20,6 +21,7 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
   formGroup!: FormGroup;
   course: CourseDetail | any
   activeCourseId: number = 0;
+  loadingCourses: boolean = false;
 
   starImage: string = appConfig.starImage;
   unstarImage: string = appConfig.unstarImage;
@@ -46,7 +48,11 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
 
     this.home = { icon: 'pi pi-home', routerLink: '/' };
   }
-  buyNow(){
+  processCourseAction(){
+    if (this.course.isEnrolled){
+      this.route.navigate(['/my-courses/learning', this.course.id])
+      return;
+    }
     if (this.course.price > 0 || this.course.discountedPrice > 0) {
       //add to cart and process paid course
       this.route.navigate(['/payment'])
@@ -72,19 +78,24 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
     }
   }
 
-  addToCart(){
+  processAlternateClick(){
     this.route.navigate(['/shopping_chart'])
   }
 
   getCourse() {
-    this.courseService.getCourseGraphqls(this.activeCourseId).subscribe((course) => {
-      this.course = course?.data?.courseById;
-    });
+    this.loadingCourses = true;
+    this.courseService.getCourseGraphqls(this.activeCourseId).subscribe({
+      next: value => this.course = value?.data?.courseById,
+      error: () => this.loadingCourses = false,
+      complete: () => this.loadingCourses = false
+    })
   }
 
   ngOnDestroy(): void {
   }
 
 
-
+  handleRetry() {
+    this.getCourse();
+  }
 }

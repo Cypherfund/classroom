@@ -64,6 +64,10 @@ import { GraphQLModule } from './graphql.module';
 import { RoundDownPipe } from './pipe/round-down.pipe';
 import {MyCoursesModule} from "./pages/my-courses/my-courses.module";
 import {CustomPipesModule} from "./pipe/custom-pipes.module";
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
+import { BlockUIModule } from 'primeng/blockui';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { LoaderTemplateComponent } from './components/loader-template/loader-template.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -128,7 +132,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     CourseAdminRoutingModule,
     ComponentModule,
     AvatarModule,
-    MyCoursesModule
+    MyCoursesModule,
+    ErrorMessageComponent,
+    BlockUIModule,
+    ProgressSpinnerModule,
+    LoaderTemplateComponent
 
   ],
   providers: [

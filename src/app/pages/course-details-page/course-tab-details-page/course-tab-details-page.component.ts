@@ -20,7 +20,7 @@ export class CourseTabDetailsPageComponent {
   instructorDetailsResponse: InstructorDetails | any;
   @Input() course: CourseDetail | any;
 
-  activeIndex: number = 1
+  activeIndex: number = 0
 
   constructor() {
   }
