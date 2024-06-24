@@ -127,6 +127,13 @@ export const USER_COURSE_PROGRESS = `
             endDate
             duration
             isCompleted
+            currentLesson {
+                idUserId
+                lessonName
+                idLessonId
+                lessonTopicId
+                lessonTopicName
+            }
             subCourses {
               id
               name
