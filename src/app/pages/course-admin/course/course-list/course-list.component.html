@@ -1,80 +1,67 @@
-<div>
+<ng-container
+  *ngIf="{courses: courses$ | async } as observables"
+>
   <div>
-    <h1 class="h1" style="margin-top:20px;">Courses</h1>
-  </div>
-  <div>
-    <button class="pi pi-plus p-2 newCourse text-white rounded-1" style="margin-top:20px;
+    <div>
+      <h1 class="h1" style="margin-top:20px;">Courses</h1>
+    </div>
+    <div>
+      <button class="pi pi-plus p-2 newCourse text-white rounded-1" style="margin-top:20px;
             width: 227px;height: 60px;
             font-size: 20px;  background: #A632DC;border-color: #A632DC;" (click)='addNewCourse()'>Add New Course</button>
-  </div>
-  <div class="list" style="margin-top:50px;" >
-    <h2>Course List</h2>
-    <div class="d-flex" style="width:1006px;gap:5px;">
-                <span class="p-input-icon-left" style="width: 200px; height:36px;text-align: center;">
-                    <i class="pi pi-search"></i>
-                    <input type="text" class="bg-white search border-1 p-1" placeholder="Search" style="width: 200px; height:36px;text-align: center;" />
-                </span>
-      <!-- <button class="bg-white search border-1" style="width: 200px; height:36px;text-align: left;"><em class="pi pi-search p-2"></em>Search</button> -->
-      <select class=" search border-1" style="height:36px;width:90px;">
-        <option>Filter</option>
-      </select>
-      <select class=" search border-1" style="height:36px;width:90px">
-        <option>Filter</option>
-      </select>
-      <select class=" search border-1" style="height:36px;width:90px">
-        <option>Filter</option>
-      </select>
-      <p class="p-2" style="height:36px;width:150px" >Displaying 4 results</p>
-      <label  style="height:36px;width:179px">Sort:<select class=" search border-1 p-1" style="height:36px;width:139px">
-        <option>Most Recent</option>
-      </select>
-      </label>
-      <button class="bg-white search border-1" style="height:36px;width:36px"><em class="pi pi-ellipsis-v"></em></button>
-      <button class="bg-white search border-1" style="height:36px;width:139px"><em class="pi pi-download p-2"></em>Export</button>
     </div>
-    <div class="card">
-      <p-table [value]="enrollments" [(selection)]="sellectedEnrollment" dataKey="code" [tableStyle]="{'min-width': '50rem'}">
-        <ng-template pTemplate="header">
-          <tr>
-            <th style="width: 4rem">
-              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-            </th>
-            <th>Course created</th>
-            <th>Start Date</th>
-            <th>Upload Status</th>
-            <th>Category</th>
-            <th>Duration</th>
-            <th><input type="checkbox"/></th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-enrollment>
-          <tr>
-            <td>
-              <p-tableCheckbox [value]="enrollment"></p-tableCheckbox>
-            </td>
-            <td>
-              <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" [class]="'flag flag-' + 'cmr'" style="width: 20px">
-              <span class="ml-1 vertical-align-middle">{{enrollment.instructorName}}</span>
-            </td>
-            <td>{{enrollment.email}}</td>
-            <td *ngIf='enrollment.status === "In Progress"'><button class=" rounded-5 border-0"><em class="pi pi-circle-on p-1 dot text-black" style="font-size: 12px;"></em>In Progress</button></td>
-            <td *ngIf='enrollment.status === "Active"'><button class=" rounded-5 border-0 activeDot"><em class="pi pi-circle-on p-1 dot" style="font-size: 12px;"></em>Active</button></td>
-            <td>{{enrollment.category}}</td>
-            <td>{{enrollment.duration}}</td>
-            <td><em class="pi pi-ellipsis-v"></em></td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </div>
-    <div class="mt-5">
-      <button class="border-light"><em class="pi pi-chevron-left" style="font-size:12px;"></em></button>
-      <span class="p-3 ms-3 text-white rounded-circle one" style="font-size: 12px;">1</span>
-      <span class="p-3">2</span>
-      <span class="p-3">3</span>
-      <button class="bg-white border-light"><em class="pi pi-chevron-right" style="font-size:12px;"></em></button>
-      <label class="align-item-end p-1 show" style="margin-left: 630px;">Show:<select class="bg-white search border-1" style="height:36px;width:96px;">
-        <option>4 Rows</option>
-      </select></label>
+    <div class="list" style="margin-top:50px;" >
+      <h2>Course List</h2>
+      <div class="card">
+        <p-table [value]="observables?.courses?.data!!" dataKey="id" [tableStyle]="{'min-width': '50rem'}">
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="width: 4rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+              </th>
+              <th>Course created</th>
+              <th>Start Date</th>
+              <th>Upload Status</th>
+              <th>Category</th>
+              <th>Duration</th>
+              <th><input type="checkbox"/></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-course>
+            <tr>
+              <td>
+                <p-tableCheckbox [value]="course"></p-tableCheckbox>
+              </td>
+              <td>
+                <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" [class]="'flag flag-' + 'cmr'" style="width: 20px">
+                <span class="ml-1 vertical-align-middle">{{course?.instructor?.name}}</span>
+                <p>{{course?.name}}</p>
+              </td>
+              <td>{{course?.dtCreated | date : 'dd/MM/yyyy hh:mm'}}</td>
+              <td *ngIf='course.status === "DRAFT"'><button class=" rounded-5 border-0"><em class="pi pi-circle-on p-1 dot text-black" style="font-size: 12px;"></em>In Progress</button></td>
+              <td *ngIf='course.status === "PUBLISHED"'><button class=" rounded-5 border-0 activeDot"><em class="pi pi-circle-on p-1 dot" style="font-size: 12px;"></em>Active</button></td>
+              <td *ngIf='course.status != "PUBLISHED" && course.status != "DRAFT"'><button class=" rounded-5 border-0 activeDot"><em class="pi pi-circle-on p-1 dot" style="font-size: 12px;"></em>Active</button></td>
+              <td>{{course?.category?.name}}</td>
+              <td>{{course.duration}}</td>
+              <td>
+                <a [routerLink]="course.id" class="p-menuitem-link">
+                  <i class="pi pi-user-edit"></i>
+                </a>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <div class="mt-5">
+        <button class="border-light"><em class="pi pi-chevron-left" style="font-size:12px;"></em></button>
+        <span class="p-3 ms-3 text-white rounded-circle one" style="font-size: 12px;">1</span>
+        <span class="p-3">2</span>
+        <span class="p-3">3</span>
+        <button class="bg-white border-light"><em class="pi pi-chevron-right" style="font-size:12px;"></em></button>
+        <label class="align-item-end p-1 show" style="margin-left: 630px;">Show:<select class="bg-white search border-1" style="height:36px;width:96px;">
+          <option>4 Rows</option>
+        </select></label>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>

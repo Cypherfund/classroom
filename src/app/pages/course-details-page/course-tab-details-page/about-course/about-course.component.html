@@ -1,0 +1,17 @@
+<section id="about">
+  <div class="m-3">
+    <div class="tag text-start">
+      <div class="flex justify-content-start flex-wrap">
+        <p-tag value="{{'Last_Updated' | translate}} {{aboutPayload.updatedOn | dateFormat}}"
+               *ngIf="aboutPayload.updatedOn"></p-tag>
+        <p-tag value="{{'Completion_Certificate' | translate}}" *ngIf="aboutPayload?.hasCompletionCertificate"></p-tag>
+        <p-tag value="{{'RealWorld_Projects' | translate}}" *ngIf="aboutPayload?.hasRealWorldProjects"></p-tag>
+        <p-tag value="{{aboutPayload?.duration}} {{'Months' | translate}}"
+               *ngIf="aboutPayload.duration"></p-tag>
+        <p-tag value="{{aboutPayload?.level}}" *ngIf="aboutPayload.level"></p-tag>
+      </div>
+    </div>
+    <div [innerHTML]='aboutPayload?.about'>
+    </div>
+  </div>
+</section>

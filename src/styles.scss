@@ -11,7 +11,56 @@
 .w-40 {
   width: 40%;
 }
+.w-60 {
+  width: 60%;
+}
 
+.w-80 {
+  width: 80%;
+}
 .w-35 {
   width: 35%;
+}
+
+.gap-2px {
+  gap: 2px;
+}
+
+/* Customize the paginator */
+.p-carousel .p-carousel-content .p-carousel-indicators{
+  display: flex;
+  .p-carousel-indicator .p-link {
+    border-radius: 50%; /* Make it rounded */
+    background-color: var(--color-grey-shade-2); /* Change the color to your desired color */
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+/* Style the active paginator item */
+.p-carousel .p-carousel-content .p-carousel-indicators .p-carousel-indicator.p-highlight .p-link {
+  background-color: var(--main-color-shade-1); /* Change the color of the active paginator item */
+}
+
+.flex-grow-3 {
+  flex-grow: 3;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-3 {
+  flex: 3
+}
+
+.flex-2 {
+  flex: 2
 }

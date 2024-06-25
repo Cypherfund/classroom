@@ -1,0 +1,15 @@
+<main>
+  <div *ngFor="let part of sortedLessonParts">
+    <h3>{{ part.title }}</h3>
+    <ng-container [ngSwitch]="part.contentType">
+      <p *ngSwitchCase="'LECTURE'">{{ part.content }}</p>
+      <div *ngSwitchCase="'VIDEO'">
+        <iframe [src]="part.videoUrl | safe"></iframe>
+      </div>
+      <div *ngSwitchCase="'QUIZ'">
+        <p>{{ part.content }}</p>
+        <button (click)="startQuiz(part.quizId)">Start Quiz</button>
+      </div>
+    </ng-container>
+  </div>
+</main>

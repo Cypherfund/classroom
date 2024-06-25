@@ -1,0 +1,1 @@
+ cwebp -q 50 /Users/ngaielizabeth/Desktop/projects/next\ billionaire/campaign-app/TECH-ASCEND/classroom/src/assets/images/course-thoumbnail.jpeg -o /Users/ngaielizabeth/Desktop/projects/next\ billionaire/campaign-app/TECH-ASCEND/classroom/src/assets/images/course-thoumbnail.webp

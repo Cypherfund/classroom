@@ -3,7 +3,16 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Cypherfund": {
+    "TechAscend": {
+      "i18n": {
+        "locales": {
+          "fr-Fr": {
+            "translation": "src/locale/messages.fr.json",
+            "baseHref": ""
+          }
+        },
+        "sourceLocale": "en-US"
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +33,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/cypherfund",
+            "localize": false,
+            "outputPath": "dist/techascend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -39,15 +49,18 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/md-light-deeppurple/theme.css",
+              "tech-ascend-theme.scss",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeflex/primeflex.scss",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/popper.js/dist/popper.js"
+              "node_modules/popper.js/dist/popper.js",
+              "node_modules/quill/dist/quill.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -61,7 +74,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "2mb"
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -92,6 +105,9 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.staging.ts"
                 }]
+            },
+            "fr-Fr": {
+              "localize": ["fr-Fr"]
             }
           },
           "defaultConfiguration": "development"
@@ -100,10 +116,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Cypherfund:build:production"
+              "buildTarget": "TechAscend:build:production"
             },
             "development": {
-              "buildTarget": "Cypherfund:build:development"
+              "buildTarget": "TechAscend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -111,7 +127,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Cypherfund:build"
+            "buildTarget": "TechAscend:build"
           }
         },
         "test": {

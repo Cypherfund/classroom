@@ -1,0 +1,118 @@
+
+::ng-deep .custom-breadcrumb {
+  background-color: transparent;
+  border: 0;
+  ol{
+    margin-bottom: unset;
+  }
+}
+::ng-deep .p-menubar {
+  padding:unset;
+}
+
+::ng-deep .p-ripple.p-element.p-button.p-component.p-button-icon-only {
+  border-radius: 0 10px 10px 0;
+  background: unset;
+  border: 1px solid var(--main-color-shade-1);
+  color: var(--main-color-shade-1);
+}
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+}
+
+::ng-deep .p-tabview-nav {
+  border: 1px solid var(--main-color-shade-1) !important;
+  border-radius: 10px;
+  width: 100%;
+}
+
+::ng-deep .p-tabview-nav-content {
+  max-width: 100% !important;
+}
+
+::ng-deep .p-sidebar {
+  position: absolute;
+  box-shadow: unset;
+}
+
+::ng-deep .p-sidebar-header {
+  justify-content: flex-end;
+  padding-top: unset;
+}
+
+::ng-deep .p-sidebar-content {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-color-shade-1) #e0e0e0;
+}
+
+::ng-deep .p-icon.p-sidebar-close-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.lesson-list li {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--main-color-black);
+}
+
+.lesson-list li.active {
+  background-color: var(--main-color-shade-2);
+  color: var(--main-color-black);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .course-container {
+    flex-direction: column;
+  }
+
+  .video-preview img {
+    width: 100%;
+  }
+
+  .lesson-list li {
+    width: 100%;
+  }
+}
+
+
+.container-learn {
+  display: flex; /* Use flexbox for layout */
+  //height: 100vh; /* Full viewport height */
+  position: relative;
+}
+
+.side-nav {
+  width: 320px; /* Initial width of side navigation */
+  min-width: 50px; /* Minimum width when collapsed */
+  overflow-x: hidden; /* Hide overflowing content */
+  transition: width 0.3s ease; /* Smooth width transition */
+}
+
+.main-content {
+  flex: 1; /* Take up remaining space */
+  max-width: 80%;
+  padding-right: 10px;
+  margin-right: auto;
+  height: calc(100vh - 80px);
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--main-color-shade-1) #e0e0e0; /* Firefox */
+}
+
+.add-margin {
+  margin: auto !important;
+  width: 100%;
+}

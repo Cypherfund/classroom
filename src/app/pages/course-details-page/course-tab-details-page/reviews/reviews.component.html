@@ -1,0 +1,79 @@
+<section id="carousel">
+  <div class="w-75">
+    <div class="card border-0">
+      Rating and Review
+      <div class="d-flex pt-3 pb-3 review-summary">
+        <form [formGroup]="formGroup">
+          <span class="me-2 fw-bold">{{_ratingsAndReviews?.rating}}</span>
+          <p-rating formControlName="value" [cancel]="false" >
+            <ng-template pTemplate="onicon">
+              <img height="17"
+                   [src]="starImage"/>
+            </ng-template>
+            <ng-template pTemplate="officon">
+              <img height="17"
+                   [src]="unstarImage"/>
+            </ng-template>
+          </p-rating>
+        </form>
+        <span class="ms-2 me-2">({{_ratingsAndReviews?.totalReviews}} rating)</span>
+        <span class="ms-2 me-2">{{_ratingsAndReviews?.totalStudents}} students</span>
+      </div>
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [showValue]="false" [value]="fivePercentage"></p-progressBar>
+        </div>
+        <div class="flex-grow-1">
+          <span>
+            <p-rating [ngModel]="5" [readonly]="true" [cancel]="false" [stars]="5"></p-rating>
+          </span>
+        </div>
+      </div>
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [showValue]="false" [value]="fourPercentage"></p-progressBar>
+        </div>
+        <div class="flex-grow-1">
+          <span><p-rating [ngModel]="4" [readonly]="true" [cancel]="false"
+                          [stars]="4"></p-rating></span>
+        </div>
+      </div>
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [showValue]="false" [value]="threePercentage"></p-progressBar>
+        </div>
+        <div class="flex-grow-1">
+          <span><p-rating [ngModel]="3" [readonly]="true" [cancel]="false"
+                          [stars]="3"></p-rating></span>
+        </div>
+      </div>
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [showValue]="false" [value]="twoPercentage"></p-progressBar>
+        </div>
+        <div class="flex-grow-1">
+          <span><p-rating [ngModel]="2" [readonly]="true" [cancel]="false"
+                          [stars]="2"></p-rating></span>
+        </div>
+      </div>
+      <div class="d-flex detail-review">
+        <div class="flex-grow-3">
+          <p-progressBar [value]="onePercentage"
+                         [showValue]="false"></p-progressBar>
+        </div>
+        <div class="flex-grow-1">
+          <span><p-rating [ngModel]="1" [stars]="1" [readonly]="true" [cancel]="false"
+                          ></p-rating></span>
+        </div>
+      </div>
+      <div class='d-flex gap-3 flex-wrap'>
+        <p-button label="All" severity="help" [rounded]="true"  />
+        <p-button [outlined]="true" severity='success' [rounded]="true" *ngFor='let star of [5,4,3,2,1]'>
+          <span>{{ star }}</span>
+          <i class="pi pi-star-fill" style="color: var(--color-gold-2)"></i>
+        </p-button>
+      </div>
+    </div>
+  </div>
+  <app-carousel-courses [reviews]="_ratingsAndReviews?.reviews" [carouselType]="'reviews'"></app-carousel-courses>
+</section>

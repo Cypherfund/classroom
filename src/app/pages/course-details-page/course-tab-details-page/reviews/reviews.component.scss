@@ -1,0 +1,55 @@
+:host ::ng-deep .p-tag {
+  background-color: #ffffff;
+  border: 1px solid #656565;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  color: #656565;
+  font-weight: normal;
+}
+::ng-deep .p-tag.p-tag-info {
+  background-color: var(--main-color-shade-1);
+  color: #ffffff;
+}
+::ng-deep .p-progressbar {
+  border: 0 none;
+  height: .75rem;
+  background: var(--color-grey-shade-2);
+  border-radius: 6px;
+}
+::ng-deep  .p-progressbar .p-progressbar-value {
+  border: 0 none;
+  margin: 0;
+  background: var(--main-color-shade-1);
+}
+
+::ng-deep .p-rating .p-rating-item .p-rating-icon {
+  color: var(--color-gold-2)
+}
+
+@media screen and (max-width: 450px) {
+  .review-summary {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .detail-review {
+    display: none !important;
+  }
+}
+
+.flex-grow-3 {
+  flex-grow: 3;
+  min-width: 250px;
+  max-width: 250px;
+  margin-right: 1rem;
+}
+
+::ng-deep .p-button-rounded {
+  border-radius: 10px;
+}
+
+::ng-deep .p-button-success.p-button-rounded.p-button-outlined {
+  color: var(--color-grey-shade-3);
+}

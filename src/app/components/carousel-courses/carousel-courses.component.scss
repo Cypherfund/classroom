@@ -1,31 +1,53 @@
 
-:host ::ng-deep {
-  .product-item {
-    .product-item-content {
-      border: 1px solid var(--main-color-shade-1);
-      border-radius: 0.6rem;
-      margin: .3rem;
-      text-align: center;
-      padding: 0 0;
-      box-shadow: 0 1px 2px var(--main-color-shade-1), 0 1px 2px var(--main-color-shade-1)
+::ng-deep {
+  .reviews {
+    .p-carousel-item {
+      flex: unset !important;
     }
-    .product-item-content-reviews {
-      border-radius: 0.6rem;
-      margin: .3rem;
-      text-align: center;
-      padding: 0 0;
-      background-color:#F0F3FF;
-    }
+    .product-item {
+      width: fit-content;
+      .product-item-content {
+        border: 1px solid var(--main-color-shade-1);
+        border-radius: 0.6rem;
+        margin: .3rem;
+        text-align: center;
+        padding: 0 0;
+        width:unset;
+        box-shadow: 0 1px 2px var(--main-color-shade-1), 0 1px 2px var(--main-color-shade-1)
+      }
+      .product-item-content-reviews {
+        width: fit-content;
+        max-width:350px;
+        height:165px;
+        border-radius: 0.6rem;
+        margin: .3rem;
+        text-align: center;
+        padding: 0 0;
+        background-color:#F0F3FF;
+      }
 
-    .product-image {
-      padding: 1rem;
-      width: 100%;
+      .product-image {
+        padding: 1rem;
+        width: 100%;
+      }
+    }
+    .product-image-review {
+      padding: unset;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 5rem;
     }
   }
-  .product-image-review {
-    padding: 0.5rem;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 5rem;
-  }
+
 }
+
+::ng-deep .p-card {
+  background: #ffffff;
+  color: #4b5563;
+  box-shadow: none;
+  border-radius: 0;
+}
+::ng-deep  .p-card .p-card-body {
+  padding: 0.25rem;
+}
+

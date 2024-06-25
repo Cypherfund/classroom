@@ -1,0 +1,33 @@
+<section id="carousel-course-content">
+  <div class="container">
+    <div class="card border-0">
+      <p-carousel [value]="lectures" [numVisible]="3"  [responsiveOptions]="responsiveOptions"
+                  [circular]="true">
+        <ng-template let-lecture pTemplate="item" *ngFor="let lecture of lectures; trackBy: trackLectureById">
+          <div class="product-item">
+            <div class="product-item-content p-2">
+              <div class="mb-2">
+<!--                <iframe class="rounded-4 mt-2" width="100%" height="135" [src]="(lecture.lectureVideo || 'https://youtu.be/VwcY7PwFvMc?si=B5BFwINs_27b8Cnt') | safe"-->
+<!--                        title="none"></iframe>-->
+                <div class="video-preview" style="position: relative; display: inline-block; cursor: pointer;">
+                  <img src="assets/images/course-thoumbnail.webp" alt="Video Preview" style="width: 100%;">
+                  <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <img [src]="playbuttonImage" alt="Play" style="width: 64px; height: 64px;">
+                  </div>
+                </div>
+
+              </div>
+              <div class="text-start m-2 fw-bolder">{{lecture.name}}
+                <br/>
+                <div class="text-start m-0 p-0 pi pi-stopwatch"><small class="ms-1">{{lecture.lectureDuration || '3mins'}}</small></div>
+              </div>
+              <div class="text-start m-2">
+                {{lecture.lectureContent || 'Welcome to product design for beginners'}}
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</section>

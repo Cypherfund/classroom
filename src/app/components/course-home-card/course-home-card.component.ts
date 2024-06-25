@@ -8,10 +8,11 @@ import { appConfig } from '../../../environments/app.config';
   styleUrl: './course-home-card.component.scss'
 })
 export class CourseHomeCardComponent {
-  @Input() courseImage: string = '';
+  courseImage: string = 'course-img-2.png';
   instructorImage: string = appConfig.instructorImage;
   starImage: string = appConfig.starImage;
   unstarImage: string = appConfig.unstarImage;
+  imagebucket: string = appConfig.imagebucket;
   rating: number = 4;
   @Input() category?: string = '';
   maxRating: number = 5;

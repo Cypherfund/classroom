@@ -25,15 +25,15 @@
 <!--            </a>-->
 <!--          </li>-->
         </ul>
-        <div class="flex align-items-centerd justify-content-between col-md-6 logged" *ngIf='isLogged'>
+        <div class="flex align-items-center justify-content-between col-md-6 logged" *ngIf='isLogged'>
           <a routerLink='/course-admin' class="nav-link text-white" role="button" >
             {{'become_inst' | translate}}
           </a>
           <em class="pi pi-shopping-cart" style="font-size: 1.5rem"></em>
           <em class="pi pi-bell" style="font-size: 1.5rem"></em>
-          <a class="text-decoration-none" [routerLink]="['settings']"><img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image"
-                                                                           style="border-radius:
-          4rem"></a>
+          <a class="text-decoration-none" [routerLink]="['settings']">
+            <img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image" style="border-radius:4rem">
+          </a>
         </div>
 
         <div class="flex align-items-center gap-2" *ngIf='!isLogged'>

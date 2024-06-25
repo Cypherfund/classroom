@@ -9,7 +9,6 @@ import { TranslationComponent } from './components/translation/translation.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MenubarModule } from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
@@ -17,8 +16,6 @@ import { InputTextModule } from "primeng/inputtext";
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { CourseDetailsPageComponent } from './pages/course-details-page/course-details-page.component';
 import { RatingModule } from 'primeng/rating';
-import { CourseTabDetailsPageComponent } from './pages/course-tab-details-page/course-tab-details-page.component';
-import { AboutCourseComponent } from './pages/course-tab-details-page/about-course/about-course.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { CarouselCoursesComponent } from './components/carousel-courses/carousel-courses.component';
 import { TabViewModule } from 'primeng/tabview';
@@ -30,16 +27,11 @@ import { TableModule } from 'primeng/table';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessageService } from 'primeng/api';
-import { CourseContentComponent} from "./pages/course-tab-details-page/course-content/course-content.component";
-import { ReviewsComponent} from "./pages/course-tab-details-page/reviews/reviews.component";
 import { FooterComponent } from './components/footer/footer.component';
 import { SafePipe } from "./pipe/DomSanitiser/safe.pipe";
 import { DateFormatPipe } from "./pipe/date-format.pipe";
-import {InstructorDetailsComponent} from "./pages/course-tab-details-page/instructor-details/instructor-details.component";
 import {AccordionModule} from "primeng/accordion";
 import {ProgressBarModule} from "primeng/progressbar";
-import {CarouselCourseContentComponent} from "./pages/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component";
-import {CourseIncludedComponent} from "./pages/course-tab-details-page/course-included/course-included.component";
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
 import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
@@ -50,8 +42,33 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { ButtonModule } from 'primeng/button';
 import { ComponentModule } from './components/component.module';
 import { AvatarModule } from 'primeng/avatar';
-
-
+import {
+  InstructorDetailsComponent
+} from "./pages/course-details-page/course-tab-details-page/instructor-details/instructor-details.component";
+import {
+  CarouselCourseContentComponent
+} from "./pages/course-details-page/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component";
+import {
+  CourseContentComponent
+} from "./pages/course-details-page/course-tab-details-page/course-content/course-content.component";
+import {ReviewsComponent} from "./pages/course-details-page/course-tab-details-page/reviews/reviews.component";
+import {
+  AboutCourseComponent
+} from "./pages/course-details-page/course-tab-details-page/about-course/about-course.component";
+import {
+  CourseTabDetailsPageComponent
+} from "./pages/course-details-page/course-tab-details-page/course-tab-details-page.component";
+import { HttpService } from './services/http.service';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { GraphQLModule } from './graphql.module';
+import { RoundDownPipe } from './pipe/round-down.pipe';
+import {MyCoursesModule} from "./pages/my-courses/my-courses.module";
+import {CustomPipesModule} from "./pipe/custom-pipes.module";
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
+import { BlockUIModule } from 'primeng/blockui';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { LoaderTemplateComponent } from './components/loader-template/loader-template.component';
+import { LoaderService } from './services/loader-service';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -72,9 +89,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReviewsComponent,
     InstructorDetailsComponent,
     CarouselCourseContentComponent,
-    CourseIncludedComponent,
-    SafePipe,
     DateFormatPipe,
+    RoundDownPipe,
     CourseHomeCardComponent,
     CoursesComponent
   ],
@@ -102,6 +118,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     SplitButtonModule,
     ProgressBarModule,
     PanelMenuModule,
+    SpinnerComponent,
+    GraphQLModule,
+    CustomPipesModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
@@ -113,14 +132,21 @@ export function HttpLoaderFactory(http: HttpClient) {
     TableModule, // Moved TableModule import to the imports array,
     CourseAdminRoutingModule,
     ComponentModule,
-    AvatarModule
+    AvatarModule,
+    MyCoursesModule,
+    ErrorMessageComponent,
+    BlockUIModule,
+    ProgressSpinnerModule,
+    LoaderTemplateComponent
 
   ],
   providers: [
     provideClientHydration(),
     MessageService,
     UserService,
-    UserApiService
+    UserApiService,
+    HttpService,
+    LoaderService
   ],
   bootstrap: [ AppComponent ]
 })

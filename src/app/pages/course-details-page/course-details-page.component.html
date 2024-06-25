@@ -1,43 +1,65 @@
 <app-navbar></app-navbar>
-<section class="container-fluid text-white">
-  <div class="">
-    <p-breadcrumb class="max-w-full bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="items"
-                  [home]="home"></p-breadcrumb>
-  </div>
-  <div class="row pb-3 pt-3 ps-5 pe-5">
-    <div class="col-md-6 desc text-dark p-5">
-      <h4 class="fw-semibold pb-4">{{course.name}}</h4>
-      <div class="d-flex pt-3 pb-3">
-        <form [formGroup]="formGroup">
-          <p-rating formControlName="value"></p-rating>
-        </form>
-        <span class="ms-2 me-2">({{course.numberOfRatings}} {{'ratings' | translate}})</span>
-        <span class="ms-2 me-2">{{course.instructors?.numberOfStudents}} {{'students' | translate}}</span>
-      </div>
 
-      <p>{{'Created_by' | translate}} <span class="ms-2 fw-bolder">{{course.instructors?.instructorName}}</span></p>
-    <div class="course-higlight fw-light text-wrap me-5">
-      {{course.description}}
-    </div>
-    <p class="pt-3 pb-3">{{'Price' | translate}}: <span class="fw-bolder fs-5">{{course.price}}</span></p>
-      <div class="d-flex justify-content-between">
-        <div class="buttons">
-          <button class="submit-btn btn btn-buy rounded-3 text-white p-2 buttons"
-                  type="submit" (click)="buyNow()">{{'buy_now' | translate}}</button>
+<ng-container *ngIf='course'>
+  <main>
+    <p-breadcrumb class="bg-transparent"  [styleClass]="'custom-breadcrumb'"  [model]="items" [home]="home"></p-breadcrumb>
+    <figure class="d-flex flex-column text-white container-fluid">
+      <div class="pb-3 course-desc">
+        <div class='preview-div' >
+          <div style="color: white; font-size: 20px; font-weight: 800; word-wrap: break-word">Preview this course</div>
         </div>
-        <div class="buttons">
-          <button class="submit-btn btn btn-light btn-cart rounded-3 p-2 buttons"
-                  type="submit" (click)="addToCart()">{{'add_to_cart' | translate}}</button>
+        <div style='max-width:600px' class="desc text-dark w-40">
+          <p class="cours-name">{{course?.name}}</p>
+          <div class="d-flex align-items-center gap-2px">
+            {{course?.numberOfRatings || 4.6}}
+            <form [formGroup]="formGroup">
+              <p-rating formControlName="value" [cancel]="false">
+                <ng-template pTemplate="onicon">
+                  <img height="17"
+                       [src]="starImage"/>
+                </ng-template>
+                <ng-template pTemplate="officon">
+                  <img height="17"
+                       [src]="unstarImage"/>
+                </ng-template>
+              </p-rating>
+            </form>
+            <span class="ms-2 me-2 text-decoration-underline">({{course?.numberOfRatings || 5000 | number}} {{'ratings' | translate}})</span>
+            <span class="ms-2 me-2">{{course?.instructors?.numberOfStudents || 7000 | number}} {{'students' | translate}}</span>
+          </div>
+
+          <p>{{'Created_by' | translate}} <span class="fw-bolder">{{course?.instructor?.name}}</span></p>
+          <p class="course-higlight fw-light text-wrap" >
+            {{course?.description}}
+          </p>
+          <p>{{'Price' | translate}}: <span class="fw-bolder fs-5">{{course.price ? '$' + course.price : 'FREE'}}</span></p>
+          <div class="d-flex justify-content-start gap-4 flex-wrap">
+            <div class="buttons">
+              <button class="submit-btn btn btn-buy rounded-3 text-white py-2 px-1 buttons"
+                      type="submit" (click)="processCourseAction()">{{(course?.isEnrolled ? 'continue' : 'enroll') | translate}}</button>
+            </div>
+            <div class="buttons">
+              <button class="submit-btn btn btn-light btn-cart rounded-3 py-2 px-1 buttons"
+                      type="submit" (click)="processAlternateClick()">{{(course?.isEnrolled ? 'unenroll' : 'add_to_cart') | translate}}</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6 p-5 text-end">
-      <iframe class="rounded-4 mt-2" width="453" height="229" [src]="'https://www.youtube.com/embed/tgbNymZ7vqY' |
-      safe" title="none"></iframe>
-    </div>
-  </div>
-</section>
-<section>
-  <app-course-tab-details-page [course]="course"></app-course-tab-details-page>
-</section>
-<app-footer></app-footer>
+    </figure>
+  </main >
+  <section  class="container extra-info">
+    <section class="course-tab">
+      <app-course-tab-details-page [course]="course"></app-course-tab-details-page>
+    </section>
+    <aside>
+      <app-carousel-courses></app-carousel-courses>
+    </aside>
+  </section>
+</ng-container>
+<app-error-message *ngIf='loadError' (retryEvent)="handleRetry()"></app-error-message>
+<app-loader-template ></app-loader-template>
+
+<footer>
+  <app-footer></app-footer>
+</footer>
+

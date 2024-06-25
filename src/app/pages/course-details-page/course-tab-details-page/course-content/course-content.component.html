@@ -1,0 +1,24 @@
+
+<section id="about">
+  <div class="flex justify-content-start">
+    <div class="Titles mb-4">
+      {{courseContent?.totalSections}} {{'Sections' | translate}}  | {{courseContent?.totalLectures}}
+      {{'Lectures' | translate}}  |
+      {{courseContent?.totalHours}}{{'Total_Length' | translate}}
+    </div>
+  </div>
+  <p-accordion [activeIndex]="0" class="w-full" *ngFor="let section of courseContent?.sections">
+    <p-accordionTab>
+      <ng-template pTemplate="header">
+        <div class="container">
+          <div class="d-flex">
+            <div class="order-1 flex-grow-1 fw-bolder text-dark">{{section?.name}}</div>
+            <div class="order-2 ">{{section?.totalLectures}} {{'Lectures' | translate}} |
+              {{section?.duration}}</div>
+          </div>
+        </div>
+      </ng-template>
+      <app-carousel-course-content [lectures]="section?.lectures"></app-carousel-course-content>
+    </p-accordionTab>
+  </p-accordion>
+</section>

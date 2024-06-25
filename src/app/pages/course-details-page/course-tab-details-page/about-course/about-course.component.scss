@@ -1,0 +1,16 @@
+::ng-deep .p-tag {
+  background-color: #ffffff;
+  border: 1px solid #656565;
+  padding: 0.8rem;
+  margin-top: 0rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  color: #656565;
+  font-weight: normal;
+  width: unset;
+}
+::ng-deep .p-tag.p-tag-info {
+  background-color: var(--main-color-shade-1);
+  color: #ffffff;
+}

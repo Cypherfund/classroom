@@ -1,21 +1,9 @@
-export interface Course {
-  courseId?: string;
-  title?: string;
-  description?: string;
-  instructor?: string;
-  categoryId?: string;
-  price?: string;
-  discountedPrice?: string;
-  startDate?: string;
-  endDate?: string;
-  numberOfStudents?: string;
-  numberOfRatings?: string;
-  previewVideo?: string;
-  about?: AboutPayload;
-  courseContent?: CourseContent
-  courseInclude?: CourseDetail[];
-  instructorDetails?: InstructorDetails;
-  ratingsAndReviews?: RatingsAndReviews;
+export interface EnrollCoursePayload {
+  userId: string;
+  courseId: number;
+  paymentMethod?: string;
+  paymentCode?: string;
+  phn?: string;
 }
 
 export interface AboutPayload {
@@ -24,37 +12,40 @@ export interface AboutPayload {
   hasRealWorldProjects?: boolean;
   duration?: string;
   level?: string;
-  courseTopics?: [{
-    topic?: string;
-    description?: string
-  }];
-  targetAudience?: string[]
+  about?: string;
 }
 
-export interface CourseContentPayload
+export interface CourseContentSummary
 {
-  numberOfSections?: string;
-  numberOfLectures?: string;
-  totalCourseDuration?: string;
-  lessons?: Lesson[]
+  totalSections?: string;
+  totalLectures?: string;
+  totalHours?: string;
+  sections?: Lesson[]
 }
+
+export interface Section {
+  id?: string;
+  name?: string;
+  description?: string;
+  totalHours?: string;
+  totalLectures?: string;
+  lectures?: Lectures[]
+}
+
 export interface Lesson {
-  lessonId?: string;
-  lessonTitle?: string;
-  lessonDuration?: string;
-  totalNumberOfLectures?: string;
+  id?: string;
+  name?: string;
+  postion?: number;
+  totalLectures?: number;
+  description?: string;
+  duration?: string;
   lectures?: Lectures[]
 }
 export interface Lectures {
-  lectureId?:string;
-  lectureTitle?: string;
-  lectureDuration?: string;
-  lectureContent?: string;
-  lectureVideo?: string
-}
-export interface CourseDetail {
-  title?: string;
-  description?: string
+  id?:string;
+  name?: string;
+  position?: number;
+  parts?: any[];
 }
 export interface InstructorDetails {
   name?: string;
@@ -69,26 +60,6 @@ export interface CourseContent {
   totalCourseDuration?: string;
   lessons?: Lesson[];
 }
-export interface RatingsAndReviews {
-  ratings?: {
-    totalRatings?: number;
-    averageRating?: number;
-    fiveStarPercentage?: number;
-    fourStarPercentage?: number;
-    threeStarPercentage?: number;
-    twoStarPercentage?: number;
-    oneStarPercentage?: number;
-  };
-  reviews?:
-    [{
-      id?: string;
-      userName?: string;
-      rating?: number;
-      comment?: string;
-      timestamp?: string;
-      userProfilePicture?: string;
-    }]
-}
 
 export interface Courses {
   success?: true;
@@ -102,64 +73,115 @@ export interface Courses {
   }
 }
 
+interface Category {
+  id: number;
+  name: string;
+  description: string;
+}
+
+export interface Instructor {
+  id: number;
+  name: string;
+  img: string;
+  title: string;
+  bio: string;
+  rating: number;
+  totalReviews: number;
+  totalStudents: number;
+  totalCourses: number;
+  yearsOfExperience: number;
+  userId: string;
+}
 
 export interface CourseDetail {
-  id: number,
-  name: string,
-  description?: string,
-  startDate: string,
-  endDate: string,
-  duration: string,
-  instructorId: string,
-  price: number,
-  status: string,
-  imageUrl?: string,
-  instructors: {
-    instructorId: string,
-    instructorName: string,
-    profession: string,
-    instructorRating: string,
-    numberOfCourses: number,
-    numberOfStudents: number,
-    yearsOfExperience: number,
-    description: string,
-    profilePicture: string
-  },
-  category: string,
-  discountedPrice: number,
-  numberOfRatings: number,
-  updatedOn: string,
-  hasCompletionCertificate: true,
-  hasRealWorldProjects: true,
-  level: string,
-  targeAudience: [
-    string
-  ],
-  courseContents: [
-    {
-      numberOfSections: string,
-      numberOfLectures: string,
-      totalCourseDuration: string,
-      lessons: [
-        {
-          lessonId: string,
-          lessonDuration: string,
-          totalNumberOfLectures: number,
-          lectures: [
-            {
-              lectureId: string,
-              lectureTitle: string,
-              lectureDuration: string,
-              lectureContent: string,
-              lectureVideo: string
-            }
-          ],
-          lessonTitle: string
-        }
-      ]
-    }
-  ],
-  courseInclude: [
-    string
-  ]
+  category: Category;
+  id: number;
+  position: number;
+  perks: string | null;
+  discountedPrice: number | null;
+  discounted: boolean;
+  about: string | null;
+  imgUrl: string;
+  name: string;
+  description?: string;
+  startDate: string;
+  endDate: string;
+  duration: string;
+  price: number;
+  dtCreated: string;
+  issueCertificate: boolean;
+  status: string;
+  type: string;
+  level: string;
+  instructor: Instructor;
+  numberOfRatings: number;
+  updatedOn: string | null;
+  hasRealWorldProjects: boolean;
+  isEnrolled?: boolean;
+  contentSummary?: CourseContentSummary;
+  reviewSummary?: ReviewSummary;
+  subCourses?: CourseDetail[];
+  projects?: any[];
+}
+
+export interface Student {
+  id: string;
+  name: string;
+  img: string;
+}
+
+export interface Review {
+  id: string;
+  rating: number;
+  review: string;
+  student: Student;
+  date?: string;
+}
+
+export interface ReviewSummary {
+  rating: number;
+  totalReviews: number;
+  totalStudents: number;
+  totalFives: number;
+  totalFours: number;
+  totalThrees: number;
+  totalTwos: number;
+  totalOnes: number;
+  reviews: Review[];
+}
+
+export interface LessonPart {
+  id: number;
+  lessonId: number;
+  title: string;
+  content: string;
+  contentType: 'LECTURE' | 'VIDEO' | 'QUIZ';
+  videoUrl?: string;
+  position: number;
+  quizId?: number;
+  quizTitle?: string;
+}
+
+
+export const lessonParts: LessonPart[] = [
+  { id: 1, lessonId: 1, title: 'Java Syntax Basics', content: 'This lesson covers basic syntax elements in Java programming language.', contentType: 'LECTURE', position: 1 },
+  { id: 2, lessonId: 1, title: 'Variables and Data Types', content: 'Learn about variables and different data types in Java.', contentType: 'LECTURE', position: 2 },
+  { id: 3, lessonId: 1, title: 'Conditional Statements', content: 'Understand how to use conditional statements like if, else, and switch in Java.', contentType: 'VIDEO', videoUrl: 'https://www.youtube.com/embed/tgbNymZ7vqY', position: 3 },
+  { id: 4, lessonId: 2, title: 'HTML Structure', content: 'Learn about the basic structure of HTML documents.', contentType: 'LECTURE', position: 1 },
+  { id: 5, lessonId: 2, title: 'HTML Tags and Elements', content: 'Understand different HTML tags and elements.', contentType: 'VIDEO', videoUrl: 'https://www.youtube.com/embed/tgbNymZ7vqY', position: 2 },
+  { id: 6, lessonId: 2, title: 'Building Forms in HTML', content: 'Learn how to create forms and handle form inputs in HTML.', contentType: 'QUIZ', quizId: 1, position: 3 },
+  { id: 7, lessonId: 3, title: 'Python Data Structures', content: 'Learn about lists, tuples, dictionaries, and sets in Python.', contentType: 'VIDEO', videoUrl: 'https://www.youtube.com/embed/tgbNymZ7vqY', position: 1 },
+  { id: 8, lessonId: 3, title: 'Working with Functions', content: 'Understand how to define and use functions in Python.', contentType: 'LECTURE', position: 2 },
+  { id: 9, lessonId: 3, title: 'Modules and Packages', content: 'Learn about organizing code into modules and packages in Python.', contentType: 'LECTURE', position: 3 }
+];
+export interface Enrollment {
+  id: number;
+  userId: string;
+  courseId: number;
+  courseName: string;
+  courseImgUrl: string;
+  courseInstructorName: string;
+  enrollmentDate: string;
+  status: string;
+  progress: number;
 }

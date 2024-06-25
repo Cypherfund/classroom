@@ -16,4 +16,4 @@ WORKDIR /app
 COPY --from=build /app/dist ./
 EXPOSE 4000
 
-CMD ["node", "/app/cypherfund/server/server.mjs"]
+CMD ["node", "/app/techascend/server/server.mjs"]

@@ -1,0 +1,23 @@
+::ng-deep .p-card {
+  border: 1px solid var(--color-grey-shade-2)
+}
+main {
+  height: 85vh;
+}
+::ng-deep .content {
+  padding-top: 2em;
+  .p-accordion-header-link {
+    text-decoration: none;
+    color: var(--main-color-black);
+  }
+
+  ::ng-deep {
+    .pi-check-circle:before {
+      color: green;
+      font-size: 1rem;
+    }
+    .p-accordion-tab {
+      margin:  1em 0;
+    }
+  }
+}
