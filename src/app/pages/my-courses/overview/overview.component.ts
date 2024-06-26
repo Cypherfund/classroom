@@ -1,6 +1,9 @@
 import { Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { CourseDetail, Courses, Enrollment } from '../../../models/course';
 import { DOCUMENT } from '@angular/common';
+import {map, Observable, switchMap} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../../../services/user/user.service";
 
 @Component({
   selector: 'app-overview',
@@ -8,14 +11,33 @@ import { DOCUMENT } from '@angular/common';
   styleUrl: './overview.component.scss'
 })
 export class OverviewComponent implements OnDestroy, OnInit{
-  @Input() course: Partial<CourseDetail>;
-  @Input() enrollment: Partial<Enrollment>;
+  course: CourseDetail;
+  enrollment: Enrollment;
 
   hasSubcourses = true;
+  private currentCourse$: Observable<CourseDetail>;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
-    this.course = {}
-    this.enrollment = {}
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private userService: UserService,
+              private activatedRoute: ActivatedRoute) {
+    const user$ = this.userService.recheckToken().subscribe();
+
+    const courseId$ = this.activatedRoute.params.pipe(map(params => params['courseId']));
+
+    const courseData$ = user$.pipe(
+      switchMap(user =>
+        courseId$.pipe(
+          switchMap(courseId => this.myCourseApiService.getUserCourseProgress(user.userId, courseId))
+        )
+      )
+    );
+    this.currentCourse$ = this.activatedRoute.params.pipe(
+      switchMap(params => {
+        const userId = params['userId']; // Adjust these according to your route config
+        const courseId = params['courseId'];
+        return this.myCourseApiService.getUserCourseProgress(userId, courseId);
+      })
+    );
   }
 
   ngOnDestroy(): void {
@@ -25,5 +47,7 @@ export class OverviewComponent implements OnDestroy, OnInit{
   ngOnInit(): void {
     this.document.body.classList.add('no-scroll');
   }
+
+
 
 }
