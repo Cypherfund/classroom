@@ -18,9 +18,8 @@ export class AppComponent {
               private route: ActivatedRoute,
               private router: Router,
               private location: Location,
-              private userApiService: UserApiService,
-              private stoarageService: LocalStorageService,
-              private userService: UserService) {
+              private userService: UserService,
+              private stoarageService: LocalStorageService) {
     translate.setDefaultLang('en');
     translate.use('en')
   }
@@ -31,15 +30,11 @@ export class AppComponent {
   }
 
   private loginUserIfTokenPresent() {
-    const token = new URLSearchParams(this.location.path(true)).get('token') || this.stoarageService.get('token');
-    if (!!token) {
-      this.userApiService.verifyToken(token).subscribe((response) => {
-        if (response.success) {
-          this.stoarageService.set('token', token); //todo add security
-          this.userService.user = response.data;
-        }
-      }, (error) => {});
-      return;
+    const urlToken = new URLSearchParams(this.location.path(true)).get('token');
+    if (urlToken) {
+      this.stoarageService.set("token", urlToken);
     }
+    this.userService.recheckToken().subscribe();
+
   }
 }

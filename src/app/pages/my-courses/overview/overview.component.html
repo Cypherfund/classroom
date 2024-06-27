@@ -1,10 +1,13 @@
 <app-navbar></app-navbar>
 
+<ng-container *ngIf="{
+currentCourse: (currentCourse$ | async)
+} as observables">
 
 <main class='overflow-y-scroll'>
 
   <section class='container mt-5'>
-    <h1>{{ course?.name || 'Product Design for Beginners' }}</h1>
+    <h1>{{ observables?.currentCourse?.name}}</h1>
     <p-progressBar [value]="enrollment?.progress || 50" /><br/>
 
     <p-card>
@@ -13,18 +16,18 @@
           <p>Pick up where you left off</p>
           <h2 class='d-flex gap-1 align-items-end'>
             <p-chip label="Topic" icon="pi pi-book" />
-            <span>Kubernetes</span>
+            <span>{{ observables?.currentCourse?.currentLesson?.lessonTopicName }}</span>
           </h2>
         </div>
-        <a [routerLink]="['/my-courses/learning', 3]"><h4>Resume <span class="pi pi-arrow-right"></span></h4></a>
+        <a [routerLink]="['/my-courses/learning', observables?.currentCourse?.id]"><h4>Resume <span class="pi pi-arrow-right"></span></h4></a>
       </div>
     </p-card>
 
-    <section *ngIf='hasSubcourses; else singleCourseTemplate'>
+    <section *ngIf='observables?.currentCourse?.subCourses && observables?.currentCourse?.subCourses?.length; else singleCourseTemplate'>
       <section class='content'>
         <h2>Curriculum</h2>
         <p-accordion>
-          <p-accordionTab  *ngFor='let courses of [1,2,3]'>
+          <p-accordionTab  *ngFor='let course of observables?.currentCourse?.subCourses'>
             <ng-template pTemplate="header">
               <span class="flex-column align-items-center gap-2 w-full">
                     <h3>{{ course?.name || 'Welcome to the Agile Software Developer Nanodegree Program' }}</h3>
@@ -49,12 +52,16 @@
         </p-accordion>
       </section>
     </section>
-
     <ng-template #singleCourseTemplate>
       <section class='content'>
         <h2>Topics</h2>
-        <app-topic *ngFor='let topic of [1,2,3]'></app-topic>
+        <app-topic
+          *ngFor='let topic of observables?.currentCourse?.contentSummary?.sections'
+          [topic] = "topic"
+          [courseCompleted]='observables?.currentCourse?.contentSummary?.completedSections.hasOwnProperty(topic.id)'
+        ></app-topic>
       </section>
     </ng-template>
   </section>
 </main>
+</ng-container>

@@ -11,8 +11,13 @@ export class MyCourseApiService {
                 private apollo: Apollo) { }
 
     getUserCourseProgress(userId: string, courseId: number): Observable<any> {
+      console.log(courseId, userId)
       return this.apollo.query({
-        query: gql`${USER_COURSE_PROGRESS.replace('__courseId', courseId + '').replace('__userId', userId)}`
+        query: gql`${USER_COURSE_PROGRESS}`,
+        variables: {
+          courseId: courseId,
+          userId: userId
+        }
       });
     }
 

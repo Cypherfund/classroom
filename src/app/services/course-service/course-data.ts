@@ -118,8 +118,8 @@ export const COURSE_SUMMARY = `
       `
 
 export const USER_COURSE_PROGRESS = `
-        query {
-          courseByUserAndCourse(courseId: __courseId, userId: __userId) {
+        query CourseByUserAndCourse($courseId: ID!, $userId: ID!) {
+          courseByUserAndCourse(courseId: $courseId, userId: $userId) {
             id
             name
             description

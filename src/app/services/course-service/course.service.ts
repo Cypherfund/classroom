@@ -40,11 +40,11 @@ export class CourseService {
     return this.http.post<any>(`${this.privateUrl}/enrollments`,enrollmentRequest);
   }
 
-  enrolledCourses(): Observable<Enrollment[]>{
+  enrolledCourses(): Observable<Enrollment[]>{ // todo modify this to be an observable so it only gets called on a subject change to avoid loading enrollment always
     return this.http.get<any>(`${this.privateUrl}/enrollments/user/6ecd851f-3b2f-4b7d-b431-10826213b604`)
       .pipe(
-        tap((response) => console.log(response)), map((response: APIResponse<Enrollment[]>) => response.data),
-        shareReplay()
+        map((response: APIResponse<Enrollment[]>) => response.data),
+        shareReplay(1)
       );
   }
 

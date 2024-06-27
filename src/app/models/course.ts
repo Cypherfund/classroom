@@ -20,6 +20,7 @@ export interface CourseContentSummary
   totalSections?: string;
   totalLectures?: string;
   totalHours?: string;
+  completedSections?:any;
   sections?: Lesson[]
 }
 
@@ -122,6 +123,15 @@ export interface CourseDetail {
   reviewSummary?: ReviewSummary;
   subCourses?: CourseDetail[];
   projects?: any[];
+  currentLesson?: CurrentLesson;
+}
+
+export interface CurrentLesson {
+  idUserId: string;
+  lessonName: string;
+  idLessonId: number;
+  lessonTopicId: number;
+  lessonTopicName: string;
 }
 
 export interface Student {
