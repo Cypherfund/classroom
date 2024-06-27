@@ -4,6 +4,7 @@ import { DOCUMENT } from '@angular/common';
 import {map, Observable, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../services/user/user.service";
+import {MyCourseService} from "../services/my-course-service";
 
 @Component({
   selector: 'app-overview',
@@ -11,33 +12,14 @@ import {UserService} from "../../../services/user/user.service";
   styleUrl: './overview.component.scss'
 })
 export class OverviewComponent implements OnDestroy, OnInit{
-  course: CourseDetail;
-  enrollment: Enrollment;
+  enrollment!: Enrollment;
 
-  hasSubcourses = true;
-  private currentCourse$: Observable<CourseDetail>;
+   currentCourse$: Observable<CourseDetail> = this.mycourseService.currentCourse$;
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private userService: UserService,
+              private mycourseService: MyCourseService,
               private activatedRoute: ActivatedRoute) {
-    const user$ = this.userService.recheckToken().subscribe();
-
-    const courseId$ = this.activatedRoute.params.pipe(map(params => params['courseId']));
-
-    const courseData$ = user$.pipe(
-      switchMap(user =>
-        courseId$.pipe(
-          switchMap(courseId => this.myCourseApiService.getUserCourseProgress(user.userId, courseId))
-        )
-      )
-    );
-    this.currentCourse$ = this.activatedRoute.params.pipe(
-      switchMap(params => {
-        const userId = params['userId']; // Adjust these according to your route config
-        const courseId = params['courseId'];
-        return this.myCourseApiService.getUserCourseProgress(userId, courseId);
-      })
-    );
   }
 
   ngOnDestroy(): void {
@@ -45,7 +27,11 @@ export class OverviewComponent implements OnDestroy, OnInit{
   }
 
   ngOnInit(): void {
+    this.currentCourse$.subscribe();
     this.document.body.classList.add('no-scroll');
+    this.activatedRoute.params
+      .pipe(map(params => params['courseId']))
+      .subscribe(value => this.mycourseService.loadMyCourse(value));
   }
 
 

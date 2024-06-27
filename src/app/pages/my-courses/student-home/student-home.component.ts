@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CourseDetail, Enrollment} from "../../../models/course";
+import { Enrollment} from "../../../models/course";
 import {CourseService} from "../../../services/course-service/course.service";
 import {Observable} from "rxjs";
 import { MyCourseService } from '../services/my-course-service';
@@ -15,9 +15,7 @@ export class StudentHomeComponent {
   enrolledCourses$: Observable<Enrollment[]>;
 
   constructor(private readonly courseService: CourseService,
-              private readonly router: Router,
-              private readonly userService: UserService,
-              private readonly myCourseService: MyCourseService) {
+              private readonly router: Router) {
     this.enrolledCourses$ = this.courseService.enrolledCourses();
   }
 
@@ -25,7 +23,6 @@ export class StudentHomeComponent {
   }
 
   navigateToOverview(courseId: number) {
-    this.myCourseService.loadMyCourse(this.userService.user.userId, courseId);
     this.router.navigate(['/my-courses/overview', courseId])
   }
 

@@ -14,12 +14,12 @@ import { NgIf } from '@angular/common';
     <p-card>
       <div class='d-flex justify-content-between'>
         <b>{{ topic?.name }}</b>
-        <p *ngIf='!completed; else completed' class='m-0 time'>{{topic?.duration}} remaining</p>
+        <p *ngIf='!courseCompleted; else completed' class='m-0 time'>{{topic?.duration}} remaining</p>
         <ng-template #completed>
           <span class='pi pi-check-circle'></span>
         </ng-template>
       </div>
-      <p class='m-0'>{{ topic?.description }}</p>
+      <p class='m-0'>{{ topic?.description || 'change text: you will learn how to create remote repositories on Github and how to clone them to your local machine' }}</p>
     </p-card>
   `,
   styles: `
@@ -45,13 +45,8 @@ import { NgIf } from '@angular/common';
 })
 export class TopicComponent {
   @Input() topic!: Lesson;
-  @Input() courseCompleted = true;
+  @Input() courseCompleted!: boolean;
 
   constructor() {
-    this.topic = {
-      name: 'Working with remotes',
-      description: 'you will learn how to create remote repositories on Github and how to clone them to your local machine.',
-      duration: '2 hours'
-    }
   }
 }

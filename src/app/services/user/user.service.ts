@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserResponse} from "../../models/user";
-import {BehaviorSubject, catchError, map, Observable, tap, throwError} from 'rxjs';
+import {BehaviorSubject, catchError, map, Observable, shareReplay, tap, throwError} from 'rxjs';
 import {UserApiService} from "./user-api.service";
 import {LocalStorageService} from "../localstorage/local-storage.service";
 
@@ -29,6 +29,7 @@ export class UserService {
 
   recheckToken(): Observable<any> {
     if (this.currentUser$.value) {
+      console.log('returning cached user');
       return this.currentUser$.asObservable(); // Return cached user if available
     }
     const token = this.stoarageService.get('token');
@@ -44,6 +45,7 @@ export class UserService {
             return throwError(new Error('Token verification failed'));
           }
         }),
+        shareReplay(1),
         catchError(error => {
           return throwError(error);
         })
