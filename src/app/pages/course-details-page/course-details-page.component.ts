@@ -5,9 +5,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../services/course-service/course.service";
 import {CourseDetail, EnrollCoursePayload} from "../../models/course";
 import {appConfig} from "../../../environments/app.config";
-import { finalize, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import {UserService} from "../../services/user/user.service";
-import { error } from '@angular/compiler-cli/src/transformers/util';
 import { LoaderService } from '../../services/loader-service';
 
 @Component({

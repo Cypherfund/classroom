@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { Enrollment} from "../../../models/course";
 import {CourseService} from "../../../services/course-service/course.service";
 import {Observable} from "rxjs";
-import { MyCourseService } from '../services/my-course-service';
 import { Router } from '@angular/router';
-import {UserService} from "../../../services/user/user.service";
 
 @Component({
   selector: 'app-student-home',

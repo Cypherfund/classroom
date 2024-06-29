@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {CourseService} from "../../services/course-service/course.service";
+import {CourseService} from "../../../../services/course-service/course.service";
 import {Router} from "@angular/router";
-import {appConfig} from "../../../environments/app.config";
-import { CourseDetail } from '../../models/course';
+import {appConfig} from "../../../../../environments/app.config";
+import { CourseDetail } from '../../../../models/course';
 import {MenuItem} from "primeng/api";
 
 @Component({

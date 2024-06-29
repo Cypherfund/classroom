@@ -7,68 +7,30 @@ import { AppComponent } from './app.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { TranslationComponent } from './components/translation/translation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { MenubarModule } from 'primeng/menubar';
 import {CardModule} from 'primeng/card';
 import { InputTextModule } from "primeng/inputtext";
-import { BreadcrumbModule } from 'primeng/breadcrumb';
-import { CourseDetailsPageComponent } from './pages/course-details-page/course-details-page.component';
-import { RatingModule } from 'primeng/rating';
-import { TabMenuModule } from 'primeng/tabmenu';
-import { CarouselCoursesComponent } from './components/carousel-courses/carousel-courses.component';
-import { TabViewModule } from 'primeng/tabview';
-import { ToolbarModule } from 'primeng/toolbar';
 import { CarouselModule } from 'primeng/carousel';
-import {TagModule} from "primeng/tag";
-import { TransactionComponent } from './components/transaction/transaction.component';
-import { TableModule } from 'primeng/table';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { SplitButtonModule } from 'primeng/splitbutton';
 import { MessageService } from 'primeng/api';
-import { FooterComponent } from './components/footer/footer.component';
-import { SafePipe } from "./pipe/DomSanitiser/safe.pipe";
 import { DateFormatPipe } from "./pipe/date-format.pipe";
-import {AccordionModule} from "primeng/accordion";
-import {ProgressBarModule} from "primeng/progressbar";
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
-import { CourseAdminRoutingModule } from './pages/course-admin/course-admin-routing.module';
-import { CourseHomeCardComponent } from './components/course-home-card/course-home-card.component';
-import { CoursesComponent } from './pages/courses/courses.component';
-import { PanelMenuModule } from 'primeng/panelmenu';
-import { RadioButtonModule } from 'primeng/radiobutton';
+import { CoursesComponent } from './pages/homepage/components/courses/courses.component';
 import { ButtonModule } from 'primeng/button';
-import { ComponentModule } from './components/component.module';
-import { AvatarModule } from 'primeng/avatar';
-import {
-  InstructorDetailsComponent
-} from "./pages/course-details-page/course-tab-details-page/instructor-details/instructor-details.component";
-import {
-  CarouselCourseContentComponent
-} from "./pages/course-details-page/course-tab-details-page/course-content/carousel-course-content/carousel-course-content.component";
-import {
-  CourseContentComponent
-} from "./pages/course-details-page/course-tab-details-page/course-content/course-content.component";
-import {ReviewsComponent} from "./pages/course-details-page/course-tab-details-page/reviews/reviews.component";
-import {
-  AboutCourseComponent
-} from "./pages/course-details-page/course-tab-details-page/about-course/about-course.component";
-import {
-  CourseTabDetailsPageComponent
-} from "./pages/course-details-page/course-tab-details-page/course-tab-details-page.component";
 import { HttpService } from './services/http.service';
-import { SpinnerComponent } from './components/spinner/spinner.component';
 import { GraphQLModule } from './graphql.module';
 import { RoundDownPipe } from './pipe/round-down.pipe';
-import {MyCoursesModule} from "./pages/my-courses/my-courses.module";
 import {CustomPipesModule} from "./pipe/custom-pipes.module";
 import { ErrorMessageComponent } from './components/error-message/error-message.component';
-import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { LoaderTemplateComponent } from './components/loader-template/loader-template.component';
 import { LoaderService } from './services/loader-service';
+import {TabViewModule} from "primeng/tabview";
+import {ComponentModule} from "./components/component.module";
+import {DropdownModule} from "primeng/dropdown";
+import {RadioButtonModule} from "primeng/radiobutton";
+import {PanelMenuModule} from "primeng/panelmenu";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -78,20 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     TranslationComponent,
     HomepageComponent,
-    CourseDetailsPageComponent,
-    CourseTabDetailsPageComponent,
-    AboutCourseComponent,
-    CarouselCoursesComponent,
-    TransactionComponent,
-    SettingsComponent,
-    FooterComponent,
-    CourseContentComponent,
-    ReviewsComponent,
-    InstructorDetailsComponent,
-    CarouselCourseContentComponent,
-    DateFormatPipe,
     RoundDownPipe,
-    CourseHomeCardComponent,
     CoursesComponent
   ],
   imports: [
@@ -100,25 +49,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    DropdownModule,
-    RadioButtonModule,
+    ComponentModule,
     BrowserAnimationsModule,
-    MenubarModule,
     CardModule,
     ButtonModule,
     InputTextModule,
-    BreadcrumbModule,
-    RatingModule,
-    TabMenuModule,
-    TagModule,
-    TabViewModule,
-    ToolbarModule,
+    DropdownModule,
+    RadioButtonModule,
     CarouselModule,
-    AccordionModule,
-    SplitButtonModule,
-    ProgressBarModule,
-    PanelMenuModule,
-    SpinnerComponent,
     GraphQLModule,
     CustomPipesModule,
     TranslateModule.forRoot({
@@ -126,18 +64,14 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [ HttpClient ]
+        deps: [HttpClient]
       }
     }),
-    TableModule, // Moved TableModule import to the imports array,
-    CourseAdminRoutingModule,
-    ComponentModule,
-    AvatarModule,
-    MyCoursesModule,
     ErrorMessageComponent,
-    BlockUIModule,
     ProgressSpinnerModule,
-    LoaderTemplateComponent
+    LoaderTemplateComponent,
+    TabViewModule,
+    PanelMenuModule
 
   ],
   providers: [

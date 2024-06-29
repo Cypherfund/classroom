@@ -10,7 +10,8 @@ interface Transaction {
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
-  styleUrl: './transaction.component.scss'
+  styleUrl: './transaction.component.scss',
+  standalone: true
 })
 export class TransactionComponent {
   transactions: Transaction[] = [

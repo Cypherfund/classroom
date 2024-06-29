@@ -8,7 +8,8 @@ import { AsyncPipe, NgIf } from '@angular/common';
   template: `
     <div class="loader-container" *ngIf='showLoader'>
       <div class="loader-content">
-        <img [src]="'assets/images/logo-round.png'" height='200' width='200' alt="Error GIF" class="loader">
+        <div class="loader"></div>
+<!--        <img [src]="'assets/images/logo-round.png'" height='200' width='200' alt="Error GIF" class="loader">-->
         <h2>Please wait...</h2>
       </div>
     </div>
@@ -31,6 +32,8 @@ import { AsyncPipe, NgIf } from '@angular/common';
       border: 8px solid #f3f3f3;
       border-top: 8px solid var(--main-color-shade-1);
       border-radius: 50%;
+      width: 200px;
+      height: 200px;
       animation: spin 2s linear infinite;
     }
 
