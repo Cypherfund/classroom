@@ -3,6 +3,7 @@ import {UserResponse} from "../../models/user";
 import {BehaviorSubject, catchError, map, Observable, shareReplay, tap, throwError} from 'rxjs';
 import {UserApiService} from "./user-api.service";
 import {LocalStorageService} from "../localstorage/local-storage.service";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -26,10 +27,12 @@ export class UserService {
     this.loginSubject$.next(1);
   }
 
+  navigateToAuth() {
+    window.location.href = environment.authUrl;
+  }
 
   recheckToken(): Observable<any> {
     if (this.currentUser$.value) {
-      console.log('returning cached user');
       return this.currentUser$.asObservable(); // Return cached user if available
     }
     const token = this.stoarageService.get('token');

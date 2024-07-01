@@ -13,6 +13,7 @@ import {CardModule} from "primeng/card";
 import {AvatarModule} from "primeng/avatar";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+import {MegaMenuModule} from "primeng/megamenu";
 
 @NgModule({
   declarations: [
@@ -22,18 +23,19 @@ import {RouterModule} from "@angular/router";
     CourseHomeCardComponent,
     FooterComponent
   ],
-  imports: [
-    CommonModule,
-    TranslateModule.forChild(),
-    ButtonModule,
-    RatingModule,
-    CarouselModule,
-    CardModule,
-    AvatarModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule
-  ],
+    imports: [
+        CommonModule,
+        TranslateModule.forChild(),
+        ButtonModule,
+        RatingModule,
+        CarouselModule,
+        CardModule,
+        AvatarModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        MegaMenuModule
+    ],
   exports: [
     NavbarComponent,
     SeeMoreTextComponent,

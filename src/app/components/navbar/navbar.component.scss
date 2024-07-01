@@ -11,6 +11,13 @@
   border-radius: 4rem
 }
 
+::ng-deep .p-megamenu.p-component.p-megamenu-horizontal {
+  border: unset;
+  .p-menuitem-icon, .p-icon.p-submenu-icon{
+    color: var(--color-white);
+  }
+}
+
 .navbar-brand {
   background: white;
   border-radius: 1000px;

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, Observable, shareReplay, tap } from 'rxjs';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpHeaders, HttpParams} from "@angular/common/http";
 import {CourseDetail, Courses, EnrollCoursePayload, Enrollment} from "../../models/course";
-import {environment} from "../../../environments/environment";
 import {CourseTopicsDTO} from "../../models/courseTopics";
 import { Apollo, gql } from 'apollo-angular';
 import { COURSE_SUMMARY } from './course-data';
@@ -19,10 +18,13 @@ export class CourseService {
 
   constructor(private http: HttpService,  private apollo: Apollo, private userService: UserService) { }
 
-  getCourses(): Observable<Courses>{
-    return this.http.get<Courses>(
-      `${this.privateUrl}/courses?pageNum=0&size=20`
-    )
+  getCourses(categoryName: string = ''): Observable<Courses>{
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append("categoryName", categoryName);
+    httpParams = httpParams.append("pageNum", 0);
+    httpParams = httpParams.append("size", 20);
+    httpParams = httpParams.append("status", 'PUBLISHED');
+    return this.http.get<Courses>(`${this.privateUrl}/courses`, { params: httpParams})
   }
   getCourse(id: number): Observable<CourseDetail>{
     return this.http.get<CourseDetail>(

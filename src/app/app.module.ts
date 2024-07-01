@@ -31,6 +31,8 @@ import {ComponentModule} from "./components/component.module";
 import {DropdownModule} from "primeng/dropdown";
 import {RadioButtonModule} from "primeng/radiobutton";
 import {PanelMenuModule} from "primeng/panelmenu";
+import {ShoppingCartComponent} from "./pages/shopping-cart/shopping-cart.component";
+import {CartService} from "./services/cart.service";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -80,7 +82,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserService,
     UserApiService,
     HttpService,
-    LoaderService
+    LoaderService,
+    CartService
   ],
   bootstrap: [ AppComponent ]
 })

@@ -4,6 +4,7 @@ import {  CourseDetail } from '../../models/course';
 import {Router} from "@angular/router";
 import { UserService } from '../../services/user/user.service';
 import { LoaderService } from '../../services/loader-service';
+import {TabViewChangeEvent} from "primeng/tabview";
 
 @Component({
   selector: 'app-homepage',
@@ -12,14 +13,15 @@ import { LoaderService } from '../../services/loader-service';
 })
 export class HomepageComponent {
   value: any;
-  studentName: string = 'Name';
+  categoryTabs = ['All', 'Technology', 'Science', 'Business', 'Arts', 'Languages'];
   courses: CourseDetail[] = []
   upcomingCourses: CourseDetail[] = []
+  trendingCourses: CourseDetail[] = []
   responsiveOptions: any[] | undefined;
   constructor( private courseService: CourseService,
                private router: Router,
                private loaderService: LoaderService,
-               private userService: UserService) {
+               public userService: UserService) {
 
   }
 
@@ -54,19 +56,29 @@ export class HomepageComponent {
     ];
   }
 
-  getCourses() {
+  getCourses(category: string = '') {
+    console.log(category)
     this.loaderService.turnOnLoading();
-    const sub = this.courseService.getCourses().subscribe(
+    const sub = this.courseService.getCourses(category).subscribe(
       {
         next: (response) => {
           this.courses = response.data
-          this.upcomingCourses = Array.from({ length: 2 }, () => this.courses).flat();
+          this.upcomingCourses = Array.from({ length: 1 }, () => this.courses).flat();
+          this.trendingCourses = Array.from({ length: 1 }, () => this.courses).flat();
+
+          console.log(this.courses.length)
+          console.log(this.upcomingCourses.length)
+          console.log(this.trendingCourses.length)
           this.loaderService.turnOffLoading();
         },
         error: (error) => {
           this.loaderService.turnOffLoading();
         }
       });
+  }
+
+  fetchCourseCategory(event: TabViewChangeEvent) {
+    this.getCourses(event.index === 0 ? '': this.categoryTabs[event.index]);
   }
 
   isLoggedIn(): boolean {

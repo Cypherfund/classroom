@@ -27,7 +27,6 @@ import {LoaderTemplateComponent} from "../../components/loader-template/loader-t
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
 import {CustomPipesModule} from "../../pipe/custom-pipes.module";
-
 const routes: Routes = [
   {
     path: '',

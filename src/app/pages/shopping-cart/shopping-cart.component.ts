@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,8 +9,17 @@ import {appConfig} from "../../../environments/app.config";
 })
 export class ShoppingCartComponent {
   profileImage = appConfig.profileImage
+  selectedCourses$ = this.cartService.coursesSelected$;
 
-  constructor() {
+  constructor(private cartService: CartService) {
 
+  }
+
+  removeFromCart(courseId: number) {
+    this.cartService.removeFromCart(courseId);
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
   }
 }
