@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
 import { UserService } from '../../services/user/user.service';
 import { environment } from '../../../environments/environment';
-import { Subscription } from 'rxjs';
+import {map, Observable, Subscription} from 'rxjs';
 import {MegaMenuItem} from "primeng/api";
+import {CartService} from "../../services/cart.service";
 
 
 @Component({
@@ -18,7 +19,10 @@ export class NavbarComponent {
 
   profileImage = appConfig.profileImage
 
-  constructor(private userService: UserService) {
+  totalCoursesSelected$: Observable<string> = this.cartService.coursesSelected$.pipe(map( courses => courses.length + ''));
+
+  constructor(private userService: UserService,
+              private cartService: CartService) {
   }
 
   ngOnInit() {

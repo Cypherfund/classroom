@@ -8,6 +8,7 @@ import {appConfig} from "../../../environments/app.config";
 import { Subscription } from 'rxjs';
 import {UserService} from "../../services/user/user.service";
 import { LoaderService } from '../../services/loader-service';
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-course-details-page',
@@ -28,6 +29,7 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
   loadError: boolean = false;
   constructor(private route: Router,
               private courseService: CourseService,
+              private cartService: CartService,
               private userService: UserService,
               private readonly messsageService: MessageService,
               public loaderService: LoaderService,
@@ -79,7 +81,12 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
   }
 
   processAlternateClick(){
-    this.route.navigate(['/shopping_chart'])
+    if (!this.course?.isEnrolled) {
+      this.cartService.addToCart(this.course);
+      this.route.navigate(['/checkout'])
+    } else {
+
+    }
   }
 
   getCourse() {

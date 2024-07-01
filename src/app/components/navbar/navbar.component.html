@@ -30,7 +30,7 @@
           <a routerLink='/course-admin' class="nav-link text-white" role="button" >
             {{'become_inst' | translate}}
           </a>
-          <em class="pi pi-shopping-cart" style="font-size: 1.5rem"></em>
+          <em class="pi pi-shopping-cart" pBadge [value]="(totalCoursesSelected$ | async) || '0'" severity="danger" style="font-size: 1.5rem"></em>
           <em class="pi pi-bell" style="font-size: 1.5rem"></em>
           <a class="text-decoration-none" [routerLink]="['settings']">
             <img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image" style="border-radius:4rem">
