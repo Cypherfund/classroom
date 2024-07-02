@@ -20,13 +20,7 @@ import { CryptoPaymentFormComponent } from './course-payment/components/crypto-p
 const routes: Routes = [
   {
     path: '',
-    component: ShoppingCartComponent,
-    children: [
-      {
-        path: 'pay',
-        component: CoursePaymentComponent
-      }
-    ]
+    component: ShoppingCartComponent
   }
 ];
 

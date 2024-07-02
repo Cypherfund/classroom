@@ -8,7 +8,7 @@ import {PaymentApiService} from "./payment-api.service";
 export class PaymentService {
 
   providers$: Observable<PaymentMethod[]>;
-  providerSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  providerSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   loadingPaymentMethod$: Observable<boolean>;
   loadingPaymentMethodSubject$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 

@@ -57,7 +57,6 @@ export class HomepageComponent {
   }
 
   getCourses(category: string = '') {
-    console.log(category)
     this.loaderService.turnOnLoading();
     const sub = this.courseService.getCourses(category).subscribe(
       {
@@ -65,10 +64,6 @@ export class HomepageComponent {
           this.courses = response.data
           this.upcomingCourses = Array.from({ length: 1 }, () => this.courses).flat();
           this.trendingCourses = Array.from({ length: 1 }, () => this.courses).flat();
-
-          console.log(this.courses.length)
-          console.log(this.upcomingCourses.length)
-          console.log(this.trendingCourses.length)
           this.loaderService.turnOffLoading();
         },
         error: (error) => {
