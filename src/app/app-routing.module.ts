@@ -4,8 +4,6 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import {CoursesComponent} from "./pages/homepage/components/courses/courses.component";
-import {ShoppingCartComponent} from "./pages/shopping-cart/shopping-cart.component";
-
 
 const routes: Routes = [
   { path:'', component: HomepageComponent},

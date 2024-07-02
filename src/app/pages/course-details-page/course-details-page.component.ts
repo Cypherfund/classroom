@@ -40,14 +40,12 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
 
     this.activeRoute.params.subscribe(params => {
       this.activeCourseId = params['id'];
+      this.getCourse()
     });
-    this.getCourse()
 
     this.formGroup = new FormGroup({
       value: new FormControl(4)
     });
-    this.items = [ { label: 'Design' }, { label: 'Product Design' }];
-
     this.home = { icon: 'pi pi-home', routerLink: '/' };
   }
   processCourseAction(){
@@ -92,7 +90,11 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
   getCourse() {
     this.loaderService.turnOnLoading();
     this.courseService.getCourseGraphqls(this.activeCourseId).subscribe({
-      next: value => this.course = value?.data?.courseById,
+      next: value =>  {
+        this.course = value?.data?.courseById
+        this.items = [ { label: this.course?.category?.name}, { label: this.course?.name }];
+
+      },
       error: () => {
         this.loaderService.turnOffLoading()
         this.loadError = true;
