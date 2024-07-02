@@ -1,0 +1,22 @@
+<form [formGroup]="paymentForm" (ngSubmit)="makePayment()">
+<!--  <div>-->
+<!--    <label for="paymentType">Payment Type:</label>-->
+<!--    <select id="paymentType" formControlName="paymentType">-->
+<!--      <option *ngFor="let method of paymentMethod.supportedMethods" [value]="method">{{method}}</option>-->
+<!--    </select>-->
+<!--    <div *ngIf="paymentForm.get('paymentType')?.invalid && (paymentForm.get('paymentType')?.dirty || paymentForm.get('paymentType')?.touched)">-->
+<!--      <small *ngIf="paymentForm.get('paymentType')?.errors?.['required']">Payment type is required.</small>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <div *ngIf="paymentForm.get('paymentType')?.value === 'PAYPAL'">
+    <label for="paypalEmail">PayPal Email:</label>
+    <input id="paypalEmail" formControlName="paypalEmail" type="email">
+    <div *ngIf="paymentForm.get('paypalEmail')?.invalid && (paymentForm.get('paypalEmail')?.dirty || paymentForm.get('paypalEmail')?.touched)">
+      <small *ngIf="paymentForm.get('paypalEmail')?.errors?.['required']">PayPal email is required.</small>
+      <small *ngIf="paymentForm.get('paypalEmail')?.errors?.['email']">Invalid email address.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="paymentForm.invalid">Submit</button>
+</form>
