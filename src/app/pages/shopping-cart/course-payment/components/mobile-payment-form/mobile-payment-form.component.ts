@@ -12,11 +12,10 @@ export class MobilePaymentFormComponent {
   @Output() processPayment: EventEmitter<any> = new EventEmitter<any>();
 
   paymentForm!: FormGroup;
-  successMsg: string = 'Please confirm payment on your mobile phone'
-;
+  successMsg: string = 'Confirm payment on your phone by dialing *126# and entering your pin.';
   constructor(fb: FormBuilder) {
     this.paymentForm = fb.group({
-      phoneNumber: ['', [Validators.required, Validators.pattern('^6[0-9]{8}$')]],
+      phn: ['', [Validators.required, Validators.pattern('^6[0-9]{8}$')]],
       saveInfo: [false]
     });
   }
@@ -24,11 +23,10 @@ export class MobilePaymentFormComponent {
   makePayment() {
     if (this.paymentForm.valid) {
       const request: Partial<CoursePaymentRequest> = {
-        extra: {...this.paymentForm.value},
+        extra: JSON.stringify({...this.paymentForm.value}),
         paymentMethod: "MOBILE_WALLET",
         paymentCode: this.paymentMethod.strPaymentCode
       }
-      console.log(request);
       this.processPayment.emit({request, msg: this.successMsg});
     }
   }

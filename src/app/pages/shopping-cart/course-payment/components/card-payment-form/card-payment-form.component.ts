@@ -28,7 +28,7 @@ export class CardPaymentFormComponent {
   makePayment() {
     if (this.paymentForm.valid) {
       const request: Partial<CoursePaymentRequest> = {
-        extra: {...this.paymentForm.value},
+        extra: JSON.stringify({...this.paymentForm.value}),
         paymentMethod: "CREDIT_CARD",
         paymentCode: this.paymentMethod.strPaymentCode
       }

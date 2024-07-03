@@ -9,6 +9,7 @@ import {MyCourseService} from "../my-courses/services/my-course-service";
 import {MyCourseApiService} from "../my-courses/services/my-course-api-service";
 import {CourseService} from "../../services/course-service/course.service";
 import {PaymentMethod} from "../../models/payment";
+import {UserService} from "../../services/user/user.service";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -17,18 +18,21 @@ import {PaymentMethod} from "../../models/payment";
   providers: [PaymentService, PaymentApiService, MyCourseService, MyCourseApiService]
 })
 export class ShoppingCartComponent implements OnInit{
-  profileImage = appConfig.profileImage
   selectedCourses$ = this.cartService.coursesSelected$;
-  total: number = 0;
+  total$ = this.cartService.total$;
+  paymentMethods$ = this.paymentService.providers$;
+  processing$ = this.courseService.processing$;
+
   imagebucket: string = appConfig.imagebucket;
   courseImage: string = 'course-img-2.png';
+  profileImage = appConfig.profileImage
+
   selectedProvider!: PaymentMethod;
-  paymentMethods$ = this.paymentService.providers$;
 
   constructor(private cartService: CartService,
               private paymentService: PaymentService,
+              private userService: UserService,
               private courseService: CourseService) {
-    this.total = cartService.getTotalPrice();
   }
   ngOnInit(): void {
     this.paymentMethods$.pipe(
@@ -37,6 +41,8 @@ export class ShoppingCartComponent implements OnInit{
   }
 
   makePayment(paymentPayload: any): void {
+    paymentPayload.request.courseId = 2;
+    paymentPayload.request.userId = this.userService.user.userId;
     this.courseService.enrollCourse(paymentPayload.request, paymentPayload.msg);
   }
 

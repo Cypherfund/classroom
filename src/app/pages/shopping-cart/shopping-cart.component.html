@@ -61,12 +61,16 @@
     <app-carousel-courses></app-carousel-courses>
   </aside>
 </section>
+<p-progressBar *ngIf="processing$ | async" mode="indeterminate" [style]="{'height': '6px'}" />
 <div class="container my-5">
+  <p-messages
+    [enableService]="true"
+    [closable]="false" />
   <div class="row">
     <div class="col-lg-6">
       <h2>Checkout</h2>
       <div class="mb-3">
-        <label for="" class="form-label">Payment Type</label>
+        <label class="form-label">Payment Type</label>
         <div>
           <img  class="me-2 provider-logo"
                 [class.active]="selectedProvider.strProviderName === provider.strProviderName"
@@ -77,7 +81,7 @@
                 (click)="selectedProvider = provider">
         </div>
       </div>
-      <div [ngSwitch]="selectedProvider.strProviderName">
+      <div [ngSwitch]="selectedProvider?.strProviderName">
         <div *ngSwitchCase="'MTN MOBILE MONEY'">
           <app-mobile-payment-form (processPayment)="makePayment($event)" [paymentMethod]="selectedProvider"></app-mobile-payment-form>
         </div>
@@ -117,15 +121,15 @@
         </div>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Subtotal: ${{total}}</li>
+        <li class="list-group-item">Subtotal: ${{total$ | async}}</li>
         <li class="list-group-item">Coupon Discount: $0.00</li>
         <li class="list-group-item">Tax: $0.00</li>
-        <li class="list-group-item"><strong>Total: ${{total}}</strong></li>
+        <li class="list-group-item"><strong>Total: ${{total$ | async}}</strong></li>
       </ul>
     </div>
   </div>
+<!--  <p-toast />-->
 </div>
-
 <footer>
   <app-footer></app-footer>
 </footer>

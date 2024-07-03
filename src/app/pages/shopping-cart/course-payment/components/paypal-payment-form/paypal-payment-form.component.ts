@@ -23,11 +23,10 @@ export class PaypalPaymentFormComponent {
   makePayment() {
     if (this.paymentForm.valid) {
       const request: Partial<CoursePaymentRequest> = {
-        extra: {...this.paymentForm.value},
+        extra: JSON.stringify({...this.paymentForm.value}),
         paymentMethod: "PAYPAL",
         paymentCode: this.paymentMethod.strPaymentCode
       }
-      console.log(request);
       this.processPayment.emit({request, msg: this.successMsg});
     }
   }

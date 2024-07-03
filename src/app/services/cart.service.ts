@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
-import {BehaviorSubject, catchError, filter, map, Observable, of} from 'rxjs';
-import { environment } from '../../environments/environment';
-import { LocalStorageService } from './localstorage/local-storage.service';
+import {BehaviorSubject, catchError, filter, map, Observable, of, tap} from 'rxjs';
 import {CourseDetail} from "../models/course";
 
 @Injectable({
@@ -11,24 +8,42 @@ import {CourseDetail} from "../models/course";
 export class CartService {
 
   private coursesSelectedSource$ = new BehaviorSubject<{ [key: number]: CourseDetail }>({});
-  coursesSelected$: Observable<CourseDetail[]> = this.coursesSelectedSource$.asObservable().pipe(
-    filter(courses => !!courses),
-    map(courseObject => Object.values(courseObject)),
-    catchError (err => of([]))
-  );
+  total$: Observable<number>;
+  coursesSelected$: Observable<CourseDetail[]>;
+  constructor() {
 
-  constructor() { }
+    this.coursesSelected$ = this.coursesSelectedSource$.asObservable().pipe(
+      filter(courses => !!courses && Object.keys(courses).length > 0),
+      map(courseObject => Object.values(courseObject)),
+      tap(courses => localStorage.setItem('cart', JSON.stringify(courses))),
+      catchError (err => of([]))
+    );
+
+    this.total$ = this.coursesSelected$.pipe(
+      map(courses => courses.reduce((sum, course) => sum + course.price, 0))
+    );
+
+
+  }
 
   addToCart(course: CourseDetail) {
     const currentCourses = this.coursesSelectedSource$.getValue();
+    console.log(currentCourses, course.id)
     if (!currentCourses[course.id]) {
       const updatedCourses = { ...currentCourses, [course.id]: course };
       this.coursesSelectedSource$.next(updatedCourses);
     }
   }
 
-  getTotalPrice() {
-    return Object.values(this.coursesSelectedSource$.getValue()).reduce((sum, course) => sum + course.price, 0);
+  addCourses(courses: CourseDetail[]) {
+    const currentCourses = this.coursesSelectedSource$.getValue();
+    const updatedCourses = { ...currentCourses };
+    courses.forEach(course => {
+      if (!currentCourses[course.id]) {
+        updatedCourses[course.id] = course;
+      }
+    });
+    this.coursesSelectedSource$.next(updatedCourses);
   }
 
   removeFromCart(courseId: number) {

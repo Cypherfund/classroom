@@ -1,10 +1,10 @@
 <form [formGroup]="paymentForm" (ngSubmit)="makePayment()">
   <div class="mb-3">
-    <label for="phoneNumber" class="form-label" i18n="@@phone_number">Phone Number</label>
-    <input id="phoneNumber" formControlName="phoneNumber" class="form-control" i18n-placeholder="@@enter_phone" placeholder="Enter Phone Number"/>
-    <div *ngIf="paymentForm.get('phoneNumber')?.invalid && (paymentForm.get('phoneNumber')?.dirty || paymentForm.get('phoneNumber')?.touched)">
-      <small *ngIf="paymentForm.get('phoneNumber')?.errors?.['required']" class="text-danger" i18n="@@phone_required">Phone number is required.</small>
-      <small *ngIf="paymentForm.get('phoneNumber')?.errors?.['pattern']" class="text-danger" i18n="@@phone_invalid">Invalid card number.</small>
+    <label for="phn" class="form-label" i18n="@@phone_number">Phone Number</label>
+    <input id="phn" formControlName="phn" class="form-control" i18n-placeholder="@@enter_phone" placeholder="Enter Phone Number"/>
+    <div *ngIf="paymentForm.get('phn')?.invalid && (paymentForm.get('phn')?.dirty || paymentForm.get('phn')?.touched)">
+      <small *ngIf="paymentForm.get('phn')?.errors?.['required']" class="text-danger" i18n="@@phone_required">Phone number is required.</small>
+      <small *ngIf="paymentForm.get('phn')?.errors?.['pattern']" class="text-danger" i18n="@@phone_invalid">Invalid card number.</small>
     </div>
   </div>
 

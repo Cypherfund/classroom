@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserResponse} from "../../models/user";
-import {BehaviorSubject, catchError, map, Observable, shareReplay, tap, throwError} from 'rxjs';
+import {BehaviorSubject, catchError, map, Observable, of, shareReplay, tap, throwError} from 'rxjs';
 import {UserApiService} from "./user-api.service";
 import {LocalStorageService} from "../localstorage/local-storage.service";
 import {environment} from "../../../environments/environment";
@@ -45,16 +45,16 @@ export class UserService {
             this.user = response.data;
             return response.data; // Return user data or a relevant part of the response
           } else {
-            return throwError(new Error('Token verification failed'));
+            return of ();
           }
         }),
         shareReplay(1),
         catchError(error => {
-          return throwError(error);
+          return of ()
         })
       );
     } else {
-      return throwError(new Error('No token found'));
+      return of ();
     }
   }
 

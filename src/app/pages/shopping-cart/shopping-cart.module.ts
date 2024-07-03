@@ -17,6 +17,9 @@ import { CardPaymentFormComponent } from './course-payment/components/card-payme
 import { PaypalPaymentFormComponent } from './course-payment/components/paypal-payment-form/paypal-payment-form.component';
 import { CryptoPaymentFormComponent } from './course-payment/components/crypto-payment-form/crypto-payment-form.component';
 import {ButtonModule} from "primeng/button";
+import {ProgressBarModule} from "primeng/progressbar";
+import {ToastModule} from "primeng/toast";
+import {MessagesModule} from "primeng/messages";
 
 const routes: Routes = [
   {
@@ -45,7 +48,10 @@ const routes: Routes = [
     ErrorMessageComponent,
     LoaderTemplateComponent,
     CustomPipesModule,
-    ButtonModule
+    ButtonModule,
+    ProgressBarModule,
+    MessagesModule,
+    ToastModule
   ],
   providers: [MyCourseService, MyCourseApiService]
 })
