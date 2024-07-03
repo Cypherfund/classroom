@@ -41,3 +41,156 @@ button{
   background-color: white;
 }
 
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.shopping-cart {
+  flex: 3;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.cart-item img {
+  width: 150px;
+  height: 100px;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.item-details {
+  flex: 2;
+}
+
+.item-details h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.item-details .rating {
+  font-size: 14px;
+  color: #ffc107;
+}
+
+.item-details .stars {
+  color: #ffc107;
+  margin-left: 5px;
+}
+
+.item-details .rating-count {
+  font-size: 14px;
+  color: #777;
+}
+
+.item-details .price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.item-actions {
+  text-align: right;
+}
+
+.item-actions a {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.summary {
+  flex: 1;
+  background-color: #f3e5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.summary h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.summary .total-price {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.checkout-btn {
+  background-color: #8e24aa;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.checkout-btn:hover {
+  background-color: #7b1fa2;
+}
+
+.promotions {
+  margin-top: 20px;
+}
+
+.promotions h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.promotions input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 90px);
+  margin-right: 10px;
+}
+
+.apply-btn {
+  background-color: #8e24aa;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.apply-btn:hover {
+  background-color: #7b1fa2;
+}

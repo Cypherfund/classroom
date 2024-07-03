@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, catchError, filter, map, Observable, of, tap} from 'rxjs';
 import {CourseDetail} from "../models/course";
+import {MessageService} from "primeng/api";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class CartService {
   private coursesSelectedSource$ = new BehaviorSubject<{ [key: number]: CourseDetail }>({});
   total$: Observable<number>;
   coursesSelected$: Observable<CourseDetail[]>;
-  constructor() {
+  constructor(private messageService: MessageService) {
 
     this.coursesSelected$ = this.coursesSelectedSource$.asObservable().pipe(
       filter(courses => !!courses && Object.keys(courses).length > 0),
@@ -23,12 +24,13 @@ export class CartService {
       map(courses => courses.reduce((sum, course) => sum + course.price, 0))
     );
 
-
   }
 
   addToCart(course: CourseDetail) {
     const currentCourses = this.coursesSelectedSource$.getValue();
-    console.log(currentCourses, course.id)
+    if (Object.keys(currentCourses).length > 0) {
+        this.messageService.add({severity: 'error', summary: 'Error', detail: 'You can only add one course at a time'});
+    }
     if (!currentCourses[course.id]) {
       const updatedCourses = { ...currentCourses, [course.id]: course };
       this.coursesSelectedSource$.next(updatedCourses);

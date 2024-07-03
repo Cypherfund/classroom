@@ -30,8 +30,8 @@ import {ComponentModule} from "./components/component.module";
 import {DropdownModule} from "primeng/dropdown";
 import {RadioButtonModule} from "primeng/radiobutton";
 import {PanelMenuModule} from "primeng/panelmenu";
-import {ShoppingCartComponent} from "./pages/shopping-cart/shopping-cart.component";
 import {CartService} from "./services/cart.service";
+import {ToastModule} from "primeng/toast";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
 }
@@ -60,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarouselModule,
     GraphQLModule,
     CustomPipesModule,
+    ToastModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

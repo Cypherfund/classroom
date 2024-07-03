@@ -61,11 +61,18 @@
     <app-carousel-courses></app-carousel-courses>
   </aside>
 </section>
-<p-progressBar *ngIf="processing$ | async" mode="indeterminate" [style]="{'height': '6px'}" />
-<div class="container my-5">
+<ng-container *ngIf="{
+  processing: (processing$ | async),
+  paymentMethods: (paymentMethods$ | async),
+  courseSelected: (selectedCourses$ | async),
+  total: (total$ | async)
+} as observables">
+
+<p-progressBar *ngIf="observables.processing" mode="indeterminate" [style]="{'height': '6px'}" />
   <p-messages
     [enableService]="true"
     [closable]="false" />
+<div class="container my-5">
   <div class="row">
     <div class="col-lg-6">
       <h2>Checkout</h2>
@@ -75,7 +82,7 @@
           <img  class="me-2 provider-logo"
                 [class.active]="selectedProvider.strProviderName === provider.strProviderName"
                 [ngClass]="provider.strProviderName | removespaces | lowercase"
-                *ngFor="let provider of (paymentMethods$ | async)"
+                *ngFor="let provider of observables.paymentMethods"
                 [src]="imagebucket + provider.strProviderName + '.png'"
                 [alt]="provider.strProviderName"
                 (click)="selectedProvider = provider">
@@ -106,7 +113,7 @@
 
     <div class="col-lg-6 mt-4 mt-lg-0">
       <h2>Summary</h2>
-      <div class="card mb-3"  *ngFor="let course of (selectedCourses$ | async)">
+      <div class="card mb-3"  *ngFor="let course of observables?.courseSelected">
         <div class="row g-0">
           <div class="col-md-4">
             <img [src]="imagebucket + courseImage "  class="img-fluid rounded-start" alt="Product Image">
@@ -121,15 +128,15 @@
         </div>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Subtotal: ${{total$ | async}}</li>
+        <li class="list-group-item">Subtotal: ${{observables?.total}}</li>
         <li class="list-group-item">Coupon Discount: $0.00</li>
         <li class="list-group-item">Tax: $0.00</li>
-        <li class="list-group-item"><strong>Total: ${{total$ | async}}</strong></li>
+        <li class="list-group-item"><strong>Total: ${{observables.total}}</strong></li>
       </ul>
     </div>
   </div>
-<!--  <p-toast />-->
 </div>
+</ng-container>
 <footer>
   <app-footer></app-footer>
 </footer>

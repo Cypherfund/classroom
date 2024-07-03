@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Courses, EnrollCoursePayload, Enrollment} from "../../models/course";
 import {CourseApiService} from "./course-api.service";
-import {Message, MessageService} from "primeng/api";
+import {MessageService} from "primeng/api";
 import {LoaderService} from "../loader-service";
 
 @Injectable({
@@ -10,7 +10,6 @@ import {LoaderService} from "../loader-service";
 })
 export class CourseService {
 
-  privateUrl = `course-api`;
   enrolledCourses$: Observable<Enrollment[]>;
   processing$: Observable<boolean>;
   processingSubject$: BehaviorSubject<boolean> = new BehaviorSubject(false);
