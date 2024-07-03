@@ -27,6 +27,10 @@ export class CartService {
     }
   }
 
+  getTotalPrice() {
+    return Object.values(this.coursesSelectedSource$.getValue()).reduce((sum, course) => sum + course.price, 0);
+  }
+
   removeFromCart(courseId: number) {
     const currentCourses = this.coursesSelectedSource$.getValue();
     const updatedCourses = { ...currentCourses };

@@ -12,6 +12,7 @@ export class PaypalPaymentFormComponent {
   @Output() processPayment: EventEmitter<any> = new EventEmitter<any>();
 
   paymentForm: FormGroup;
+  successMsg: string = 'Payment Successful';
 
   constructor(fb: FormBuilder) {
     this.paymentForm = fb.group({
@@ -27,7 +28,7 @@ export class PaypalPaymentFormComponent {
         paymentCode: this.paymentMethod.strPaymentCode
       }
       console.log(request);
-      this.processPayment.emit();
+      this.processPayment.emit({request, msg: this.successMsg});
     }
   }
 }

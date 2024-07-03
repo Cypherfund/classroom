@@ -13,7 +13,6 @@ import {CardModule} from 'primeng/card';
 import { InputTextModule } from "primeng/inputtext";
 import { CarouselModule } from 'primeng/carousel';
 import { MessageService } from 'primeng/api';
-import { DateFormatPipe } from "./pipe/date-format.pipe";
 import {UserService} from "./services/user/user.service";
 import {UserApiService} from "./services/user/user-api.service";
 import { CoursesComponent } from './pages/homepage/components/courses/courses.component';

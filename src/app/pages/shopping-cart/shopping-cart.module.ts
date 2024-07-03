@@ -16,6 +16,7 @@ import { MobilePaymentFormComponent } from './course-payment/components/mobile-p
 import { CardPaymentFormComponent } from './course-payment/components/card-payment-form/card-payment-form.component';
 import { PaypalPaymentFormComponent } from './course-payment/components/paypal-payment-form/paypal-payment-form.component';
 import { CryptoPaymentFormComponent } from './course-payment/components/crypto-payment-form/crypto-payment-form.component';
+import {ButtonModule} from "primeng/button";
 
 const routes: Routes = [
   {
@@ -43,7 +44,8 @@ const routes: Routes = [
     RatingModule,
     ErrorMessageComponent,
     LoaderTemplateComponent,
-    CustomPipesModule
+    CustomPipesModule,
+    ButtonModule
   ],
   providers: [MyCourseService, MyCourseApiService]
 })

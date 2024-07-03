@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CourseService } from '../../services/course-service/course.service';
+import { CourseApiService } from '../../services/course-service/course-api.service';
 import { appConfig } from '../../../environments/app.config';
 import { CourseDetail, Lectures } from '../../models/course';
+import {CourseService} from "../../services/course-service/course.service";
 
 
 @Component({

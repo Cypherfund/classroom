@@ -2,13 +2,13 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MenuItem, MessageService} from "primeng/api";
 import { FormControl, FormGroup } from '@angular/forms';
 import {ActivatedRoute, Router} from "@angular/router";
-import {CourseService} from "../../services/course-service/course.service";
 import {CourseDetail, EnrollCoursePayload} from "../../models/course";
 import {appConfig} from "../../../environments/app.config";
 import { Subscription } from 'rxjs';
 import {UserService} from "../../services/user/user.service";
 import { LoaderService } from '../../services/loader-service';
 import {CartService} from "../../services/cart.service";
+import {CourseService} from "../../services/course-service/course.service";
 
 @Component({
   selector: 'app-course-details-page',
@@ -54,8 +54,8 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
       return;
     }
     if (this.course.price > 0 || this.course.discountedPrice > 0) {
-      //add to cart and process paid course
-      this.route.navigate(['/payment'])
+      this.cartService.addToCart(this.course);
+      this.route.navigate(['/checkout'])
     } else {
       if (this.userService.user == null) {
         this.route.navigate(['/login']);
@@ -64,17 +64,7 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
         userId: this.userService?.user?.userId,
         courseId: this.course.id
       }
-      const enrollmentSubscription = this.courseService.enrollCourse(enrollmentRequest).subscribe({
-        next: data => {
-            if (data.success) {
-              this.messsageService.add({severity:'success', summary: 'Success', detail: 'enrolled successfully'});
-            } else {
-              this.messsageService.add({severity:'danger', summary: 'Failed', detail: data?.message});
-            }
-        }
-      })
-
-      this.subscriptions.push(enrollmentSubscription);
+      this.courseService.enrollCourse(enrollmentRequest, 'Enrollment Successful');
     }
   }
 

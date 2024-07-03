@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, shareReplay, tap } from 'rxjs';
+import {BehaviorSubject, map, Observable, shareReplay, tap} from 'rxjs';
 import {HttpHeaders, HttpParams} from "@angular/common/http";
 import {CourseDetail, Courses, EnrollCoursePayload, Enrollment} from "../../models/course";
 import {CourseTopicsDTO} from "../../models/courseTopics";
@@ -8,6 +8,8 @@ import { COURSE_SUMMARY } from './course-data';
 import {HttpService} from "../http.service";
 import {APIResponse} from "../../models/user";
 import {UserService} from "../user/user.service";
+import {CourseApiService} from "./course-api.service";
+import {MessageService} from "primeng/api";
 
 @Injectable({
   providedIn: 'root'
@@ -15,49 +17,54 @@ import {UserService} from "../user/user.service";
 export class CourseService {
 
   privateUrl = `course-api`;
+  enrolledCourses$: Observable<Enrollment[]>;
+  processing$: Observable<boolean>;
+  processingSubject$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  constructor(private http: HttpService,  private apollo: Apollo, private userService: UserService) { }
+  constructor(private courseApiService: CourseApiService,
+              private messageService: MessageService) {
+    this.enrolledCourses$ = this.enrolledCourses();
+    this.processing$ = this.processingSubject$.asObservable();
+  }
 
   getCourses(categoryName: string = ''): Observable<Courses>{
-    let httpParams = new HttpParams();
-    httpParams = httpParams.append("categoryName", categoryName);
-    httpParams = httpParams.append("pageNum", 0);
-    httpParams = httpParams.append("size", 20);
-    httpParams = httpParams.append("status", 'PUBLISHED');
-    return this.http.get<Courses>(`${this.privateUrl}/courses`, { params: httpParams})
-  }
-  getCourse(id: number): Observable<CourseDetail>{
-    return this.http.get<CourseDetail>(
-      `${this.privateUrl}/courses/${id}`
-    )
+    return this.courseApiService.getCourses(categoryName);
   }
 
   getCourseGraphqls(id: number): Observable<any>{
-    return this.apollo.query({
-      query: gql`${COURSE_SUMMARY.replace('__id', id + '')}`,
-    });
+    return this.courseApiService.getCourseGraphqls(id);
   }
 
-  enrollCourse(enrollmentRequest: EnrollCoursePayload): Observable<APIResponse<any>>{
-    return this.http.post<any>(`${this.privateUrl}/enrollments`,enrollmentRequest);
+  enrollCourse(enrollmentRequest: EnrollCoursePayload, successMsg: string): void{
+    this.processingSubject$.next(true);
+    this.courseApiService.enrollCourse(enrollmentRequest).subscribe(
+      {
+        next: value => {
+          if (value.success) {
+            this.showSuccess(successMsg);
+          } else {
+            this.showError(value.message)
+          }
+        },
+        error: err => this.showError('An error occured try again later'),
+        complete: () => this.processingSubject$.next(false)
+      }
+    );
   }
 
-  enrolledCourses(): Observable<Enrollment[]>{ // todo modify this to be an observable so it only gets called on a subject change to avoid loading enrollment always
-    return this.http.get<any>(`${this.privateUrl}/enrollments/user/6ecd851f-3b2f-4b7d-b431-10826213b604`)
-      .pipe(
-        map((response: APIResponse<Enrollment[]>) => response.data),
-        shareReplay(1)
-      );
+  enrolledCourses(): Observable<Enrollment[]>{
+    return this.courseApiService.enrolledCourses();
   }
 
-  saveCourseTopic(payload: CourseTopicsDTO, courseId: number, token: string): Observable<any>{
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    });
-    return this.http.post<any>(`${this.privateUrl}/courses/${courseId}/topics`,payload, {
-      headers: headers
-    })
+  showSuccess(detail:string) {
+    this.messageService.add({severity:'success', summary: 'Success', detail: detail});
   }
 
+  showError(detail:string) {
+    this.messageService.add({severity:'error', summary: 'Error', detail: detail});
+  }
+
+  showWarning(detail:string) {
+    this.messageService.add({severity:'warn', summary: 'Warn', detail: detail});
+  }
 }

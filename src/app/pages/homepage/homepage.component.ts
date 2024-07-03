@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {CourseService} from "../../services/course-service/course.service";
 import {  CourseDetail } from '../../models/course';
 import {Router} from "@angular/router";
 import { UserService } from '../../services/user/user.service';
 import { LoaderService } from '../../services/loader-service';
 import {TabViewChangeEvent} from "primeng/tabview";
+import {CourseService} from "../../services/course-service/course.service";
 
 @Component({
   selector: 'app-homepage',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CourseService} from "../../../../services/course-service/course.service";
+import {CourseApiService} from "../../../../services/course-service/course-api.service";
 import {Router} from "@angular/router";
 import {appConfig} from "../../../../../environments/app.config";
 import { CourseDetail } from '../../../../models/course';
@@ -98,7 +98,7 @@ export class CoursesComponent {
 
   }
 
-  constructor( private courseService: CourseService) {
+  constructor( private courseService: CourseApiService) {
   }
 
   search() {
