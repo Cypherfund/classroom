@@ -14,7 +14,6 @@ export class CartService {
   constructor(private messageService: MessageService) {
 
     this.coursesSelected$ = this.coursesSelectedSource$.asObservable().pipe(
-      filter(courses => !!courses && Object.keys(courses).length > 0),
       map(courseObject => Object.values(courseObject)),
       tap(courses => localStorage.setItem('cart', JSON.stringify(courses))),
       catchError (err => of([]))
@@ -56,6 +55,6 @@ export class CartService {
   }
 
   clearCart() {
-    this.coursesSelectedSource$.next([]);
+    this.coursesSelectedSource$.next({});
   }
 }

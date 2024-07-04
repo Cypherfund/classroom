@@ -1,158 +1,164 @@
-<section>
-  <div class="header text-center text-white">
-    <app-navbar></app-navbar>
-    <div class='padded-text'>
-      <h1 class="p-3">Learn something new everyday</h1>
-      <p>Become professionals and ready to join the world</p>
-    </div>
+<ng-container *ngIf="{
+courses: (courses$ | async) || [],
+trending: (trending$ | async) || [],
+upcoming: (upcoming$ | async) || []
+} as observables">
+  <section>
+    <div class="header text-center text-white">
+      <app-navbar></app-navbar>
+      <div class='padded-text'>
+        <h1 class="p-3">Learn something new everyday</h1>
+        <p>Become professionals and ready to join the world</p>
+      </div>
 
-  </div>
-  <div class="filter container " style="margin-top: -5rem">
-    <div class="bg-white p-5 rounded-5 card">
-       <h5 class="fw-semibold m-2">What do you want to learn ?</h5>
-      <div class="d-flex justify-content-between align-items-center what-to-learn">
-        <div class="flex-item m-1">
-          <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
-                 placeholder="Find course, skills, software etc " />
+    </div>
+    <div class="filter container " style="margin-top: -5rem">
+      <div class="bg-white p-5 rounded-5 card">
+        <h5 class="fw-semibold m-2">What do you want to learn ?</h5>
+        <div class="d-flex justify-content-between align-items-center what-to-learn">
+          <div class="flex-item m-1">
+            <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
+                   placeholder="Find course, skills, software etc " />
+          </div>
+          <div class="flex-item m-1">
+            <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
+                   placeholder="Categories" />
+          </div>
+          <div class="flex-item m-1">
+            <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
+                   placeholder="Topic " />
+          </div>
+          <button type="button" class="btn btn-primary btn-lg flex-item m-1" (click)="search()">Search</button>
         </div>
-        <div class="flex-item m-1">
-          <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
-                 placeholder="Categories" />
-        </div>
-        <div class="flex-item m-1">
-          <input type="text" class="form-control bg-secondary-subtle p-2"  [(ngModel)]="value"
-                 placeholder="Topic " />
-        </div>
-        <button type="button" class="btn btn-primary btn-lg flex-item m-1" (click)="search()">Search</button>
       </div>
     </div>
-  </div>
-  <app-loader-template ></app-loader-template>
+    <app-loader-template ></app-loader-template>
 
-  <div class="my-learning container pt-5" *ngIf="isLoggedIn()">
-    <div class="d-flex flex-row justify-content-between">
-      <p>Let's Start learning, {{userService.user.name}}</p>
-      <h3><a routerLink='/my-courses' href="#" class=" me-2 text-purple text-decoration-underline ">My Learning</a>
-      </h3>
-    </div>
-    <div class="d-flex gap-4 justify-content-between flex-wrap">
-      <div class="card card-schedule rounded-4 d-flex flex-row p-5 gap-3 justify-content-center">
-        <div class="w-20">
-          <span class="pi pi-calendar" style="font-size: 6rem"></span>
-        </div>
-        <div class="w-75">
-          <h2 i18n="@@eb.create_schedule">Create Schedule</h2>
-          <span>
+    <div class="my-learning container pt-5" *ngIf="isLoggedIn()">
+      <div class="d-flex flex-row justify-content-between">
+        <p>Let's Start learning, {{userService.user.name}}</p>
+        <h3><a routerLink='/my-courses' href="#" class=" me-2 text-purple text-decoration-underline ">My Learning</a>
+        </h3>
+      </div>
+      <div class="d-flex gap-4 justify-content-between flex-wrap">
+        <div class="card card-schedule rounded-4 d-flex flex-row p-5 gap-3 justify-content-center">
+          <div class="w-20">
+            <span class="pi pi-calendar" style="font-size: 6rem"></span>
+          </div>
+          <div class="w-75">
+            <h2 i18n="@@eb.create_schedule">Create Schedule</h2>
+            <span>
             <p i18n="@@eb.schedule_and_start_learning">Schedule your learning and set a timer for  your learning.</p>
             <a href="#" class=" me-2 text-purple text-decoration-none" i18n="@@eb.get_started">Get
             Started</a>
           </span>
+          </div>
         </div>
-      </div>
-      <div class="card card-schedule rounded-4 d-flex flex-row p-5 gap-3 justify-content-center">
-        <div class="w-20">
-          <span class="pi pi-stopwatch" style="font-size: 6rem"></span>
-        </div>
-        <div class="w-75">
-          <h2 i18n="@@eb.no_courses_yet">No courses yet ?</h2>
-          <span>
+        <div class="card card-schedule rounded-4 d-flex flex-row p-5 gap-3 justify-content-center">
+          <div class="w-20">
+            <span class="pi pi-stopwatch" style="font-size: 6rem"></span>
+          </div>
+          <div class="w-75">
+            <h2 i18n="@@eb.no_courses_yet">No courses yet ?</h2>
+            <span>
             <p i18n="@@eb.browse_our_top_courses">Browse and visit our top courses and gain a new skill today.</p>
             <a href="#" class=" me-2 text-purple text-decoration-none" i18n="@@eb.start_learning">Start Learning</a>
           </span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="courses container  text-center">
-    <h4 class="p-5">{{'browse_course' | translate}}</h4>
-    <p-tabView (onChange)="fetchCourseCategory($event)">
-      <p-tabPanel *ngFor="let category of  categoryTabs" [header]="category">
-        <div class="top-course-page justify-content-around">
-          <app-course-home-card *ngFor="let course of courses | slice:0:4"
-                                [course]="course"
-                                [category]='category'
-          ></app-course-home-card>
-        </div>
-      </p-tabPanel>
-    </p-tabView>
-    <div *ngIf="!isLoggedIn(); else loggedInCallToAction" class="course-card bg-purple text-start text-white p-5 rounded-4 container">
-      <div>
-        <h2 class='fw-bold text-black' i18n="@@eb.unlock_potentials">Unlock Your Potential with TechAscend Learn</h2>
-      <p class="mb-3 text-black" i18n="@@eb.join_community">
-        Join our vibrant community of learners. Create your free account today and start accessing hundreds of courses in technology, business, and more.
-        Don't miss out on your chance to learn from the best!
-      </p>
-      </div>
-      <button type="button" class="btn btn-primary btn-lg" (click)="userService.navigateToAuth()">Sign Up Now</button>
-    </div>
-    <ng-template #loggedInCallToAction>
-      <div class="course-card bg-purple text-start text-white p-5 rounded-4 container">
+    <div class="courses container  text-center">
+      <h4 class="p-5">{{'browse_course' | translate}}</h4>
+      <p-tabView (onChange)="fetchCourseCategory($event)">
+        <p-tabPanel *ngFor="let category of  categoryTabs" [header]="category">
+          <div class="top-course-page justify-content-around">
+            <app-course-home-card *ngFor="let course of observables.courses | slice:0:4"
+                                  [course]="course"
+                                  [category]='category'
+            ></app-course-home-card>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+      <div *ngIf="!isLoggedIn(); else loggedInCallToAction" class="course-card bg-purple text-start text-white p-5 rounded-4 container">
         <div>
           <h2 class='fw-bold text-black' i18n="@@eb.unlock_potentials">Unlock Your Potential with TechAscend Learn</h2>
           <p class="mb-3 text-black" i18n="@@eb.join_community">
-            Welcome back! Head straight to your classroom and pick up where you left off. Dive back into your courses and keep pushing the boundaries of your knowledge.
+            Join our vibrant community of learners. Create your free account today and start accessing hundreds of courses in technology, business, and more.
+            Don't miss out on your chance to learn from the best!
           </p>
         </div>
-        <button type="button" class="btn btn-primary btn-lg" routerLink='/my-courses'>Continue Learning</button>
+        <button type="button" class="btn btn-primary btn-lg" (click)="userService.navigateToAuth()">Sign Up Now</button>
       </div>
-    </ng-template>
-    <br/>
-    <div *ngIf="!!trendingCourses?.length">
-      <h4 class="fw-semibold p-2">{{'Trending' | translate}}</h4>
-      <div class="trending-courses d-flex flex-row-reverse justify-content-between flex-wrap column-gap-2">
+      <ng-template #loggedInCallToAction>
+        <div class="course-card bg-purple text-start text-white p-5 rounded-4 container">
+          <div>
+            <h2 class='fw-bold text-black' i18n="@@eb.unlock_potentials">Unlock Your Potential with TechAscend Learn</h2>
+            <p class="mb-3 text-black" i18n="@@eb.join_community">
+              Welcome back! Head straight to your classroom and pick up where you left off. Dive back into your courses and keep pushing the boundaries of your knowledge.
+            </p>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" routerLink='/my-courses'>Continue Learning</button>
+        </div>
+      </ng-template>
+      <br/>
+      <div *ngIf="!!observables.trending?.length">
+        <h4 class="fw-semibold p-2">{{'Trending' | translate}}</h4>
+        <div class="trending-courses d-flex flex-row-reverse justify-content-between flex-wrap column-gap-2">
           <div class='d-flex flex-2 flex-wrap justify-content-between trending-flex'>
-            <app-course-home-card *ngFor="let course of courses | slice:0:6"
+            <app-course-home-card *ngFor="let course of observables.courses | slice:0:6"
                                   [course]="course"
                                   [category]=''
             ></app-course-home-card>
           </div>
-        <div class='trending-carousel d-none'>
-          <p-carousel
-            [value]="courses | slice:0:4"
-            [numVisible]="4"
-            [numScroll]="3"
-            [circular]="false"
-            [responsiveOptions]="responsiveOptions"
-          >
-            <ng-template let-course pTemplate="item">
-              <div class="mr-3">
-                <app-course-home-card
-                  [course]="course"
-                  [category]=''
-                ></app-course-home-card>
-              </div>
-            </ng-template>
-          </p-carousel>
-        </div>
-<!--        <div class="trending flex-1 course-card bg-purple d-md-block text-start text-white p-5 rounded-4 container d-flex flex-column">-->
-<!--          <div class="mt-auto">-->
-<!--            <h2 class="fw-bold text-black">Lorem ipsum dolor sit amet consectetur</h2>-->
-<!--          </div>-->
-<!--        </div>-->
-      </div>
-    </div>
-    <br/>
-    <div class="upcoming-course " *ngIf="!!upcomingCourses?.length">
-      <h4 class="fw-semibold p-2">{{'Upcoming' | translate}}</h4>
-      <p-carousel
-        [value]="upcomingCourses"
-        [numVisible]="4"
-        [numScroll]="3"
-        [circular]="false"
-        [responsiveOptions]="responsiveOptions"
-      >
-        <ng-template let-course pTemplate="item">
-          <div class="mr-3">
-            <app-course-home-card
-              [course]="course"
-              [category]=''
-            ></app-course-home-card>
+          <div class='trending-carousel d-none'>
+            <p-carousel
+              [value]="observables.courses | slice:0:4"
+              [numVisible]="4"
+              [numScroll]="3"
+              [circular]="false"
+              [responsiveOptions]="responsiveOptions"
+            >
+              <ng-template let-course pTemplate="item">
+                <div class="mr-3">
+                  <app-course-home-card
+                    [course]="course"
+                    [category]=''
+                  ></app-course-home-card>
+                </div>
+              </ng-template>
+            </p-carousel>
           </div>
-        </ng-template>
-      </p-carousel>
-    </div>
+          <!--        <div class="trending flex-1 course-card bg-purple d-md-block text-start text-white p-5 rounded-4 container d-flex flex-column">-->
+          <!--          <div class="mt-auto">-->
+          <!--            <h2 class="fw-bold text-black">Lorem ipsum dolor sit amet consectetur</h2>-->
+          <!--          </div>-->
+          <!--        </div>-->
+        </div>
+      </div>
+      <br/>
+      <div class="upcoming-course " *ngIf="!!observables.upcoming?.length">
+        <h4 class="fw-semibold p-2">{{'Upcoming' | translate}}</h4>
+        <p-carousel
+          [value]="observables.upcoming"
+          [numVisible]="4"
+          [numScroll]="3"
+          [circular]="false"
+          [responsiveOptions]="responsiveOptions"
+        >
+          <ng-template let-course pTemplate="item">
+            <div class="mr-3">
+              <app-course-home-card
+                [course]="course"
+                [category]=''
+              ></app-course-home-card>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
 
-  </div>
-</section>
+    </div>
+  </section>
+</ng-container>
 <br/>
 <app-footer></app-footer>

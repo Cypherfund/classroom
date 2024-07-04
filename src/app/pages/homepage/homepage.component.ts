@@ -14,9 +14,11 @@ import {CourseService} from "../../services/course-service/course.service";
 export class HomepageComponent {
   value: any;
   categoryTabs = ['All', 'Technology', 'Science', 'Business', 'Arts', 'Languages'];
-  courses: CourseDetail[] = []
-  upcomingCourses: CourseDetail[] = []
-  trendingCourses: CourseDetail[] = []
+
+  courses$ = this.courseService.courses$;
+  upcoming$ = this.courseService.upcoming$;
+  trending$ = this.courseService.trending$;
+
   responsiveOptions: any[] | undefined;
   constructor( private courseService: CourseService,
                private router: Router,
@@ -27,7 +29,6 @@ export class HomepageComponent {
 
   ngOnInit(){
     this.configureScrollingOptions();
-    this.getCourses()
     this.isLoggedIn()
   }
 
@@ -56,24 +57,9 @@ export class HomepageComponent {
     ];
   }
 
-  getCourses(category: string = '') {
-    this.loaderService.turnOnLoading();
-    const sub = this.courseService.getCourses(category).subscribe(
-      {
-        next: (response) => {
-          this.courses = response.data
-          this.upcomingCourses = Array.from({ length: 1 }, () => this.courses).flat();
-          this.trendingCourses = Array.from({ length: 1 }, () => this.courses).flat();
-          this.loaderService.turnOffLoading();
-        },
-        error: (error) => {
-          this.loaderService.turnOffLoading();
-        }
-      });
-  }
 
   fetchCourseCategory(event: TabViewChangeEvent) {
-    this.getCourses(event.index === 0 ? '': this.categoryTabs[event.index]);
+    this.courseService.getCourses(event.index === 0 ? '': this.categoryTabs[event.index]);
   }
 
   isLoggedIn(): boolean {

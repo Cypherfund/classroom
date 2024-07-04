@@ -12,7 +12,7 @@ import {CourseService} from "../../services/course-service/course.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CarouselCoursesComponent {
-  similarCourses: CourseDetail[] = [];
+  similarCourses$ = this.courseService.courses$; //todo find similar courses
   profileImage = appConfig.profileImage
   imagebucket: string = appConfig.imagebucket;
   @Input() carouselType = 'courses'
@@ -23,8 +23,6 @@ export class CarouselCoursesComponent {
   constructor(private courseService: CourseService) {}
 
   ngOnInit() {
-    this.getSimilarCourse()
-
     this.responsiveOptions = [
       {
         breakpoint: '1199px',
@@ -57,12 +55,6 @@ export class CarouselCoursesComponent {
     const monthsDiff = currentDate.getMonth() - givenDate.getMonth();
 
     return yearsDiff * 12 + monthsDiff;
-  }
-
-  getSimilarCourse(){
-    const sub = this.courseService.getCourses().subscribe( res => {
-      this.similarCourses = res.data
-    })
   }
 
 }
