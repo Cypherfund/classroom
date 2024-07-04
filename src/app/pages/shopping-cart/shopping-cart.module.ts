@@ -20,6 +20,9 @@ import {ButtonModule} from "primeng/button";
 import {ProgressBarModule} from "primeng/progressbar";
 import {ToastModule} from "primeng/toast";
 import {MessagesModule} from "primeng/messages";
+import {
+  OrangeMoneyPaymentFormComponent
+} from "./course-payment/components/orange-money-payment-form/orange-money-payment-form.component";
 
 const routes: Routes = [
   {
@@ -35,7 +38,8 @@ const routes: Routes = [
     MobilePaymentFormComponent,
     CardPaymentFormComponent,
     PaypalPaymentFormComponent,
-    CryptoPaymentFormComponent
+    CryptoPaymentFormComponent,
+    OrangeMoneyPaymentFormComponent
   ],
   imports: [
     CommonModule,

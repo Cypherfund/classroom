@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment';
 import {map, Observable, Subscription} from 'rxjs';
 import {MegaMenuItem} from "primeng/api";
 import {CartService} from "../../services/cart.service";
+import { CourseService } from '../../services/course-service/course.service';
 
 
 @Component({
@@ -20,8 +21,10 @@ export class NavbarComponent {
   profileImage = appConfig.profileImage
 
   totalCoursesSelected$: Observable<string> = this.cartService.coursesSelected$.pipe(map( courses => courses.length + ''));
+  enrolledCourses$ = this.courseService.enrolledCourses$;
 
-  constructor(private userService: UserService,
+  constructor(private courseService: CourseService,
+              private userService: UserService,
               private cartService: CartService) {
   }
 

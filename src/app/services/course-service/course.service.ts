@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import { BehaviorSubject, Observable, shareReplay, tap } from 'rxjs';
 import {Courses, EnrollCoursePayload, Enrollment} from "../../models/course";
 import {CourseApiService} from "./course-api.service";
 import {MessageService} from "primeng/api";
 import {LoaderService} from "../loader-service";
+import { CartService } from '../cart.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,12 @@ export class CourseService {
 
   constructor(private courseApiService: CourseApiService,
               private loaderService: LoaderService,
+              private cartService: CartService,
               private messageService: MessageService) {
-    this.enrolledCourses$ = this.enrolledCourses();
+    this.enrolledCourses$ = this.enrolledCourses().pipe(
+      tap( courses => courses.forEach( course => this.cartService.removeFromCart(course.courseId))),
+      shareReplay(1)
+    );
     this.processing$ = this.processingSubject$.asObservable();
   }
 

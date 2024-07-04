@@ -16,15 +16,11 @@
               {{'Explore' | translate}}
             </a>
             <ul class="dropdown-menu text-dark">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Courses</a></li>
+              <li><a class="dropdown-item" href="#">Workshops</a></li>
+              <li><a class="dropdown-item" href="#">Degrees</a></li>
             </ul>
           </li>
-<!--          <li class="nav-item mt-2" >-->
-<!--            <a routerLink='/course-admin' class="nav-link text-white" role="button" >-->
-<!--              {{'become_inst' | translate}}-->
-<!--            </a>-->
-<!--          </li>-->
         </ul>
         <div class="flex align-items-center justify-content-between col-md-6 logged" *ngIf='isLogged'>
           <a routerLink='/course-admin' class="nav-link text-white" role="button" >
@@ -35,6 +31,7 @@
           <a class="text-decoration-none" [routerLink]="['settings']">
             <img [src]="profileImage" class="figure-img" width="36px" height="36px" alt="profile_image" style="border-radius:4rem">
           </a>
+          <ng-container *ngIf='enrolledCourses$ | async'></ng-container>
         </div>
 
         <div class="flex align-items-center gap-2" *ngIf='!isLogged'>
