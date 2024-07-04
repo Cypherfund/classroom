@@ -25,9 +25,8 @@ export class CourseService {
       tap( courses => {
         const cartItems = this.stoarageService.get('cart');
         if (!!cartItems && cartItems.length > 0) {
-          this.cartService.addCourses(JSON.parse(cartItems));
+          courses.forEach( course => this.cartService.removeFromCart(course.courseId))
         }
-        courses.forEach( course => this.cartService.removeFromCart(course.courseId))
       }),
       shareReplay(1)
     );
