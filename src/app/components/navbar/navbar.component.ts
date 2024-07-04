@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import {appConfig} from "../../../environments/app.config";
 import { UserService } from '../../services/user/user.service';
-import { environment } from '../../../environments/environment';
-import {map, Observable, Subscription} from 'rxjs';
+import { map, Observable, Subscription, tap } from 'rxjs';
 import {MegaMenuItem} from "primeng/api";
 import {CartService} from "../../services/cart.service";
 import { CourseService } from '../../services/course-service/course.service';

@@ -4,7 +4,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "./services/user/user.service";
 import {LocalStorageService} from "./services/localstorage/local-storage.service";
 import { Location } from '@angular/common';
-import {CartService} from "./services/cart.service";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +18,6 @@ export class AppComponent {
               private router: Router,
               private location: Location,
               private userService: UserService,
-              private cartService: CartService,
               private stoarageService: LocalStorageService) {
     translate.setDefaultLang('en');
     translate.use('en')
@@ -28,7 +26,6 @@ export class AppComponent {
 
   ngOnInit() {
     this.loginUserIfTokenPresent();
-    this.loadCartFromLocalStorage();
   }
 
   private loginUserIfTokenPresent() {
@@ -38,12 +35,5 @@ export class AppComponent {
     }
     this.userService.recheckToken().subscribe();
 
-  }
-
-  private loadCartFromLocalStorage() {
-    const cartItems = this.stoarageService.get('cart');
-    if (!!cartItems && cartItems.length > 0) {
-      this.cartService.addCourses(JSON.parse(cartItems));
-    }
   }
 }

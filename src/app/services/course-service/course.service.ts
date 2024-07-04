@@ -5,6 +5,7 @@ import {CourseApiService} from "./course-api.service";
 import {MessageService} from "primeng/api";
 import {LoaderService} from "../loader-service";
 import { CartService } from '../cart.service';
+import { LocalStorageService } from '../localstorage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,16 @@ export class CourseService {
   constructor(private courseApiService: CourseApiService,
               private loaderService: LoaderService,
               private cartService: CartService,
+              private stoarageService: LocalStorageService,
               private messageService: MessageService) {
     this.enrolledCourses$ = this.enrolledCourses().pipe(
-      tap( courses => courses.forEach( course => this.cartService.removeFromCart(course.courseId))),
+      tap( courses => {
+        const cartItems = this.stoarageService.get('cart');
+        if (!!cartItems && cartItems.length > 0) {
+          this.cartService.addCourses(JSON.parse(cartItems));
+        }
+        courses.forEach( course => this.cartService.removeFromCart(course.courseId))
+      }),
       shareReplay(1)
     );
     this.processing$ = this.processingSubject$.asObservable();
