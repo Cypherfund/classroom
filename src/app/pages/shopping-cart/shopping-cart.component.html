@@ -48,26 +48,22 @@
     </div>
 
     <div class="max-w-full summary mt-4 mt-lg-0">
-      <h2>Summary</h2>
+      <h2  class='mb-2 text-align-start'>Summary</h2>
       <div class="card mb-3"  *ngFor="let course of observables?.courseSelected">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img [src]="imagebucket + courseImage "  class="img-fluid rounded-start" alt="Product Image">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{course.name}}</h5>
-              <p class="card-text">{{course?.instructor?.name}}</p>
-              <p class="card-text">${{course.price}}</p>
-            </div>
+        <div class='d-flex gap-2'>
+          <img [src]="imagebucket + courseImage "  class="img-fluid rounded-start" alt="Product Image">
+          <div class='d-flex align-items-start flex-column'>
+            <p class="text-align-start mb-0 mt-0">{{course.name}}</p>
+            <p class="card-text"><span>By</span><b>{{course?.instructor?.name}}</b></p>
+            <b class="card-text mb-0">${{course.price}}</b>
           </div>
         </div>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Subtotal: ${{observables?.total}}</li>
-        <li class="list-group-item">Coupon Discount: $0.00</li>
-        <li class="list-group-item">Tax: $0.00</li>
-        <li class="list-group-item"><strong>Total: ${{observables.total}}</strong></li>
+        <li class="list-group-item"><div class='d-flex justify-content-between'><p>Subtotal</p> <p>${{observables?.total}}</p></div></li>
+        <li class="list-group-item"><div class='d-flex justify-content-between'><p>Coupon Discount</p> <p>$0.00</p></div></li>
+        <li class="list-group-item"><div class='d-flex justify-content-between'><p>Tax</p> <p>$0.00</p></div></li>
+        <li class="list-group-item"><div class='d-flex justify-content-between'><b>Total</b> <p>${{observables?.total}}</p></div></li>
       </ul>
     </div>
   </div>
