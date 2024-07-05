@@ -35,11 +35,15 @@
 ::ng-deep .p-sidebar {
   position: absolute;
   box-shadow: unset;
+  border: 1px solid var(--main-color-shade-2);
+  border-radius: 5px;
+  margin-left: 5px;
 }
 
 ::ng-deep .p-sidebar-header {
   justify-content: flex-end;
   padding-top: unset;
+  border: 1px solid var(--main-color-shade-2);
 }
 
 ::ng-deep .p-sidebar-content {

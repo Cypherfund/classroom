@@ -49,7 +49,6 @@ export class MyCourseService {
       this.currentCourseSubject$.next(courseData);
     }
 
-
   loadMyCourse(courseId: string) {
     // First check if the current course data is already present and matches the requested course ID
     if (!this.currentCourseSubject$.getValue() || this.currentCourseSubject$.getValue().id !== courseId) {
