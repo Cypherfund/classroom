@@ -82,7 +82,6 @@ export class CourseDetailsPageComponent implements OnInit, OnDestroy{
     this.courseService.getCourseGraphqls(this.activeCourseId).subscribe({
       next: value =>  {
         this.course = value?.data?.courseById
-        this.cartService.addToCart(this.course)
         this.items = [ { label: this.course?.category?.name}, { label: this.course?.name }];
 
       },
