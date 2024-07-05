@@ -11,28 +11,26 @@
   <p-messages
     [enableService]="true"
     [closable]="false" />
-<div class="container my-5">
-  <div class="row">
-    <div class="col-lg-6">
+  <div class="d-flex flex-wrap justify-content-center gap-lg-5 container my-5">
+    <div class="max-w-full">
       <h2>Checkout</h2>
       <div class="mb-3">
-        <label class="form-label">Payment Type</label>
-        <div>
+        <label class="form-label">{{ selectedProvider.strProviderName }}</label>
+        <div class='payments'>
           <img  class="me-2 provider-logo"
                 [class.active]="selectedProvider.strProviderName === provider.strProviderName"
                 [ngClass]="provider.strProviderName | removespaces | lowercase"
                 *ngFor="let provider of observables.paymentMethods"
-                [src]="imagebucket + provider.strProviderName + '.png'"
+                [src]="imagebucket + provider.strImageUrl"
                 [alt]="provider.strProviderName"
                 (click)="selectedProvider = provider">
         </div>
       </div>
-      <div [ngSwitch]="selectedProvider?.strProviderName">
-        <div *ngSwitchCase="'MTN MOBILE MONEY'">
+      <div [ngSwitch]="selectedProvider?.strDriverClassName">
+        <div *ngSwitchCase="'MonetbilPaymentIntegrator'">
           <app-mobile-payment-form (processPayment)="makePayment($event)" [paymentMethod]="selectedProvider"></app-mobile-payment-form>
         </div>
-
-        <div *ngSwitchCase="'BITCOIN'">
+        <div *ngSwitchCase="'Coinbase'">
           <app-crypto-payment-form (processPayment)="makePayment($event)"></app-crypto-payment-form>
         </div>
 
@@ -49,7 +47,7 @@
       </div>
     </div>
 
-    <div class="col-lg-6 mt-4 mt-lg-0">
+    <div class="max-w-full summary mt-4 mt-lg-0">
       <h2>Summary</h2>
       <div class="card mb-3"  *ngFor="let course of observables?.courseSelected">
         <div class="row g-0">
@@ -73,7 +71,6 @@
       </ul>
     </div>
   </div>
-</div>
 </ng-container>
 <footer>
   <app-footer></app-footer>

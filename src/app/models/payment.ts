@@ -7,6 +7,7 @@ export interface PaymentMethod {
   dtDateCreated: string; // ISO 8601 date string
   dtDateUpdated: string; // ISO 8601 date string
   strImageUrl: string | null;
+  strDriverClassName: string;
   strPaymentCode: string;
   supportedMethods: SupportedMethod[];
   strProviderName: string;
