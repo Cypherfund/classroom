@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, ViewChi
 import {MenuItem} from "primeng/api";
 import {LessonPart, lessonParts} from "../../../models/course";
 import {DOCUMENT} from "@angular/common";
+import {MyCourseService} from "../services/my-course-service";
 
 @Component({
   selector: 'app-learning',
@@ -23,8 +24,10 @@ export class LearningComponent implements OnInit, OnDestroy{
   selectedLesson = 'Course Overview';
 
   sidebarVisible: boolean = true;
+  currentCourse$ = this.myCourseService.currentCourse$;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private myCourseService: MyCourseService) {
     this.menus = [
       { label: 'My Programs' },
       { label: 'Product Design for Beginners' },

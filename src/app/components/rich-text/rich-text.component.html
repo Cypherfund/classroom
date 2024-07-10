@@ -1,1 +1,10 @@
-<quill-editor (onContentChanged)='textChange.emit(richText)' [(ngModel)]='richText' [style]="{ height: '320px', width: '100%' }"    [modules]="quillEditorModules"  [readOnly]="false"></quill-editor>
+<ckeditor
+  #editorElement
+  [editor]="Editor"
+  [config]="config"
+  *ngIf="isLayoutReady"
+  [(ngModel)]="richText"
+  (change)='textChange.emit(richText)'
+>
+
+</ckeditor>
