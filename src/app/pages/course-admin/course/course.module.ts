@@ -17,6 +17,7 @@ import { FileUploadComponent } from '../../../components/file-upload/file-upload
 import { CourseFormComponent } from './components/course-form/course-form.component';
 import { MenuModule } from 'primeng/menu';
 import { RichTextComponent } from '../../../components/rich-text/rich-text.component';
+import {StepperModule} from "primeng/stepper";
 
 
 const routes: Routes = [
@@ -37,24 +38,25 @@ const routes: Routes = [
     CourseFormComponent
   ]
   ,
-  imports: [
-    CommonModule,
-    TableModule,
-    CheckboxModule,
-    FormsModule,
-    ReactiveFormsModule,
-    DropdownModule,
-    ButtonModule,
-    DialogModule,
-    ButtonGroupModule,
-    RouterModule.forChild(routes),
-    NgForOf,
-    FileUploadModule,
-    BadgeModule,
-    ToastModule,
-    FileUploadComponent,
-    MenuModule,
-    RichTextComponent
-  ]
+    imports: [
+        CommonModule,
+        TableModule,
+        CheckboxModule,
+        FormsModule,
+        ReactiveFormsModule,
+        DropdownModule,
+        ButtonModule,
+        DialogModule,
+        ButtonGroupModule,
+        RouterModule.forChild(routes),
+        NgForOf,
+        FileUploadModule,
+        BadgeModule,
+        ToastModule,
+        FileUploadComponent,
+        MenuModule,
+        RichTextComponent,
+        StepperModule
+    ]
 })
 export class CourseModule { }

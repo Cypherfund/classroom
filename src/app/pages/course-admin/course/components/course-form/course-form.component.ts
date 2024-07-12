@@ -10,6 +10,7 @@ import { Category } from '../../../../../models/category';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CourseFormComponent implements OnInit, OnChanges{
+  active: number | undefined = 0;
   courseForm!: FormGroup;
   courseTopicForm!: FormGroup;
   courseLessonForm!: FormGroup;
