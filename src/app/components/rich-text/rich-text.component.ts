@@ -41,8 +41,7 @@ import {
   TableProperties,
   TableToolbar,
   Undo,
-  Base64UploadAdapter,
-  type EditorConfig
+  Base64UploadAdapter
 } from 'ckeditor5';
 import 'ckeditor5/ckeditor5.css';
 import {NgIf} from "@angular/common";
@@ -72,7 +71,7 @@ export class RichTextComponent implements AfterViewInit{
   }
 
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
     this.config = {
       toolbar: {
         items: [

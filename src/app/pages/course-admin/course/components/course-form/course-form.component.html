@@ -70,7 +70,7 @@
         <label class="form-label" for="perks">Course Benefits</label><br>
         <app-rich-text id='perks' [richText]='courseForm.get("perks")?.value || ""' (textChange)="courseForm.get('perks')?.setValue($event)"></app-rich-text>
       </div>
-      <file-upload></file-upload>
+      <file-upload [uploadUrl]="courseForm.get('imgUrl')?.value" (fileUploaded)="courseForm.get('imgUrl')?.setValue($event)" ></file-upload>
       <div class="mb-3 d-flex">
         <div class="form-check">
           <input class="form-check-input" formControlName="issueCertificate" type="checkbox" id="flexRadioDefault1">

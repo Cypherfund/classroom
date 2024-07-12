@@ -26,7 +26,6 @@ export class CourseFormComponent implements OnInit, OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['course']) {
       this.courseForm?.patchValue(changes['course'].currentValue || {});
-      console.log(this.courseForm?.value)
     }
   }
   ngOnInit() {
@@ -62,7 +61,8 @@ export class CourseFormComponent implements OnInit, OnChanges{
       perks: [ '' ],
       issueCertificate: [ false, Validators.required ],
       level: [ 'BEGINNER', Validators.required ],
-      type: [ 'COURSE', Validators.required ]
+      type: [ 'COURSE', Validators.required ],
+      imgUrl: [ '' ],
     });
   }
 
